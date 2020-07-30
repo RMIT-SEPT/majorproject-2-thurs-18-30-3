@@ -1,13 +1,13 @@
 # RMIT SEPT 2020 Major Project
 
-# Group 00
+# Group THURS-18.30-3
 
 ## Members
-* SURNAME, GivenName (sXXXX)
-* SURNAME, GivenName (sXXXX)
-* SURNAME, GivenName (sXXXX)
-* SURNAME, GivenName (sXXXX)
-* SURNAME, GivenName (sXXXX)
+* CHOU, Minjin (s3641315)
+* DECHATHAWEEWAT, Chatchapat (s3679216)
+* DIETZ, Carl (s3668498)
+* ISMAN, Daniel (s3786400)
+* VAN, Danny (s3717353)
 
 ## Records
 
