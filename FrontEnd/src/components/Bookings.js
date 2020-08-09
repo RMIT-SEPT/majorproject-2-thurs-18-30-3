@@ -47,7 +47,7 @@ class Bookings extends Component {
 						<th>#</th>
 						<th>SERVICE</th>
 						<th>DESCRIPTION</th>
-						<th>ACTTION</th>
+						<th>ACTION</th>
 					</tr>
 				</thead>
 
