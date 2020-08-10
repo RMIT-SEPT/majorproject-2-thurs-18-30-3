@@ -1,0 +1,15 @@
+{
+  "name": "dummyapi",
+  "version": "1.0.0",
+  "description": "Fake REST API for testing",
+  "main": "index.js",
+  "start" : "Port = #### react-scripts start",
+  "scripts": {
+    "json:server": "json-server --watch data.json --port 3004"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  }
+}

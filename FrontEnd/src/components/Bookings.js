@@ -13,7 +13,7 @@ class Bookings extends Component {
     }
 
     componentDidMount() {
-		fetch('http://jsonplaceholder.typicode.com/posts').then(
+		fetch('http://localhost:3004/services').then(
 			res => res.json()).then(
 				(data) => {
 					this.setState({ bookings: data })

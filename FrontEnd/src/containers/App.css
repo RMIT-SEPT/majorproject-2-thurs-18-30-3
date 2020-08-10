@@ -11,6 +11,10 @@ nav {
   color: whitesmoke;
 }
 
+NavLink {
+  text-decoration: none;
+}
+
 .nav-links {
   width: 50%;
   display: flex;
@@ -18,4 +22,9 @@ nav {
   align-items: center;
   list-style: none;
   color: whitesmoke;
+}
+
+.login-links {
+  width: 15%;
+  font-size: 80%;
 }

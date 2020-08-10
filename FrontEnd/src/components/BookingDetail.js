@@ -12,7 +12,7 @@ function BookingDetail( { match } ) {
     const [booking, setBooking] = useState({});
 
     const fetchItem = async () => {
-        const fetchItem = await fetch(`https://jsonplaceholder.typicode.com/posts/${match.params.id}`);
+        const fetchItem = await fetch(`http://localhost:3004/services/${match.params.id}`);
 
         const booking = await fetchItem.json();
         setBooking(booking);
