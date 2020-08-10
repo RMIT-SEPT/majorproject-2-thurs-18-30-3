@@ -12,6 +12,9 @@ class Bookings extends Component {
         }
     }
 
+	//GET data request from API
+	/*If an API isn't running on your local machine, 
+	replace the below fetch with 'https://jsonplaceholder.typicode.com/posts'*/
     componentDidMount() {
 		fetch('http://localhost:3004/services').then(
 			res => res.json()).then(
@@ -26,17 +29,23 @@ class Bookings extends Component {
     render() {
 		let bookings = this.state.bookings.map((booking) => {
 			return (
-		<tr key ={booking.id}>
-						<td>{booking.id}</td>
-					<Link to={`/bookings/${booking.id}`}>
-                        <td>{booking.title}</td>
-                    </Link>
-				<td>{booking.body}</td>
-				<td>
-					<Button color = "success" size = "sm" className = "mr-2">Edit</Button>
-					<Button color = "danger" size = "sm">Delete</Button>
-				</td>
-			</tr>
+				//Render an item in booking list for each booking fetched
+				<tr key ={booking.id}>
+
+					<td>{booking.id}</td>
+
+					<Link to={`/bookings/${booking.id}`} className = "booking-link">
+						<td>{booking.title}</td>
+					</Link>
+
+					<td>{booking.body}</td>
+
+					<td>
+						<Button color = "success" size = "sm" className = "mr-2">Edit</Button>
+						<Button color = "danger" size = "sm">Delete</Button>
+					</td>
+				</tr>
+				
 			) 
 		});
 		return (

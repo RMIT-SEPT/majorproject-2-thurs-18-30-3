@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import '../containers/App.css';
 
@@ -8,20 +8,20 @@ function Nav() {
         <nav>
             <h3>S-E-P-T</h3>
             <u1 className = "nav-links">
-                <NavLink to="/bookings">
+                <Link to="/bookings" className = "big-link">
                     <li>BOOKINGS</li>
-                </NavLink>
-                <NavLink to="/about">
+                </Link>
+                <Link to="/about" className = "big-link">
                     <li>ABOUT</li>
-                </NavLink>
+                </Link>
             
                 <u2 className = "login-links">
-                    <NavLink to = "/login">
+                    <Link to = "/login" className = "little-link">
                         <li>LOGIN</li>
-                    </NavLink>
-                    <NavLink to="/create">
+                    </Link>
+                    <Link to="/create" className = "little-link">
                         <li>CREATE ACCOUNT</li>
-                    </NavLink>
+                    </Link>
                 </u2>
             </u1>
         </nav>
