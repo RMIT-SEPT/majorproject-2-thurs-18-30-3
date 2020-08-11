@@ -6,7 +6,6 @@
 * CHOU, Minjin (s3641315)
 * DECHATHAWEEWAT, Chatchapat (s3679216)
 * DIETZ, Carl (s3668498)
-* ISMAN, Daniel (s3786400)
 * VAN, Danny (s3717353)
 
 ## Records
