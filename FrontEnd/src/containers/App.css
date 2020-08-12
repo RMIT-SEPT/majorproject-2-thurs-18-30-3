@@ -1,0 +1,65 @@
+/* -- APP CONTAINER STYLING */
+
+.App {
+  text-align: center;
+}
+
+/* -- NAV COMPONENT STYLING */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: rgb(121, 195, 218);
+  color: whitesmoke;
+}
+
+.nav-links {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: whitesmoke;
+}
+
+.login-links {
+  width: 10%;
+  justify-self: flex-end;
+}
+
+.big-link{
+  color: honeydew;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.big-link:hover{
+  text-decoration: none;
+  color: rgb(167, 172, 167);
+}
+
+.little-link{
+  color: honeydew;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.little-link:hover{
+  text-decoration: none;
+  color: rgb(167, 172, 167);
+}
+
+.booking-link{
+  color: rgb(143, 148, 212);
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.booking-link:hover{
+  text-decoration: none;
+  color: rgb(167, 172, 167);
+}
