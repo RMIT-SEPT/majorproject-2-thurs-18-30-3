@@ -6,24 +6,10 @@ import '../containers/App.css';
 class Employees extends Component{
     constructor(props){
         super(props);
-        this.state={
-            employees: []
-    }
 }
 
-    componentDidMount(){
-        fetch('http://localHost:3004/employees').then(
-            res => res.json()).then(
-                (data) => {
-                    this.setState({employees: data})
-                }
-            ).catch(
-            console.log
-            )
-    }
-
     render(){
-        let employees = this.state.employees.map((employees)=> {
+        let employees = this.props.employees.map((employees)=> {
             return (
                 <tr key = {employees.email} >
 
