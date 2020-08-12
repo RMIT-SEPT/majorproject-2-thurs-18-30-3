@@ -51,22 +51,32 @@
   "employees":
   [
       {
-        "id": 1,
+        "email": "Berenice@test.wiz",
         "uname":"Emp1",
         "pword":"emp",
-        "name": "Qfwfq"
+        "name": "Berenice",
+        "phone": "0443785"
       },
       {
-        "id": 2,
+        "email": "Theodora@test.wiz",
         "uname":"Emp2",
         "pword":"emp",
-        "name": "Ayl"
+        "name": "Theodora",
+        "phone": "999999"
       },
       {
-        "id": 3,
+        "email": "Marozia@test.wiz",
         "uname":"Emp3",
         "pword":"emp",
-        "name": "Fenimore"
+        "name": "Marozia",
+        "phone": "191919"
+      },
+      {
+        "email": "Raissa@test.wiz",
+        "uname":"Emp5",
+        "pword":"emp",
+        "name": "Raissa",
+        "phone": "12457"
       }
   ],
   "customers":

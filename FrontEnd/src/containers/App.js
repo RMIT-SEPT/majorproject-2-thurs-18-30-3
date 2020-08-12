@@ -7,6 +7,7 @@ import Create from '../components/Create';
 import Login from '../components/Login';
 import Bookings from '../components/Bookings';
 import BookingDetail from '../components/BookingDetail';
+import Employees from '../components/Employees';
 
 class App extends Component {	
 	render() {
@@ -18,6 +19,7 @@ class App extends Component {
 					<Route path ="/create" exact component = {Create} />
 					<Route path ="/about" exact component = {About} />
 					<Route path ="/login" exact component = {Login} />
+					<Route path ="/employees" exact component = {Employees} />
 					<Route path ="/bookings" exact component = {Bookings} />
 					<Route path ="/bookings/:id" component = {BookingDetail} />
 				</Switch>
