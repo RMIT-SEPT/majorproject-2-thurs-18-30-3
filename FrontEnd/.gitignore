@@ -10,3 +10,4 @@ tmp/
 /.pnp
 /.pnp.js
 .idea
+node_modules
