@@ -8,7 +8,7 @@ function Nav() {
         <nav>
             <h3>S-E-P-T</h3>
 
-            <u1 className = "nav-links">
+            <ul className = "nav-links">
                 <Link to="/bookings" className = "big-link">
                     <li>BOOKINGS</li>
                 </Link>
@@ -22,15 +22,15 @@ function Nav() {
                     <li>EMPLOYEES</li>
                 </Link>
             
-                <u2 className = "login-links">
+                <ul className = "login-links">
                     <Link to = "/login" className = "little-link">
                         <li>LOGIN</li>
                     </Link>
                     <Link to="/create" className = "little-link">
                         <li>CREATE ACCOUNT</li>
                     </Link>
-                </u2>
-            </u1>
+                </ul>
+            </ul>
         </nav>
     );
 }
