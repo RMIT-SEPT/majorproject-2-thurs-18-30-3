@@ -9,10 +9,10 @@ function Nav() {
             <h3>S-E-P-T</h3>
 
             <u1 className = "nav-links">
-                <Link to="/bookings" className = "big-link">
+                <Link to="/services" className = "big-link">
                     <li>BOOKINGS</li>
                 </Link>
-                <Link to="/bookings" className = "big-link">
+                <Link to="/services" className = "big-link">
                     <li>SERVICES</li>
                 </Link>
                 <Link to="/about" className = "big-link">

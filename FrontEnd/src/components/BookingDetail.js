@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 import '../containers/App.css';
 
@@ -7,7 +6,7 @@ function BookingDetail( { match } ) {
     useEffect(() => {
         fetchItem();
         console.log(match);
-    }, []);
+    });
 
     const [booking, setBooking] = useState({});
 
