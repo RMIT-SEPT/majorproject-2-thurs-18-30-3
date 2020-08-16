@@ -4,3 +4,10 @@ creds2.sh
 terraform.tfstate
 terraform.tfstate.backup
 tmp/
+
+# dependecies
+/node_modules
+/.pnp
+/.pnp.js
+.idea
+node_modules

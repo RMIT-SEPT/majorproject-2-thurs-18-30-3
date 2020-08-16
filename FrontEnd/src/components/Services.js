@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 
 import '../containers/App.css';
 
+//Displays list of Employees 
+
 class Services extends Component {
     constructor(props){
         super(props);
     }
 
+	//Props passed down by ServiceListContainer
 
     render() {
 		let services = this.props.services.map((service) => {
