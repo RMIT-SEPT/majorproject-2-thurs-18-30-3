@@ -3,14 +3,24 @@ import { Table, Button } from 'reactstrap';
 
 import '../containers/App.css';
 
-function Employees({employees}) {
-    const renderEmployees = employees.map((employee)=>
-         <tr key = {employee.email} >
-        <td>{employee.email}</td>
-        <td>{employee.uname}</td>
-        <td>{employee.name}</td>
-        <td>{employee.phone}</td>
-    </tr>)
+//Displays list of Employees 
+
+class Employees extends Component{
+    constructor(props){
+        super(props);
+}
+
+    //Props passed down by EmployeeListContainer
+
+    render(){
+        let employees = this.props.employees.map((employees)=> {
+            return (
+                <tr key = {employees.email} >
+
+                    <td>{employees.email}</td>
+                    <td>{employees.uname}</td>
+                    <td>{employees.name}</td>
+                    <td>{employees.phone}</td>
 
     return(
             <div className = "bookings-list">

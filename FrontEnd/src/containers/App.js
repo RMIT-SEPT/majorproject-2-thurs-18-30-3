@@ -11,6 +11,8 @@ import Login from '../components/Login';
 import BookingDetail from '../components/BookingDetail';
 import Bookings from "../components/Bookings";
 
+//Root Component
+
 class App extends Component {	
 	render() {
 		return (
