@@ -10,6 +10,8 @@ import Create from '../components/Create';
 import Login from '../components/Login';
 import BookingDetail from '../components/BookingDetail';
 
+//Root Component
+
 class App extends Component {	
 	render() {
 		return (

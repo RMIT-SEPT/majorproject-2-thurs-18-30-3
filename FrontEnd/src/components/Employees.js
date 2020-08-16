@@ -3,10 +3,14 @@ import { Table, Button } from 'reactstrap';
 
 import '../containers/App.css';
 
+//Displays list of Employees 
+
 class Employees extends Component{
     constructor(props){
         super(props);
 }
+
+    //Props passed down by EmployeeListContainer
 
     render(){
         let employees = this.props.employees.map((employees)=> {

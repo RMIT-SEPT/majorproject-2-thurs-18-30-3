@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import '../containers/App.css';
 
+//Display a single booking with details in its own component
+
 function BookingDetail( { match } ) {
     useEffect(() => {
         fetchItem();

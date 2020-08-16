@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 import '../containers/App.css';
 
+//Basic Top Navigation Bar
+
 function Nav() {
     return (
         <nav>
