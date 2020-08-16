@@ -14,16 +14,18 @@ class EmployeeListContainer extends React.Component {
 	/*If an API isn't running on your local machine, 
 	replace the below fetch with 'https://jsonplaceholder.typicode.com/posts'*/
     componentDidMount(){
-        Promise.all([
-            fetch("http://localhost:3000/admins"),
-            fetch("http://localhost:3000/employees"),
-            fetch("http://localhost:3000/customers")
-        ]).then(([admins, employees, customers]) => {
-            console.log(admins.concat(employees, customers))
-    }).catch(
-        console.log
-    )
-}
-}
-
+        fetch('http://localHost:3004/employees').then(
+            res => res.json()).then(
+                (data) => {
+                    this.setState({employees: data})
+                }
+            ).catch(
+            console.log
+            )
+    }
+    
+    render() {
+      return <Employees employees={this.state.employees} />;
+    }
+  }
   export default EmployeeListContainer;
