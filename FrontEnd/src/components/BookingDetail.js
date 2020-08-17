@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 import '../containers/App.css';
+
+//Display a single booking with details in its own component
 
 function BookingDetail( { match } ) {
     useEffect(() => {
         fetchItem();
         console.log(match);
-    }, []);
+    });
 
     const [booking, setBooking] = useState({});
 
     const fetchItem = async () => {
-        const fetchItem = await fetch(`http://localhost:3004/services/${match.params.id}`);
-
-        const booking = await fetchItem.json();
-        setBooking(booking);
-        console.log(booking);
+        try {
+            const booking = await axios.get(`http://localhost:3004/services/${match.params.id}`).data
+            setBooking(booking);
+            console.log(booking);
+        } catch (err) {
+            alert('Something went wrong' + err)
+        }
     }
 
 
