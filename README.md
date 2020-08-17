@@ -14,11 +14,10 @@
 * Trello Board : https://trello.com/b/ZqCYIKzv/agile-sprint-board
 * Google Docs : https://drive.google.com/drive/folders/16Aw59ut0WHV8Cs4FAFMkFHF8P1IxIVcF
 
-## Code documentation
+## Code documentation - Release 0.0.1 - 17/08/2020
 
-Release 0.0.1 - 17/08/2020
-	* Skeleton frontend code with barebones web seign for future improvement.
-		* Prototype Employee and Service lists
-	* Dummy API for use in testing
-	* Backend foundations for bookings microservice
+* Skeleton frontend code with barebones web seign for future improvement.
+* Prototype Employee and Service lists
+* Dummy API for use in testing
+* Backend foundations for bookings microservice
 	
