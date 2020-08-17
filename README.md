@@ -12,7 +12,7 @@
 
 * Github repository : https://github.com/RMIT-SEPT/MajorProject/Groupx
 * Trello Board : https://trello.com/b/ZqCYIKzv/agile-sprint-board
-*Google Docs : https://drive.google.com/drive/folders/16Aw59ut0WHV8Cs4FAFMkFHF8P1IxIVcF
+* Google Docs : https://drive.google.com/drive/folders/16Aw59ut0WHV8Cs4FAFMkFHF8P1IxIVcF
 
 ## Code documentation
 
