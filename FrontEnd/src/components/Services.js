@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {  } from 'react';
 import { Table, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -6,14 +6,12 @@ import '../containers/App.css';
 
 //Displays list of Employees 
 
-class Services extends Component {
-    constructor(props){
-        super(props);
-    }
+function Services (props){
+        
 
 	//Props passed down by ServiceListContainer
 
-    render() {
+    
 		let services = this.props.services.map((service) => {
 			return (
 				//Render an item in booking list for each booking fetched
@@ -52,7 +50,7 @@ class Services extends Component {
 			</Table>
 		</div>
 		);
-	}
+	
 
 }
 export default Services;

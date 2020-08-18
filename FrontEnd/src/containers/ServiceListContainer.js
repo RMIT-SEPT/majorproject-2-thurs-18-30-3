@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {  } from 'react';
 const { default: Services } = require("../components/Services");
 
 class ServiceListContainer extends React.Component {

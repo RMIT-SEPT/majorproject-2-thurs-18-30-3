@@ -11,7 +11,9 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: rgb(121, 195, 218);
+  width: 100%;
+  background: #537F8B;
+    box-shadow: 0px 10px 0px #C2CCCD;
   color: whitesmoke;
 }
 

@@ -23,7 +23,7 @@ function Nav() {
                 <Link to="/employees" className = "big-link">
                     <li>EMPLOYEES</li>
                 </Link>
-            
+
                 <ul className = "login-links">
                     <Link to = "/login" className = "little-link">
                         <li>LOGIN</li>
@@ -32,7 +32,7 @@ function Nav() {
                         <li>CREATE ACCOUNT</li>
                     </Link>
                 </ul>
-            </ul>
+            </u1>
         </nav>
     );
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {  } from 'react';
 const { default: Employees } = require("../components/Employees");
 
 class EmployeeListContainer extends React.Component {
