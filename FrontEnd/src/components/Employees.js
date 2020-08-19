@@ -8,7 +8,7 @@ import '../containers/App.css';
 function Employees(props)
 //Props passed down by EmployeeListContainer
 {
-        let employees = this.props.employees.map((employees)=> {
+        let employees = props.employees.map((employees)=> {
             return (
                 <tr key = {employees.email} >
 

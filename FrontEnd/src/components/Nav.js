@@ -1,27 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import Poly from 'react-svg-polygon'
 
 import '../containers/App.css';
 
 //Basic Top Navigation Bar
-
 function Nav() {
     return (
         <nav>
-            <h3>S-E-P-T</h3>
+            <div className = "logoDiv">
+                <h1>AGME</h1>
+                <h4>company</h4>
+            </div>
 
             <u1 className = "nav-links">
                 <Link to="/services" className = "big-link">
-                    <li>BOOKINGS</li>
-                </Link>
-                <Link to="/services" className = "big-link">
-                    <li>SERVICES</li>
+                    <li>services</li>
                 </Link>
                 <Link to="/about" className = "big-link">
-                    <li>ABOUT</li>
+                    <li>about</li>
+                </Link>
+                <Link to="/services" className = "big-link">
+                    <li>bookings</li>
                 </Link>
                 <Link to="/employees" className = "big-link">
-                    <li>EMPLOYEES</li>
+                    <li>employees</li>
                 </Link>
 
                 <ul className = "login-links">

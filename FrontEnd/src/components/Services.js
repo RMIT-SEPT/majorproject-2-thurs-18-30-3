@@ -12,7 +12,7 @@ function Services (props){
 	//Props passed down by ServiceListContainer
 
     
-		let services = this.props.services.map((service) => {
+		let services = props.services.map((service) => {
 			return (
 				//Render an item in booking list for each booking fetched
 				<tr key ={service.id}>
@@ -29,7 +29,6 @@ function Services (props){
 						<Button color = "success" size = 'l'>Book</Button>
 					</td>
 				</tr>
-				
 			) 
 		});
 		return (

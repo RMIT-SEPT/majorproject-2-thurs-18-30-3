@@ -15,7 +15,7 @@ import BookingDetail from '../components/BookingDetail';
 class App extends Component {	
 	render() {
 		return (
-		<div className = "app container">
+		<div className = "app-container">
 			<Router>
 				<Nav />
 				<Switch>

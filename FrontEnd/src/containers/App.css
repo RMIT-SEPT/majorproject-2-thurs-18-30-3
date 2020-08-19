@@ -4,17 +4,47 @@
   text-align: center;
 }
 
+.app-container{
+  width:100%;
+}
 /* -- NAV COMPONENT STYLING */
 
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
-  width: 100%;
+  min-height: 9vh;
+  width: 100vw;
   background: #537F8B;
     box-shadow: 0px 10px 0px #C2CCCD;
-  color: whitesmoke;
+  color: #D0F4F8;
+}
+
+.logoDiv {
+  width: 7vw;
+  height: 5vh;
+  left: 3vw;
+  top: 5vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoDiv h1{
+  /* AGME */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 52%;
+}
+
+.logoDiv h4{
+  /* company */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 125%;
 }
 
 .nav-links {
@@ -23,7 +53,6 @@ nav {
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  color: whitesmoke;
 }
 
 .login-links {
@@ -32,10 +61,10 @@ nav {
 }
 
 .big-link{
-  color: honeydew;
   text-decoration: none;
   font-size: 24px;
   font-weight: bold;
+  color: #D0F4F8;
 }
 
 .big-link:hover{
@@ -44,9 +73,9 @@ nav {
 }
 
 .little-link{
-  color: honeydew;
   text-decoration: none;
   font-size: 18px;
+  color: #D0F4F8;
 }
 
 .little-link:hover{
