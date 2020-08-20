@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import Poly from 'react-svg-polygon'
 
 import '../containers/App.css';
 

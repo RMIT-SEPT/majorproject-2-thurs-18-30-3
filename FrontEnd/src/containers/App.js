@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,  Route, Switch } from 'react-router-dom';
+import {Helmet} from "react-helmet";
 
 import ServiceList from '../containers/ServiceListContainer';
 import EmployeeList from '../containers/EmployeeListContainer';
@@ -16,6 +17,10 @@ class App extends Component {
 	render() {
 		return (
 		<div className = "app-container">
+			<Helmet>
+				<meta charSet="utf-8" />
+				<title>SEPT Project</title>
+			</Helmet>
 			<Router>
 				<Nav />
 				<Switch>
