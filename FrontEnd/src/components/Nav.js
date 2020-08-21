@@ -9,7 +9,7 @@ function Nav() {
         <nav>
             <div className = "logoDiv">
                 <h1>AGME</h1>
-                <h4>company</h4>
+                <span>company</span>
             </div>
 
             <u1 className = "nav-links">
