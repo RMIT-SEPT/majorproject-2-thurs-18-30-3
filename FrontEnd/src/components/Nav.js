@@ -4,26 +4,28 @@ import { Link } from 'react-router-dom'
 import '../containers/App.css';
 
 //Basic Top Navigation Bar
-
 function Nav() {
     return (
         <nav>
-            <h3>S-E-P-T</h3>
+            <div className = "logoDiv">
+                <h1>AGME</h1>
+                <span>company</span>
+            </div>
 
             <u1 className = "nav-links">
                 <Link to="/services" className = "big-link">
-                    <li>BOOKINGS</li>
-                </Link>
-                <Link to="/services" className = "big-link">
-                    <li>SERVICES</li>
+                    <li>services</li>
                 </Link>
                 <Link to="/about" className = "big-link">
-                    <li>ABOUT</li>
+                    <li>about</li>
+                </Link>
+                <Link to="/services" className = "big-link">
+                    <li>bookings</li>
                 </Link>
                 <Link to="/employees" className = "big-link">
-                    <li>EMPLOYEES</li>
+                    <li>employees</li>
                 </Link>
-            
+
                 <ul className = "login-links">
                     <Link to = "/login" className = "little-link">
                         <li>LOGIN</li>
@@ -32,7 +34,7 @@ function Nav() {
                         <li>CREATE ACCOUNT</li>
                     </Link>
                 </ul>
-            </ul>
+            </u1>
         </nav>
     );
 }

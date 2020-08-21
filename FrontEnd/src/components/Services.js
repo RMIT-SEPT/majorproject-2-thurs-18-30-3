@@ -1,58 +1,68 @@
-import React, { Component } from 'react';
-import { Table, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
-
+import React, {  } from 'react';
+import TextField from '@material-ui/core/TextField';
 import '../containers/App.css';
+const { default: ServiceCard } = require("../components/ServiceCard");
+
 
 //Displays list of Employees 
 
-class Services extends Component {
-    constructor(props){
-        super(props);
-    }
+function Services (props){
+        
 
 	//Props passed down by ServiceListContainer
 
-    render() {
-		let services = this.props.services.map((service) => {
+    
+		let services = props.services.map((service) => {
 			return (
 				//Render an item in booking list for each booking fetched
-				<tr key ={service.id}>
-
-					<td>{service.id}</td>
-
-					<Link to={`/services/${service.id}`} className = "booking-link">
-						<td>{service.title}</td>
-					</Link>
-
-					<td>{service.body}</td>
-
-					<td>
-						<Button color = "success" size = 'l'>Book</Button>
-					</td>
-				</tr>
-				
+					<ServiceCard service={service} />
 			) 
 		});
 		return (
-		<div className = "services-list">
-			<Table>
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>SERVICE</th>
-						<th>DESCRIPTION</th>
-						<th>ACTION</th>
-					</tr>
-				</thead>
+		<div>
+			<h1>Services</h1>
 
-				<tbody>
+			<div className = "sector-heading">
+				<form noValidate>
+					<TextField
+						id="date"
+						label="Birthday"
+						type="date"
+						defaultValue="2017-05-24"
+						InputLabelProps={{
+						shrink: true,
+						}}
+					/>
+				</form>
+				<span>  &#62; </span>
+				<form noValidate>
+					<TextField
+						id="date"
+						label="Birthday"
+						type="date"
+						defaultValue="2017-05-24"
+						InputLabelProps={{
+						shrink: true,
+						}}
+					/>
+				</form>
+				<div className="dummy"/>
+				<form>
+					<input
+						className="service-search"
+						placeholder="Search" 
+					/>
+				</form>
+			</div>
+
+			<hr className = "sector-divider"/>
+
+			<div className = "services-gallery">
 					{services}
-				</tbody>
-			</Table>
+			</div>
 		</div>
 		);
-	}
+	
 
 }
 export default Services;
