@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Navbar, Nav} from 'react-bootstrap'
 
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
 
-//Basic Top Navigation Bar
 function NavigationBar() {
   const [currentUser, setCurrentUser] = useState(undefined)
 
@@ -17,42 +16,29 @@ function NavigationBar() {
 
   return (
     <nav>
-      <div className="logoDiv">
-        <h1>AGME</h1>
-        <h4>company</h4>
-      </div>
-
-      <ul className="nav-links">
-        <Link to="/services" className="big-link">
-          <li>services</li>
-        </Link>
-        <Link to="/about" className="big-link">
-          <li>about</li>
-        </Link>
-        <Link to="/services" className="big-link">
-          <li>bookings</li>
-        </Link>
-        <Link to="/employees" className="big-link">
-          <li>employees</li>
-        </Link>
-
-        <ul className="login-links">
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="#home">ACME</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/services">services</Nav.Link>
+            <Nav.Link href="/bookings">bookings</Nav.Link>
+            <Nav.Link href="/employees">employees</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+        <Navbar.Collapse className="justify-content-end">
           {currentUser ? (
-            <Link to={'/profile'} className="nav-link">
-              {currentUser.username}
-            </Link>
+            <Navbar.Text>
+              Signed in as: <a href="#login">{currentUser.username}</a>
+            </Navbar.Text>
           ) : (
             <>
-              <Link to="/login" className="little-link">
-                <li>LOGIN</li>
-              </Link>
-              <Link to="/create" className="little-link">
-                <li>CREATE ACCOUNT</li>
-              </Link>
+              <Nav.Link href="/login">Login</Nav.Link>
+              <Nav.Link href="/create">Create Account</Nav.Link>
             </>
           )}
-        </ul>
-      </ul>
+        </Navbar.Collapse>
+      </Navbar>
     </nav>
   )
 }
