@@ -1,13 +1,13 @@
-package io.ms_profile.artifact_ms_profile;
+package com.project.ms_profile.Web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ArtifactMsProfileApplication {
+public class MsProfileApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ArtifactMsProfileApplication.class, args);
+        SpringApplication.run(MsProfileApplication.class, args);
     }
 
 }
