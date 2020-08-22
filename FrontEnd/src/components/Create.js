@@ -21,7 +21,8 @@ const schema = yup.object().shape({
     .string()
     .matches(/^[0-9]+$/, 'Must be only digits')
     .min(10, 'Must be at least 10 digits')
-    .max(12, 'Must be less than 13 digits'),
+    .max(12, 'Must be less than 13 digits')
+    .default(),
 })
 
 function Alert(props) {
@@ -56,9 +57,9 @@ const Create = () => {
   }
 
   return (
-    <>
+    <div className={classes.root}>
       <Grid container direction="row" justify="center" alignItems="center">
-        <Card className={classes.root}>
+        <Card className={classes.card}>
           <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
             <CardContent>
               <h3>Register</h3>
@@ -126,7 +127,7 @@ const Create = () => {
           {alertMsg}
         </Alert>
       </Snackbar>
-    </>
+    </div>
   )
 }
 
@@ -135,6 +136,10 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
     },
+  },
+  card: {
+    margin: theme.spacing(3),
+    padding: theme.spacing(1),
   },
 }))
 
