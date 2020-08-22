@@ -1,7 +1,10 @@
 package io.microservices.ms_bookings.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.constraints.NotBlank;
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -9,12 +12,19 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+//    @Size(min = 5, message = "Minimum 5 characters is required.")
+//    @NotBlank(message = "Service name must not be empty.")
     private String serviceName;
+    @Size(min = 3, message = "Minimum 3 characters is required.")
+    @NotBlank(message = "Service type must not be empty.")
     private String type;
+    @NotBlank(message = "User email is required.")
     private String email;
     private long time;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd@HH:mm:ss")
     private Date created_At;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd@HH:mm:ss")
     private Date updated_At;
 
     public Book() {
