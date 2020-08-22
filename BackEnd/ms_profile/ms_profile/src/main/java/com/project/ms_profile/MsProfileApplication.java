@@ -1,4 +1,4 @@
-package com.project.ms_profile.Web;
+package com.project.ms_profile;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

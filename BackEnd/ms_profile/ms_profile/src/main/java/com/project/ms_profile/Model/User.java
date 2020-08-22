@@ -1,7 +1,6 @@
 package com.project.ms_profile.Model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class User {
@@ -12,6 +11,7 @@ public class User {
     private String phone;
     private String email;
     private String usertype;
+    private String password;
 
 
     public void setFirstname(String firstname) {
@@ -22,7 +22,6 @@ public class User {
         return firstname;
     }
 
-
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
@@ -31,6 +30,13 @@ public class User {
         return lastname;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     public void setPhone(String phone) {
         this.firstname = phone;
@@ -40,7 +46,6 @@ public class User {
         return phone;
     }
 
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -48,7 +53,6 @@ public class User {
     public String getEmail() {
         return email;
     }
-
 
     public void setUsertype(String usertype) {
         this.usertype = usertype;
