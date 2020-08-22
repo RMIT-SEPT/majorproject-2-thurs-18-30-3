@@ -1,55 +1,34 @@
-import React, {  } from 'react';
-import { Table, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import {Button, Card} from 'reactstrap'
+import {Link} from 'react-router-dom'
 
-import '../containers/App.css';
+import '../containers/App.css'
 
-//Displays list of Employees 
+//Displays list of Employees
 
-function Services (props){
-        
+function Services(props) {
+  //Props passed down by ServiceListContainer
 
-	//Props passed down by ServiceListContainer
+  let services = props.services.map((service) => {
+    return (
+      //Render an item in booking list for each booking fetched
+      <Card key={service.id}>
+        <Card.Title>{service.id}</Card.Title>
 
-    
-		let services = props.services.map((service) => {
-			return (
-				//Render an item in booking list for each booking fetched
-				<tr key ={service.id}>
+        <Link to={`/services/${service.id}`} className="booking-link">
+          <td>{service.title}</td>
+        </Link>
 
-					<td>{service.id}</td>
+        <Card.Body>{service.body}</Card.Body>
 
-					<Link to={`/services/${service.id}`} className = "booking-link">
-						<td>{service.title}</td>
-					</Link>
-
-					<td>{service.body}</td>
-
-					<td>
-						<Button color = "success" size = 'l'>Book</Button>
-					</td>
-				</tr>
-			) 
-		});
-		return (
-		<div className = "services-list">
-			<Table>
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>SERVICE</th>
-						<th>DESCRIPTION</th>
-						<th>ACTION</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					{services}
-				</tbody>
-			</Table>
-		</div>
-		);
-	
-
+        <td>
+          <Button color="success" size="l">
+            Book
+          </Button>
+        </td>
+      </Card>
+    )
+  })
+  return <div>{services}</div>
 }
-export default Services;
+export default Services

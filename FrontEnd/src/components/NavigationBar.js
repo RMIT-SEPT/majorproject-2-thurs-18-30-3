@@ -16,7 +16,7 @@ function NavigationBar() {
 
   return (
     <nav>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="white" expand="lg">
         <Navbar.Brand href="#home">ACME</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
