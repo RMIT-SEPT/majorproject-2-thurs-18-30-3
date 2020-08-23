@@ -1,8 +1,4 @@
 /* -- APP CONTAINER STYLING */
-* {
-  box-sizing: border-box;
-  textDecoration: 'none';
-}
 
 .App {
   text-align: center;
