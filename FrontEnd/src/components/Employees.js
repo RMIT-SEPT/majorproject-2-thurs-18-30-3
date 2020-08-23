@@ -1,14 +1,19 @@
-import React from 'react';
-import { Table } from 'reactstrap';
+import React, { Component } from 'react';
+import { Table, Button } from 'reactstrap';
 
 import '../containers/App.css';
 
 //Displays list of Employees 
 
-function Employees(props)
-//Props passed down by EmployeeListContainer
-{
-        let employees = props.employees.map((employees)=> {
+class Employees extends Component{
+    constructor(props){
+        super(props);
+}
+
+    //Props passed down by EmployeeListContainer
+
+    render(){
+        let employees = this.props.employees.map((employees)=> {
             return (
                 <tr key = {employees.email} >
 
@@ -16,28 +21,26 @@ function Employees(props)
                     <td>{employees.uname}</td>
                     <td>{employees.name}</td>
                     <td>{employees.phone}</td>
-                </tr>
-            )
-         });
 
     return(
             <div className = "bookings-list">
                 <Table>
                     <thead>
-                        <tr>
-                            <th>EMAIL</th>
-                            <th>USERNAME</th>
-                            <th>NAME</th>
-                            <th>PHONE NUMBER</th>
-                        </tr>
+                    <tr>
+                        <th>EMAIL</th>
+                        <th>USERNAME</th>
+                        <th>NAME</th>
+                        <th>PHONE NUMBER</th>
+                    </tr>
                     </thead>
 
                     <tbody>
-                        {employees}
+                    {renderEmployees}
                     </tbody>
                 </Table>
             </div>
-        );
+        )
+
 }
 
 
