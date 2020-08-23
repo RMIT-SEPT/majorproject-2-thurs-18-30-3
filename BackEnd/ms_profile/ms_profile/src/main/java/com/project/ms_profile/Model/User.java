@@ -2,6 +2,7 @@ package com.project.ms_profile.Model;
 
 import javax.persistence.*;
 
+
 @Entity
 public class User {
     @Id
@@ -12,6 +13,9 @@ public class User {
     private String email;
     private String usertype;
     private String password;
+
+    public User(String firstname, String lastname, String phone, String email, String usertype, String password) {
+    }
 
 
     public void setFirstname(String firstname) {

@@ -13,7 +13,8 @@ public class UserService {
 
     public User saveOrUpdateUser (User user) {
         //business logic yet to be implemented.
-        return userRepository.save(user);
+        // return new User("Danny", "Van", "12413", "danny@rmit", "admin" , "123");
+         return userRepository.save(user);
     }
 
 }

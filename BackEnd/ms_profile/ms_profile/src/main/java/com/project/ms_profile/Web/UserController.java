@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/user/get")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/api/user/post")
+    @PostMapping("")
     public ResponseEntity<User> createNewBookings(@RequestBody User users) {
         User sampleUser = userService.saveOrUpdateUser(users);
         return new ResponseEntity<User>(users, HttpStatus.CREATED);
