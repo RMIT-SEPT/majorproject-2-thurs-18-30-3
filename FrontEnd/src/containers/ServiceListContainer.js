@@ -12,7 +12,7 @@ class ServiceListContainer extends React.Component {
 
     //GET data request from API
 	/*If an API isn't running on your local machine, 
-	replace the below fetch with 'https://jsonplaceholder.typicode.com/posts'*/
+	replace the below fetch with 'https://jsonplaceholder.typicode.com/posts' for testing*/
     componentDidMount() {
 		fetch('http://localhost:3004/services').then(
 			res => res.json()).then(

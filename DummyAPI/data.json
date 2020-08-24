@@ -30,19 +30,19 @@
   "admins":
   [
       {
-        "id": 1,
+        "email": "Diomira@test.wiz",
         "uname":"Admin1",
         "pword":"admin",
         "name": "Diomira"
       },
       {
-        "id": 2,
+        "email": "Despina@test.wiz",
         "uname":"Admin2",
         "pword":"admin",
         "name": "Despina"
       },
       {
-        "id": 3,
+        "email": "Isaura@test.wiz",
         "uname":"Admin3",
         "pword":"admin",
         "name": "Isaura"
@@ -51,56 +51,57 @@
   "employees":
   [
       {
-        "email": "Berenice@test.wiz",
+        "email": "Maurice@test.wiz",
         "uname":"Emp1",
         "pword":"emp",
-        "name": "Berenice",
-        "phone": "0443785"
+        "name": "Maurice",
+        "phone": "0443785",
+        "active": true
       },
       {
         "email": "Theodora@test.wiz",
         "uname":"Emp2",
         "pword":"emp",
         "name": "Theodora",
-        "phone": "999999"
+        "phone": "999999",
+        "active": true
       },
       {
-        "email": "Marozia@test.wiz",
+        "email": "Zemrude@test.wiz",
         "uname":"Emp3",
         "pword":"emp",
-        "name": "Marozia",
-        "phone": "191919"
+        "name": "Zemrude",
+        "phone": "191919",
+        "active": false
       },
       {
         "email": "Raissa@test.wiz",
-        "uname":"Emp5",
+        "uname":"Emp4",
         "pword":"emp",
         "name": "Raissa",
-        "phone": "12457"
+        "phone": "12457",
+        "active": true
       }
   ],
   "customers":
   [
       {
-        "id": 1,
+        "email":"Max@Cust.wizard",
         "uname":"Cust1",
         "pword":"cust",
-        "name": "Max",
-        "email":"Max@Cust.wizard"
+        "name": "Max"
       },
       {
-        "id": 2,
+        "email":"Rebecca@Cust.wizard",
         "uname":"Cust2",
         "pword":"cust",
-        "name": "Rebecca",
-        "email":"Rebecca@Cust.wizard"
+        "name": "Rebecca"
       },
       {
-        "id": 3,
+        "email":"Manderly@Cust.wizard",
         "uname":"Cust3",
         "pword":"cust",
-        "name": "Manderly",
-        "email":"Manderly@Cust.wizard"
+        "name": "Manderly"
       }
   ]
 }
