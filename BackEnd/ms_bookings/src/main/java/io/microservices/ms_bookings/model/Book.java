@@ -15,8 +15,8 @@ public class Book {
 //    @Size(min = 5, message = "Minimum 5 characters is required.")
 //    @NotBlank(message = "Service name must not be empty.")
     private String serviceName;
-    @Size(min = 3, message = "Minimum 3 characters is required.")
     @NotBlank(message = "Service type must not be empty.")
+    @Size(min = 3, message = "Minimum 3 characters is required.")
     private String type;
     @NotBlank(message = "User email is required.")
     private String email;
