@@ -1,5 +1,7 @@
 import React, {  } from 'react';
+
 import TextField from '@material-ui/core/TextField';
+import moment from 'moment'; 
 import '../containers/App.css';
 const { default: ServiceCard } = require("../components/ServiceCard");
 
@@ -7,40 +9,40 @@ const { default: ServiceCard } = require("../components/ServiceCard");
 //Displays list of Employees 
 
 function Services (props){
-        
-
 	//Props passed down by ServiceListContainer
-
-    
 		let services = props.services.map((service) => {
 			return (
 				//Render an item in booking list for each booking fetched
 					<ServiceCard service={service} />
 			) 
 		});
+		var currentDate = moment().format("YYYY-MM-DD");
+
 		return (
 		<div>
 			<h1>Services</h1>
 
 			<div className = "sector-heading">
-				<form noValidate>
-					<TextField
+				<form noValidate data-testid="datePickerA">
+					<TextField 
+						role = 'listbox'
 						id="date"
-						label="Birthday"
+						label="Display Services From"
 						type="date"
-						defaultValue="2017-05-24"
+						defaultValue={`${currentDate}`}
 						InputLabelProps={{
 						shrink: true,
 						}}
 					/>
 				</form>
 				<span>  &#62; </span>
-				<form noValidate>
-					<TextField
+				<form noValidate data-testid="datePickerB">
+					<TextField 
+						role = 'listbox'
 						id="date"
-						label="Birthday"
+						label="Display Services To"
 						type="date"
-						defaultValue="2017-05-24"
+						defaultValue={`${currentDate}`}
 						InputLabelProps={{
 						shrink: true,
 						}}
@@ -49,7 +51,7 @@ function Services (props){
 				<div className="dummy"/>
 				<form>
 					<input
-						className="service-search"
+						role="searchbox"
 						placeholder="Search" 
 					/>
 				</form>
@@ -57,7 +59,7 @@ function Services (props){
 
 			<hr className = "sector-divider"/>
 
-			<div className = "services-gallery">
+			<div className = "services-gallery" role = "main">
 					{services}
 			</div>
 		</div>

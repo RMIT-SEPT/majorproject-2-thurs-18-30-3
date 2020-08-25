@@ -7,10 +7,9 @@ import '../containers/App.css';
 //Displays a particular service
 
 function ServiceCard({ service }) {
-	console.log(service);
 	return (
         <Link to={`/services/${service.id}`} style={{ textDecoration: 'none' }}>
-            <Button className="service-card">
+            <Button className="service-card" role="cell">
                 <img src="not-found.png" alt = {`{service.name}`}/>
                 <div className="card-content">
                     <span>{service.title}</span>
