@@ -2,124 +2,109 @@ import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
+import * as yup from 'yup'
 import AuthService from "../services/auth.service";
+import MuiAlert from "@material-ui/lab/Alert";
+import {useForm} from "react-hook-form";
+import {Button, Card, CardActions, CardContent, Grid, Snackbar} from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import {yupResolver} from "@hookform/resolvers";
+import {makeStyles} from "@material-ui/core/styles";
 
-const required = (value) => {
-    if (!value) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                This field is required!
-            </div>
-        );
-    }
-};
+const schema = yup.object().shape({
+    username: yup.string().required(),
+    password: yup.string().required().min(8, 'Must be at least 8 characters').max(19, 'Must be less than 20 characters'),
+})
 
-const Login = (props) => {
-    const form = useRef();
-    const checkBtn = useRef();
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />
+}
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState("");
 
-    const onChangeUsername = (e) => {
-        const username = e.target.value;
-        setUsername(username);
-    };
 
-    const onChangePassword = (e) => {
-        const password = e.target.value;
-        setPassword(password);
-    };
+const Login = () => {
+    const classes = useStyles()
+    const {register, handleSubmit, errors} = useForm({
+        resolver: yupResolver(schema),
+    })
+    const [alertMsg, setAlertMsg] = useState('')
+    const [loginSuccess, setLoginSuccess] = useState(false)
 
-    const handleLogin = (e) => {
-        e.preventDefault();
+    const handleLogin = async (data) => {
+        console.log('Login data', data)
+        const {username,password} = data
 
-        setMessage("");
-        setLoading(true);
-
-        form.current.validateAll();
-
-        if (checkBtn.current.context._errors.length === 0) {
-            AuthService.login(username, password).then(
-                () => {
-                    props.history.push("/profile");
-                    window.location.reload();
-                },
-                (error) => {
-                    const resMessage =
-                        (error.response &&
-                            error.response.data &&
-                            error.response.data.message) ||
-                        error.message ||
-                        error.toString();
-
-                    setLoading(false);
-                    setMessage(resMessage);
-                }
-            );
-        } else {
-            setLoading(false);
+        try {
+            await AuthService.login(username,password)
+            setLoginSuccess(true)
+            setAlertMsg('Successfully login')
+        } catch (err) {
+            const resMessage = err.response?.data?.message ?? err.message
+            setAlertMsg(resMessage)
         }
-    };
+    }
+
+    const handleClose = () => {
+        setAlertMsg('')
+    }
 
     return (
-        <div className="col-md-12">
-            <div className="card card-container">
-                <img
-                    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                    alt="profile-img"
-                    className="profile-img-card"
-                />
-
-                <Form onSubmit={handleLogin} ref={form}>
-                    <div className="form-group">
-                        <label htmlFor="username">Username</label>
-                        <Input
-                            type="text"
-                            className="form-control"
+        <div className={classes.root}>
+            <Grid container direction="row" justify="center" alignItems="center">
+                <Card className={classes.card}>
+                <form noValidate autoComplete="off" onSubmit={handleSubmit(handleLogin)}>
+                    <CardContent>
+                        <h3>Login</h3>
+                        <TextField
+                            inputRef={register}
                             name="username"
-                            value={username}
-                            onChange={onChangeUsername}
-                            validations={[required]}
+                            label="Username"
+                            variant="outlined"
+                            error={!!errors.username}
+                            helperText={errors.username?.message}
+                            fullWidth
                         />
-                    </div>
 
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <Input
-                            type="password"
-                            className="form-control"
+                        <TextField
+                            inputRef={register}
                             name="password"
-                            value={password}
-                            onChange={onChangePassword}
-                            validations={[required]}
+                            label="Password"
+                            type="password"
+                            variant="outlined"
+                            error={!!errors.password}
+                            helperText={errors.password?.message}
+                            fullWidth
                         />
-                    </div>
-
-                    <div className="form-group">
-                        <button className="btn btn-primary btn-block" disabled={loading}>
-                            {loading && (
-                                <span className="spinner-border spinner-border-sm"></span>
-                            )}
-                            <span>Login</span>
-                        </button>
-                    </div>
-
-                    {message && (
-                        <div className="form-group">
-                            <div className="alert alert-danger" role="alert">
-                                {message}
-                            </div>
-                        </div>
-                    )}
-                    <CheckButton style={{ display: "none" }} ref={checkBtn} />
-                </Form>
-            </div>
+                    </CardContent>
+                    <CardActions>
+                        <Grid container direction="row" justify="center" alignItems="center">
+                            <Button type="submit" variant="contained" color="primary">
+                                Sign In
+                            </Button>
+                        </Grid>
+                    </CardActions>
+                </form>
+                </Card>
+            </Grid>
+            <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={!!alertMsg}>
+                <Alert onClose={handleClose} severity={loginSuccess ? 'success' : 'error'}>
+                    {alertMsg}
+                </Alert>
+            </Snackbar>
         </div>
     );
 };
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+        },
+    },
+    card: {
+        margin: theme.spacing(3),
+        padding: theme.spacing(1),
+    },
+}))
 
 export default Login;

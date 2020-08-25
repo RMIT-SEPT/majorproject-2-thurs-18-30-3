@@ -115,7 +115,7 @@ const Create = () => {
             <CardActions>
               <Grid container direction="row" justify="center" alignItems="center">
                 <Button type="submit" variant="contained" color="primary">
-                  Sign In
+                  Create Account
                 </Button>
               </Grid>
             </CardActions>
