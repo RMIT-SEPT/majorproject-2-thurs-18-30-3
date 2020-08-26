@@ -26,8 +26,6 @@ public class Book {
     private String email;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date start_date;
-    @JsonFormat(pattern = "yyyy-mm-dd")
-    private Date end_date;
 
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd@HH:mm:ss")
@@ -84,14 +82,6 @@ public class Book {
 
     public void setStart_date(Date start_date) {
         this.start_date = start_date;
-    }
-
-    public Date getEnd_date() {
-        return end_date;
-    }
-
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
     }
 
     public Date getCreated_At() {
