@@ -32,18 +32,12 @@ h1{
 nav {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  min-height: 5vh;
+  align-items: flex-end;
+  height: 6vh;
   width: 100vw;
-  background: #202D31;
-    box-shadow: 0px 5px 20px 5px #C2CCCD;
-  color: #D0F4F8;
-}
-
-.logoDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  
+  border-bottom: solid #009BA0;
+  color: #009BA0;
 }
 
 .logoDiv h1{
@@ -51,30 +45,23 @@ nav {
   font-style: normal;
   font-weight: 500;
   font-size: 48px;
-  line-height: 52%;
-}
-
-.logoDiv span{
-  /* company */
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 50%;
+  line-height: 42%;
 }
 
 .nav-links {
   width: 70%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-end;
   list-style: none;
 }
 
 .big-link{
+  color: #009BA0;
   text-decoration: none;
   font-size: 24px;
   font-weight: bold;
-  color: #D0F4F8;
+  line-height: 80%;
 }
 
 .big-link:hover{
@@ -82,10 +69,15 @@ nav {
   color: rgb(167, 172, 167);
 }
 
+.login-links{
+  margin: 0;
+  list-style: none;
+}
+
 .little-link{
   text-decoration: none;
   font-size: 16px;
-  color: #D0F4F8;
+  color: #009BA0;
 }
 
 .little-link:hover{
