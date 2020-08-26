@@ -1,16 +1,14 @@
 package io.microservices.ms_bookings.web;
 
 import io.microservices.ms_bookings.model.Book;
-import io.microservices.ms_bookings.service.BookService;
+import io.microservices.ms_bookings.services.BookService;
+import io.microservices.ms_bookings.services.MapValidationErrorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -24,15 +22,36 @@ public class BookingsController {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private MapValidationErrorService mapValidation;
+
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody Book bookings, BindingResult result) {
-        if (result.hasErrors()) {
-            Map<String, String> errorMap = new HashMap<>();
-            for (FieldError error: result.getFieldErrors()) {
-                return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
-            }
+
+        ResponseEntity<?> errorMap = mapValidation.MapValidationService(result);
+        if(errorMap != null) {
+            return errorMap;
         }
         Book bookings1 = bookService.saveOrUpdateBookings(bookings);
         return new ResponseEntity<Book>(bookings, HttpStatus.CREATED);
     }
+
+    @GetMapping("/{bookingsId}")
+    public ResponseEntity<?> getBookingsById(@PathVariable String bookingsId) {
+        Book bookings = bookService.findByBookIdentifier(bookingsId);
+        return new ResponseEntity<Book>(bookings, HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public Iterable<Book> getAllPersons() {
+        return bookService.findAllBookings();
+    }
+
+    @DeleteMapping("/{bookingsId}")
+    public ResponseEntity<?> deleteProject(@PathVariable String bookingsId){
+        bookService.deleteBookingsByIdentifier(bookingsId);
+
+        return new ResponseEntity<String>("Booking with ID: '"+bookingsId+"' was removed.", HttpStatus.OK);
+    }
 }
+// final Booking Controller
