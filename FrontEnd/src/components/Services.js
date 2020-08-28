@@ -9,7 +9,7 @@ const { default: ServiceCard } = require("../components/ServiceCard");
 //Displays list of Employees 
 
 function Services (props){
-	//Props passed down by ServiceListContainer
+		//Props passed down by ServiceListContainer
 		let services = props.services.map((service) => {
 			return (
 				//Render an item in booking list for each booking fetched
@@ -60,7 +60,7 @@ function Services (props){
 			<hr className = "sector-divider"/>
 
 			<div className = "services-gallery" role = "main">
-					{services}
+				{services}
 			</div>
 		</div>
 		);

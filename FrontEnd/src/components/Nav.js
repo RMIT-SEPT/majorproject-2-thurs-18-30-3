@@ -44,7 +44,7 @@ function Nav() {
                             <li>login</li>
                         </Link>
                         <Link to="/create" className = "little-link">
-                            <li>create account</li>
+                            <li>create</li>
                         </Link>
                     </>
                   )}
