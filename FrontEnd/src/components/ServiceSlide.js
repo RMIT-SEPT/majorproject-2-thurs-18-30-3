@@ -1,5 +1,4 @@
 import React, {  } from 'react';
-import CustomScroller from 'react-custom-scroller';
 
 import '../containers/App.css';
 const { default: Bubble } = require("../components/BookBubble");

@@ -130,7 +130,7 @@ nav {
 
 .service-card  {      /*Individual Card*/
   display:flex;
-  width: 26vw;
+  width: 480px;
   height: 20vh;
 
   background: #FFFFFF;
@@ -179,6 +179,24 @@ nav {
   line-height: normal;
   overflow:hidden;
   text-overflow:ellipsis;
+}
+
+@media screen and (max-width: 1200px) {
+  .services-gallery{  /*Grid of Cards*/
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .sector-heading{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services-gallery{  /*Grid of Cards*/
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1vh 0vw;
+  }
 }
 
 /*-------------------------------------SERVICE SLIDE STYLING*/

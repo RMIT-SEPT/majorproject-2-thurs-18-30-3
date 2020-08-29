@@ -98,6 +98,4 @@ test('Check Gallery CSS', () => {
     const gallery = screen.getByRole('main');
 
     expect(gallery).toHaveClass('services-gallery');
-    expect(gallery).toHaveClass('services-gallery');
-    expect(gallery).toHaveStyle('grid-template-columns: repeat(3, 1fr)');
 }); 
