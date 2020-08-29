@@ -5,8 +5,9 @@ import moment from 'moment'
 import '../containers/App.css'
 const {default: ServiceCard} = require('../components/ServiceCard')
 
-//Displays list of Employees
+const CURRENT_DATE = moment().format('YYYY-MM-DD')
 
+//Displays Service cards
 function Services(props) {
   //Props passed down by ServiceListContainer
   let services = props.services.map((service) => {
@@ -15,10 +16,9 @@ function Services(props) {
       <ServiceCard key={service.id} service={service} />
     )
   })
-  var currentDate = moment().format('YYYY-MM-DD')
 
   return (
-    <div>
+    <div className="container">
       <h1>Services</h1>
 
       <div className="sector-heading">
@@ -28,7 +28,7 @@ function Services(props) {
             id="date"
             label="Display Services From"
             type="date"
-            defaultValue={`${currentDate}`}
+            defaultValue={`${CURRENT_DATE}`}
             InputLabelProps={{
               shrink: true,
             }}
@@ -41,7 +41,7 @@ function Services(props) {
             id="date"
             label="Display Services To"
             type="date"
-            defaultValue={`${currentDate}`}
+            defaultValue={`${CURRENT_DATE}`}
             InputLabelProps={{
               shrink: true,
             }}

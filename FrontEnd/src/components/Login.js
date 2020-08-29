@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import * as yup from 'yup'
 import AuthService from '../services/auth.service'
 import MuiAlert from '@material-ui/lab/Alert'
+import {useHistory} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import {Button, Card, CardActions, CardContent, Grid, Snackbar} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import {yupResolver} from '@hookform/resolvers'
 import {makeStyles} from '@material-ui/core/styles'
+import CurrentUser from '../context/CurrentUser'
 
 const schema = yup.object().shape({
   username: yup.string().required(),
@@ -25,14 +27,16 @@ const Login = () => {
   const [alertMsg, setAlertMsg] = useState('')
   const [loginSuccess, setLoginSuccess] = useState(false)
 
-  const handleLogin = async (data) => {
-    console.log('Login data', data)
-    const {username, password} = data
+  const history = useHistory()
+  const [, setUser] = useContext(CurrentUser)
 
+  const handleLogin = async (data) => {
+    const {username, password} = data
     try {
       await AuthService.login(username, password)
       setLoginSuccess(true)
-      setAlertMsg('Successfully login')
+      setUser({username})
+      history.push('/services')
     } catch (err) {
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)
