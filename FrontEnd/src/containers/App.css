@@ -63,3 +63,6 @@ nav {
   text-decoration: none;
   color: rgb(167, 172, 167);
 }
+.app-container{
+  width:100%;
+}
