@@ -47,7 +47,7 @@ public class BookingsController {
         return bookService.findAllBookings();
     }
 
-    @DeleteMapping("/{bookingsId}")
+
     public ResponseEntity<?> deleteProject(@PathVariable String bookingsId){
         bookService.deleteBookingsByIdentifier(bookingsId);
 

@@ -16,7 +16,7 @@ public class Book {
     @NotBlank(message = "Service name must not be empty.")
     private String serviceName;
     @NotBlank(message ="Booking identifier is required")
-    @Size(min=4,max =5, message = "please enter 4 to 5 characters")
+    @Size(min = 4,max =5, message = "please enter 4 to 5 characters")
     @Column(updatable = false, unique = true)
     private String bookIdentifier;
     @NotBlank(message = "Service type must not be empty.")
