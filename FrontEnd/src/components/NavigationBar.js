@@ -1,18 +1,23 @@
-import React, {useState, useEffect} from 'react'
+import React, {useContext} from 'react'
 import {Navbar, Nav} from 'react-bootstrap'
+import {useHistory} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
+
 import AuthService from '../services/auth.service'
+
+import CurrentUser from '../context/CurrentUser'
 
 import '../containers/App.css'
 
 function NavigationBar() {
-  const [currentUser, setCurrentUser] = useState(undefined)
+  const history = useHistory()
+  const [user, setUser] = useContext(CurrentUser)
 
-  useEffect(() => {
-    const user = AuthService.getCurrentUser()
-    if (user) {
-      setCurrentUser(user)
-    }
-  }, [])
+  const onClickLogout = () => {
+    AuthService.logout()
+    setUser(null)
+    history.replace('/')
+  }
 
   return (
     // FIXME: Fix navigation bar style later
@@ -28,9 +33,9 @@ function NavigationBar() {
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
-          {currentUser ? (
+          {user ? (
             <Navbar.Text>
-              Signed in as: <a href="#login">{currentUser.username}</a>
+              Signed in as: <Button onClick={onClickLogout}>{user.username}</Button>
             </Navbar.Text>
           ) : (
             <>
