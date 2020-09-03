@@ -8,7 +8,7 @@ function EmployeeListContainer() {
   useEffect(() => {
     async function callAPI() {
       try {
-        const {data} = await Axios.get('http://localHost:3004/employees')
+        const {data} = await Axios.get('https://5f50f63c5e98480016123379.mockapi.io/employees')
         setEmployess(data)
       } catch (err) {
         alert(err.message)

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import Axios from 'axios'
 import {makeStyles} from '@material-ui/core/styles'
 import MaterialTable from 'material-table'
 
@@ -12,7 +13,7 @@ function Employees(props) {
     {title: 'Username', field: 'uname'},
     {title: 'Name', field: 'name'},
     {title: 'Email', field: 'email'},
-    {title: 'Mobile', field: 'phone'},
+    {title: 'Mobile', field: 'mobile'},
   ])
   const [employees, setEmployees] = useState([])
   const [alertMsg, setAlertMsg] = useState('')
@@ -26,21 +27,23 @@ function Employees(props) {
 
   async function onRowAdd(newData) {
     // TODO: call real api
-    // try {
-    //   await axios.post('/api/customers', {name: 'sdf', mobile: 'sfdsdf'})
-    //   setEmployees([...employees, newData])
-    // } catch (err) {
-    //   setAlertErrorMsg(err.messsage)
-    // }
-    // Use setTimeout to demonstrate time taken for API POST request.
-    // Remove this line when backend guys finish implementing API handler.
-    setTimeout(() => {
+    try {
+      await Axios.post('https://5f50f63c5e98480016123379.mockapi.io/employees', newData)
       setEmployees([...employees, newData])
-      setAlertMsg('New record added!')
-    }, 600)
+      setAlertMsg(`${newData.name} has been added`)
+    } catch (err) {
+      setAlertErrorMsg(err.messsage)
+    }
   }
 
   async function onRowUpdate(newData, oldData) {
+    try {
+      await Axios.put(`https://5f50f63c5e98480016123379.mockapi.io/employees/${oldData.id}`, newData)
+      setEmployees([...employees, newData])
+    } catch (err) {
+      setAlertErrorMsg(err.messsage)
+    }
+
     setTimeout(() => {
       const data = [...employees]
       data[data.indexOf(oldData)] = newData
@@ -49,11 +52,14 @@ function Employees(props) {
   }
 
   async function onRowDelete(oldData) {
-    setTimeout(() => {
+    try {
+      await Axios.delete(`https://5f50f63c5e98480016123379.mockapi.io/employees/${oldData.id}`)
       const data = [...employees]
       data.splice(data.indexOf(oldData), 1)
       setEmployees(data)
-    }, 600)
+    } catch (err) {
+      setAlertErrorMsg(err.messsage)
+    }
   }
 
   return (
