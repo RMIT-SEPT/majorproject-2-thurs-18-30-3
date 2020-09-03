@@ -8,10 +8,10 @@
         <version>2.3.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>io.microservices</groupId>
-    <artifactId>ms_bookings</artifactId>
+    <groupId>com.project</groupId>
+    <artifactId>ms_service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ms_bookings</name>
+    <name>ms_service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
