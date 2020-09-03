@@ -1,28 +1,23 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import Axios from 'axios'
 import Employees from '../components/Employees'
 
-class EmployeeListContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      employees: [],
+function EmployeeListContainer() {
+  const [employees, setEmployess] = useState([])
+
+  useEffect(() => {
+    async function callAPI() {
+      try {
+        const {data} = await Axios.get('http://localHost:3004/employees')
+        setEmployess(data)
+      } catch (err) {
+        alert(err.message)
+      }
     }
-  }
+    callAPI()
+  }, [])
 
-  //GET data request from API
-  /*If an API isn't running on your local machine, 
-	replace the below fetch with 'https://jsonplaceholder.typicode.com/posts'*/
-  componentDidMount() {
-    fetch('http://localHost:3004/employees')
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({employees: data})
-      })
-      .catch(console.log)
-  }
-
-  render() {
-    return <Employees employees={this.state.employees} />
-  }
+  return <Employees employees={employees} />
 }
+
 export default EmployeeListContainer
