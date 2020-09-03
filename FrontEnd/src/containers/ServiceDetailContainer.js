@@ -16,17 +16,15 @@ class ServiceDetailContainer extends React.Component {
   replace the below fetch with 'https://jsonplaceholder.typicode.com/posts' for testing*/
   componentDidMount() {
     var url = 'http://localhost:3004/services/' + this.state.id;
-	fetch(url).then(
-	 res => res.json()).then(
-		(data) => {
-			this.setState({ service: data })
-		}
-	 ).catch(
-		console.log
-     )
-     
-     console.log(this.state.service);
-    }
+	  fetch(url).then(
+      res => res.json()).then(
+        (data) => {
+          this.setState({ service: data })
+        }
+      ).catch(
+        console.log
+      )
+  }
     
     render() {
       return <ServiceDetail service={this.state.service} />;

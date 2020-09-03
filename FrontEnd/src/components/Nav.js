@@ -3,10 +3,17 @@ import { Link } from 'react-router-dom'
 
 import '../containers/App.css';
 import AuthService from '../services/auth.service'
+import ProfilePaneContainer from '../containers/ProfilePaneContainer';
 
 //Basic Top Navigation Bar
 function Nav() {
-    const [currentUser, setCurrentUser] = useState(undefined)
+    const [currentUser, setCurrentUser] = useState(true);
+
+    const modalRef = React.useRef();
+	
+	const OpenModal = () => {
+		modalRef.current.openModel()
+	}
 
     useEffect(() => {
         const user = AuthService.getCurrentUser()
@@ -34,10 +41,10 @@ function Nav() {
                 <Link to="/employees" className = "big-link">
                     <li>employees</li>
                 </Link>
-
+            
                 <ul className = "login-links">
                 {currentUser ? (
-                        <li href="#login">{currentUser.username}</li>
+                        <button className = "profileButton" onClick = {() => OpenModal()}/>
                   ) : (
                     <>
                         <Link to = "/login" className = "little-link">
@@ -50,6 +57,7 @@ function Nav() {
                   )}
                 </ul>
             </u1>
+            <ProfilePaneContainer ref = {modalRef}>PROFILE</ProfilePaneContainer>
         </nav>
     );
 }

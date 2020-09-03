@@ -12,7 +12,7 @@ function BookingDetail( props ) {
             <h1>Services</h1>
 			<div className="dummy"/>
 			<div>
-                <a>Go Back</a>
+                <a href = "/services">Go Back</a>
 			</div>
             <div className = "sector-heading">
                 <div className="dummy"/>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {  } from 'react';
 import { BrowserRouter as Router,  Route, Switch } from 'react-router-dom';
 
 import ServiceList from '../containers/ServiceListContainer';
@@ -12,31 +12,31 @@ import Login from '../components/Login';
 
 //Root Component
 
-class App extends Component {	
-	render() {
-		return (
-		<div className = "app-container">
-			
-			<Router>
-				<Nav />
-				<div className = "app-body">
-					<Switch>
-						<Route path ="/create" exact component = {Create} />
-						<Route path ="/about" exact component = {About} />
-						<Route path ="/login" exact component = {Login} />
-						<Route path ="/employees" exact component = {EmployeeList} />
-						<Route path ="/services" exact component = {ServiceList} />
-						<Route path ="/bookings" exact component = {ServiceList} />
-						<Route path ="/services/:id" component = {ServiceDetail} />
-					</Switch>
-				</div>
-			</Router>
-			<footer>
-				<hr className = "sector-divider"/>
-				<span>Carl Dietz 2020</span>
-			</footer>
-		</div>
-		);
-	}
+function App() {	
+	return (
+	<div className = "app-container">
+		
+		<Router>
+			<Nav />
+			<div className = "app-body">
+				<Switch>
+					<Route path ="/create" exact component = {Create} />
+					<Route path ="/about" exact component = {About} />
+					<Route path ="/login" exact component = {Login} />
+					<Route path ="/employees" exact component = {EmployeeList} />
+					<Route path ="/services" exact component = {ServiceList} />
+					<Route path ="/bookings" exact component = {ServiceList} />
+					<Route path ="/services/:id" component = {ServiceDetail} />
+					<Route>{'404'}</Route>
+				</Switch>
+			</div>
+		</Router>
+		<footer>
+			<hr className = "sector-divider"/>
+			<span>Carl Dietz 2020</span>
+		</footer>
+	</div>
+	);
+
 }
 export default App;

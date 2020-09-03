@@ -298,6 +298,109 @@ nav {
   margin: 7vh;
 }
 
+/*-------------------------------------PROFILE STYLING*/
+.profileButton{
+  height: 30px;
+  width: 30px;
+
+  border:none; 
+  background-color: #009BA0;
+  border-radius: 50%;
+}
+
+.modal-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom:0; 
+  z-index: 100;
+  background-color: rgba(0,0,0,0.25); 
+}
+
+.modalPane{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height:70%;
+  width:30%;
+  z-index: 101;
+  padding:40px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.paneHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.closeButton {
+  width: 40px;
+  height: 40px;
+  opacity: 0.3;
+  font-size: 36px;
+  line-height: 0;
+  border-radius: 50%;
+}
+.closeButton:hover {
+  opacity: 1;
+}
+
+.editButton {
+  width: 60px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 0;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  background-color: #dc5444;
+}
+
+.editButton:hover {
+  opacity: 1;
+  background-color: #b14033;
+}
+
+.paneBody{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height:80%;
+  width: 100%;
+}
+
+.actButton {
+  width: 120px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 0;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  background-color: #009BA0;
+}
+
+.actButton:hover {
+  opacity: 1;
+  background-color: #025457;
+}
+
+.paneInput{
+  border-style: hidden;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 0;
+  text-align: center;
+}
 /*-------------------------------------FOOTER STYLING*/
 
 footer{
