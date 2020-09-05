@@ -14,22 +14,23 @@ public class Profiles {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String type;
-    @NotBlank(message = "User first name is required.")
+//    @NotBlank(message = "User first name is required.")
     private String firstName;
-    @NotBlank(message = "User last name is required.")
+//    @NotBlank(message = "User last name is required.")
     private String lastName;
     @NotBlank(message = "Username must not be empty.")
     @Size(min = 5, message = "Username must have at least 5 characters.")
     @Column(updatable = false, unique = true)
     private String username;
-    @NotBlank(message = "Password is required.")
-    @Size(min = 8, max = 20, message = "Password length required: 8-20 characters.")
-    private String password;
     @NotBlank(message = "User email is required.")
     private String email;
     @NotBlank(message = "Phone number is required.")
     private String mobileNum;
-
+    @NotBlank(message = "Password is required.")
+    @Size(min = 8, max = 20, message = "Password length required: 8-20 characters.")
+    private String password;
+    // testing
+    private String confirmPassword;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd@HH:mm:ss")
     private Date created_At;
@@ -79,14 +80,6 @@ public class Profiles {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -101,6 +94,22 @@ public class Profiles {
 
     public void setMobileNum(String mobileNum) {
         this.mobileNum = mobileNum;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public Date getCreated_At() {

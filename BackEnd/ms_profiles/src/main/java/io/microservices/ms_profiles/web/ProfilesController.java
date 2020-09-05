@@ -21,6 +21,7 @@ public class ProfilesController {
     @Autowired
     private MapValidationErrorService mapValidation;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody Profiles profiles, BindingResult result) {
 

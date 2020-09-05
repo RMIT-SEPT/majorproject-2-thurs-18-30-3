@@ -39,11 +39,11 @@ const Create = () => {
 
   const onSubmit = async (data) => {
     console.log('Registration data', data)
-    const {username, password, confirmPassword, email} = data
+    const {username, password, confirmPassword, email, mobileNum} = data
     if (password !== confirmPassword) return setAlertMsg('Password mismatch')
 
     try {
-      await AuthService.register(username, email, password)
+      await AuthService.register(username, password, email, mobileNum)
       setRegisterSuccess(true)
       setAlertMsg('Successfully registered')
     } catch (err) {
@@ -83,7 +83,7 @@ const Create = () => {
                 />
                 <TextField
                   inputRef={register}
-                  name="mobile"
+                  name="mobileNum"
                   label="Mobile phone"
                   variant="outlined"
                   error={!!errors.mobile}

@@ -1,25 +1,26 @@
-// import axios from 'axios'
+import axios from 'axios'
 
-// const API_URL = 'http://rmit:8080/api/auth/'
+const API_URL = 'http://localhost:8080/api/users'
 const USER_STORAGE_KEY = 'user'
 
-const register = (username, email, password) => {
-  // const {data} = axios.post(API_URL + 'signup', {
-  //   username,
-  //   email,
-  //   password,
-  // })
-
-  const data = {
+const register = (username, password, email, mobileNum) => {
+  const {data} = axios.post(API_URL, {
     username,
-  }
-  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
+    password,
+    email,
+    mobileNum,
+  })
 
+  // const data = {
+  //   username,
+  // }
+  // localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
+  console.log("data", data)
   return data
 }
 
 const login = async (username, password) => {
-  // const {data} = await axios.post(API_URL + 'signin', {
+  // const {data} = await axios.post(API_URL, {
   //   username,
   //   password,
   // })
