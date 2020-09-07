@@ -4,10 +4,10 @@
   text-align: center;
 }
 
-body { 
+body {
   min-height: 100%;
   margin: 0;
-  background: 537F8B;
+  background: #537F8B;
   font-family: "Space Grotesk", Helvetica, sans-serif;
 }
 
@@ -36,9 +36,15 @@ nav {
   align-items: flex-end;
   height: 6vh;
   width: 100vw;
-  
-  border-bottom: solid #009BA0;
-  color: #009BA0;
+  background: #202D31;
+  box-shadow: 0 5px 20px 5px #C2CCCD;
+  color: #D0F4F8;
+}
+
+.logoDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logoDiv h1{
@@ -419,7 +425,7 @@ footer hr{
 }
 
 footer span{
-  font-family: Space Grotesk;
+  font-family: Space Grotesk, serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
