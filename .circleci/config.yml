@@ -27,7 +27,7 @@ jobs:
       - run: mvn package
 
       - store_test_results:
-          path: majorproject-2-thurs-18-30-3/BackEnd/ms_profiles/target/surefire-reports
+          path: BackEnd/ms_profiles/target/surefire-reports
 
       - store_artifacts:
-          path: majorproject-2-thurs-18-30-3/BackEnd/ms_profiles/target/ms_profiles-0.0.1-SNAPSHOT.jar
+          path: BackEnd/ms_profiles/target/ms_profiles-0.0.1-SNAPSHOT.jar
