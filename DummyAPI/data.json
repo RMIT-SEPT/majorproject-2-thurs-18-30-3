@@ -82,11 +82,11 @@
   ],
   "customers": [
     {
-      "id": 1,
-      "email": "Max@Cust.wizard",
-      "name": "Max de Winter",
+      "email": "Max deWinter",
+      "name": "MaxWinter@Cust.wiz0",
       "pword": "cust",
-      "phone": "1234 5678"
+      "phone": "1234 5678",
+      "id": 1
     },
     {
       "id": 2,

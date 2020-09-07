@@ -41,9 +41,11 @@ const ProfilePaneContainer = forwardRef((props,ref) => {
             body: JSON.stringify(prof),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
-                }
-        }).then(response => {response.json()}).then(json => {
-            console.log(json)
+            }
+        }).then(
+            response => {response.json()
+        }).then(()=>{
+            setProfile(prof);
         });
     }
 
@@ -59,7 +61,7 @@ const ProfilePaneContainer = forwardRef((props,ref) => {
     {
         //Modal components are linked to modal-root node
         return ReactDOM.createPortal(
-            <ProfilePane close={close} profile={profile} update = {updateProfile}></ProfilePane>, document.getElementById("modal-root"))
+            <ProfilePane close={close} profile={profile} reload = {loadProfile} update = {updateProfile}></ProfilePane>, document.getElementById("modal-root"))
     }
 
     return null;
