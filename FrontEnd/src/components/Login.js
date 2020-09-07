@@ -93,18 +93,6 @@ const Login = () => {
 };
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        '& .MuiTextField-root': {
-            margin: theme.spacing(1),
-        },
-    },
-    card: {
-        margin: theme.spacing(3),
-        padding: theme.spacing(1),
-    },
-}))
-
-const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
