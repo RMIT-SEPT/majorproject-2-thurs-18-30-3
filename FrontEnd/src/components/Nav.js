@@ -7,7 +7,14 @@ import ProfilePaneContainer from '../containers/ProfilePaneContainer';
 
 //Basic Top Navigation Bar
 function Nav() {
-    const [currentUser, setCurrentUser] = useState(true);
+    const [currentUser, setCurrentUser] = useState(undefined)
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser()
+    if (user) {
+      setCurrentUser(user)
+    }
+  }, [])
 
     const modalRef = React.useRef();
 	
@@ -18,15 +25,14 @@ function Nav() {
     useEffect(() => {
         const user = AuthService.getCurrentUser()
         if (user) {
-        setCurrentUser(user)
+          setCurrentUser(user)
         }
-    }, [])
+      }, [])
 
     return (
-        <nav>
-            <div className = "logoDiv">
-                <h1>AGME</h1>
-            </div>
+        <nav className = "topNav">
+            
+            <h1>AGME</h1>
 
             <u1 className = "nav-links">
                 <Link to="/services" className = "big-link">

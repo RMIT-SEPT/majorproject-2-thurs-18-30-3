@@ -4,11 +4,11 @@ import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom
 import ServiceList from '../containers/ServiceListContainer'
 import EmployeeList from '../containers/EmployeeListContainer'
 
-import NavigationBar from '../components/NavigationBar'
+import Nav from '../components/Nav'
 import About from '../components/About'
 import Create from '../components/Create'
 import Login from '../components/Login'
-import BookingDetail from '../components/BookingDetail'
+import ServiceDetail from '../components/ServiceDetail'
 // import Booking from '../components/Booking'
 
 import CurrentUser from '../context/CurrentUser'
@@ -44,7 +44,7 @@ function App() {
   return (
     <Router>
       <CurrentUser.Provider value={[user, setUser]}>
-        <NavigationBar />
+        <Nav />
         <Switch>
           <Route path="/create" exact component={Create} />
           <Route path="/login" exact component={Login} />
@@ -54,7 +54,7 @@ function App() {
             <Route path="/services" exact component={ServiceList} />
             <Route path="/employees" exact component={EmployeeList} />
             {/*<Route path="/bookings" exact component={Booking} />*/}
-            <Route path="/bookings/:id" component={BookingDetail} />
+            <Route path ="/services/:id" component = {ServiceDetail} />
           </PrivateRoute>
         </Switch>
       </CurrentUser.Provider>

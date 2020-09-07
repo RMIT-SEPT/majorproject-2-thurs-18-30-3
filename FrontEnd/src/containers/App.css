@@ -30,29 +30,23 @@ h1{
 }
 /* ------------------------------ NAV COMPONENT STYLING */
 
-nav {
+.topNav {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
   align-items: flex-end;
+  justify-content: space-around;
   height: 6vh;
   width: 100vw;
-  background: #202D31;
-  box-shadow: 0 5px 20px 5px #C2CCCD;
-  color: #D0F4F8;
+  border-bottom: solid #009BA0;
+  color: #009BA0;
 }
 
-.logoDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logoDiv h1{
-  /* AGME */
+.topNav h1{
   font-style: normal;
   font-weight: 500;
   font-size: 48px;
-  line-height: 42%;
+  
+  margin: -10px;
 }
 
 .nav-links {
