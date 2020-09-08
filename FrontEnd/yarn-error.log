@@ -1,25 +1,30 @@
 Arguments: 
-  D:\DEV\nodejs\node.exe C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
+  D:\NodeJS\node.exe C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
 
 PATH: 
-  C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Putty\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;D:\DEV\nodejs\;C:\Users\c-die\AppData\Local\Microsoft\WindowsApps;C:\Users\c-die\AppData\Local\GitHubDesktop\bin;C:\Users\c-die\AppData\Roaming\npm;C:\Users\c-die\AppData\Local\Programs\Microsoft VS Code\bin
+  C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_144\bin;C:\Program Files\dotnet\;C:\Program Files (x86)\dotnet\;D:\NodeJS\;D:\Go\bin;C:\Program Files (x86)\Calibre2\;C:\Users\c-die\AppData\Roaming\Dashlane\4.6.0.17042\bin\Firefox_Extension\{442718d9-475e-452a-b3e1-fb1ee16b8e9f}\components;C:\Users\c-die\AppData\Local\Microsoft\WindowsApps;C:\Users\c-die\Panda3D-1.9.3-x64\python;C:\Users\c-die\Panda3D-1.9.3-x64\python\Scripts;C:\Users\c-die\Panda3D-1.9.3-x64\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath_target_4126671;C:\Users\c-die\AppData\Roaming\npm;C:\Users\c-die\go\bin;C:\Users\c-die\AppData\Local\GitHubDesktop\bin;D:\RMIT\CT\New folder\miktex\bin\x64\;D:\Visual Studio Code\Microsoft VS Code\bin
 
 Yarn version: 
-  1.22.4
+  1.22.5
 
 Node version: 
-  12.18.2
+  10.15.3
 
 Platform: 
   win32 x64
 
 Trace: 
-  SyntaxError: D:\SEPT\majorproject-2-thurs-18-30-3\majorproject-2-thurs-18-30-3\FrontEnd\package.json: Unexpected token < in JSON at position 85
-      at JSON.parse (<anonymous>)
-      at C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
-      at C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+  Error: canceled
+      at Interface.<anonymous> (C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:136216:13)
+      at Interface.emit (events.js:189:13)
+      at Interface._ttyWrite (readline.js:783:16)
+      at ReadStream.onkeypress (readline.js:168:10)
+      at ReadStream.emit (events.js:189:13)
+      at emitKeys (internal/readline.js:424:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1022:36)
+      at ReadStream.emit (events.js:189:13)
+      at addChunk (_stream_readable.js:284:12)
 
 npm manifest: 
   {
@@ -27,48 +32,27 @@ npm manifest:
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-  <<<<<<< HEAD
-      "@date-io/date-fns": "^2.8.0",
-  =======
       "@date-io/date-fns": "^2.8.1",
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
       "@hookform/resolvers": "^0.1.0",
       "@material-ui/core": "^4.11.0",
       "@material-ui/lab": "^4.0.0-alpha.56",
       "@material-ui/pickers": "^3.2.10",
-  <<<<<<< HEAD
-      "axios": "^0.19.2",
-      "bootstrap": "^4.5.2",
-      "date-fns": "^2.15.0",
-  =======
       "@testing-library/jest-dom": "^5.11.4",
       "@testing-library/react": "^10.4.9",
       "@testing-library/user-event": "^12.1.3",
       "axios": "^0.20.0",
       "bootstrap": "^4.5.2",
       "date-fns": "^2.16.0",
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
       "moment": "^2.27.0",
       "react": "^16.13.1",
       "react-bootstrap": "^1.3.0",
       "react-dom": "^16.13.1",
-  <<<<<<< HEAD
-      "react-hook-form": "^6.5.3",
-      "react-redux": "^7.2.1",
-      "react-router-dom": "^5.2.0",
-      "react-scripts": "^3.4.3",
-      "react-svg-polygon": "^2.0.6",
-      "react-validation": "^3.0.7",
-      "reactstrap": "^8.5.1",
-      "redux": "^4.0.5",
-  =======
       "react-hook-form": "^6.6.0",
       "react-router-dom": "^5.2.0",
       "react-scripts": "^3.4.3",
       "react-svg-polygon": "^2.0.6",
       "reactstrap": "^8.5.1",
       "validator": "^13.1.1",
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
       "yup": "^0.29.3"
     },
     "scripts": {
@@ -95,23 +79,12 @@ npm manifest:
     "devDependencies": {
       "@babel/plugin-transform-react-jsx": "^7.10.4",
       "@babel/preset-react": "^7.10.4",
-  <<<<<<< HEAD
-      "@testing-library/dom": "^7.22.5",
-      "@testing-library/jest-dom": "^5.11.4",
-      "@testing-library/react": "^9.5.0",
-      "@testing-library/user-event": "^7.2.1",
-      "identity-obj-proxy": "^3.0.0",
-      "prettier": "2.0.5",
-      "react-test-renderer": "^16.13.1",
-      "redux-devtools": "^3.6.1"
-  =======
       "babel-jest": "^24.9.0",
       "identity-obj-proxy": "^3.0.0",
       "jest": "24.9.0",
       "jest-fetch-mock": "^3.0.3",
       "prettier": "2.1.1",
       "react-test-renderer": "^16.13.1"
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     }
   }
 
@@ -1297,11 +1270,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@date-io/core/-/core-2.9.0.tgz#5f36e259b6438e456ca0fc177b57f68772b4b7b2"
     integrity sha512-OhPFn+mnVHzfF/zJNUTV1CeUCL51ngXo9sG458cwwsORTgc1Pw7Dx9dS1wqPsq+CcMQ5Sh1MsUIXi1zclFbHTQ==
   
-  <<<<<<< HEAD
-  "@date-io/date-fns@^2.8.0":
-  =======
   "@date-io/date-fns@^2.8.1":
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "2.8.1"
     resolved "https://registry.yarnpkg.com/@date-io/date-fns/-/date-fns-2.8.1.tgz#38bccab061b8183304679c6fcb5f92fc262280a3"
     integrity sha512-GZS49pCUeN7ztiXARfthj0/FLjcDKA7wFff8PlaXevngx0akU+Epnv6TGDCflaA2Vbx87gVUkUvpDf3JAI2eDw==
@@ -1636,14 +1605,6 @@ Lockfile:
     dependencies:
       lodash "^4.17.15"
       lodash-es "^4.17.15"
-  <<<<<<< HEAD
-  
-  "@sheerun/mutationobserver-shim@^0.3.2":
-    version "0.3.3"
-    resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.3.tgz#5405ee8e444ed212db44e79351f0c70a582aae25"
-    integrity sha512-DetpxZw1fzPD5xUBrIAoplLChO2VB8DlL5Gg+I1IR9b2wPqYIca2WSUxL5g1vLeR4MsQq1NeWriXAVffV+U1Fw==
-  =======
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
   
   "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
     version "4.2.0"
@@ -1748,11 +1709,7 @@ Lockfile:
       "@svgr/plugin-svgo" "^4.3.1"
       loader-utils "^1.2.3"
   
-  <<<<<<< HEAD
-  "@testing-library/dom@*", "@testing-library/dom@^7.22.5":
-  =======
   "@testing-library/dom@^7.22.3":
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "7.23.0"
     resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.23.0.tgz#c54c0fa53705ad867bcefb52fc0c96487fbc10f6"
     integrity sha512-H5m090auYH+obdZmsaYLrSWC5OauWD2CvNbz88KBxQJoXgkJzbU0DpAG8BS7Evj5WqCC3nAAKrLS6vw0ljUYLg==
@@ -1768,22 +1725,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.4.tgz#f325c600db352afb92995c2576022b35621ddc99"
     integrity sha512-6RRn3epuweBODDIv3dAlWjOEHQLpGJHB2i912VS3JQtsD22+ENInhdDNl4ZZQiViLlIfFinkSET/J736ytV9sw==
     dependencies:
-  <<<<<<< HEAD
-      "@babel/runtime" "^7.8.4"
-      "@sheerun/mutationobserver-shim" "^0.3.2"
-      "@types/testing-library__dom" "^6.12.1"
-      aria-query "^4.0.2"
-      dom-accessibility-api "^0.3.0"
-      pretty-format "^25.1.0"
-      wait-for-expect "^3.0.2"
-  
-  "@testing-library/jest-dom@^5.11.4":
-    version "5.11.4"
-    resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.4.tgz#f325c600db352afb92995c2576022b35621ddc99"
-    integrity sha512-6RRn3epuweBODDIv3dAlWjOEHQLpGJHB2i912VS3JQtsD22+ENInhdDNl4ZZQiViLlIfFinkSET/J736ytV9sw==
-    dependencies:
-  =======
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
       "@babel/runtime" "^7.9.2"
       "@types/testing-library__jest-dom" "^5.9.1"
       aria-query "^4.2.2"
@@ -1920,15 +1861,9 @@ Lockfile:
     integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
   
   "@types/node@*":
-  <<<<<<< HEAD
-    version "14.6.1"
-    resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.1.tgz#fdf6f6c6c73d3d8eee9c98a9a0485bc524b048d7"
-    integrity sha512-HnYlg/BRF8uC1FyKRFZwRaCPTPYKa+6I8QiUZFLredaGOou481cgFS4wKRFyKvQtX8xudqkSdBczJHIYSQYKrQ==
-  =======
     version "14.6.2"
     resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.2.tgz#264b44c5a28dfa80198fc2f7b6d3c8a054b9491f"
     integrity sha512-onlIwbaeqvZyniGPfdw/TEhKIh79pz66L1q06WUQqJLnAb6wbjvOtepLYTGHTqzdXgBYIE3ZdmqHDGsRsbBz7A==
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
   
   "@types/parse-json@^4.0.0":
     version "4.0.0"
@@ -1952,16 +1887,6 @@ Lockfile:
     dependencies:
       "@types/react" "*"
   
-  <<<<<<< HEAD
-  "@types/react-transition-group@^4.2.0", "@types/react-transition-group@^4.4.0":
-    version "4.4.0"
-    resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.0.tgz#882839db465df1320e4753e6e9f70ca7e9b4d46d"
-    integrity sha512-/QfLHGpu+2fQOqQaXh8MG9q03bFENooTb/it4jr5kKaZlDQfWvjqWZg48AwzPVMBHlRuTRAY7hRHCEOXz5kV6w==
-    dependencies:
-      "@types/react" "*"
-  
-  =======
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
   "@types/react@*", "@types/react@^16.9.11", "@types/react@^16.9.35":
     version "16.9.48"
     resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.48.tgz#d3387329f070d1b1bc0ff4a54a54ceefd5a8485c"
@@ -1979,16 +1904,6 @@ Lockfile:
     version "2.2.8"
     resolved "https://registry.yarnpkg.com/@types/styled-jsx/-/styled-jsx-2.2.8.tgz#b50d13d8a3c34036282d65194554cf186bab7234"
     integrity sha512-Yjye9VwMdYeXfS71ihueWRSxrruuXTwKCbzue4+5b2rjnQ//AtyM7myZ1BEhNhBQ/nL/RE7bdToUoLln2miKvg==
-  <<<<<<< HEAD
-    dependencies:
-      "@types/react" "*"
-  
-  "@types/testing-library__dom@*":
-    version "7.5.0"
-    resolved "https://registry.yarnpkg.com/@types/testing-library__dom/-/testing-library__dom-7.5.0.tgz#e0a00dd766983b1d6e9d10d33e708005ce6ad13e"
-    integrity sha512-mj1aH4cj3XUpMEgVpognma5kHVtbm6U6cHZmEFzCRiXPvKkuHrFr3+yXdGLXvfFRBaQIVshPGHI+hGTOJlhS/g==
-  =======
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     dependencies:
       "@types/react" "*"
   
@@ -1998,29 +1913,6 @@ Lockfile:
     integrity sha512-K7nUSpH/5i8i0NagTJ+uFUDRueDlnMNhJtMjMwTGPPSqyImbWC/hgKPDCKt6Phu2iMJg2kWqlax+Ucj2DKMwpA==
     dependencies:
       "@types/jest" "*"
-  
-  <<<<<<< HEAD
-  "@types/testing-library__jest-dom@^5.9.1":
-    version "5.9.2"
-    resolved "https://registry.yarnpkg.com/@types/testing-library__jest-dom/-/testing-library__jest-dom-5.9.2.tgz#59e4771a1cf87d51e89a5cc8195cd3b647cba322"
-    integrity sha512-K7nUSpH/5i8i0NagTJ+uFUDRueDlnMNhJtMjMwTGPPSqyImbWC/hgKPDCKt6Phu2iMJg2kWqlax+Ucj2DKMwpA==
-    dependencies:
-      "@types/jest" "*"
-  
-  "@types/testing-library__react@^9.1.2":
-    version "9.1.3"
-    resolved "https://registry.yarnpkg.com/@types/testing-library__react/-/testing-library__react-9.1.3.tgz#35eca61cc6ea923543796f16034882a1603d7302"
-    integrity sha512-iCdNPKU3IsYwRK9JieSYAiX0+aYDXOGAmrC/3/M7AqqSDKnWWVv07X+Zk1uFSL7cMTUYzv4lQRfohucEocn5/w==
-    dependencies:
-      "@types/react-dom" "*"
-      "@types/testing-library__dom" "*"
-      pretty-format "^25.1.0"
-  =======
-  "@types/warning@^3.0.0":
-    version "3.0.0"
-    resolved "https://registry.yarnpkg.com/@types/warning/-/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
-    integrity sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
   
   "@types/warning@^3.0.0":
     version "3.0.0"
@@ -3192,15 +3084,9 @@ Lockfile:
       lodash.uniq "^4.5.0"
   
   caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001111:
-  <<<<<<< HEAD
-    version "1.0.30001118"
-    resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001118.tgz#116a9a670e5264aec895207f5e918129174c6f62"
-    integrity sha512-RNKPLojZo74a0cP7jFMidQI7nvLER40HgNfgKQEJ2PFm225L0ectUungNQoK3Xk3StQcFbpBPNEvoWD59436Hg==
-  =======
     version "1.0.30001119"
     resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001119.tgz#99185d04bc00e76a86c9ff731dc5ec8e53aefca1"
     integrity sha512-Hpwa4obv7EGP+TjkCh/wVvbtNJewxmtg4yVJBLFnxo35vbPapBr138bUWENkb5j5L9JZJ9RXLn4OrXRG/cecPQ==
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
   
   capture-exit@^2.0.0:
     version "2.0.0"
@@ -4028,11 +3914,7 @@ Lockfile:
       whatwg-mimetype "^2.2.0"
       whatwg-url "^7.0.0"
   
-  <<<<<<< HEAD
-  date-fns@^2.15.0:
-  =======
   date-fns@^2.16.0:
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "2.16.0"
     resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.16.0.tgz#d34f0f5f2fd498c984513042e8f7247ea86c4cb7"
     integrity sha512-DWTRyfOA85sZ4IiXPHhiRIOs3fW5U6Msrp+gElXARa6EpoQTXPyHQmh7hr+ssw2nx9FtOQWnAMJKgL5vaJqILw==
@@ -4245,14 +4127,6 @@ Lockfile:
     dependencies:
       esutils "^2.0.2"
   
-  <<<<<<< HEAD
-  dom-accessibility-api@^0.3.0:
-    version "0.3.0"
-    resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.3.0.tgz#511e5993dd673b97c87ea47dba0e3892f7e0c983"
-    integrity sha512-PzwHEmsRP3IGY4gv/Ug+rMeaTIyTJvadCb+ujYXYeIylbHJezIyNToe8KfEgHTCEYyC+/bUghYOGg8yMGlZ6vA==
-  
-  =======
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
   dom-accessibility-api@^0.5.1:
     version "0.5.2"
     resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.5.2.tgz#ef3cdb5d3f0d599d8f9c8b18df2fb63c9793739d"
@@ -4387,15 +4261,9 @@ Lockfile:
     integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
   
   electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.523:
-  <<<<<<< HEAD
-    version "1.3.552"
-    resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.552.tgz#6a50736f155f9666501839c8e134ea28a5c80b84"
-    integrity sha512-8K28xz8WRBZw/tmP7W3bTC3M5RI58QyS4O7uX7m2zxLKniMO79CNg5wkuRw2Qya621Cuqa3pCGs3FHZptltB1Q==
-  =======
     version "1.3.555"
     resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.555.tgz#a096716ff77cf8da9a608eb628fd6927869503d2"
     integrity sha512-/55x3nF2feXFZ5tdGUOr00TxnUjUgdxhrn+eCJ1FAcoAt+cKQTjQkUC5XF4frMWE1R5sjHk+JueuBalimfe5Pg==
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
   
   elliptic@^6.5.3:
     version "6.5.3"
@@ -5172,16 +5040,6 @@ Lockfile:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/fn-name/-/fn-name-3.0.0.tgz#0596707f635929634d791f452309ab41558e3c5c"
     integrity sha512-eNMNr5exLoavuAMhIUVsOKF79SWd/zG104ef6sxBTSw+cZc6BXdQXDvYcGvp0VbxVVSp1XDUNoz7mg1xMtSznA==
-  <<<<<<< HEAD
-  
-  follow-redirects@1.5.10:
-    version "1.5.10"
-    resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-    integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
-    dependencies:
-      debug "=3.1.0"
-  =======
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
   
   follow-redirects@^1.0.0, follow-redirects@^1.10.0:
     version "1.13.0"
@@ -5607,11 +5465,7 @@ Lockfile:
       minimalistic-assert "^1.0.0"
       minimalistic-crypto-utils "^1.0.1"
   
-  <<<<<<< HEAD
-  hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
-  =======
   hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.2:
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "3.3.2"
     resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
     integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -7215,11 +7069,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
     integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
   
-  lodash.omit@^4.5.0:
-    version "4.5.0"
-    resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
-    integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
-  
   lodash.sortby@^4.7.0:
     version "4.7.0"
     resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
@@ -7931,15 +7780,9 @@ Lockfile:
       mimic-fn "^2.1.0"
   
   open@^7.0.2:
-  <<<<<<< HEAD
-    version "7.2.0"
-    resolved "https://registry.yarnpkg.com/open/-/open-7.2.0.tgz#212959bd7b0ce2e8e3676adc76e3cf2f0a2498b4"
-    integrity sha512-4HeyhxCvBTI5uBePsAdi55C5fmqnWZ2e2MlmvWi5KW5tdH5rxoiv/aMtbeVxKZc3eWkT1GymMnLG8XC4Rq4TDQ==
-  =======
     version "7.2.1"
     resolved "https://registry.yarnpkg.com/open/-/open-7.2.1.tgz#07b0ade11a43f2a8ce718480bdf3d7563a095195"
     integrity sha512-xbYCJib4spUdmcs0g/2mK1nKo/jO2T7INClWd/beL7PFkXRWgr8B23ssDHX/USPn2M2IjDR5UdpYs6I67SnTSA==
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     dependencies:
       is-docker "^2.0.0"
       is-wsl "^2.1.1"
@@ -9060,11 +8903,7 @@ Lockfile:
       renderkid "^2.0.1"
       utila "~0.4"
   
-  <<<<<<< HEAD
-  pretty-format@^24.3.0, pretty-format@^24.9.0:
-  =======
   pretty-format@^24.9.0:
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "24.9.0"
     resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-24.9.0.tgz#12fac31b37019a4eea3c11aa9a959eb7628aa7c9"
     integrity sha512-00ZMZUiHaJrNfk33guavqgvfJS30sLYf0f8+Srklv0AMPodGGHcoHgksZ3OThYnIvOd+8yMCn0YiEOogjlgsnA==
@@ -9074,11 +8913,7 @@ Lockfile:
       ansi-styles "^3.2.0"
       react-is "^16.8.4"
   
-  <<<<<<< HEAD
-  pretty-format@^25.1.0, pretty-format@^25.2.1, pretty-format@^25.5.0:
-  =======
   pretty-format@^25.2.1, pretty-format@^25.5.0:
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "25.5.0"
     resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-25.5.0.tgz#7873c1d774f682c34b8d48b6743a2bf2ac55791a"
     integrity sha512-kbo/kq2LQ/A/is0PQwsEHM7Ca6//bGPPvU6UnsdDRSKTWxT/ru/xb88v4BJf6a69H+uTytOEsTusT9ksd/1iWQ==
@@ -9146,11 +8981,7 @@ Lockfile:
       react-is "^16.3.2"
       warning "^4.0.0"
   
-  <<<<<<< HEAD
-  prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
-  =======
   prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "15.7.2"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
     integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9390,21 +9221,12 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
     integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
   
-  <<<<<<< HEAD
-  react-hook-form@^6.5.3:
-    version "6.5.3"
-    resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.5.3.tgz#77c153731a96950ea1875a934b2e5d39a5673087"
-    integrity sha512-ID0z1udMQueWta3cceQUBaWLqZZLwSNWkxXYcuxa0nbII+mnggmGiEQW7PuWBBkEXv6GdHlu4PNqRj/FoeDpRg==
-  
-  react-is@^16.12.0, react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6, react-is@^16.9.0:
-  =======
   react-hook-form@^6.6.0:
     version "6.6.0"
     resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.6.0.tgz#bda76fc50a916096afe18119f6f57f2b3911cdb7"
     integrity sha512-5UKx2SBMaWuwy614H730Vv2QmoGdsdYpN96MnWXYzC8cHIUi9N2hYwtI86TEIcBHJ6FvEewh3onfA7P243RM1g==
   
   react-is@^16.12.0, react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "16.13.1"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -9440,17 +9262,6 @@ Lockfile:
       prop-types "^15.6.1"
       typed-styles "^0.0.7"
       warning "^4.0.2"
-  
-  react-redux@^7.2.1:
-    version "7.2.1"
-    resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.1.tgz#8dedf784901014db2feca1ab633864dee68ad985"
-    integrity sha512-T+VfD/bvgGTUA74iW9d2i5THrDQWbweXP0AVNI8tNd1Rk5ch1rnMiJkDD67ejw7YBKM4+REvcvqRuWJb7BLuEg==
-    dependencies:
-      "@babel/runtime" "^7.5.5"
-      hoist-non-react-statics "^3.3.0"
-      loose-envify "^1.4.0"
-      prop-types "^15.7.2"
-      react-is "^16.9.0"
   
   react-router-dom@^5.2.0:
     version "5.2.0"
@@ -9579,20 +9390,6 @@ Lockfile:
       loose-envify "^1.4.0"
       prop-types "^15.6.2"
   
-  <<<<<<< HEAD
-  react-validation@^3.0.7:
-    version "3.0.7"
-    resolved "https://registry.yarnpkg.com/react-validation/-/react-validation-3.0.7.tgz#b5070bf8a6e737b870d87bbfb72ccca72b3f3750"
-    integrity sha1-tQcL+KbnN7hw2Hu/tyzMpys/N1A=
-    dependencies:
-      lodash.omit "^4.5.0"
-      prop-types "^15.6.0"
-      react "^16.0.0"
-      shallow-equal "^1.0.0"
-      uuid "^3.1.0"
-  
-  =======
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
   react@16.5.2:
     version "16.5.2"
     resolved "https://registry.yarnpkg.com/react/-/react-16.5.2.tgz#19f6b444ed139baa45609eee6dc3d318b3895d42"
@@ -9603,11 +9400,7 @@ Lockfile:
       prop-types "^15.6.2"
       schedule "^0.5.0"
   
-  <<<<<<< HEAD
-  react@^16.0.0, react@^16.13.1:
-  =======
   react@^16.13.1:
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "16.13.1"
     resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
     integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
@@ -9720,31 +9513,6 @@ Lockfile:
     dependencies:
       indent-string "^4.0.0"
       strip-indent "^3.0.0"
-  
-  redux-devtools-instrument@^1.9.7:
-    version "1.9.7"
-    resolved "https://registry.yarnpkg.com/redux-devtools-instrument/-/redux-devtools-instrument-1.9.7.tgz#ea3103c27da3ad2d37e197a885430fa43a0c9580"
-    integrity sha512-QUc2GwRy7I1zhUVsrsRzopptOzT7kTYkLhKoO2Z1sNChVRrbzV0BKwyyQPShpsRrxvpl2ZF1qn93I688AWn4dg==
-    dependencies:
-      lodash "^4.17.19"
-      symbol-observable "^1.2.0"
-  
-  redux-devtools@^3.6.1:
-    version "3.6.1"
-    resolved "https://registry.yarnpkg.com/redux-devtools/-/redux-devtools-3.6.1.tgz#b9e11ed14b2dd9e9d492ab90fabd64f8476a7475"
-    integrity sha512-z0OFPb3WGmYgJ1KOAGVH3Ri7KLmH1HPax3ZelOzu2S3PqzXmLegaO6/LpvEiH6ZUQc07lHpSrHCFNKCRBRwEiQ==
-    dependencies:
-      lodash "^4.17.19"
-      prop-types "^15.7.2"
-      redux-devtools-instrument "^1.9.7"
-  
-  redux@^4.0.5:
-    version "4.0.5"
-    resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
-    integrity sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w==
-    dependencies:
-      loose-envify "^1.4.0"
-      symbol-observable "^1.2.0"
   
   regenerate-unicode-properties@^8.2.0:
     version "8.2.0"
@@ -10308,11 +10076,6 @@ Lockfile:
     dependencies:
       kind-of "^6.0.2"
   
-  shallow-equal@^1.0.0:
-    version "1.2.1"
-    resolved "https://registry.yarnpkg.com/shallow-equal/-/shallow-equal-1.2.1.tgz#4c16abfa56043aa20d050324efa68940b0da79da"
-    integrity sha512-S4vJDjHHMBaiZuT9NPb616CSmLf618jawtv3sufLl6ivK8WocjAo58cXwbRV1cgqxH0Qbv+iUt6m05eqEa2IRA==
-  
   shebang-command@^1.2.0:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-1.2.0.tgz#44aac65b695b03398968c39f363fee5deafdf1ea"
@@ -10867,11 +10630,6 @@ Lockfile:
       unquote "~1.1.1"
       util.promisify "~1.0.0"
   
-  symbol-observable@^1.2.0:
-    version "1.2.0"
-    resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
-    integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
-  
   symbol-tree@^3.2.2:
     version "3.2.4"
     resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
@@ -11343,11 +11101,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
     integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
   
-  <<<<<<< HEAD
-  uuid@^3.1.0, uuid@^3.3.2, uuid@^3.4.0:
-  =======
   uuid@^3.3.2, uuid@^3.4.0:
-  >>>>>>> ed9cdff95409061063b3390f0f95305ff1ab619c
     version "3.4.0"
     resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
     integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
