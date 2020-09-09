@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Nav Renders 1`] = `
+<nav>
+  <div
+    className="logoDiv"
+  >
+    <h1>
+      AGME
+    </h1>
+  </div>
+  <u1
+    className="nav-links"
+  >
+    <a
+      className="big-link"
+      href="/services"
+      onClick={[Function]}
+    >
+      <li>
+        services
+      </li>
+    </a>
+    <a
+      className="big-link"
+      href="/about"
+      onClick={[Function]}
+    >
+      <li>
+        about
+      </li>
+    </a>
+    <a
+      className="big-link"
+      href="/services"
+      onClick={[Function]}
+    >
+      <li>
+        book
+      </li>
+    </a>
+    <a
+      className="big-link"
+      href="/employees"
+      onClick={[Function]}
+    >
+      <li>
+        employees
+      </li>
+    </a>
+    <ul
+      className="login-links"
+    >
+      <a
+        className="little-link"
+        href="/login"
+        onClick={[Function]}
+      >
+        <li>
+          login
+        </li>
+      </a>
+      <a
+        className="little-link"
+        href="/create"
+        onClick={[Function]}
+      >
+        <li>
+          create
+        </li>
+      </a>
+    </ul>
+  </u1>
+</nav>
+`;
