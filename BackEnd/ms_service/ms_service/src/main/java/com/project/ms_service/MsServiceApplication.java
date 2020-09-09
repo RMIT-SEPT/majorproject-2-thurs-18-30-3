@@ -1,4 +1,4 @@
-package com.project.ms_service;
+package com.project.ms_service.ms_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

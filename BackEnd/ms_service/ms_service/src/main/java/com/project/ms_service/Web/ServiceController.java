@@ -1,16 +1,15 @@
-package com.project.ms_service.Web;
+package com.project.ms_service.ms_service.Web;
 
-import com.project.ms_service.Model.AppService;
-import com.project.ms_service.Service.ServiceEngine;
+import com.project.ms_service.ms_service.Model.AppService;
+import com.project.ms_service.ms_service.Service.MapValidationErrorService;
+import com.project.ms_service.ms_service.Service.ServiceEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/service")
@@ -19,8 +18,11 @@ public class ServiceController {
     @Autowired
     private ServiceEngine serviceEngine;
 
+    @Autowired
+    private MapValidationErrorService mapValidation;
+
     @PostMapping("")
-    public ResponseEntity<AppService> createNewBookings(@RequestBody AppService service) {
+    public ResponseEntity<?> createNewBookings(@Valid @RequestBody AppService service, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidation.MapValidationService(result);
         if(errorMap != null) {
             return errorMap;
@@ -32,7 +34,7 @@ public class ServiceController {
     @GetMapping("/{name}")
     public ResponseEntity<?> getUsers(@PathVariable String name) {
         AppService service = serviceEngine.findByName(name);
-        return new ResponseEntity<AppService>(AppService, HttpStatus.OK);
+        return new ResponseEntity<AppService>(service, HttpStatus.OK);
     }
 
     @GetMapping("/all")

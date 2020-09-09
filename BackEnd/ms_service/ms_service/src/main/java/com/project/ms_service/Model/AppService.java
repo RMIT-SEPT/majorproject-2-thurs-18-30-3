@@ -1,6 +1,6 @@
-package com.project.ms_service.Model;
+package com.project.ms_service.ms_service.Model;
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 
 
@@ -9,9 +9,9 @@ public class AppService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name;
-    @NotBlank(message = "name of service cannot be blank.")
+
     private String description;
-    @NotBlank(message = "Description cannot be blank.")
+
     private String photo;
 
     public AppService() {
