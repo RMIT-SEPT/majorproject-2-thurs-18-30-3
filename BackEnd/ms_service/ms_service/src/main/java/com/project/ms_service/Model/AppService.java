@@ -9,10 +9,14 @@ public class AppService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name;
+    @NotBlank(message = "name of service cannot be blank.")
     private String description;
+    @NotBlank(message = "Description cannot be blank.")
     private String photo;
 
+    public AppService() {
 
+    }
 
     public void setName(String name) {
         this.name = name;
