@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.3.RELEASE</version>
+        <version>2.3.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.microservices</groupId>
-    <artifactId>ms_profiles</artifactId>
+    <artifactId>ms_template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ms_profiles</name>
-    <description>Microservice for profiles for users</description>
+    <name>ms_template</name>
+    <description>microservice template pom.xml</description>
 
     <properties>
         <java.version>1.8</java.version>
