@@ -1,6 +1,6 @@
-import axios from 'axios'
+// import axios from 'axios'
 
-const API_URL = 'http://rmit:8080/api/auth/'
+// const API_URL = 'http://rmit:8080/api/auth/'
 
 const register = (username, email, password) => {
   // const {data} = axios.post(API_URL + 'signup', {
@@ -26,7 +26,7 @@ const login = async (username, password) => {
   //   username,
   //   password,
   // })
-   const data = {
+  const data = {
     accessToken:
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
   }
@@ -43,7 +43,7 @@ const logout = () => {
 }
 
 const getCurrentUser = () => {
-  return JSON.parse(localStorage.getItem('data'))
+  return JSON.parse(localStorage.getItem('user'))
 }
 
 export default {
