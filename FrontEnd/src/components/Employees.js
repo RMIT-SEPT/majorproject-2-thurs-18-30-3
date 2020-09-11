@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
-import Axios from 'axios'
 import {makeStyles} from '@material-ui/core/styles'
-import MaterialTable from 'material-table'
-
-import '../containers/App.css'
 import Snackbar from '@material-ui/core/Snackbar'
 import Alert from '@material-ui/lab/Alert'
+import MaterialTable from 'material-table'
+import Axios from 'axios'
+
+import '../containers/App.css'
 
 function Employees(props) {
   const classes = useStyles()
@@ -31,8 +31,8 @@ function Employees(props) {
       await Axios.post('https://5f50f63c5e98480016123379.mockapi.io/employees', newData)
       setEmployees([...employees, newData])
       setAlertMsg(`${newData.name} has been added`)
-    } catch (err) {
-      setAlertErrorMsg(err.messsage)
+    } catch ({messsage}) {
+      setAlertErrorMsg(messsage)
     }
   }
 
@@ -40,8 +40,8 @@ function Employees(props) {
     try {
       await Axios.put(`https://5f50f63c5e98480016123379.mockapi.io/employees/${oldData.id}`, newData)
       setEmployees([...employees, newData])
-    } catch (err) {
-      setAlertErrorMsg(err.messsage)
+    } catch ({messsage}) {
+      setAlertErrorMsg(messsage)
     }
 
     setTimeout(() => {
@@ -57,8 +57,8 @@ function Employees(props) {
       const data = [...employees]
       data.splice(data.indexOf(oldData), 1)
       setEmployees(data)
-    } catch (err) {
-      setAlertErrorMsg(err.messsage)
+    } catch ({messsage}) {
+      setAlertErrorMsg(messsage)
     }
   }
 
@@ -67,8 +67,7 @@ function Employees(props) {
       <Snackbar
         anchorOrigin={{vertical: 'top', horizontal: 'right'}}
         open={alertMsg !== ''}
-        onClose={() => setAlertMsg('')}
-        message="I love snacks">
+        onClose={() => setAlertMsg('')}>
         <Alert onClose={() => setAlertMsg('')} severity="success">
           {alertMsg}
         </Alert>
@@ -76,8 +75,7 @@ function Employees(props) {
       <Snackbar
         anchorOrigin={{vertical: 'top', horizontal: 'right'}}
         open={alertErrorMsg !== ''}
-        onClose={() => setAlertMsg('')}
-        message="I love snacks">
+        onClose={() => setAlertErrorMsg('')}>
         <Alert onClose={() => setAlertErrorMsg('')} severity="error">
           {alertErrorMsg}
         </Alert>
