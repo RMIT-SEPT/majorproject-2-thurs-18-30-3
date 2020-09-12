@@ -33,10 +33,10 @@ jobs:
             curl https://www.npmjs.com/install.sh | sudo bash
 
       - run :
-          name : Test front end
-          command : npm run test
-          shell : /bin/bash
-          working_directory: ~/majorproject-2-thurs-18-30-3/FrontEnd
+          name: Front end test
+          command: npm run test
+          shell: /bin/bash
+          working_directory: ~/project/FrontEnd
 
       - store_test_results:
           path: target/surefire-reports
