@@ -2,6 +2,8 @@ version: 2
 jobs:
   build:
 
+    working_directory: ../
+
     docker:
       - image: circleci/openjdk:8-jdk-stretch
       - image: circleci/postgres:9.6.3-alpine

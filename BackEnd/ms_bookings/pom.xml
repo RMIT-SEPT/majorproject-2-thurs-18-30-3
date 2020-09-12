@@ -7,13 +7,12 @@
             <groupId>io.microservices</groupId>
             <artifactId>ms_template</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <relativePath>~/majorproject-2-thurs-18-30-3</relativePath>
+            <relativePath>../../</relativePath>
         </parent>
 
     <groupId>io.microservices</groupId>
     <artifactId>ms_bookings</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
     <name>ms_bookings</name>
     <description>Demo project for Spring Boot</description>
 
