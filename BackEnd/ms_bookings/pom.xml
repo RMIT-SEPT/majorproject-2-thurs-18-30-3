@@ -4,15 +4,16 @@
     <modelVersion>4.0.0</modelVersion>
 
         <parent>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-parent</artifactId>
-            <version>2.3.2.RELEASE</version>
-            <relativePath/> <!-- lookup parent from repository -->
+            <groupId>io.microservices</groupId>
+            <artifactId>ms_template</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <relativePath>~/majorproject-2-thurs-18-30-3</relativePath>
         </parent>
 
     <groupId>io.microservices</groupId>
     <artifactId>ms_bookings</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>ms_bookings</name>
     <description>Demo project for Spring Boot</description>
 

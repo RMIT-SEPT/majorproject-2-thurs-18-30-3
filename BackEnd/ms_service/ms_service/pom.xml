@@ -17,6 +17,7 @@
     <groupId>com.project</groupId>
     <artifactId>ms_service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>ms_service</name>
     <description>Demo project for Spring Boot</description>
 
