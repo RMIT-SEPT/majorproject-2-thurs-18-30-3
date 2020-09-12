@@ -33,7 +33,13 @@ jobs:
             curl https://www.npmjs.com/install.sh | sudo bash
 
       - run :
-          name: Front end test
+          name: Front end - npm install
+          command: npm install
+          shell: /bin/bash
+          working_directory: ~/project/FrontEnd
+
+      - run :
+          name: Front end - npm runtest
           command: npm run test
           shell: /bin/bash
           working_directory: ~/project/FrontEnd
