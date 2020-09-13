@@ -34,11 +34,11 @@ jobs:
 
         # change working directory to backend, and then run mvn test
 
-#      - run :
-#          name: Front end - npm install
-#          command: npm install
-#          shell: /bin/bash
-#          working_directory: ~/project/FrontEnd
+      - run :
+          name: Front end - npm install
+          command: yarn install
+          shell: /bin/bash
+          working_directory: ~/project/FrontEnd
 #
 #      - run :
 #          name: Front end - npm runtest
