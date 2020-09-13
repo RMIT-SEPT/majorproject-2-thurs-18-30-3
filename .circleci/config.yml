@@ -36,13 +36,19 @@ jobs:
 
 
       - run:
-          name: Front end - yarn
+          name: Front end - install npm
+          command: npm install
+          shell: /bin/bash
+          working_directory: ~/project/FrontEnd
+
+      - run:
+          name: Front end - install yarn
           command: npm install -g yarn
           shell: /bin/bash
           working_directory: ~/project/FrontEnd
 
       - run:
-          name: Front end - yarn
+          name: Front end - yarn test
           command: yarn test
           shell: /bin/bash
           working_directory: ~/project/FrontEnd
@@ -50,7 +56,7 @@ jobs:
 
 #      - run :
 #          name: Front end - npm runtest
-#          command: npm run test
+#          command: npm install
 #          shell: /bin/bash
 #          working_directory: ~/project/FrontEnd
 #      - run :
