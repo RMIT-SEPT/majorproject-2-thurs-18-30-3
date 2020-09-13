@@ -43,7 +43,7 @@ jobs:
 
       - run:
           name: Front end - install yarn
-          command: npm install -g yarn
+          command: npm install yarn
           shell: /bin/bash
           working_directory: ~/project/FrontEnd
 
