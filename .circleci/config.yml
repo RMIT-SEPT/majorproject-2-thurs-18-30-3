@@ -34,9 +34,13 @@ jobs:
 
         # change working directory to backend, and then run mvn test
 
+
+
+
       - run :
           name: Front end - npm install
-          command: yarn install
+          command: |
+            curl -o- -L https://yarnpkg.com/install.sh | bash
           shell: /bin/bash
           working_directory: ~/project/FrontEnd
 #
