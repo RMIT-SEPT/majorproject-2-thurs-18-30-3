@@ -32,15 +32,23 @@ jobs:
             curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
             curl https://www.npmjs.com/install.sh | sudo bash
 
-      - run :
-          name: Front end - npm install
-          command: npm install
-          shell: /bin/bash
-          working_directory: ~/project/FrontEnd
+        # change working directory to backend, and then run mvn test
 
-      - run :
-          name: Front end - npm runtest
-          command: npm run test
+#      - run :
+#          name: Front end - npm install
+#          command: npm install
+#          shell: /bin/bash
+#          working_directory: ~/project/FrontEnd
+#
+#      - run :
+#          name: Front end - npm runtest
+#          command: npm run test
+#          shell: /bin/bash
+#          working_directory: ~/project/FrontEnd
+
+      - run:
+          name: Front end - yarn
+          command: yarn test
           shell: /bin/bash
           working_directory: ~/project/FrontEnd
 
@@ -51,5 +59,3 @@ jobs:
           path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
           #path: target/ms_profiles-0.0.1-SNAPSHOT.jar
 
-
-      # package.json should be feed into config.yml
