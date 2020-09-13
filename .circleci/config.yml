@@ -35,26 +35,28 @@ jobs:
         # change working directory to backend, and then run mvn test
 
 
-
-
       - run :
-          name: Front end - npm install
+          name: Front end - yarn install
           command: |
             curl -o- -L https://yarnpkg.com/install.sh | bash
-          shell: /bin/bash
-          working_directory: ~/project/FrontEnd
-#
-#      - run :
-#          name: Front end - npm runtest
-#          command: npm run test
-#          shell: /bin/bash
-#          working_directory: ~/project/FrontEnd
 
       - run:
           name: Front end - yarn
           command: yarn test
           shell: /bin/bash
           working_directory: ~/project/FrontEnd
+
+
+#      - run :
+#          name: Front end - npm runtest
+#          command: npm run test
+#          shell: /bin/bash
+#          working_directory: ~/project/FrontEnd
+#      - run :
+#          name: Front end - npm runtest
+#          command: npm run test
+#          shell: /bin/bash
+#          working_directory: ~/project/FrontEnd
 
       - store_test_results:
           path: target/surefire-reports
