@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Employees from '../components/Employees'
-import renderer from 'react-test-renderer'
+// import renderer from 'react-test-renderer'
 import {render} from '@testing-library/react'
 
 beforeEach(() => {})
@@ -12,7 +12,8 @@ describe('Employees test', () => {
   ]
   const mockFunc = jest.fn()
 
-  it('renders employees components successfully', () => {
+  // Waiting for a new release of Material Table
+  /*it('renders employees components successfully', () => {
     const employeesComponent = renderer
       .create(
         <Employees
@@ -27,7 +28,7 @@ describe('Employees test', () => {
       )
       .toJSON()
     expect(employeesComponent).toMatchSnapshot()
-  })
+  })*/
 
   it('shows success alert message', () => {
     const alertMsg = 'success message'
