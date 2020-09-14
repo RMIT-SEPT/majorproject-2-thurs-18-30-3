@@ -37,14 +37,8 @@ jobs:
 
 
       - run:
-          name: Front end - install npm
-          command: npm install
-          shell: /bin/bash
-          working_directory: ~/project/FrontEnd
-
-      - run:
           name: Front end - install yarn
-          command: npm install yarn
+          command: yarn init
           shell: /bin/bash
           working_directory: ~/project/FrontEnd
 
