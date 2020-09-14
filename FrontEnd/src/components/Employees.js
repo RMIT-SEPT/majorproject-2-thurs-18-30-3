@@ -18,9 +18,13 @@ function Employees({employees, onRowAdd, onRowUpdate, onRowDelete, alertMsg, ale
 
   return (
     <div className={classes.root}>
-      <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={alertMsg !== ''} onClose={onAlertClose}>
+      <Snackbar
+        anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+        open={alertMsg !== '' || alertErrorMsg !== ''}
+        onClose={onAlertClose}>
         <Alert onClose={onAlertClose} severity={alertMsg ? 'success' : 'error'}>
-          {alertMsg ?? alertErrorMsg}
+          {alertMsg}
+          {alertErrorMsg}
         </Alert>
       </Snackbar>
       <MaterialTable
