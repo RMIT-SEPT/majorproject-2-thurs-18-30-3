@@ -11,8 +11,8 @@ import Login from '../components/Login'
 import ServiceDetail from '../components/ServiceDetail'
 // import Booking from '../components/Booking'
 
-import CurrentUser from '../context/CurrentUser'
 import AuthService from '../services/auth.service'
+import CurrentUser from '../context/CurrentUser'
 
 //Root Component
 
@@ -54,7 +54,7 @@ function App() {
             <Route path="/services" exact component={ServiceList} />
             <Route path="/employees" exact component={EmployeeList} />
             {/*<Route path="/bookings" exact component={Booking} />*/}
-            <Route path ="/services/:id" component = {ServiceDetail} />
+            <Route path="/services/:id" component={ServiceDetail} />
           </PrivateRoute>
         </Switch>
       </CurrentUser.Provider>
