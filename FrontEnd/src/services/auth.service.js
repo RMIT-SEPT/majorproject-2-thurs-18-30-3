@@ -1,19 +1,23 @@
-// import axios from 'axios'
+import axios from 'axios'
 
 // const API_URL = 'http://rmit:8080/api/auth/'
+
 const USER_STORAGE_KEY = 'user'
 
-const register = (username, email, password) => {
-  // const {data} = axios.post(API_URL + 'signup', {
-  //   username,
-  //   email,
-  //   password,
-  // })
-
-  const data = {
+const register = async (username, password, email, address, mobile) => {
+  const {data} = await axios.post('https://5f50f63c5e98480016123379.mockapi.io/account', {
     username,
-  }
-  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
+    password,
+    email,
+    address,
+    mobile,
+    userType: 'customer',
+  })
+
+  // const data = {
+  //   username,
+  // }
+  // localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
 
   return data
 }
