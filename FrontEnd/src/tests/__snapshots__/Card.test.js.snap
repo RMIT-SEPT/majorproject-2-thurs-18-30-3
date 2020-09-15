@@ -14,7 +14,7 @@ Object {
           role="cell"
         >
           <img
-            alt="{service.name}"
+            alt="undefined"
             src="not-found.png"
           />
           <div
@@ -40,7 +40,7 @@ Object {
         role="cell"
       >
         <img
-          alt="{service.name}"
+          alt="undefined"
           src="not-found.png"
         />
         <div
@@ -126,7 +126,7 @@ exports[`Test Card Renders 1`] = `
     role="cell"
   >
     <img
-      alt="{service.name}"
+      alt="undefined"
       src="not-found.png"
     />
     <div

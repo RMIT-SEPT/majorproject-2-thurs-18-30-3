@@ -95,12 +95,3 @@ test('Check Gallery', () => {
 
   expect(gallery).toHaveTextContent('this is a test')
 })
-
-test('Check Gallery CSS', () => {
-  const container = setup()
-  const gallery = screen.getByRole('main')
-
-  expect(gallery).toHaveClass('services-gallery')
-  expect(gallery).toHaveClass('services-gallery')
-  expect(gallery).toHaveStyle('grid-template-columns: repeat(3, 1fr)')
-})
