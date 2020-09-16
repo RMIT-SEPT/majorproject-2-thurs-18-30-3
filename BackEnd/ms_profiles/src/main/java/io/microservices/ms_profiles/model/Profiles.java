@@ -13,7 +13,7 @@ public class Profiles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String type;
+    private String userType;
 //    @NotBlank(message = "User first name is required.")
     private String firstName;
 //    @NotBlank(message = "User last name is required.")
@@ -58,12 +58,12 @@ public class Profiles {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public String getFirstName() {
