@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
 
-import '../containers/App.css';
+import '../containers/App.css'
 import AuthService from '../services/auth.service'
-import ProfilePaneContainer from '../containers/ProfilePaneContainer';
+import ProfilePaneContainer from '../containers/ProfilePaneContainer'
 
 //Basic Top Navigation Bar
 function Nav() {
-    const [currentUser, setCurrentUser] = useState(undefined)
+  const [currentUser, setCurrentUser] = useState(undefined)
 
   useEffect(() => {
     const user = AuthService.getCurrentUser()
@@ -16,56 +16,59 @@ function Nav() {
     }
   }, [])
 
-    const modalRef = React.useRef();
-	
-	const OpenModal = () => {
-		modalRef.current.openModel()
-	}
+  const modalRef = React.useRef()
 
-    useEffect(() => {
-        const user = AuthService.getCurrentUser()
-        if (user) {
-          setCurrentUser(user)
-        }
-      }, [])
+  const OpenModal = () => {
+    modalRef.current.openModel()
+  }
 
-    return (
-        <nav className = "topNav">
-            
-            <h1>AGME</h1>
+  useEffect(() => {
+    const user = AuthService.getCurrentUser()
+    if (user) {
+      setCurrentUser(user)
+    }
+  }, [])
 
-            <u1 className = "nav-links">
-                <Link to="/services" className = "big-link">
-                    <li>services</li>
-                </Link>
-                <Link to="/about" className = "big-link">
-                    <li>about</li>
-                </Link>
-                <Link to="/services" className = "big-link">
-                    <li>book</li>
-                </Link>
-                <Link to="/employees" className = "big-link">
-                    <li>employees</li>
-                </Link>
-            
-                <ul className = "login-links">
-                {true ? (
-                        <button className = "profileButton" onClick = {() => OpenModal()}/>
-                  ) : (
-                    <>
-                        <Link to = "/login" className = "little-link">
-                            <li>login</li>
-                        </Link>
-                        <Link to="/create" className = "little-link">
-                            <li>create</li>
-                        </Link>
-                    </>
-                  )}
-                </ul>
-            </u1>
-            <ProfilePaneContainer showing={false} ref = {modalRef}>PROFILE</ProfilePaneContainer>
-        </nav>
-    );
+  return (
+    <nav className="topNav">
+      <h1>AGME</h1>
+
+      <ul className="nav-links">
+        <Link to="/services" className="big-link">
+          <li>services</li>
+        </Link>
+        <Link to="/about" className="big-link">
+          <li>about</li>
+        </Link>
+        <Link to="/services" className="big-link">
+          <li>book</li>
+        </Link>
+        <Link to="/employees" className="big-link">
+          <li>employees</li>
+        </Link>
+
+        <ul className="login-links">
+          {currentUser ? (
+            <>
+              <button className="profileButton" onClick={() => OpenModal()} />
+              <ProfilePaneContainer showing={false} ref={modalRef}>
+                PROFILE
+              </ProfilePaneContainer>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="little-link">
+                <li>login</li>
+              </Link>
+              <Link to="/create" className="little-link">
+                <li>create</li>
+              </Link>
+            </>
+          )}
+        </ul>
+      </ul>
+    </nav>
+  )
 }
 
-export default Nav;
+export default Nav
