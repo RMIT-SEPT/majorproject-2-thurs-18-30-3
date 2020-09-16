@@ -64,16 +64,16 @@ jobs:
 
 # --------------------------------------------------------------------------
 
-#      - run :
-#          name: Front end - npm runtest
-#          command: npm install
-#          shell: /bin/bash
-#          working_directory: ~/project/FrontEnd
-#      - run :
-#          name: Front end - npm runtest
-#          command: npm run test
-#          shell: /bin/bash
-#          working_directory: ~/project/FrontEnd
+      - run :
+          name: Front end - npm runtest
+          command: npm install
+          shell: /bin/bash
+          working_directory: ~/project/FrontEnd
+      - run :
+          name: Front end - npm runtest
+          command: npm run test
+          shell: /bin/bash
+          working_directory: ~/project/FrontEnd
 
       - store_test_results:
           path: target/surefire-reports
