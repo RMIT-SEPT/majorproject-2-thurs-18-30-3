@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import * as yup from 'yup'
 import {useForm} from 'react-hook-form'
 import {useHistory} from 'react-router-dom'
@@ -7,6 +7,7 @@ import {Button, Card, CardActions, CardContent, Grid, Snackbar, TextField} from 
 import {yupResolver} from '@hookform/resolvers'
 import {makeStyles} from '@material-ui/core/styles'
 import AuthService from '../services/auth.service'
+import CurrentUser from '../context/CurrentUser'
 
 const schema = yup.object().shape({
   username: yup.string().required(),
@@ -23,14 +24,18 @@ const Login = () => {
     resolver: yupResolver(schema),
   })
   const [alertMsg, setAlertMsg] = useState('')
+  const [, setCurrentUser] = useContext(CurrentUser)
   const history = useHistory()
 
   const handleLogin = async (data) => {
     console.log('Login data', data)
     const {username, password} = data
     try {
-      await AuthService.login(username, password)
-      history.push('/employees')
+      const user = await AuthService.login(username, password)
+      setCurrentUser(user)
+
+      if (user.userType === 'customer') history.push('/services')
+      else history.push('/')
     } catch (err) {
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)

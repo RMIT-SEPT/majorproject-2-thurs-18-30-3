@@ -1,20 +1,21 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
 import ProfilePaneContainer from '../containers/ProfilePaneContainer'
+import CurrentUser from '../context/CurrentUser'
 
 //Basic Top Navigation Bar
 function Nav() {
-  const [currentUser, setCurrentUser] = useState(undefined)
+  const [currentUser, setCurrentUser] = useContext(CurrentUser)
 
   useEffect(() => {
     const user = AuthService.getCurrentUser()
     if (user) {
       setCurrentUser(user)
     }
-  }, [])
+  }, [setCurrentUser])
 
   const modalRef = React.useRef()
 
@@ -27,7 +28,7 @@ function Nav() {
     if (user) {
       setCurrentUser(user)
     }
-  }, [])
+  }, [setCurrentUser])
 
   return (
     <nav className="topNav">
