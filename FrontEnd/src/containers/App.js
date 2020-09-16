@@ -8,11 +8,11 @@ import Nav from '../components/Nav'
 import About from '../components/About'
 import Create from '../components/Create'
 import Login from '../components/Login'
-import ServiceDetail from '../components/ServiceDetail'
+import ServiceDetailContainer from '../containers/ServiceDetailContainer'
 // import Booking from '../components/Booking'
 
-import AuthService from '../services/auth.service'
 import CurrentUser from '../context/CurrentUser'
+import AuthService from '../services/auth.service'
 
 //Root Component
 
@@ -41,6 +41,7 @@ function App() {
     )
   }
 
+  //Routing list of major pages in application
   return (
     <Router>
       <CurrentUser.Provider value={[user, setUser]}>
@@ -54,7 +55,7 @@ function App() {
             <Route path="/services" exact component={ServiceList} />
             <Route path="/employees" exact component={EmployeeList} />
             {/*<Route path="/bookings" exact component={Booking} />*/}
-            <Route path="/services/:id" component={ServiceDetail} />
+            <Route path ="/services/:id" component = {ServiceDetailContainer} />
           </PrivateRoute>
         </Switch>
       </CurrentUser.Provider>

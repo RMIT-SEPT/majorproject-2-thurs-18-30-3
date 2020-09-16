@@ -4,8 +4,7 @@ import {Link} from 'react-router-dom'
 
 import '../containers/App.css'
 
-//Displays a particular service
-
+//Displays a particular service in a small, granular card
 function ServiceCard({service}) {
   return (
     <Link to={`/services/${service.id}`} style={{textDecoration: 'none'}}>

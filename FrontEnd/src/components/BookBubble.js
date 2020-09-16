@@ -3,8 +3,7 @@ import { Button } from 'reactstrap';
 
 import '../containers/App.css';
 
-//Displays a booking slot
-
+//Displays a single clickable booking slot
 function BookBubble({ slot }) {
 	return (
         <Button className="book-bubble">

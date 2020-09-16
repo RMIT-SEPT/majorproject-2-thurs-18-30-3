@@ -1,14 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test Nav Renders 1`] = `
-<nav>
-  <div
-    className="logoDiv"
-  >
-    <h1>
-      AGME
-    </h1>
-  </div>
+<nav
+  className="topNav"
+>
+  <h1>
+    AGME
+  </h1>
   <u1
     className="nav-links"
   >
