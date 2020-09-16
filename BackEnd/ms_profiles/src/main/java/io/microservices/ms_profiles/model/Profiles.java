@@ -24,6 +24,8 @@ public class Profiles {
     private String username;
     @NotBlank(message = "User email is required.")
     private String email;
+    @NotBlank(message = "Address field is required.")
+    private String address;
     @NotBlank(message = "Phone number is required.")
     private String mobileNum;
     @NotBlank(message = "Password is required.")
@@ -94,6 +96,14 @@ public class Profiles {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getMobileNum() {
