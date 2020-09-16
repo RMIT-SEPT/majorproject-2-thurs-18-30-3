@@ -14,6 +14,12 @@ function NavigationBar() {
     }
   }, [])
 
+  const modalRef = React.useRef();
+	
+	const OpenModal = () => {
+		modalRef.current.openModel()
+	}
+
   return (
     <nav>
       <Navbar bg="white" expand="lg">
@@ -21,16 +27,24 @@ function NavigationBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/services">services</Nav.Link>
-            <Nav.Link href="/bookings">bookings</Nav.Link>
-            <Nav.Link href="/employees">employees</Nav.Link>
+            <Nav.Link href="/about">about</Nav.Link>
+
+              {/* conditionally render activity links */} 
+              {currentUser ? (
+                <>
+                <Nav.Link href="/services">services</Nav.Link>
+                <Nav.Link href="/bookings">bookings</Nav.Link>
+                <Nav.Link href="/employees">employees</Nav.Link>
+              </>
+              ) : (
+                console.log(currentUser)
+              )}
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
+        
           {currentUser ? (
-            <Navbar.Text>
-              Signed in as: <a href="#login">{currentUser.username}</a>
-            </Navbar.Text>
+            <button className = "profileButton" onClick = {() => OpenModal()}/>
           ) : (
             <>
               <Nav.Link href="/login">Login</Nav.Link>
@@ -39,6 +53,7 @@ function NavigationBar() {
           )}
         </Navbar.Collapse>
       </Navbar>
+      <ProfilePaneContainer showing={false} ref = {modalRef}>PROFILE</ProfilePaneContainer>
     </nav>
   )
 }

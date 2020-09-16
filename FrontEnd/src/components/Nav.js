@@ -49,7 +49,7 @@ function Nav() {
                 </Link>
             
                 <ul className = "login-links">
-                {currentUser ? (
+                {true ? (
                         <button className = "profileButton" onClick = {() => OpenModal()}/>
                   ) : (
                     <>
@@ -63,7 +63,7 @@ function Nav() {
                   )}
                 </ul>
             </u1>
-            <ProfilePaneContainer ref = {modalRef}>PROFILE</ProfilePaneContainer>
+            <ProfilePaneContainer showing={false} ref = {modalRef}>PROFILE</ProfilePaneContainer>
         </nav>
     );
 }

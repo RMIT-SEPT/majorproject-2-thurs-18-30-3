@@ -9,18 +9,28 @@ const CURRENT_DATE = moment().format('YYYY-MM-DD')
 
 //Displays Service cards
 function Services(props) {
+
+  const [searchVal, setSearchVal] = React.useState('');
+
   //Props passed down by ServiceListContainer
-  let services = props.services.map((service) => {
+  var services = props.services.map((service) => {
     return (
       //Render an item in booking list for each booking fetched
       <ServiceCard key={service.id} service={service} />
     )
   })
 
+  //Function to handle service search
+  const doSearch = (event) => {
+    setSearchVal(event.target.value);
+    props.searchFunc(searchVal);
+  }
+
   return (
     <div className="container">
       <h1>Services</h1>
 
+      {/*TODO: implement calendars to filter service view*/}
       <div className="sector-heading">
         <form noValidate data-testid="datePickerA">
           <TextField
@@ -47,9 +57,11 @@ function Services(props) {
             }}
           />
         </form>
-        <div className="dummy" />
+
+      {/* Search Bar  */}
+      <div className="dummy" />
         <form>
-          <input role="searchbox" placeholder="Search" />
+          <input role="searchbox" onChange={event => {doSearch(event)}} placeholder="Search" />
         </form>
       </div>
 

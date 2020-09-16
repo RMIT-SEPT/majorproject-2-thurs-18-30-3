@@ -2,34 +2,42 @@ import React, {  } from 'react';
 
 import '../containers/App.css';
 
-//Displays a user profile
+//Displays a user profile in a modal view
+
 function ProfilePane({close, profile, reload, update}) {
+
     const [isEditing, setIsEditing] = React.useState(false);
     const [displayName, setDisplayName] = React.useState(profile.name);
     const [displayEmail, setDisplayEmail] = React.useState(profile.email);
     const [displayPhone, setDisplayPhone] = React.useState(profile.phone);
-    const [displayAddress, setDisplayAddress] = React.useState(profile.email);    
+    const [displayAddress, setDisplayAddress] = React.useState(profile.address);    
 
+    //Fires when clicking the cancel button - reinitialises profile data.
     const cancel = () => {
         setIsEditing(!isEditing);
         setDisplayName(profile.name);
         setDisplayEmail(profile.email);
         setDisplayPhone(profile.phone);
-        setDisplayAddress(profile.email);
+        setDisplayAddress(profile.address);
     }
 
+    //Fires when clicking the save button - commits profile data.
     const save = () => {
         setIsEditing(!isEditing);
-        update(displayEmail,displayName,displayPhone);
+        update(displayEmail,displayName,displayPhone,setDisplayAddress);
         reload();
     }
-
+    
 	return (
         <div className="modal-wrapper">
             <main className="modalPane">
                 <div className="paneHeader">
                     <button className = "closeButton" onClick={() => close()}>&times;</button>
+
+                    {/*TODO:Display image*/}
                     <div className = "book-bubble"/>
+
+                    {/*Data is displayed in editable fields - this button enables/disables editing*/}
                     <button className = "editButton" onClick={() => cancel()}>{isEditing ? 'cancel' : 'edit'}</button>
                 </div>
                 <div className="paneBody">
