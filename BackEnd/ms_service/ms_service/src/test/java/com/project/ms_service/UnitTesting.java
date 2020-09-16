@@ -22,7 +22,6 @@ public class UnitTesting {
 
     @Autowired
     private ServiceRepository repo;
-    private AppService users;
 
     // UNIT TEST 1 = Test to see whether the correct service is returned
     @Test
