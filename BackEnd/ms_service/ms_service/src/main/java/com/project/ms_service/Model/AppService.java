@@ -12,7 +12,14 @@ public class AppService {
     private String description;
     private String photo;
 
+    public AppService() {
+    }
 
+    public AppService(String name, String description, String photo) {
+        this.name = name;
+        this.description = description;
+        this.photo = photo;
+    }
 
     public void setName(String name) {
         this.name = name;
