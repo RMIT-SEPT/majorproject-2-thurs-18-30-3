@@ -40,6 +40,14 @@ public class Profiles {
     public Profiles() {
     }
 
+    public Profiles(String username, String email, String address, String mobileNum, String password) {
+        this.username = username;
+        this.email = email;
+        this.address = address;
+        this.mobileNum = mobileNum;
+        this.password = password;
+    }
+
     public long getId() {
         return id;
     }
