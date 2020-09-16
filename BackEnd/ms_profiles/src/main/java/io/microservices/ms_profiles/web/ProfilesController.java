@@ -50,4 +50,7 @@ public class ProfilesController {
 
         return new ResponseEntity<String>("User with username: '" + username + "' has been deleted.", HttpStatus.OK);
     }
+
+    //@PutMapping("/{username}")
+    //public ResponseEntity<?>
 }
