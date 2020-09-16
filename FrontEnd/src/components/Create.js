@@ -17,6 +17,7 @@ const schema = yup.object().shape({
     .min(8, 'Must be at least 8 characters')
     .max(20, 'Must be not more than 20 characters'),
   email: yup.string().email().required(),
+  address: yup.string().required(),
   mobile: yup
     .string()
     .matches(/^[0-9]+$/, 'Must be only digits')
@@ -39,11 +40,11 @@ const Create = () => {
 
   const onSubmit = async (data) => {
     console.log('Registration data', data)
-    const {username, password, confirmPassword, email} = data
+    const {username, password, confirmPassword, email, address, mobile} = data
     if (password !== confirmPassword) return setAlertMsg('Password mismatch')
 
     try {
-      await AuthService.register(username, email, password)
+      await AuthService.register(username, password, email, address, mobile)
       setRegisterSuccess(true)
       setAlertMsg('Successfully registered')
     } catch (err) {
@@ -90,6 +91,16 @@ const Create = () => {
                   helperText={errors.mobile?.message}
                 />
               </div>
+              <TextField
+                inputRef={register}
+                name="address"
+                multiline={true}
+                label="Address"
+                variant="outlined"
+                error={!!errors.address}
+                helperText={errors.address?.message}
+                fullWidth
+              />
 
               <TextField
                 inputRef={register}
