@@ -1,8 +1,8 @@
-package com.project.ms_service.ms_service.Web;
+package com.project.ms_service.Web;
 
-import com.project.ms_service.ms_service.Model.AppService;
-import com.project.ms_service.ms_service.Service.MapValidationErrorService;
-import com.project.ms_service.ms_service.Service.ServiceEngine;
+import com.project.ms_service.Model.AppService;
+import com.project.ms_service.Service.MapValidationErrorService;
+import com.project.ms_service.Service.ServiceEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +42,7 @@ public class ServiceController {
         return serviceEngine.findAllService();
     }
 
-    @DeleteMapping("/{username}")
+    @DeleteMapping("/{name}")
     public ResponseEntity<?> deleteProject(@PathVariable String name){
         serviceEngine.deleteServiceByName(name);
 

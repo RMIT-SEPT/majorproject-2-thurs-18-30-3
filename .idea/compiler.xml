@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ms_service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ms_bookings" target="1.8" />
+      <module name="ms_profiles" target="1.8" />
+      <module name="ms_service" target="1.8" />
+      <module name="ms_template" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ms_bookings" options="-parameters" />
+      <module name="ms_profiles" options="-parameters" />
+      <module name="ms_service" options="-parameters" />
+      <module name="ms_template" options="-parameters" />
+    </option>
+  </component>
+</project>

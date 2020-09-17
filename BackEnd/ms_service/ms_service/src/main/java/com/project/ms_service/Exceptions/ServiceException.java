@@ -1,4 +1,4 @@
-package com.project.ms_service.ms_service.Exceptions;
+package com.project.ms_service.Exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

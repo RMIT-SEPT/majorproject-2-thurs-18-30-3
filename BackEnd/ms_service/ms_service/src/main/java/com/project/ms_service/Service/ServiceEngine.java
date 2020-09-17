@@ -1,8 +1,8 @@
-package com.project.ms_service.ms_service.Service;
+package com.project.ms_service.Service;
 
-import com.project.ms_service.ms_service.Exceptions.ServiceException;
-import com.project.ms_service.ms_service.Model.AppService;
-import com.project.ms_service.ms_service.Repositories.ServiceRepository;
+import com.project.ms_service.Exceptions.ServiceException;
+import com.project.ms_service.Model.AppService;
+import com.project.ms_service.Repositories.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

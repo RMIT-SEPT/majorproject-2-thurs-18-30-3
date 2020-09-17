@@ -1,4 +1,4 @@
-package com.project.ms_service.ms_service.Service;
+package com.project.ms_service.Service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
