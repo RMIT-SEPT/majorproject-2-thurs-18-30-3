@@ -11,8 +11,8 @@ import Login from '../components/Login'
 import ServiceDetailContainer from '../containers/ServiceDetailContainer'
 // import Booking from '../components/Booking'
 
-import CurrentUser from '../context/CurrentUser'
 import AuthService from '../services/auth.service'
+import CurrentUser from '../context/CurrentUser'
 
 //Root Component
 
