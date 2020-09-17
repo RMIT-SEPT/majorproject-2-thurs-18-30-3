@@ -1,8 +1,5 @@
 package com.project.ms_service.Model;
 
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 import javax.persistence.Id;
 
@@ -11,6 +8,7 @@ import javax.persistence.Id;
 public class AppService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String description;
     private String photo;
@@ -24,30 +22,20 @@ public class AppService {
         this.photo = photo;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setId(Long id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+    public Long getId() { return id;}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getName() { return name;}
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+    public void setDescription(String description) { this.description = description; }
 
-    public String getPhoto() {
-        return photo;
-    }
+    public String getDescription() { return description; }
 
+    public void setPhoto(String photo) { this.photo = photo; }
 
+    public String getPhoto() { return photo; }
 
 }

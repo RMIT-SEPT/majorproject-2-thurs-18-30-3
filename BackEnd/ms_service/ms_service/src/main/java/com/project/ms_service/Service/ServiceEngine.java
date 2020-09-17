@@ -12,7 +12,7 @@ public class ServiceEngine {
     private ServiceRepository serviceRepository;
 
     public AppService saveOrUpdateService (AppService service) {
-        //business logic yet to be implemented.
+
         try {
             service.setName(service.getName().toLowerCase());
             return serviceRepository.save(service);

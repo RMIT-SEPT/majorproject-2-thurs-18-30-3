@@ -9,6 +9,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.Entity;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
@@ -21,7 +23,7 @@ public class UnitTesting {
     private TestEntityManager entityManager;
 
     @Autowired
-    private ServiceRepository repo;
+    private ServiceRepository serviceRepo;
 
     // UNIT TEST 1 = Test to see whether the correct service is returned
     @Test
@@ -31,7 +33,7 @@ public class UnitTesting {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = repo.findByName("Slice of Ham");
+        AppService retrieval = serviceRepo.findByName("Slice of Ham");
 
         assertThat(retrieval.getName()).isEqualTo(service.getName());
 
@@ -45,7 +47,7 @@ public class UnitTesting {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = repo.findByName(service.getDescription());
+        AppService retrieval = serviceRepo.findByName(service.getDescription());
 
         assertThat(retrieval.getDescription()).isEqualTo(service.getDescription());
     }
@@ -62,7 +64,7 @@ public class UnitTesting {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = repo.findByName(service.getName());
+        AppService retrieval = serviceRepo.findByName(service.getName());
 
         assertThat(retrieval.getDescription()).isEqualTo("Hello World");
     }
@@ -80,11 +82,10 @@ public class UnitTesting {
         entityManager.persist(service2);
         entityManager.persist(service3);
 
-        AppService service2test = repo.findByName("Apricot Slice");
+        AppService service2test = serviceRepo.findByName(service2.getName());
 
-        assertThat(service2test).extracting(AppService::getName).isEqualToComparingFieldByField("Apricot Slice");
+        assertThat(service2test).extracting(AppService::getName).isEqualToComparingFieldByField(service2.getName());
     }
-
 
 
 }
