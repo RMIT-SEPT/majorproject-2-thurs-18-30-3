@@ -3,6 +3,7 @@ import {Navbar, Nav} from 'react-bootstrap'
 
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
+import ProfilePaneContainer from '../containers/ProfilePaneContainer';
 
 function NavigationBar() {
   const [currentUser, setCurrentUser] = useState(undefined)
@@ -14,23 +15,39 @@ function NavigationBar() {
     }
   }, [])
 
+  const modalRef = React.useRef();
+	
+	const OpenModal = () => {
+		modalRef.current.openModel()
+	}
+
   return (
-    <nav>
-      <Navbar bg="white" expand="lg">
+    <nav >
+      <Navbar bg="white" expand="lg" >
         <Navbar.Brand href="#home">ACME</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/services">services</Nav.Link>
-            <Nav.Link href="/bookings">bookings</Nav.Link>
-            <Nav.Link href="/employees">employees</Nav.Link>
+            <Nav.Link href="/about">about</Nav.Link>
+
+              {/* conditionally render activity links */} 
+              {currentUser ? (
+                <>
+                <Nav.Link href="/services">services</Nav.Link>
+                <Nav.Link href="/bookings">bookings</Nav.Link>
+                <Nav.Link href="/employees">employees</Nav.Link>
+              </>
+              ) : (
+                console.log(currentUser)
+              )}
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
+        
           {currentUser ? (
-            <Navbar.Text>
-              Signed in as: <a href="#login">{currentUser.username}</a>
-            </Navbar.Text>
+            <>
+              <button className = "profileButton" onClick = {() => OpenModal()}/>
+            </>
           ) : (
             <>
               <Nav.Link href="/login">Login</Nav.Link>
@@ -39,6 +56,7 @@ function NavigationBar() {
           )}
         </Navbar.Collapse>
       </Navbar>
+      <ProfilePaneContainer showing={false} ref = {modalRef}>PROFILE</ProfilePaneContainer>
     </nav>
   )
 }

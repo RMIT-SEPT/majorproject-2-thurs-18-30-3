@@ -26,81 +26,108 @@
       "body": "But see, amid the mimic rout, A crawling shape intrude! A blood-red thing that writhes from out The scenic solitude! It writhes!—it writhes!—with mortal pangs The mimes become its food, And seraphs sob at vermin fangs In human gore imbued."
     }
   ],
-  "admins": [
+  "users": [
     {
+      "id": 10,
       "email": "Diomira@test.wiz",
-      "uname": "Admin1",
-      "pword": "admin",
-      "name": "Diomira"
-    },
-    {
-      "email": "Despina@test.wiz",
-      "uname": "Admin2",
-      "pword": "admin",
-      "name": "Despina"
-    },
-    {
-      "email": "Isaura@test.wiz",
-      "uname": "Admin3",
-      "pword": "admin",
-      "name": "Isaura"
-    }
-  ],
-  "employees": [
-    {
-      "email": "Maurice@test.wiz",
-      "uname": "Emp1",
-      "pword": "emp",
-      "name": "Maurice",
+      "username": "Admin1",
+      "password": "adminadmin",
+      "firstname": "Diomira",
+      "lastname": "Calvino",
       "phone": "0443785",
+      "address": "1 Manderly Way",
       "active": true
     },
     {
+      "id": 9,
+      "email": "Despina@test.wiz",
+      "username": "Admin2",
+      "password": "adminadmin",
+      "firstname": "Despina",
+      "lastname": "Calvino",
+      "phone": "0443785",
+      "address": "1 Manderly Way",
+      "active": true
+    },
+    {
+      "id": 8,
+      "email": "Isaura@test.wiz",
+      "username": "Admin3",
+      "password": "adminadmin",
+      "firstname": "Isaura",
+      "lastname": "Calvino",
+      "phone": "0443785",
+      "address": "1 Manderly Way",
+      "active": true
+    },
+    {
+      "id": 7,
+      "email": "Maurice@test.wiz",
+      "username": "Emp1",
+      "password": "emp",
+      "firstname": "Maurice",
+      "lastname": "Calvino",
+      "phone": "0443785",
+      "address": "1 Manderly Way",
+      "active": true
+    },
+    {
+      "id": 6,
       "email": "Theodora@test.wiz",
-      "uname": "Emp2",
-      "pword": "emp",
-      "name": "Theodora",
+      "username": "Emp2",
+      "password": "emp",
+      "firstname": "Theodora",
+      "lastname": "Calvino",
       "phone": "999999",
+      "address": "1 Manderly Way",
       "active": true
     },
     {
+      "id": 5,
       "email": "Zemrude@test.wiz",
-      "uname": "Emp3",
-      "pword": "emp",
-      "name": "Zemrude",
+      "username": "Emp3",
+      "password": "emp",
+      "firstname": "Zemrude",
+      "lastname": "Calvino",
       "phone": "191919",
+      "address": "1 Manderly Way",
       "active": false
     },
     {
+      "id": 4,
       "email": "Raissa@test.wiz",
-      "uname": "Emp4",
-      "pword": "emp",
-      "name": "Raissa",
+      "username": "Emp4",
+      "password": "emp",
+      "firstname": "Raissa",
+      "lastname": "Calvino",
       "phone": "12457",
+      "address": "1 Manderly Way",
       "active": true
-    }
-  ],
-  "customers": [
+    },
     {
-      "email": "Max deWinter",
-      "name": "MaxWinter@Cust.wiz0",
-      "pword": "cust",
+      "email": "Max.Winter@Cust.wiz0",
+      "firstname": "Max",
+      "lastname": "de Winter",
+      "password": "cust",
       "phone": "1234 5678",
-      "id": 1
+      "address": "1 Manderly Way",
+      "id": 3
     },
     {
       "id": 2,
       "email": "Rebecca@Cust.wizard",
-      "name": "Rebecca de Winter",
-      "pword": "cust",
-      "phone": "99999999"
+      "firstname": "Rebecca",
+      "lastname": "de Winter",
+      "password": "cust",
+      "phone": "99999999",
+      "address": "1 Manderly Way"
     },
     {
-      "id": 3,
-      "email": "Manderly@Cust.wizard",
-      "name": "Manderly",
-      "pword": "cust",
-      "phone": "345345 435435"
+      "firstname": "Italo",
+      "lastname": "Calvino",
+      "email": "Calvino@Cust.wizard",
+      "phone": "345345 435435",
+      "id": 1
     }
   ]
 }

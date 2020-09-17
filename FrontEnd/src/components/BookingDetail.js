@@ -3,14 +3,14 @@ import axios from 'axios'
 import '../containers/App.css'
 
 //Display a single booking with details in its own component
-
+//TODO: Item under devloment 
 function BookingDetail({match}) {
   const [booking, setBooking] = useState({})
 
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const booking = await axios.get(`http://localhost:3004/services/${match.params.id}`).data
+        const booking = await axios.get(`http://localhost:8080/api/services/${match.params.id}`).data
         setBooking(booking)
         console.log(booking)
       } catch (err) {
