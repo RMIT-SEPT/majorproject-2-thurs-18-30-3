@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom
 import ServiceList from '../containers/ServiceListContainer'
 import EmployeeList from '../containers/EmployeeListContainer'
 
-import Nav from '../components/Nav'
+import NavigationBar from '../components/NavigationBar'
 import About from '../components/About'
 import Create from '../components/Create'
 import Login from '../components/Login'
@@ -45,7 +45,7 @@ function App() {
   return (
     <Router>
       <CurrentUser.Provider value={[user, setUser]}>
-        <Nav />
+        <NavigationBar />
         <Switch>
           <Route path="/create" exact component={Create} />
           <Route path="/login" exact component={Login} />
@@ -55,7 +55,7 @@ function App() {
             <Route path="/services" exact component={ServiceList} />
             <Route path="/employees" exact component={EmployeeList} />
             {/*<Route path="/bookings" exact component={Booking} />*/}
-            <Route path="/services/:id" component={ServiceDetailContainer} />
+            <Route path ="/services/:id" component = {ServiceDetailContainer} />
           </PrivateRoute>
         </Switch>
       </CurrentUser.Provider>

@@ -3,6 +3,7 @@ import {Navbar, Nav} from 'react-bootstrap'
 
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
+import ProfilePaneContainer from '../containers/ProfilePaneContainer';
 
 function NavigationBar() {
   const [currentUser, setCurrentUser] = useState(undefined)
