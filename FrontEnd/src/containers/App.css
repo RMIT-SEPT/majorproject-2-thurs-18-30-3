@@ -8,7 +8,7 @@ body {
   min-height: 100%;
   margin: 0;
   background: #537F8B;
-  font-family: "Space Grotesk", Helvetica, sans-serif;
+  font-family: "Space Grotesk Semibold", Helvetica, sans-serif;
 }
 
 .app-container{
@@ -28,7 +28,16 @@ h1{
   margin-right: 10vw;
   margin-bottom: auto;
 }
+
+.subHeading {
+  font-weight: 600;
+  font-size: 20px;
+}
 /* ------------------------------ NAV COMPONENT STYLING */
+.navbar.navbar-default{
+  background-color: black;
+  color:blue;
+}
 
 .topNav {
   display: flex;
@@ -67,7 +76,7 @@ h1{
 
 .big-link:hover{
   text-decoration: none;
-  color: rgb(167, 172, 167);
+  color: #a7aca7;
 }
 
 .login-links{
@@ -83,10 +92,11 @@ h1{
 
 .little-link:hover{
   text-decoration: none;
-  color: rgb(167, 172, 167);
+  color: #a7aca7;
 }
 
 /*SERVICES STYLING*/
+
 .sector-divider{
   border: 2px solid rgba(0, 0, 0, 0.2);
 }
@@ -141,6 +151,9 @@ h1{
   border:none;
 }
 
+.service-card:hover  {      /*Individual Card*/
+  background-color: #009BA0;
+}
 
 .service-card img {
   background: url(http://goo.gl/vyAs27) no-repeat scroll 0 0;
@@ -181,13 +194,13 @@ h1{
   text-overflow:ellipsis;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   .services-gallery{  /*Grid of Cards*/
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 820px) {
   .sector-heading{
     flex-direction: column;
     align-items: center;
@@ -324,7 +337,8 @@ h1{
   left: 50%;
   transform: translate(-50%, -50%);
   height:70%;
-  width:30%;
+  max-width:30%;
+  min-width: 400px;
   z-index: 101;
   padding:40px;
   border-radius: 20px;
@@ -339,9 +353,12 @@ h1{
   width: 100%;
 }
 
-.paneBody label{
-  font-weight: 600;
-  font-size: 26px;
+.button-set{
+  width:80%;
+  display:flex;
+  margin:11px;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .closeButton {
@@ -382,11 +399,19 @@ h1{
   width: 100%;
 }
 
+.paneBody label{
+  vertical-align: bottom;
+  font-weight: 600;
+  font-size: 20px;
+  color: #a7aca7;
+}
+
+
 .actButton {
-  width: 120px;
-  height: 60px;
-  font-weight: bold;
-  font-size: 26px;
+  width: 100px;
+  height: 50px;
+  font-weight: 600;
+  font-size: 20px;
   line-height: 0;
   border: none;
   border-radius: 20px;

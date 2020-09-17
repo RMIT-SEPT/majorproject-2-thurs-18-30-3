@@ -1,4 +1,6 @@
 import React, {  } from 'react';
+import {Link} from 'react-router-dom';
+import AuthService from '../services/auth.service';
 
 import '../containers/App.css';
 
@@ -7,8 +9,8 @@ import '../containers/App.css';
 function ProfilePane({close, profile, reload, update}) {
 
     const [isEditing, setIsEditing] = React.useState(false);
-    const [displayFirstName, setDisplayFirstName] = React.useState(profile.name);
-    const [displayLastName, setDisplayLastName] = React.useState(profile.name);
+    const [displayFirstName, setDisplayFirstName] = React.useState(profile.firstname);
+    const [displayLastName, setDisplayLastName] = React.useState(profile.lastname);
     const [displayEmail, setDisplayEmail] = React.useState(profile.email);
     const [displayPhone, setDisplayPhone] = React.useState(profile.phone);
     const [displayAddress, setDisplayAddress] = React.useState(profile.address);    
@@ -43,11 +45,11 @@ function ProfilePane({close, profile, reload, update}) {
                     <button className = "editButton" onClick={() => cancel()}>{isEditing ? 'cancel' : 'edit'}</button>
                 </div>
                 <div className="paneBody">
-                    <label htmlFor="uname">name</label> 
-                    <input id="uname" name="uname" className="paneInput" disabled = {!isEditing} value={displayFirstName} onChange={event => {setDisplayFirstName(event.target.value)}}/>
+                    <label htmlFor="fname">name</label> 
+                    <input id="fname" name="fname" className="paneInput" disabled = {!isEditing} value={displayFirstName} onChange={event => {setDisplayFirstName(event.target.value)}}/>
 
-                    <label htmlFor="uname">surname</label> 
-                    <input id="uname" name="uname" className="paneInput" disabled = {!isEditing} value={displayLastName} onChange={event => {setDisplayLastName(event.target.value)}}/>
+                    <label htmlFor="lname">surname</label> 
+                    <input id="lname" name="lname" className="paneInput" disabled = {!isEditing} value={displayLastName} onChange={event => {setDisplayLastName(event.target.value)}}/>
 
                     <label htmlFor="email">email</label>
                     <input id="email" name="email" className="paneInput" disabled = {!isEditing} value={displayEmail} onChange={event => {setDisplayEmail(event.target.value)}}/>
@@ -57,12 +59,18 @@ function ProfilePane({close, profile, reload, update}) {
 
                     <label htmlFor="phNum">address</label>
                     <input id="address" name="address" className="paneInput" disabled = {!isEditing} value={displayAddress} onChange={event => {setDisplayAddress(event.target.value)}}/>
-
+                    <div className ='button-set'>
                     {isEditing
                         ? <button className = "actButton" onClick={() => save()}>save</button>
-                        : <button className = "actButton">bookings</button>
+                        : <>
+                            <button className = "actButton">bookings</button> 
+                            <Link to="/service">
+                            {/*Logout button also closes the pane and reloads the page*/}
+                                <button className = "actButton" onClick = {() => {AuthService.logout(); close(); window.location.reload();} }>log out</button>
+                            </Link>
+                        </>
                     }
-                    
+                    </div>
                 </div>
             </main>
         </div>

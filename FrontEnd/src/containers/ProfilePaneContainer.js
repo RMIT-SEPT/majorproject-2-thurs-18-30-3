@@ -28,8 +28,11 @@ const ProfilePaneContainer = forwardRef((props,ref) => {
 
       //API call to retrieve user data
     const loadProfile = async () => {  
-        //var url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().username);
-        var url = 'http://localhost:8080/api/users/1';
+        if(!AuthService.getCurrentUser())
+        {
+            return null;
+        }
+        var url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().id);
         const res = await fetch(url);
         const data = await res.json();
         setProfile(data);

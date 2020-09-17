@@ -10,8 +10,6 @@ const CURRENT_DATE = moment().format('YYYY-MM-DD')
 //Displays Service cards
 function Services(props) {
 
-  const [searchVal, setSearchVal] = React.useState('');
-
   //Props passed down by ServiceListContainer
   var services = props.services.map((service) => {
     return (
@@ -22,8 +20,7 @@ function Services(props) {
 
   //Function to handle service search
   const doSearch = (event) => {
-    setSearchVal(event.target.value);
-    props.searchFunc(searchVal);
+    props.searchFunc(event.target.value);
   }
 
   return (

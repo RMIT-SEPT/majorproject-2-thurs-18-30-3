@@ -13,7 +13,7 @@ function ServiceCard({service}) {
           <span>{service.title}</span>
           <hr></hr>
           <p>{service.body}</p>
-        </div>
+        </div>  
       </button>
     </Link>
   )
