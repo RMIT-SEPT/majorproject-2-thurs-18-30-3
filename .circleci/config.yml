@@ -34,8 +34,6 @@ jobs:
             curl https://www.npmjs.com/install.sh | sudo bash
             curl -o- -L https://yarnpkg.com/install.sh | bash
 
-        # change working directory to backend, and then run mvn test
-
 # --------------------------------------------------------------------------
 
 #      - run :
@@ -62,7 +60,19 @@ jobs:
 #          shell: /bin/bash
 #          working_directory: ~/project/FrontEnd
 
+
+
 # --------------------------------------------------------------------------
+# BackEnd Tests
+
+      - run :
+          name: Back End - mvn test
+          command: mvn test
+          shell: /bin/bash
+          working_directory: ~/project/BackEnd
+
+# --------------------------------------------------------------------------
+# FrontEnd Tests
 
       - run :
           name: Front end - npm runtest
@@ -74,6 +84,8 @@ jobs:
           command: npm run test
           shell: /bin/bash
           working_directory: ~/project/FrontEnd
+
+ # --------------------------------------------------------------------------
 
       - store_test_results:
           path: target/surefire-reports

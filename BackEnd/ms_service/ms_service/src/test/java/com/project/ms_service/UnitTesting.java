@@ -44,7 +44,7 @@ public class UnitTesting {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = serviceRepo.findByName(service.getDescription());
+        AppService retrieval = serviceRepo.findByName(service.getName());
 
         assertThat(retrieval.getDescription()).isEqualTo(service.getDescription());
     }
