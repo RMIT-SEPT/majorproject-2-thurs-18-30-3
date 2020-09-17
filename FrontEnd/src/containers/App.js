@@ -26,7 +26,7 @@ function App() {
       <Route
         {...rest}
         render={({location}) =>
-          true ? (
+          user ? (
             children
           ) : (
             <Redirect
@@ -55,7 +55,7 @@ function App() {
             <Route path="/services" exact component={ServiceList} />
             <Route path="/employees" exact component={EmployeeList} />
             {/*<Route path="/bookings" exact component={Booking} />*/}
-            <Route path ="/services/:id" component = {ServiceDetailContainer} />
+            <Route path="/services/:id" component={ServiceDetailContainer} />
           </PrivateRoute>
         </Switch>
       </CurrentUser.Provider>
