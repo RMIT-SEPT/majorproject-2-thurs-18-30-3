@@ -31,9 +31,10 @@ public class UnitTesting {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = repo.findByName(service.getName());
+        AppService retrieval = repo.findByName("Slice of Ham");
 
         assertThat(retrieval.getName()).isEqualTo(service.getName());
+
     }
 
     // UNIT TEST 2 = Test whether service returns the correct description

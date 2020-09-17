@@ -8,7 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface ServiceRepository extends CrudRepository <AppService, String> {
 
     AppService findByName(String name);
-
     @Override
     Iterable<AppService> findAll();
 
