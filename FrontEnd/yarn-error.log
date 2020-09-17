@@ -1,30 +1,30 @@
 Arguments: 
-  D:\NodeJS\node.exe C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
+  D:\DEV\nodejs\node.exe C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
 
 PATH: 
-  C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_144\bin;C:\Program Files\dotnet\;C:\Program Files (x86)\dotnet\;D:\NodeJS\;D:\Go\bin;C:\Program Files (x86)\Calibre2\;C:\Users\c-die\AppData\Roaming\Dashlane\4.6.0.17042\bin\Firefox_Extension\{442718d9-475e-452a-b3e1-fb1ee16b8e9f}\components;C:\Users\c-die\AppData\Local\Microsoft\WindowsApps;C:\Users\c-die\Panda3D-1.9.3-x64\python;C:\Users\c-die\Panda3D-1.9.3-x64\python\Scripts;C:\Users\c-die\Panda3D-1.9.3-x64\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath_target_4126671;C:\Users\c-die\AppData\Roaming\npm;C:\Users\c-die\go\bin;C:\Users\c-die\AppData\Local\GitHubDesktop\bin;D:\RMIT\CT\New folder\miktex\bin\x64\;D:\Visual Studio Code\Microsoft VS Code\bin
+  C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Putty\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;D:\DEV\nodejs\;C:\Users\c-die\AppData\Local\Microsoft\WindowsApps;C:\Users\c-die\AppData\Local\GitHubDesktop\bin;C:\Users\c-die\AppData\Roaming\npm;C:\Users\c-die\AppData\Local\Programs\Microsoft VS Code\bin
 
 Yarn version: 
-  1.22.5
+  1.22.4
 
 Node version: 
-  10.15.3
+  12.18.2
 
 Platform: 
   win32 x64
 
 Trace: 
   Error: canceled
-      at Interface.<anonymous> (C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:136216:13)
-      at Interface.emit (events.js:189:13)
-      at Interface._ttyWrite (readline.js:783:16)
-      at ReadStream.onkeypress (readline.js:168:10)
-      at ReadStream.emit (events.js:189:13)
-      at emitKeys (internal/readline.js:424:14)
+      at Interface.<anonymous> (C:\Users\c-die\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:137008:13)
+      at Interface.emit (events.js:315:20)
+      at Interface._ttyWrite (readline.js:866:16)
+      at ReadStream.onkeypress (readline.js:205:10)
+      at ReadStream.emit (events.js:315:20)
+      at emitKeys (internal/readline/utils.js:335:14)
       at emitKeys.next (<anonymous>)
-      at ReadStream.onData (readline.js:1022:36)
-      at ReadStream.emit (events.js:189:13)
-      at addChunk (_stream_readable.js:284:12)
+      at ReadStream.onData (readline.js:1133:36)
+      at ReadStream.emit (events.js:315:20)
+      at addChunk (_stream_readable.js:295:12)
 
 npm manifest: 
   {

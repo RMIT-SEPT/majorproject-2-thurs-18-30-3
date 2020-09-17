@@ -51,24 +51,10 @@ exports[`Test Nav Renders 1`] = `
     <ul
       className="login-links"
     >
-      <a
-        className="little-link"
-        href="/login"
+      <button
+        className="profileButton"
         onClick={[Function]}
-      >
-        <li>
-          login
-        </li>
-      </a>
-      <a
-        className="little-link"
-        href="/create"
-        onClick={[Function]}
-      >
-        <li>
-          create
-        </li>
-      </a>
+      />
     </ul>
   </u1>
 </nav>
