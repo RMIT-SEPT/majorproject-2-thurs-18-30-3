@@ -133,7 +133,7 @@ h1{
   width: 480px;
   height: 20vh;
 
-  background: #FFFFFF;
+  background-color: #FFFFFF;
   overflow:hidden;
 
   box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
