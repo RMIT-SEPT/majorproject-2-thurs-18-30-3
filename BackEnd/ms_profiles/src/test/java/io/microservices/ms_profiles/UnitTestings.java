@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
+
+
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -21,9 +21,8 @@ public class UnitTestings {
 
     @Autowired
     private ProfilesRepository repo;
-    private Profiles users;
 
-    @Test // Make sure findByUsername method returns correct username.
+    @Test // Make sure findByUsername method returns username.
     public void testFindUsernameByReturningCorrectUsername() {
         Profiles profile = new Profiles("Chou123", "minjin_7@hotmail.com", "500 elizabeth st", "0414044207", "Mj131515");
         entityManager.persist(profile);
@@ -49,5 +48,4 @@ public class UnitTestings {
         Profiles users = repo.findByUsername("Jay12");
         assertThat(users).extracting(Profiles::getUsername).isEqualToComparingFieldByField("Jay12");
     }
-
 }
