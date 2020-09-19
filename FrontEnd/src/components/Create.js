@@ -11,6 +11,8 @@ import AuthService from '../services/auth.service'
 import CurrentUser from '../context/CurrentUser'
 
 const schema = yup.object().shape({
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
   username: yup.string().required(),
   password: yup.string().required().min(8, 'Must be at least 8 characters').max(19, 'Must be less than 20 characters'),
   confirmPassword: yup
@@ -44,14 +46,25 @@ const Create = () => {
 
   const onSubmit = async (data) => {
     console.log('Registration data', data)
-    const {username, email, address, mobileNum, password, confirmPassword} = data
+    const {firstName, lastName, username, email, address, mobileNum, password, confirmPassword} = data
     if (password !== confirmPassword) return setAlertMsg('Password mismatch')
 
     try {
-      const userData = await AuthService.register(username, email, address, mobileNum, password, confirmPassword)
+      const payload = {
+        firstName,
+        lastName,
+        username,
+        email,
+        address,
+        mobileNum,
+        password,
+        confirmPassword,
+      }
+      const userData = await AuthService.register(payload)
       setCurrentUser(userData)
       history.push('/services')
     } catch (err) {
+      console.error('Register response error from backend', err.response)
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)
     }
@@ -68,15 +81,24 @@ const Create = () => {
           <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
             <CardContent>
               <h3>Register</h3>
-              <TextField
-                inputRef={register}
-                name="username"
-                label="Username"
-                variant="outlined"
-                error={!!errors.username}
-                helperText={errors.username?.message}
-                fullWidth
-              />
+              <div>
+                <TextField
+                  inputRef={register}
+                  name="firstName"
+                  label="First name"
+                  variant="outlined"
+                  error={!!errors.firstName}
+                  helperText={errors.firstName?.message}
+                />
+                <TextField
+                  inputRef={register}
+                  name="lastName"
+                  label="Last name"
+                  variant="outlined"
+                  error={!!errors.lastName}
+                  helperText={errors.lastName?.message}
+                />
+              </div>
               <div>
                 <TextField
                   inputRef={register}
@@ -95,6 +117,15 @@ const Create = () => {
                   helperText={errors.mobile?.message}
                 />
               </div>
+              <TextField
+                inputRef={register}
+                name="username"
+                label="Username"
+                variant="outlined"
+                error={!!errors.username}
+                helperText={errors.username?.message}
+                fullWidth
+              />
               <TextField
                 inputRef={register}
                 name="address"

@@ -39,7 +39,7 @@ const Login = () => {
       else if (user.type.toLowerCase() === UserType.Admin) history.push('/employees')
       else history.push('/')
     } catch (err) {
-      console.error('err.response', err.response)
+      console.error('Login response error from backend', err.response)
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)
     }

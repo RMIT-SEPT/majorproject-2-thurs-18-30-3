@@ -1,17 +1,13 @@
 import axios from 'axios'
+import UserType from '../config/userType'
 
 const USER_STORAGE_KEY = 'user'
 const API_BASE_URL = 'http://localhost:8080/api/users'
 
-const register = async (username, email, address, mobileNum, password, confirmPassword) => {
+const register = async (payload) => {
   const {data} = await axios.post(API_BASE_URL, {
-    username,
-    email,
-    address,
-    mobileNum,
-    password,
-    confirmPassword,
-    type: 'Customer',
+    ...payload,
+    type: UserType.Customer,
   })
 
   localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
