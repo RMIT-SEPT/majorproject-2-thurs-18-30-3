@@ -6,6 +6,8 @@ import MuiAlert from '@material-ui/lab/Alert'
 import {Button, Card, CardActions, CardContent, Grid, Snackbar, TextField} from '@material-ui/core'
 import {yupResolver} from '@hookform/resolvers'
 import {makeStyles} from '@material-ui/core/styles'
+
+import UserType from '../config/userType'
 import AuthService from '../services/auth.service'
 import CurrentUser from '../context/CurrentUser'
 
@@ -28,13 +30,13 @@ const Login = () => {
   const history = useHistory()
 
   const handleLogin = async (data) => {
-    console.log('Login data', data)
     const {username, password} = data
     try {
       const user = await AuthService.login(username, password)
       setCurrentUser(user)
 
-      if (user.userType === 'customer') history.push('/services')
+      if (user.type.toLowerCase() === UserType.Customer) history.push('/services')
+      else if (user.type.toLowerCase() === UserType.Admin) history.push('/employees')
       else history.push('/')
     } catch (err) {
       console.error('err.response', err.response)

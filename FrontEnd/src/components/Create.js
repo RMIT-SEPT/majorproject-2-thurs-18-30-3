@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import {useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers'
 import * as yup from 'yup'
@@ -7,6 +7,7 @@ import {Grid, Card, CardActions, CardContent, TextField, Button, Snackbar} from 
 import MuiAlert from '@material-ui/lab/Alert'
 
 import AuthService from '../services/auth.service'
+import CurrentUser from '../context/CurrentUser'
 
 const schema = yup.object().shape({
   username: yup.string().required(),
@@ -36,7 +37,8 @@ const Create = () => {
     resolver: yupResolver(schema),
   })
   const [alertMsg, setAlertMsg] = useState('')
-  const [registerSuccess, setRegisterSuccess] = useState(false)
+
+  const [, setCurrentUser] = useContext(CurrentUser)
 
   const onSubmit = async (data) => {
     console.log('Registration data', data)
@@ -44,9 +46,8 @@ const Create = () => {
     if (password !== confirmPassword) return setAlertMsg('Password mismatch')
 
     try {
-      await AuthService.register(username, email, address, mobileNum, password, confirmPassword)
-      setRegisterSuccess(true)
-      setAlertMsg('Successfully registered')
+      const userData = await AuthService.register(username, email, address, mobileNum, password, confirmPassword)
+      setCurrentUser(userData)
     } catch (err) {
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)
@@ -134,7 +135,7 @@ const Create = () => {
         </Card>
       </Grid>
       <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={!!alertMsg}>
-        <Alert onClose={handleClose} severity={registerSuccess ? 'success' : 'error'}>
+        <Alert onClose={handleClose} severity={'error'}>
           {alertMsg}
         </Alert>
       </Snackbar>

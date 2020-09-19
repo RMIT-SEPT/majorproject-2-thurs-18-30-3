@@ -14,7 +14,7 @@ const register = (username, email, address, mobileNum, password, confirmPassword
     type: 'Customer',
   })
 
-  localStorage.setItem('user', JSON.stringify(data))
+  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
 
   return data
 }
@@ -26,7 +26,7 @@ const login = async (inputUsername, inputPassword) => {
   const {password} = data
   if (inputPassword !== password) throw new Error('Username or password is incorrect.')
 
-  localStorage.setItem('user', JSON.stringify(data))
+  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
 
   return data
 }
