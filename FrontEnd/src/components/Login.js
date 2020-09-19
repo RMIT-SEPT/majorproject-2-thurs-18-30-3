@@ -37,10 +37,10 @@ const Login = () => {
       if (user.userType === 'customer') history.push('/services')
       else history.push('/')
     } catch (err) {
+      console.error('err.response', err.response)
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)
     }
-    window.location.reload();
   }
 
   const handleClose = () => {
@@ -79,7 +79,7 @@ const Login = () => {
               <Grid container direction="row" justify="center" alignItems="center">
                 <Button type="submit" variant="contained" color="primary">
                   Sign In
-                </Button >
+                </Button>
               </Grid>
             </CardActions>
           </form>

@@ -1,10 +1,7 @@
 import axios from 'axios'
 
-
-const API_URL = 'http://localhost:8080/api/users'
-
 const USER_STORAGE_KEY = 'user'
-const API_BASE_URL = 'https://localhost:8080/api/users'
+const API_BASE_URL = 'http://localhost:8080/api/users'
 
 const register = (username, email, address, mobileNum, password, confirmPassword) => {
   const {data} = axios.post(API_BASE_URL, {
@@ -14,26 +11,22 @@ const register = (username, email, address, mobileNum, password, confirmPassword
     mobileNum,
     password,
     confirmPassword,
-    UserType: 'Customer',
+    type: 'Customer',
   })
 
-  if (data?.accessToken) {
-    localStorage.setItem('user', JSON.stringify(data))
-  }
-
+  localStorage.setItem('user', JSON.stringify(data))
 
   return data
 }
 
-const login = async (username, password) => {
-  const {data} = await axios.post(API_BASE_URL, {
-    username,
-    password,
-  })
+const login = async (inputUsername, inputPassword) => {
+  const {data} = await axios.get(API_BASE_URL + '/' + inputUsername)
+  console.log('login response data', data)
 
-  if (data?.accessToken) {
-    localStorage.setItem('user', JSON.stringify(data))
-  }
+  const {password} = data
+  if (inputPassword !== password) throw new Error('Username or password is incorrect.')
+
+  localStorage.setItem('user', JSON.stringify(data))
 
   return data
 }
