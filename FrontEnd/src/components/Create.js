@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react'
 import {useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers'
 import * as yup from 'yup'
+import {useHistory} from 'react-router-dom'
 import {makeStyles} from '@material-ui/core/styles'
 import {Grid, Card, CardActions, CardContent, TextField, Button, Snackbar} from '@material-ui/core'
 import MuiAlert from '@material-ui/lab/Alert'
@@ -39,6 +40,7 @@ const Create = () => {
   const [alertMsg, setAlertMsg] = useState('')
 
   const [, setCurrentUser] = useContext(CurrentUser)
+  const history = useHistory()
 
   const onSubmit = async (data) => {
     console.log('Registration data', data)
@@ -48,6 +50,7 @@ const Create = () => {
     try {
       const userData = await AuthService.register(username, email, address, mobileNum, password, confirmPassword)
       setCurrentUser(userData)
+      history.push('/services')
     } catch (err) {
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)

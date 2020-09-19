@@ -4,6 +4,7 @@ import {Navbar, Nav} from 'react-bootstrap'
 import '../containers/App.css'
 import ProfilePaneContainer from '../containers/ProfilePaneContainer'
 import CurrentUser from '../context/CurrentUser'
+import UserType from '../config/userType'
 
 function NavigationBar() {
   const [currentUser] = useContext(CurrentUser)
@@ -21,18 +22,9 @@ function NavigationBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/about">about</Nav.Link>
+            {renderNavItems(currentUser)}
 
-            {/* conditionally render activity links */}
-            {currentUser ? (
-              <>
-                <Nav.Link href="/services">services</Nav.Link>
-                <Nav.Link href="/bookings">bookings</Nav.Link>
-                <Nav.Link href="/employees">employees</Nav.Link>
-              </>
-            ) : (
-              <></>
-            )}
+            <Nav.Link href="/about">about</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
@@ -51,6 +43,33 @@ function NavigationBar() {
       </ProfilePaneContainer>
     </nav>
   )
+}
+
+function renderNavItems(currentUser) {
+  if (!currentUser) return
+
+  const {type} = currentUser
+
+  // conditionally render navigation items
+  switch (type.toLowerCase()) {
+    case UserType.Customer:
+      return (
+        <>
+          <Nav.Link href="/bookings">bookings</Nav.Link>
+          <Nav.Link href="/services">services</Nav.Link>
+        </>
+      )
+    case UserType.Employee:
+      return <></>
+    default:
+      return (
+        <>
+          <Nav.Link href="/bookings">bookings</Nav.Link>
+          <Nav.Link href="/services">services</Nav.Link>
+          <Nav.Link href="/employees">employees</Nav.Link>
+        </>
+      )
+  }
 }
 
 export default NavigationBar

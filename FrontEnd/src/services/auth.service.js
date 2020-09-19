@@ -3,8 +3,8 @@ import axios from 'axios'
 const USER_STORAGE_KEY = 'user'
 const API_BASE_URL = 'http://localhost:8080/api/users'
 
-const register = (username, email, address, mobileNum, password, confirmPassword) => {
-  const {data} = axios.post(API_BASE_URL, {
+const register = async (username, email, address, mobileNum, password, confirmPassword) => {
+  const {data} = await axios.post(API_BASE_URL, {
     username,
     email,
     address,
@@ -26,7 +26,11 @@ const login = async (inputUsername, inputPassword) => {
   const {password} = data
   if (inputPassword !== password) throw new Error('Username or password is incorrect.')
 
-  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
+  const item = {
+    ...data,
+    type: data.type.toLowerCase(),
+  }
+  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(item))
 
   return data
 }
