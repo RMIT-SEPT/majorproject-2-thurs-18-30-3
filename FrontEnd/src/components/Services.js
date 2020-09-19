@@ -62,8 +62,6 @@ function Services(props) {
         </form>
       </div>
 
-      <hr className="sector-divider" />
-
       <div className="services-gallery" role="main">
         {services}
       </div>
