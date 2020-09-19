@@ -2,18 +2,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-        <parent>
-            <groupId>io.microservices</groupId>
-            <artifactId>ms_template</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <relativePath>../../</relativePath>
-        </parent>
-
-    <groupId>io.microservices</groupId>
-    <artifactId>ms_bookings</artifactId>
+<!--    <parent>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+<!--        <version>2.3.3.RELEASE</version>-->
+<!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+<!--    </parent>-->
+    <parent>
+        <groupId>io.microservices</groupId>
+        <artifactId>ms_template</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../../</relativePath>
+    </parent>
+    <groupId>com.project</groupId>
+    <artifactId>ms_service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ms_bookings</name>
+    <name>ms_service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

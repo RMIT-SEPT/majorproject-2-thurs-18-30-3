@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+
+const API_URL = 'http://localhost:8080/api/users'
+
 const USER_STORAGE_KEY = 'user'
 const API_BASE_URL = 'https://localhost:8080/api/users'
 
@@ -17,6 +20,7 @@ const register = (username, email, address, mobileNum, password, confirmPassword
   if (data?.accessToken) {
     localStorage.setItem('user', JSON.stringify(data))
   }
+
 
   return data
 }
