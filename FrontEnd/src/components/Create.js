@@ -84,7 +84,7 @@ const Create = () => {
                 />
                 <TextField
                   inputRef={register}
-                  name="mobile"
+                  name="mobileNum"
                   label="Mobile phone"
                   variant="outlined"
                   error={!!errors.mobile}
