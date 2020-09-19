@@ -7,6 +7,7 @@ class ServiceListContainer extends React.Component {
     super(props)
     this.state = {
       services: [],
+      displayServices: []
     }
   }
 
@@ -17,29 +18,29 @@ class ServiceListContainer extends React.Component {
     fetch('http://localhost:8080/api/services')
       .then((res) => res.json())
       .then((data) => {
-        this.setState({services: data})
+        this.setState({services: data});
+        this.setState({displayServices: data});
       })
       .catch(console.log)
   }
 
+  //Search function - if there si user input, filter services
   searchFor = (val) => {
-    let url = 'http://localhost:8080/api/services?title='+val;
-    
     if(val === "")
     {
-      let url = 'http://localhost:8080/api/services';
+      this.setState({displayServices: this.state.services});
     }
-
-    return fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      this.setState({services: data})
-    })
-    .catch(console.log)
+    else
+    {
+      let newArray = this.state.services.filter(function (service) {
+          return service.title.toLowerCase().includes(val.toLowerCase());
+        });
+        this.setState({displayServices: newArray});
+    }
   }
 
   render() {
-    return <Services services={this.state.services} searchFunc= {this.searchFor}/>
+    return <Services services={this.state.displayServices} searchFunc= {this.searchFor}/>
   }
 }
 export default ServiceListContainer

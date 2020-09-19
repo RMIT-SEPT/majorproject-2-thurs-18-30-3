@@ -40,6 +40,7 @@ const Login = () => {
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)
     }
+    window.location.reload();
   }
 
   const handleClose = () => {
@@ -78,7 +79,7 @@ const Login = () => {
               <Grid container direction="row" justify="center" alignItems="center">
                 <Button type="submit" variant="contained" color="primary">
                   Sign In
-                </Button>
+                </Button >
               </Grid>
             </CardActions>
           </form>

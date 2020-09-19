@@ -3,6 +3,7 @@ import {Navbar, Nav} from 'react-bootstrap'
 
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
+import ProfilePaneContainer from '../containers/ProfilePaneContainer';
 
 function NavigationBar() {
   const [currentUser, setCurrentUser] = useState(undefined)
@@ -21,8 +22,8 @@ function NavigationBar() {
 	}
 
   return (
-    <nav>
-      <Navbar bg="white" expand="lg">
+    <nav >
+      <Navbar bg="white" expand="lg" >
         <Navbar.Brand href="#home">ACME</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -44,7 +45,9 @@ function NavigationBar() {
         <Navbar.Collapse className="justify-content-end">
         
           {currentUser ? (
-            <button className = "profileButton" onClick = {() => OpenModal()}/>
+            <>
+              <button className = "profileButton" onClick = {() => OpenModal()}/>
+            </>
           ) : (
             <>
               <Nav.Link href="/login">Login</Nav.Link>
