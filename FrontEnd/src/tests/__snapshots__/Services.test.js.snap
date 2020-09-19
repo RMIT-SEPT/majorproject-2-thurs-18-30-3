@@ -92,6 +92,7 @@ exports[`Test Page Renders 1`] = `
     />
     <form>
       <input
+        onChange={[Function]}
         placeholder="Search"
         role="searchbox"
       />

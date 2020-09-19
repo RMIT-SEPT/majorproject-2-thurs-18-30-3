@@ -9,20 +9,21 @@ function BookingDetail( props ) {
     console.log(slide);
     return (
         <div>
-            <h1>Services</h1>
-			<div className="dummy"/>
-			<div>
-                <a href = "/services">Go Back</a>
-			</div>
-            <div className = "sector-heading">
+            <div className="container">
+                <h1>Services</h1>
                 <div className="dummy"/>
-            </div>
+                <div>
+                    <a className='subHeading' href = "/services">Go Back</a>
+                </div>
+                <div className = "sector-heading">
+                    <div className="dummy"/>
+                </div>
 
-            <hr className = "sector-divider"/>
-            <div class = 'service-slide-container' role = 'main'>
-                <ServiceSlide service={slide} />
-            </div>
-        </div> 
+                <div class = 'service-slide-container' role = 'main'>
+                    <ServiceSlide service={slide} />
+                </div>
+            </div> 
+        </div>
     );
 }
 

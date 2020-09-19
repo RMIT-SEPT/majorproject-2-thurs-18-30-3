@@ -1,54 +1,51 @@
-// import axios from 'axios'
+import axios from 'axios'
 
-// const API_URL = 'http://rmit:8080/api/auth/'
+const USER_STORAGE_KEY = 'user'
+const API_BASE_URL = 'https://localhost:8080/'
 
 const register = (username, email, password) => {
-  // const {data} = axios.post(API_URL + 'signup', {
+  // const {data} = axios.post(API_BASE_URL + '/api/users/login', {
   //   username,
   //   email,
   //   password,
   // })
 
   const data = {
-    accessToken:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
     email: 'Max deWinter',
     name: 'MaxWinter@Cust.wiz',
-    pword: 'cust',
     phone: '1234 5678',
-    address:'1 Manderly Way',
-    id: 1
+    address: '1 Manderly Way',
+    id: 1,
   }
 
-  if (data?.accessToken) {
-    localStorage.setItem('user', JSON.stringify(data))
-  }
+  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
 
   return data
 }
 
 const login = async (username, password) => {
-  // const {data} = await axios.post(API_URL + 'signin', {
+  // const {data} = await axios.post(API_BASE_URL + '/api/users/login', {
   //   username,
   //   password,
   // })
   const data = {
-    accessToken:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+    id: 1,
+    email: 'Max deWinter',
+    name: 'MaxWinter@Cust.wiz',
+    userType: 'customer',
   }
 
-  if (data?.accessToken) {
-    localStorage.setItem('user', JSON.stringify(data))
-  }
+  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
 
   return data
 }
 
 const logout = () => {
-  localStorage.removeItem('user')
+  localStorage.removeItem(USER_STORAGE_KEY)
 }
 
 const getCurrentUser = () => {
-  return JSON.parse(localStorage.getItem('user'))
+  return JSON.parse(localStorage.getItem(USER_STORAGE_KEY))
 }
 
 export default {
