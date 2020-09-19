@@ -29,7 +29,12 @@ function NavigationBar() {
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
           {currentUser ? (
-            <button className="profileButton" onClick={() => OpenModal()} />
+            <>
+              <button className="profileButton" onClick={() => OpenModal()} />
+              <ProfilePaneContainer showing={false} ref={modalRef}>
+                PROFILE
+              </ProfilePaneContainer>
+            </>
           ) : (
             <>
               <Nav.Link href="/login">Login</Nav.Link>
@@ -38,9 +43,6 @@ function NavigationBar() {
           )}
         </Navbar.Collapse>
       </Navbar>
-      <ProfilePaneContainer showing={false} ref={modalRef}>
-        PROFILE
-      </ProfilePaneContainer>
     </nav>
   )
 }

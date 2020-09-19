@@ -12,7 +12,7 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
   //User profile for display
   const [profile, setProfile] = React.useState({})
 
-  //Refs to  the modal operation functions
+  //Refs to the modal operation functions
   useImperativeHandle(ref, () => {
     return {
       openModel: () => open(),
@@ -28,18 +28,22 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
     if (!AuthService.getCurrentUser()) {
       return null
     }
-    const url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().id)
-    const res = await fetch(url)
-    const data = await res.json()
-    setProfile(data)
+    try {
+      const url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().username)
+      const res = await fetch(url)
+      const data = await res.json()
+      console.log('data', data)
+      setProfile(data)
+    } catch (err) {
+      alert(err)
+    }
   }
 
   //Reads in changed values and PUTS them to the backend
   const updateProfile = async (newEmail, newFirstName, newLastName, newPhone, newAddress) => {
-    //const url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().username);
-    const url = 'http://localhost:8080/api/users/1'
+    const url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().username)
     const prof = {
-      firstname: newFirstName,
+      firstName: newFirstName,
       lastname: newLastName,
       email: newEmail,
       phone: newPhone,

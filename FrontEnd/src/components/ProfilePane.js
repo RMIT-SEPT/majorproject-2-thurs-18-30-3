@@ -8,19 +8,19 @@ import '../containers/App.css'
 
 function ProfilePane({close, profile, reload, update}) {
   const [isEditing, setIsEditing] = React.useState(false)
-  const [displayFirstName, setDisplayFirstName] = React.useState(profile.firstname)
-  const [displayLastName, setDisplayLastName] = React.useState(profile.lastname)
+  const [displayFirstName, setDisplayFirstName] = React.useState(profile.firstName)
+  const [displayLastName, setDisplayLastName] = React.useState(profile.lastName)
   const [displayEmail, setDisplayEmail] = React.useState(profile.email)
-  const [displayPhone, setDisplayPhone] = React.useState(profile.phone)
+  const [displayPhone, setDisplayPhone] = React.useState(profile.mobileNum)
   const [displayAddress, setDisplayAddress] = React.useState(profile.address)
 
   //Fires when clicking the cancel button - reinitialises profile data.
   const cancel = () => {
     setIsEditing(!isEditing)
-    setDisplayFirstName(profile.firstname)
-    setDisplayLastName(profile.lastname)
+    setDisplayFirstName(profile.firstName)
+    setDisplayLastName(profile.lastName)
     setDisplayEmail(profile.email)
-    setDisplayPhone(profile.phone)
+    setDisplayPhone(profile.mobileNum)
     setDisplayAddress(profile.address)
   }
 
