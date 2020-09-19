@@ -1,41 +1,35 @@
 import axios from 'axios'
 
 const USER_STORAGE_KEY = 'user'
-const API_BASE_URL = 'https://localhost:8080/'
+const API_BASE_URL = 'https://localhost:8080/api/users'
 
-const register = (username, email, password) => {
-  // const {data} = axios.post(API_BASE_URL + '/api/users/login', {
-  //   username,
-  //   email,
-  //   password,
-  // })
+const register = (username, email, address, mobileNum, password, confirmPassword) => {
+  const {data} = axios.post(API_BASE_URL, {
+    username,
+    email,
+    address,
+    mobileNum,
+    password,
+    confirmPassword,
+    UserType: 'Customer',
+  })
 
-  const data = {
-    email: 'Max deWinter',
-    name: 'MaxWinter@Cust.wiz',
-    phone: '1234 5678',
-    address: '1 Manderly Way',
-    id: 1,
+  if (data?.accessToken) {
+    localStorage.setItem('user', JSON.stringify(data))
   }
-
-  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
 
   return data
 }
 
 const login = async (username, password) => {
-  // const {data} = await axios.post(API_BASE_URL + '/api/users/login', {
-  //   username,
-  //   password,
-  // })
-  const data = {
-    id: 1,
-    email: 'Max deWinter',
-    name: 'MaxWinter@Cust.wiz',
-    userType: 'customer',
-  }
+  const {data} = await axios.post(API_BASE_URL, {
+    username,
+    password,
+  })
 
-  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
+  if (data?.accessToken) {
+    localStorage.setItem('user', JSON.stringify(data))
+  }
 
   return data
 }
