@@ -18,10 +18,11 @@ public class ProfilesController {
     @Autowired
     private ProfileService profileService;
 
-    @Autowired
+    //@Autowired
     private MapValidationErrorService mapValidation;
 
     @CrossOrigin(origins = "http://localhost:3000")
+    // Creating new user profile.
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody Profiles profiles, BindingResult result) {
 
@@ -33,17 +34,19 @@ public class ProfilesController {
         return new ResponseEntity<Profiles>(profiles1, HttpStatus.CREATED);
     }
 
+    // For returning a single profile from database.
     @GetMapping("/{username}")
     public ResponseEntity<?> getUsers(@PathVariable String username) {
         Profiles profiles = profileService.findByUsername(username);
         return new ResponseEntity<Profiles>(profiles, HttpStatus.OK);
     }
-
+    // For returning all profiles in the database.
     @GetMapping("/all")
     public Iterable<Profiles> getAllPersons() {
         return profileService.findAllProfiles();
     }
 
+    // Deleting user profile from database based on username.
     @DeleteMapping("/{username}")
     public ResponseEntity<?> deleteProject(@PathVariable String username){
         profileService.deleteProfilesByUsername(username);
