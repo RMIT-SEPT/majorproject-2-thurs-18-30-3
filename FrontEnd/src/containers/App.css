@@ -97,11 +97,8 @@ h1{
 
 /*SERVICES STYLING*/
 
-.sector-divider{
-  border: 2px solid rgba(0, 0, 0, 0.2);
-}
-
 .sector-heading{
+  margin-block-end: 2vh;
   display:flex;
   align-items: flex-end;
   justify-content:space-around;
