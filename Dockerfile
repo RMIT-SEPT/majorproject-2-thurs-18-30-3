@@ -6,7 +6,7 @@ COPY FrontEnd/yarn.lock ./
 COPY FrontEnd /FrontEnd/
 # copy just copies files from another location, we don't need to do this for pom.xml as it is already on the front dir
 RUN mvn package
-RUN yarn start
+RUN npm start
 FROM openjdk:8-jre-alpine
 WORKDIR /app
 # COPY --from=MAVEN_BUILD target/spring-boot-demo-0.0.1.jar /app/

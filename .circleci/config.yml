@@ -65,11 +65,24 @@ jobs:
 # --------------------------------------------------------------------------
 # BackEnd Tests
 
-      - run :
-          name: Back End - mvn test
+      - run:
+          name: Back End - ms_profile unit testing
           command: mvn test
           shell: /bin/bash
-          working_directory: ~/project/BackEnd
+          working_directory: ~/project/BackEnd/ms_profiles
+
+      - run:
+          name: Back End - ms_bookings unit testing
+          command: mvn test
+          shell: /bin/bash
+          working_directory: ~/project/BackEnd/ms_bookings
+
+      - run:
+          name: Back End - ms_service unit testing
+          command: mvn test
+          shell: /bin/bash
+          working_directory: ~/project/BackEnd/ms_service/ms_service
+
 
 # --------------------------------------------------------------------------
 # FrontEnd Tests
