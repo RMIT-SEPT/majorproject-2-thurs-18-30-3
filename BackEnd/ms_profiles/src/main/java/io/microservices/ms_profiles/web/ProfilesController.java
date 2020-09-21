@@ -1,6 +1,7 @@
 package io.microservices.ms_profiles.web;
 
 import io.microservices.ms_profiles.model.Profiles;
+import io.microservices.ms_profiles.model.UpdateProfile;
 import io.microservices.ms_profiles.services.MapValidationErrorService;
 import io.microservices.ms_profiles.services.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class ProfilesController {
 
 //    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("")
-    public ResponseEntity<?> createNewBookings(@Valid @RequestBody Profiles profiles, BindingResult result) {
+    public ResponseEntity<?> createNewProfile(@Valid @RequestBody Profiles profiles, BindingResult result) {
 
         ResponseEntity<?> errorMap = mapValidation.MapValidationService(result);
         if(errorMap != null) {
@@ -46,9 +47,16 @@ public class ProfilesController {
     }
 
     @DeleteMapping("/{username}")
-    public ResponseEntity<?> deleteProject(@PathVariable String username){
+    public ResponseEntity<?> deleteProfile(@PathVariable String username){
         profileService.deleteProfilesByUsername(username);
 
         return new ResponseEntity<String>("User with username: '" + username + "' has been deleted.", HttpStatus.OK);
+    }
+
+    @PutMapping("/{username}")
+    public ResponseEntity<?> updateProfile(@PathVariable String username, @Valid @RequestBody UpdateProfile profiles){
+
+        Profiles profiles1 = profileService.modifyProfiles(username, profiles);
+        return new ResponseEntity<Profiles>(profiles1, HttpStatus.CREATED);
     }
 }

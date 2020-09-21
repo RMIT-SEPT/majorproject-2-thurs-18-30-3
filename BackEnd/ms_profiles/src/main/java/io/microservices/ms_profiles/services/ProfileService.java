@@ -2,6 +2,7 @@ package io.microservices.ms_profiles.services;
 
 import io.microservices.ms_profiles.exceptions.ProfilesException;
 import io.microservices.ms_profiles.model.Profiles;
+import io.microservices.ms_profiles.model.UpdateProfile;
 import io.microservices.ms_profiles.repositories.ProfilesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,19 @@ public class ProfileService {
             throw new ProfilesException("Unable to delete user with username: " + username + ". This user does not exist.");
         }
         profilesRepository.delete(profiles);
+    }
+
+    public Profiles modifyProfiles (String username, UpdateProfile profiles) {
+        Profiles p1 = profilesRepository.findByUsername((username.toLowerCase()));
+        try {
+            p1.setFirstName(profiles.getFirstName());
+            p1.setLastName(profiles.getLastName());
+            p1.setEmail(profiles.getEmail());
+            p1.setAddress(profiles.getAddress());
+            p1.setMobileNum(profiles.getMobileNum());
+            return profilesRepository.save(p1);
+        }catch (Exception e){
+            throw new ProfilesException("Username: " + p1.getUsername().toLowerCase() + " could not be updated.");
+        }
     }
 }
