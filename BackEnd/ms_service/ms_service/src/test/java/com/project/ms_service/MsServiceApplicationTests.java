@@ -8,6 +8,7 @@ class MsServiceApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }

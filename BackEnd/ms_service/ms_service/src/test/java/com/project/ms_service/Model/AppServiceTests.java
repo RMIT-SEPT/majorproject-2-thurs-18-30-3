@@ -1,4 +1,4 @@
-package com.project.ms_service;
+package com.project.ms_service.Model;
 
 import com.project.ms_service.Model.AppService;
 import com.project.ms_service.Repositories.ServiceRepository;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UnitTesting {
+public class AppServiceTests {
 
     @Autowired
     private TestEntityManager entityManager;
