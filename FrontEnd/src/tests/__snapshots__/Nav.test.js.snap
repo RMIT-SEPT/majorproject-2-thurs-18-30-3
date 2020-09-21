@@ -3,22 +3,14 @@
 exports[`Test Nav Renders 1`] = `
 <nav
   className="topNav"
+  role="navigation"
 >
   <h1>
     AGME
   </h1>
-  <u1
+  <ul
     className="nav-links"
   >
-    <a
-      className="big-link"
-      href="/services"
-      onClick={[Function]}
-    >
-      <li>
-        services
-      </li>
-    </a>
     <a
       className="big-link"
       href="/about"
@@ -34,7 +26,16 @@ exports[`Test Nav Renders 1`] = `
       onClick={[Function]}
     >
       <li>
-        book
+        services
+      </li>
+    </a>
+    <a
+      className="big-link"
+      href="/bookings"
+      onClick={[Function]}
+    >
+      <li>
+        bookings
       </li>
     </a>
     <a
@@ -48,12 +49,13 @@ exports[`Test Nav Renders 1`] = `
     </a>
     <ul
       className="login-links"
+      role="group"
     >
       <button
         className="profileButton"
         onClick={[Function]}
       />
     </ul>
-  </u1>
+  </ul>
 </nav>
 `;
