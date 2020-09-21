@@ -20,6 +20,8 @@ function Alert(props) {
 
 const Login = () => {
   const classes = useStyles()
+  const [active, setActive] = React.useState("true");
+
   const {register, handleSubmit, errors} = useForm({
     resolver: yupResolver(schema),
   })
@@ -28,8 +30,8 @@ const Login = () => {
   const history = useHistory()
 
   const handleLogin = async (data) => {
-    console.log('Login data', data)
-    const {username, password} = data
+    const {username, password} = data;
+    setActive(false);
     try {
       const user = await AuthService.login(username, password)
       setCurrentUser(user)
@@ -51,7 +53,7 @@ const Login = () => {
     <div className={classes.root}>
       <Grid container direction="row" justify="center" alignItems="center">
         <Card className={classes.card}>
-          <form noValidate autoComplete="off" onSubmit={handleSubmit(handleLogin)}>
+          <form noValidate autoComplete="off" fieldset onSubmit={handleSubmit(handleLogin)}>
             <CardContent>
               <h3>Login</h3>
               <TextField
@@ -61,6 +63,7 @@ const Login = () => {
                 variant="outlined"
                 error={!!errors.username}
                 helperText={errors.username?.message}
+                enabled={active}
                 fullWidth
               />
 
@@ -72,12 +75,13 @@ const Login = () => {
                 variant="outlined"
                 error={!!errors.password}
                 helperText={errors.password?.message}
+                enabled={active}
                 fullWidth
               />
             </CardContent>
             <CardActions>
               <Grid container direction="row" justify="center" alignItems="center">
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" color="primary" enabled={active}>
                   Sign In
                 </Button >
               </Grid>

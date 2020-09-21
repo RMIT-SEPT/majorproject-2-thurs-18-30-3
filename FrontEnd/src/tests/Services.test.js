@@ -39,6 +39,14 @@ test('Test Page Contents', () => {
   expect(screen.getByRole('main')).toHaveClass('services-gallery')
 })
 
+test('Check Gallery', () => {
+  const container = setup()
+  const gallery = screen.getByRole('main')
+
+  expect(gallery).toHaveTextContent('this is a test')
+})
+
+
 test('Test Search PlaceHolder', () => {
   const container = setup()
   const input = screen.getByRole('searchbox')
@@ -53,7 +61,14 @@ test('Test Search Input', () => {
   expect(input.value).toBe('test')
 })
 
-//TODO: Further Testing required when searchbox fully implemented
+test('Test Search Results', () => {
+  const container = setup()
+  const input = screen.getByRole('searchbox')
+  fireEvent.change(input, {target: {value: 'test'}})
+
+  const card = screen.getByRole('cell')
+  expect(card.value).toBe('test')
+})
 
 test('Test Calender Content', () => {
   const container = setup()
@@ -87,11 +102,4 @@ test('Test Calender Input', () => {
 
   expect(calendarArray[0]).toHaveTextContent('Display Services From')
   expect(calendarArray[1]).toHaveTextContent('Display Services To')
-})
-
-test('Check Gallery', () => {
-  const container = setup()
-  const gallery = screen.getByRole('main')
-
-  expect(gallery).toHaveTextContent('this is a test')
 })
