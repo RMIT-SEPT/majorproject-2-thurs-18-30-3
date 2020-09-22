@@ -5,10 +5,10 @@ const USER_STORAGE_KEY = 'user'
 const API_BASE_URL = 'http://localhost:8081/api/users'
 
 //POST a new user data with type customer
-const register = async (payload) => {
+const register = async (payload, forEmployee) => {
   const {data} = await axios.post(API_BASE_URL, {
     ...payload,
-    userType: UserType.Customer,
+    userType: forEmployee ? UserType.Employee : UserType.Customer,
   })
 
   localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
