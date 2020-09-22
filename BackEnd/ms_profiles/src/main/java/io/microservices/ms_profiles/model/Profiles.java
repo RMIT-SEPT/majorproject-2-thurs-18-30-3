@@ -44,7 +44,9 @@ public class Profiles {
     }
 
     // Constructor for unit testings.
-    public Profiles(String username, String email, String address, String mobileNum, String password) {
+    public Profiles(String firstName, String lastName, String username, String email, String address, String mobileNum, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.address = address;

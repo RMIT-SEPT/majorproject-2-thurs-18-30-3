@@ -34,7 +34,7 @@ public class RequestsTests {
 
     @Test // Testing get api requests.
     public void testGetRequests() throws Exception {
-        Profiles profile1 = new Profiles("Zhou44", "matumbaman@hotmail.com", "500 elizabeth st", "0414344207", "Mj131213");
+        Profiles profile1 = new Profiles("Matumbaman", "Zhou","Zhou44", "matumbaman@hotmail.com", "500 elizabeth st", "0414344207", "Mj131213");
         List<Profiles> allProfiles = Arrays.asList(profile1);
 
         given(service.findAllProfiles()).willReturn(allProfiles);
@@ -48,7 +48,7 @@ public class RequestsTests {
 
     @Test // Testing delete api request.
     public void testDeleteRequests() throws Exception {
-        Profiles profile1 = new Profiles("Jay12", "jay.c@hotmail.com", "501 elizabeth st", "0245688790", "North2233");
+        Profiles profile1 = new Profiles("Chou", "Jayson","Jay12", "jay.c@hotmail.com", "501 elizabeth st", "0245688790", "North2233");
 
         this.mvc.perform(delete("/api/users/Jay12")
                 .contentType(MediaType.APPLICATION_JSON))

@@ -22,7 +22,7 @@ public class UnitTestings {
 
     @Test // Make sure findByUsername method returns username.
     public void testFindUsernameByReturningCorrectUsername() {
-        Profiles profile = new Profiles("Chou123", "minjin_7@hotmail.com", "500 elizabeth st", "0414044207", "Mj131515");
+        Profiles profile = new Profiles("Chou", "Minjin","Chou123", "minjin_7@hotmail.com", "500 elizabeth st", "0414044207", "Mj131515");
         entityManager.persist(profile);
         entityManager.flush();
 
@@ -33,10 +33,10 @@ public class UnitTestings {
 
     @Test // Make sure findByUsername method only returns correct enquired user profile.
     public void testFindSpecificUsername() {
-        Profiles profile1 = new Profiles("Zhou44", "matumbaman@hotmail.com", "500 elizabeth st", "0414344207", "Mj131213");
-        Profiles profile2 = new Profiles("Jay12", "jay.c@hotmail.com", "501 elizabeth st", "0245688790", "North2233");
-        Profiles profile3 = new Profiles("North2", "north216@hotmail.com", "462 elizabeth st", "0425036215", "hu12345656");
-        Profiles profile4 = new Profiles("Jacky3", "jack2@hotmail.com", "450 elizabeth st", "01941356218", "jjabc22323");
+        Profiles profile1 = new Profiles("zhou", "Mantubaman","Zhou44", "matumbaman@hotmail.com", "500 elizabeth st", "0414344207", "Mj131213");
+        Profiles profile2 = new Profiles("Kong", "Jay","Jay12", "jay.c@hotmail.com", "501 elizabeth st", "0245688790", "North2233");
+        Profiles profile3 = new Profiles("Chatchapat", "North","North2", "north216@hotmail.com", "462 elizabeth st", "0425036215", "hu12345656");
+        Profiles profile4 = new Profiles("Van", "Jacky","Jacky3", "jack2@hotmail.com", "450 elizabeth st", "01941356218", "jjabc22323");
 
         entityManager.persist(profile1);
         entityManager.persist(profile2);
