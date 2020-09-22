@@ -9,5 +9,7 @@ tmp/
 /node_modules
 /.pnp
 /.pnp.js
+# Jetbrains programs
 .idea
+../.idea
 node_modules

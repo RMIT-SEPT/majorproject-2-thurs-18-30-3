@@ -6,6 +6,8 @@ import MuiAlert from '@material-ui/lab/Alert'
 import {Button, Card, CardActions, CardContent, Grid, Snackbar, TextField} from '@material-ui/core'
 import {yupResolver} from '@hookform/resolvers'
 import {makeStyles} from '@material-ui/core/styles'
+
+import UserType from '../config/userType'
 import AuthService from '../services/auth.service'
 import CurrentUser from '../context/CurrentUser'
 
@@ -21,7 +23,7 @@ function Alert(props) {
 //Handles form input when user clicks submit
 const Login = () => {
   const classes = useStyles()
-  const [active, setActive] = React.useState("true");
+  const [active, setActive] = React.useState('true')
 
   const {register, handleSubmit, errors} = useForm({
     resolver: yupResolver(schema),
@@ -32,19 +34,20 @@ const Login = () => {
 
   //Verifies user and initialises currentUser variable
   const handleLogin = async (data) => {
-    const {username, password} = data;
-    setActive(false);
+    const {username, password} = data
+    //Calling login function to make a GET REQUEST
     try {
       const user = await AuthService.login(username, password)
       setCurrentUser(user)
 
-      if (user.userType === 'customer') history.push('/services')
+      if (user.type.toLowerCase() === UserType.Customer) history.push('/services')
+      else if (user.type.toLowerCase() === UserType.Admin) history.push('/employees')
       else history.push('/')
     } catch (err) {
+      console.error('Login response error from backend', err.response)
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)
     }
-    window.location.reload();
   }
 
   //Handle Panel close
@@ -87,7 +90,7 @@ const Login = () => {
               <Grid container direction="row" justify="center" alignItems="center">
                 <Button type="submit" variant="contained" color="primary" enabled={active}>
                   Sign In
-                </Button >
+                </Button>
               </Grid>
             </CardActions>
           </form>
