@@ -30,6 +30,7 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />
 }
 
+//Handles form input when user clicks submit
 const Create = () => {
   const classes = useStyles()
   const {register, handleSubmit, errors} = useForm({
@@ -42,7 +43,8 @@ const Create = () => {
     console.log('Registration data', data)
     const {username, email, address, mobileNum, password, confirmPassword} = data
     if (password !== confirmPassword) return setAlertMsg('Password mismatch')
-
+    
+    //Attmepts to create user
     try {
       await AuthService.register(username, email, address, mobileNum, password, confirmPassword)
       setRegisterSuccess(true)
@@ -57,6 +59,7 @@ const Create = () => {
     setAlertMsg('')
   }
 
+  //Main Login Form
   return (
     <div className={classes.root}>
       <Grid container direction="row" justify="center" alignItems="center">
@@ -142,6 +145,7 @@ const Create = () => {
   )
 }
 
+//Styles for login form
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {

@@ -94,7 +94,7 @@ function Nav() {
                 <li>login</li>
               </Link>
               <Link to="/create" className="little-link">
-                <li>create</li>
+                <li>create account</li>
               </Link>
             </>
           )}

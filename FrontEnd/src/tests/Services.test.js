@@ -9,21 +9,22 @@ import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
 
 const dummyService = {id: 1, name: 'test', body: 'this is a test'}
-const searchFuncMock = jest.fn();
+const searchFuncMock = jest.fn()
 
 const setup = () => {
   return render(
     <StaticRouter>
-      <Services services={[dummyService]} searchFunc= {searchFuncMock}/>
+      <Services services={[dummyService]} searchFunc={searchFuncMock} />
     </StaticRouter>
   )
 }
 
 //snapshot test
 test('Test Page Renders', () => {
-  const comp = renderer.create(
+  const comp = renderer
+    .create(
       <StaticRouter>
-        <Services services={[dummyService]} searchFunc= {searchFuncMock}/>
+        <Services services={[dummyService]} searchFunc={searchFuncMock} />
       </StaticRouter>
     )
     .toJSON()
@@ -37,7 +38,6 @@ test('Test Page Contents', () => {
   expect(screen.getAllByRole('listbox').length).toBe(2)
   expect(screen.getByRole('main')).toHaveClass('services-gallery')
 })
-
 
 //Ensure gallery is displaying props
 test('Check Gallery', () => {
@@ -67,9 +67,8 @@ test('Test Search Fires', () => {
   const input = screen.getByRole('searchbox')
   fireEvent.change(input, {target: {value: 'test'}})
 
-  expect(searchFuncMock).toHaveBeenCalled();
+  expect(searchFuncMock).toHaveBeenCalled()
 })
-
 
 //Tests for the claendar selectors at the top of the gallery
 test('Test Calender Content', () => {

@@ -78,6 +78,7 @@ h1{
 }
 
 .login-links{
+  padding-block-end: 4px;
   margin: 0;
   list-style: none;
 }
@@ -403,6 +404,7 @@ h1{
   line-height: 0;
   border-radius: 50%;
 }
+
 .closeButton:hover {
   opacity: 1;
 }

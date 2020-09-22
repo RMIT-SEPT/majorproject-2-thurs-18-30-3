@@ -18,6 +18,7 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />
 }
 
+//Handles form input when user clicks submit
 const Login = () => {
   const classes = useStyles()
   const [active, setActive] = React.useState("true");
@@ -29,6 +30,7 @@ const Login = () => {
   const [, setCurrentUser] = useContext(CurrentUser)
   const history = useHistory()
 
+  //Verifies user and initialises currentUser variable
   const handleLogin = async (data) => {
     const {username, password} = data;
     setActive(false);
@@ -45,10 +47,12 @@ const Login = () => {
     window.location.reload();
   }
 
+  //Handle Panel close
   const handleClose = () => {
     setAlertMsg('')
   }
 
+  //Main login form
   return (
     <div className={classes.root}>
       <Grid container direction="row" justify="center" alignItems="center">
@@ -98,6 +102,7 @@ const Login = () => {
   )
 }
 
+//Styles for login
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {

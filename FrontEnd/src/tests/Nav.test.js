@@ -9,6 +9,7 @@ import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 import CurrentUser from '../context/CurrentUser'
 
+//Resize function for testing dynamic hamburger list
 beforeAll(() => {
     window.resizeTo = function resizeTo(width, height) {
       Object.assign(this, {
@@ -32,6 +33,7 @@ const setup = () => {
     return container;
 }
 
+//Snapshot test
 test('Test Nav Renders', () => {
 
     const comp = renderer.create(
@@ -72,6 +74,7 @@ test('Test Nav Links', () => {
 
 });
 
+//Check that nav displays dynamic hamburger list when resized
 test('Test Nav Resize', () => {
     const comp = setup();
     
