@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class ProfileService {
     @Autowired
     private ProfilesRepository profilesRepository;
-
+    // Controller for POST Request
     public Profiles saveOrUpdateProfiles (Profiles profiles) {
 
         try {
@@ -21,7 +21,7 @@ public class ProfileService {
             throw new ProfilesException("Username: " + profiles.getUsername().toLowerCase() + " already exists in the system.");
         }
     }
-
+    // Controller for GET specific Request
     public Profiles findByUsername(String username) {
         Profiles profiles = profilesRepository.findByUsername((username.toLowerCase()));
 
@@ -30,7 +30,7 @@ public class ProfileService {
         }
         return profiles;
     }
-
+    // Controller for GET all Request
     public Iterable<Profiles> findAllProfiles() { return profilesRepository.findAll(); }
 
     public void deleteProfilesByUsername(String username) {
@@ -41,7 +41,7 @@ public class ProfileService {
         }
         profilesRepository.delete(profiles);
     }
-
+    // Controller for PUT Request
     public Profiles modifyProfiles (String username, UpdateProfile profiles) {
         Profiles p1 = profilesRepository.findByUsername((username.toLowerCase()));
         try {

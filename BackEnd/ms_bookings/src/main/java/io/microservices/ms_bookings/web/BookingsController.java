@@ -25,6 +25,8 @@ public class BookingsController {
     @Autowired
     private MapValidationErrorService mapValidation;
 
+    @CrossOrigin(origins = "http://localhost:3000")
+    // Method for POST requests
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody Book bookings, BindingResult result) {
 
@@ -36,17 +38,20 @@ public class BookingsController {
         return new ResponseEntity<Book>(bookings, HttpStatus.CREATED);
     }
 
+    // Method for GET specific booking request
     @GetMapping("/{bookingsId}")
     public ResponseEntity<?> getBookingsById(@PathVariable String bookingsId) {
         Book bookings = bookService.findByBookIdentifier(bookingsId);
         return new ResponseEntity<Book>(bookings, HttpStatus.OK);
     }
 
+    // Method for GET all bookings request
     @GetMapping("/all")
     public Iterable<Book> getAllPersons() {
         return bookService.findAllBookings();
     }
 
+    // Method for DELETE bookings requests.
     @DeleteMapping("/{bookingsId}")
     public ResponseEntity<?> deleteProject(@PathVariable String bookingsId){
         bookService.deleteBookingsByIdentifier(bookingsId);

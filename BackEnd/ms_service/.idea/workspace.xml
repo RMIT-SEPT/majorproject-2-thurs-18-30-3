@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b439440a-8a4c-410c-8122-dc0eee81b080" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ms_profiles/src/main/java/io/microservices/ms_profiles/exceptions/CustomResponseEntityExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms_profiles/src/main/java/io/microservices/ms_profiles/exceptions/ProfilesException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms_profiles/src/main/java/io/microservices/ms_profiles/exceptions/ProfilesIdExceptionResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms_profiles/src/main/java/io/microservices/ms_profiles/model/Profiles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms_profiles/src/main/java/io/microservices/ms_profiles/repositories/ProfilesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms_bookings/src/main/java/io/microservices/ms_bookings/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms_bookings/src/main/java/io/microservices/ms_bookings/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms_profiles/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms_profiles/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms_profiles/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ms_profiles/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms_service/src/main/java/com/project/ms_service/Model/AppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms_service/src/main/java/com/project/ms_service/Model/AppService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms_service/src/main/java/com/project/ms_service/Repositories/ServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms_service/src/main/java/com/project/ms_service/Repositories/ServiceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms_service/src/main/java/com/project/ms_service/Service/ServiceEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms_service/src/main/java/com/project/ms_service/Service/ServiceEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +28,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -44,10 +55,11 @@
       <option name="presentableId" value="Default" />
       <updated>1599045258756</updated>
       <workItem from="1599045260256" duration="19000" />
+      <workItem from="1599644954921" duration="2213000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
 </project>

@@ -2,6 +2,7 @@ package io.microservices.ms_profiles.model;
 
 import javax.validation.constraints.NotBlank;
 
+// Class for modifying attribute of users.
 public class UpdateProfile {
     @NotBlank(message = "User first name is required.")
     private String firstName;
