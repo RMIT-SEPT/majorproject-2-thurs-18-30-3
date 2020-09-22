@@ -16,6 +16,9 @@ Object {
           <div
             class="card-content"
           >
+            <img
+              src="not-found.png"
+            />
             <span />
             <hr />
             <p>
@@ -38,6 +41,9 @@ Object {
         <div
           class="card-content"
         >
+          <img
+            src="not-found.png"
+          />
           <span />
           <hr />
           <p>
@@ -118,6 +124,9 @@ exports[`Test Card Renders 1`] = `
     <div
       className="card-content"
     >
+      <img
+        src="not-found.png"
+      />
       <span />
       <hr />
       <p>

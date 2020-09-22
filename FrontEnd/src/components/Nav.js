@@ -20,26 +20,28 @@ function Nav() {
     }
   }, [setCurrentUser])
 
+  //Determines when nav will modify itself for small screen sizes
+  const resizeEvent = () => {
+    if(window.innerWidth <= 780)
+    {
+      setToggle(true);
+      setShrinkLinks(false);
+    }
+    else
+    {
+      setToggle(false);
+      setShrinkLinks(true);
+    }
+  }
+
   //Listener for window size
   useEffect(() => {
-      const resizeEvent = () => {
-        if(window.innerWidth <= 780)
-        {
-          setToggle(true);
-          setShrinkLinks(false);
-        }
-        else
-        {
-          setToggle(false);
-          setShrinkLinks(true);
-        }
-      }
-  
       window.addEventListener('resize', resizeEvent);
     return () => {
       window.removeEventListener('resize', resizeEvent);
     }
-}, [])
+  }, [resizeEvent])
+
 
   const modalRef = React.useRef()
 
@@ -51,11 +53,10 @@ function Nav() {
   //function for displaying links when button is clicked
   const switchLinkDisplay = () => {
     setShrinkLinks(!isShrinkLinks);
-    console.log(isShrinkLinks);
   }
 
   return (
-    <nav className="topNav">
+    <nav className="topNav" role="navigation">
       <h1>AGME</h1>
 
       {/*the navigation links will render in a toggle list if the screen is small.*/}
@@ -64,7 +65,7 @@ function Nav() {
           <li>about</li>
         </Link>
         {/* conditionally render activity links */} 
-        {true && (
+        {currentUser && (
           <>
             <Link to="/services" className="big-link">
               <li>services</li>
@@ -79,7 +80,7 @@ function Nav() {
         )}
 
         {/*render profile button only if the user is logged in */}
-        <ul className="login-links">
+        <ul className="login-links" role = 'group'>
           {currentUser ? (
             <>
               <button className="profileButton" onClick={() => OpenModal()} />
@@ -102,13 +103,11 @@ function Nav() {
 
       {/* Toggle button visible at small screen sizes */}
       {isToggle && (
-        <>
-          <div className="toggle-button" onClick={()=>setShrinkLinks(switchLinkDisplay)}>
+          <div className="toggle-button" role="button" onClick={()=>setShrinkLinks(switchLinkDisplay)}>
             <div class="toggle-bar1"/>
             <div class="toggle-bar2"/>
             <div class="toggle-bar3"/>
           </div>
-        </>
       )}
 
     </nav>

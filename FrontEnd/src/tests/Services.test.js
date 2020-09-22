@@ -8,23 +8,21 @@ import {render, screen, fireEvent, queryByText} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
 
-const setup = () => {
-  const dummyService = {id: 1, name: 'test', body: 'this is a test'}
+const dummyService = {id: 1, name: 'test', body: 'this is a test'}
+const searchFuncMock = jest.fn();
 
+const setup = () => {
   return render(
     <StaticRouter>
-      <Services services={[dummyService]} />
+      <Services services={[dummyService]} searchFunc= {searchFuncMock}/>
     </StaticRouter>
   )
 }
 
 test('Test Page Renders', () => {
-  const dummyService = {id: 1, name: 'test', body: 'this is a test'}
-
-  const comp = renderer
-    .create(
+  const comp = renderer.create(
       <StaticRouter>
-        <Services services={[dummyService]} />
+        <Services services={[dummyService]} searchFunc= {searchFuncMock}/>
       </StaticRouter>
     )
     .toJSON()
@@ -61,13 +59,12 @@ test('Test Search Input', () => {
   expect(input.value).toBe('test')
 })
 
-test('Test Search Results', () => {
+test('Test Search Fires', () => {
   const container = setup()
   const input = screen.getByRole('searchbox')
   fireEvent.change(input, {target: {value: 'test'}})
 
-  const card = screen.getByRole('cell')
-  expect(card.value).toBe('test')
+  expect(searchFuncMock).toHaveBeenCalled();
 })
 
 test('Test Calender Content', () => {

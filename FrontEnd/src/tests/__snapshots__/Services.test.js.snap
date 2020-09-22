@@ -34,7 +34,7 @@ exports[`Test Page Renders 1`] = `
             aria-invalid={false}
             autoFocus={false}
             className="MuiInputBase-input MuiInput-input"
-            defaultValue="2020-09-14"
+            defaultValue="2020-09-21"
             disabled={false}
             id="date"
             onAnimationStart={[Function]}
@@ -74,7 +74,7 @@ exports[`Test Page Renders 1`] = `
             aria-invalid={false}
             autoFocus={false}
             className="MuiInputBase-input MuiInput-input"
-            defaultValue="2020-09-14"
+            defaultValue="2020-09-21"
             disabled={false}
             id="date"
             onAnimationStart={[Function]}
@@ -98,9 +98,6 @@ exports[`Test Page Renders 1`] = `
       />
     </form>
   </div>
-  <hr
-    className="sector-divider"
-  />
   <div
     className="services-gallery"
     role="main"
@@ -115,18 +112,15 @@ exports[`Test Page Renders 1`] = `
       }
     >
       <button
-        aria-label={null}
-        className="service-card btn btn-secondary"
-        onClick={[Function]}
+        className="service-card"
         role="cell"
       >
-        <img
-          alt="undefined"
-          src="not-found.png"
-        />
         <div
           className="card-content"
         >
+          <img
+            src="not-found.png"
+          />
           <span />
           <hr />
           <p>

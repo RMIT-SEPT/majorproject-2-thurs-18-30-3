@@ -1,17 +1,13 @@
 import React from 'react';
 
-import ServiceCard from '../components/ServiceCard';
-import App from '../containers/App';
+import ServiceCard from '../components/ServiceCard'
 import { StaticRouter } from 'react-router';
 import renderer from 'react-test-renderer';
-import userEvent from '@testing-library/user-event';
 import {render, screen, fireEvent} from '@testing-library/react';
 
 import '@testing-library/jest-dom/extend-expect';
 
-beforeEach(() => {
-    
-});
+//Test for the carde components that appear in the services pages
 
 test('Test Card Renders', () => {
     const dummyService = {id: 1,name:'test',body:'this is a test'};
@@ -34,8 +30,6 @@ test('Test Card Contents', () => {
 
     expect(screen.getByRole('cell')).toHaveTextContent('this is a test');
     expect(screen.getByRole('img')).toHaveAttribute('src','not-found.png');
-    
-   
 }); 
 
 test('Test Card On Click', () => {
