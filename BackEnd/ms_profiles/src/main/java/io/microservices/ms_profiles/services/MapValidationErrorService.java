@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Service
 public class MapValidationErrorService {
-
+    // Validation for profiles returned by BindingResult
     public ResponseEntity<?> MapValidationService(BindingResult result) {
         if (result.hasErrors()) {
             Map<String, String> errorMap = new HashMap<>();

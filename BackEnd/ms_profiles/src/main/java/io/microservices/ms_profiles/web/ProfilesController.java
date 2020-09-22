@@ -1,6 +1,7 @@
 package io.microservices.ms_profiles.web;
 
 import io.microservices.ms_profiles.model.Profiles;
+import io.microservices.ms_profiles.model.UpdateProfile;
 import io.microservices.ms_profiles.services.MapValidationErrorService;
 import io.microservices.ms_profiles.services.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class ProfilesController {
     //@Autowired
     private MapValidationErrorService mapValidation;
 
-    @CrossOrigin(origins = "http://localhost:3000")
-    // Creating new user profile.
+//    @CrossOrigin(origins = "http://localhost:3000")
+    // Controller for POST request.
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody Profiles profiles, BindingResult result) {
 
@@ -40,6 +41,7 @@ public class ProfilesController {
         Profiles profiles = profileService.findByUsername(username);
         return new ResponseEntity<Profiles>(profiles, HttpStatus.OK);
     }
+
     // For returning all profiles in the database.
     @GetMapping("/all")
     public Iterable<Profiles> getAllPersons() {
@@ -54,6 +56,11 @@ public class ProfilesController {
         return new ResponseEntity<String>("User with username: '" + username + "' has been deleted.", HttpStatus.OK);
     }
 
-    //@PutMapping("/{username}")
-    //public ResponseEntity<?>
+    // Controller for PUT requests.
+    @PutMapping("/{username}")
+    public ResponseEntity<?> updateProfile(@PathVariable String username, @Valid @RequestBody UpdateProfile profiles){
+
+        Profiles profiles1 = profileService.modifyProfiles(username, profiles);
+        return new ResponseEntity<Profiles>(profiles1, HttpStatus.CREATED);
+    }
 }

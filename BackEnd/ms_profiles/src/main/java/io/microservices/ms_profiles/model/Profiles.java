@@ -8,15 +8,16 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
+// Main user class.
 @Entity
 public class Profiles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String userType;
-//    @NotBlank(message = "User first name is required.")
+    @NotBlank(message = "User first name is required.")
     private String firstName;
-//    @NotBlank(message = "User last name is required.")
+    @NotBlank(message = "User last name is required.")
     private String lastName;
     @NotBlank(message = "Username must not be empty.")
     @Size(min = 5, message = "Username must have at least 5 characters.")
@@ -42,6 +43,7 @@ public class Profiles {
     public Profiles() {
     }
 
+    // Constructor for unit testings.
     public Profiles(String username, String email, String address, String mobileNum, String password) {
         this.username = username;
         this.email = email;

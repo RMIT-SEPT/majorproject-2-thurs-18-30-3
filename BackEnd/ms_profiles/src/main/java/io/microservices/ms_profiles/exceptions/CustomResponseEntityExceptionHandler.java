@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
+// Class for handling general exceptions.
 @ControllerAdvice
 @RestController
 public class CustomResponseEntityExceptionHandler {
