@@ -28,4 +28,4 @@
 * Users can browse services
 * Admin can add employees
 
-# Unfixed issue, multiple microservices cannot be run in parallel. But needs to be run individually. 
+# Unfixed issue, multiple microservices cannot be run in parallel. But need to be run individually.  
