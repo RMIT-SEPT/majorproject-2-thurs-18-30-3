@@ -14,6 +14,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProfilesController {
 
     @Autowired
@@ -22,10 +23,9 @@ public class ProfilesController {
     //@Autowired
     private MapValidationErrorService mapValidation;
 
-//    @CrossOrigin(origins = "http://localhost:3000")
     // Controller for POST request.
     @PostMapping("")
-    public ResponseEntity<?> createNewBookings(@Valid @RequestBody Profiles profiles, BindingResult result) {
+    public ResponseEntity<?> createNewProfile(@Valid @RequestBody Profiles profiles, BindingResult result) {
 
         ResponseEntity<?> errorMap = mapValidation.MapValidationService(result);
         if(errorMap != null) {
@@ -50,7 +50,7 @@ public class ProfilesController {
 
     // Deleting user profile from database based on username.
     @DeleteMapping("/{username}")
-    public ResponseEntity<?> deleteProject(@PathVariable String username){
+    public ResponseEntity<?> deleteProfile(@PathVariable String username){
         profileService.deleteProfilesByUsername(username);
 
         return new ResponseEntity<String>("User with username: '" + username + "' has been deleted.", HttpStatus.OK);

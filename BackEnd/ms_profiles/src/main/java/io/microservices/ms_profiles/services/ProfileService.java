@@ -37,7 +37,7 @@ public class ProfileService {
         Profiles profiles = profilesRepository.findByUsername((username.toLowerCase()));
 
         if (profiles == null) {
-            throw new ProfilesException("Unable to delete user with username: "+ username + ". This user does not exist.");
+            throw new ProfilesException("Unable to delete user with username: " + username + ". This user does not exist.");
         }
         profilesRepository.delete(profiles);
     }

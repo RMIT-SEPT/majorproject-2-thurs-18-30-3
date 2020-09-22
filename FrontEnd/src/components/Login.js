@@ -1,13 +1,14 @@
 import React, {useContext, useState} from 'react'
 import * as yup from 'yup'
-import AuthService from '../services/auth.service'
-import MuiAlert from '@material-ui/lab/Alert'
-import {useHistory} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
-import {Button, Card, CardActions, CardContent, Grid, Snackbar} from '@material-ui/core'
-import TextField from '@material-ui/core/TextField'
+import {useHistory} from 'react-router-dom'
+import MuiAlert from '@material-ui/lab/Alert'
+import {Button, Card, CardActions, CardContent, Grid, Snackbar, TextField} from '@material-ui/core'
 import {yupResolver} from '@hookform/resolvers'
 import {makeStyles} from '@material-ui/core/styles'
+
+import UserType from '../config/userType'
+import AuthService from '../services/auth.service'
 import CurrentUser from '../context/CurrentUser'
 
 const schema = yup.object().shape({
@@ -25,19 +26,20 @@ const Login = () => {
     resolver: yupResolver(schema),
   })
   const [alertMsg, setAlertMsg] = useState('')
-  const [loginSuccess, setLoginSuccess] = useState(false)
-
+  const [, setCurrentUser] = useContext(CurrentUser)
   const history = useHistory()
-  const [, setUser] = useContext(CurrentUser)
 
   const handleLogin = async (data) => {
     const {username, password} = data
     try {
-      await AuthService.login(username, password)
-      setLoginSuccess(true)
-      setUser({username})
-      history.push('/services')
+      const user = await AuthService.login(username, password)
+      setCurrentUser(user)
+
+      if (user.type.toLowerCase() === UserType.Customer) history.push('/services')
+      else if (user.type.toLowerCase() === UserType.Admin) history.push('/employees')
+      else history.push('/')
     } catch (err) {
+      console.error('Login response error from backend', err.response)
       const resMessage = err.response?.data?.message ?? err.message
       setAlertMsg(resMessage)
     }
@@ -86,7 +88,7 @@ const Login = () => {
         </Card>
       </Grid>
       <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={!!alertMsg}>
-        <Alert onClose={handleClose} severity={loginSuccess ? 'success' : 'error'}>
+        <Alert onClose={handleClose} severity="error">
           {alertMsg}
         </Alert>
       </Snackbar>

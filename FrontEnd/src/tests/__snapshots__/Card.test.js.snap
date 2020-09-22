@@ -10,13 +10,9 @@ Object {
         style="text-decoration: none;"
       >
         <button
-          class="service-card btn btn-secondary"
+          class="service-card"
           role="cell"
         >
-          <img
-            alt="{service.name}"
-            src="not-found.png"
-          />
           <div
             class="card-content"
           >
@@ -36,13 +32,9 @@ Object {
       style="text-decoration: none;"
     >
       <button
-        class="service-card btn btn-secondary"
+        class="service-card"
         role="cell"
       >
-        <img
-          alt="{service.name}"
-          src="not-found.png"
-        />
         <div
           class="card-content"
         >
@@ -120,15 +112,9 @@ exports[`Test Card Renders 1`] = `
   }
 >
   <button
-    aria-label={null}
-    className="service-card btn btn-secondary"
-    onClick={[Function]}
+    className="service-card"
     role="cell"
   >
-    <img
-      alt="{service.name}"
-      src="not-found.png"
-    />
     <div
       className="card-content"
     >

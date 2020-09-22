@@ -8,7 +8,7 @@ import NavigationBar from '../components/NavigationBar'
 import About from '../components/About'
 import Create from '../components/Create'
 import Login from '../components/Login'
-import BookingDetail from '../components/BookingDetail'
+import ServiceDetailContainer from '../containers/ServiceDetailContainer'
 // import Booking from '../components/Booking'
 
 import CurrentUser from '../context/CurrentUser'
@@ -41,20 +41,31 @@ function App() {
     )
   }
 
+  function LoginRoute({children, ...rest}) {
+    return (
+      // Show the component only when the user is logged in
+      <Route {...rest} render={() => (user ? <Redirect to="/services" /> : children)} />
+    )
+  }
+
+  //Routing list of major pages in application
   return (
     <Router>
       <CurrentUser.Provider value={[user, setUser]}>
         <NavigationBar />
         <Switch>
           <Route path="/create" exact component={Create} />
-          <Route path="/login" exact component={Login} />
           <Route path="/about" exact component={About} />
+
+          <LoginRoute path="/login">
+            <Route path="/login" exact component={Login} />
+          </LoginRoute>
 
           <PrivateRoute path="/">
             <Route path="/services" exact component={ServiceList} />
             <Route path="/employees" exact component={EmployeeList} />
             {/*<Route path="/bookings" exact component={Booking} />*/}
-            <Route path="/bookings/:id" component={BookingDetail} />
+            <Route path="/services/:id" component={ServiceDetailContainer} />
           </PrivateRoute>
         </Switch>
       </CurrentUser.Provider>
