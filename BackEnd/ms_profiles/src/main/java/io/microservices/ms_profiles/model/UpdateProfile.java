@@ -15,6 +15,15 @@ public class UpdateProfile {
     @NotBlank(message = "Phone number is required.")
     private String mobileNum;
 
+    //Constructor for testing.
+    public UpdateProfile(String firstName, String lastName, String email, String address, String mobileNum) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+        this.mobileNum = mobileNum;
+    }
+
     public String getFirstName() {
         return firstName;
     }
