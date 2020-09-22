@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import Axios from 'axios'
 import Employees from '../components/Employees'
 
+const API_URL = 'https://5f51c3975e98480016123e31.mockapi.io/users'
+
 function EmployeeListContainer() {
   const [employees, setEmployees] = useState([])
   const [alertMsg, setAlertMsg] = useState('')
@@ -10,10 +12,10 @@ function EmployeeListContainer() {
   useEffect(() => {
     async function callAPI() {
       try {
-        const {data} = await Axios.get('https://5f50f63c5e98480016123379.mockapi.io/employees')
+        const {data} = await Axios.get(API_URL)
         setEmployees(data)
       } catch (err) {
-        alert(err.message)
+        setAlertErrorMsg(err.message)
       }
     }
     callAPI()
@@ -27,9 +29,9 @@ function EmployeeListContainer() {
   async function onRowAdd(newData) {
     // TODO: call real api
     try {
-      await Axios.post('https://5f50f63c5e98480016123379.mockapi.io/employees', newData)
+      await Axios.post(API_URL, newData)
       setEmployees([...employees, newData])
-      setAlertMsg(`${newData.name} has been added`)
+      setAlertMsg(`${newData.username} has been added`)
     } catch ({messsage}) {
       setAlertErrorMsg(messsage)
     }
@@ -37,7 +39,7 @@ function EmployeeListContainer() {
   //PUT request to edit employee data to the backend
   async function onRowUpdate(newData, oldData) {
     try {
-      await Axios.put(`https://5f50f63c5e98480016123379.mockapi.io/employees/${oldData.id}`, newData)
+      await Axios.put(`${API_URL}/${newData.id}`, newData)
       setEmployees([...employees, newData])
     } catch ({messsage}) {
       setAlertErrorMsg(messsage)
@@ -52,7 +54,7 @@ function EmployeeListContainer() {
   //DELETE specific employee data from the backend
   async function onRowDelete(oldData) {
     try {
-      await Axios.delete(`https://5f50f63c5e98480016123379.mockapi.io/employees/${oldData.id}`)
+      await Axios.delete(`${API_URL}/${oldData.id}`)
       const data = [...employees]
       data.splice(data.indexOf(oldData), 1)
       setEmployees(data)
