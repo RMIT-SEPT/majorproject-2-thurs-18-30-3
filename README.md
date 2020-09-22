@@ -27,3 +27,5 @@
 * Users can edit their profile
 * Users can browse services
 * Admin can add employees
+
+# Unfixed issue, multiple microservices cannot be run in parallel. But needs to be run individually. 
