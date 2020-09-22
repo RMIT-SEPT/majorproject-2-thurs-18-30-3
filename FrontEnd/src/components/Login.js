@@ -22,7 +22,7 @@ function Alert(props) {
 
 const Login = () => {
   const classes = useStyles()
-  const [active, setActive] = React.useState("true");
+  const [active, setActive] = React.useState('true')
 
   const {register, handleSubmit, errors} = useForm({
     resolver: yupResolver(schema),
@@ -32,9 +32,8 @@ const Login = () => {
   const history = useHistory()
 
   const handleLogin = async (data) => {
-
     const {username, password} = data
-
+    //Calling login function to make a GET REQUEST
     try {
       const user = await AuthService.login(username, password)
       setCurrentUser(user)

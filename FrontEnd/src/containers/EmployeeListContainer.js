@@ -6,7 +6,7 @@ function EmployeeListContainer() {
   const [employees, setEmployees] = useState([])
   const [alertMsg, setAlertMsg] = useState('')
   const [alertErrorMsg, setAlertErrorMsg] = useState('')
-
+  //Retrieves and display employees list
   useEffect(() => {
     async function callAPI() {
       try {
@@ -23,7 +23,7 @@ function EmployeeListContainer() {
     setAlertMsg('')
     setAlertErrorMsg('')
   }
-
+  //POST request to add new employee data to the backend
   async function onRowAdd(newData) {
     // TODO: call real api
     try {
@@ -34,7 +34,7 @@ function EmployeeListContainer() {
       setAlertErrorMsg(messsage)
     }
   }
-
+  //PUT request to edit employee data to the backend
   async function onRowUpdate(newData, oldData) {
     try {
       await Axios.put(`https://5f50f63c5e98480016123379.mockapi.io/employees/${oldData.id}`, newData)
@@ -49,7 +49,7 @@ function EmployeeListContainer() {
       setEmployees(data)
     }, 600)
   }
-
+  //DELETE specific employee data from the backend
   async function onRowDelete(oldData) {
     try {
       await Axios.delete(`https://5f50f63c5e98480016123379.mockapi.io/employees/${oldData.id}`)
