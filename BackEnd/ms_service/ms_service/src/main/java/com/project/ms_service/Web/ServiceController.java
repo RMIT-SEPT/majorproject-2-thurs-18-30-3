@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/service")
+@RequestMapping("/api/services")
 public class ServiceController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class ServiceController {
             return errorMap;
         }
         AppService sampleService = serviceEngine.saveOrUpdateService(service);
-        return new ResponseEntity<AppService>(service, HttpStatus.CREATED);
+        return new ResponseEntity<AppService>(sampleService, HttpStatus.CREATED);
     }
 
     @GetMapping("/{name}")
