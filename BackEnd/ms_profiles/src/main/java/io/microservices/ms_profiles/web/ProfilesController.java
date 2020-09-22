@@ -20,7 +20,7 @@ public class ProfilesController {
     @Autowired
     private ProfileService profileService;
 
-    //@Autowired
+    @Autowired
     private MapValidationErrorService mapValidation;
 
     // Controller for POST request.
