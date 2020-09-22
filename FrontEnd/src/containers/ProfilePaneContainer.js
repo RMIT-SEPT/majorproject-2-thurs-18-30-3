@@ -45,11 +45,10 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
     const url = 'http://localhost:8081/api/users/'.concat(AuthService.getCurrentUser().username)
     const prof = {
       firstName: newFirstName,
-      lastname: newLastName,
+      lastName: newLastName,
       email: newEmail,
-      phone: newPhone,
       address: newAddress,
-
+      mobileNum: newPhone,
     }
     fetch(url, {
       method: 'PUT',
