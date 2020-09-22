@@ -9,7 +9,7 @@ import MuiAlert from '@material-ui/lab/Alert'
 
 import AuthService from '../services/auth.service'
 import CurrentUser from '../context/CurrentUser'
-
+//Use react hook form
 const schema = yup.object().shape({
   firstName: yup.string().required(),
   lastName: yup.string().required(),
@@ -34,6 +34,7 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />
 }
 
+//Handles form input when user clicks submit
 const Create = () => {
   const classes = useStyles()
   const {register, handleSubmit, errors} = useForm({
@@ -43,12 +44,14 @@ const Create = () => {
 
   const [, setCurrentUser] = useContext(CurrentUser)
   const history = useHistory()
-
+  //Checking whether confirm password match password
+  //Before POST request to the backend
   const onSubmit = async (data) => {
     console.log('Registration data', data)
     const {firstName, lastName, username, email, address, mobileNum, password, confirmPassword} = data
     if (password !== confirmPassword) return setAlertMsg('Password mismatch')
-
+    
+    //Attmepts to create user
     try {
       const payload = {
         firstName,
@@ -74,6 +77,7 @@ const Create = () => {
     setAlertMsg('')
   }
 
+  //Main Login Form
   return (
     <div className={classes.root}>
       <Grid container direction="row" justify="center" alignItems="center">
@@ -177,6 +181,7 @@ const Create = () => {
   )
 }
 
+//Styles for login form
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {

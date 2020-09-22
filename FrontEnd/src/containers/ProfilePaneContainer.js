@@ -39,6 +39,7 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
     }
   }
 
+
   //Reads in changed values and PUTS them to the backend
   const updateProfile = async (newEmail, newFirstName, newLastName, newPhone, newAddress) => {
     const url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().username)
@@ -48,6 +49,7 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
       email: newEmail,
       phone: newPhone,
       address: newAddress,
+
     }
     fetch(url, {
       method: 'PUT',
