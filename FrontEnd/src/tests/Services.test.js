@@ -19,6 +19,7 @@ const setup = () => {
   )
 }
 
+//snapshot test
 test('Test Page Renders', () => {
   const comp = renderer.create(
       <StaticRouter>
@@ -37,6 +38,8 @@ test('Test Page Contents', () => {
   expect(screen.getByRole('main')).toHaveClass('services-gallery')
 })
 
+
+//Ensure gallery is displaying props
 test('Check Gallery', () => {
   const container = setup()
   const gallery = screen.getByRole('main')
@@ -44,7 +47,7 @@ test('Check Gallery', () => {
   expect(gallery).toHaveTextContent('this is a test')
 })
 
-
+//Tests for the search field at the top of the gallery
 test('Test Search PlaceHolder', () => {
   const container = setup()
   const input = screen.getByRole('searchbox')
@@ -67,6 +70,8 @@ test('Test Search Fires', () => {
   expect(searchFuncMock).toHaveBeenCalled();
 })
 
+
+//Tests for the claendar selectors at the top of the gallery
 test('Test Calender Content', () => {
   const container = setup()
   const calendarArray = screen.getAllByRole('listbox')

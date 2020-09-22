@@ -10,7 +10,7 @@ function ServiceCard({service}) {
       <button className="service-card" role="cell">
        
         <div className="card-content">
-          <img src = 'not-found.png'/>
+          <img src = 'not-found.png' alt={service.title}/>
           <span>{service.title}</span>
           <hr></hr>
           <p>{service.body}</p>

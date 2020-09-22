@@ -7,8 +7,7 @@ import {render, screen, fireEvent} from '@testing-library/react';
 
 import '@testing-library/jest-dom/extend-expect';
 
-//Test for the carde components that appear in the services pages
-
+//Snapshot test
 test('Test Card Renders', () => {
     const dummyService = {id: 1,name:'test',body:'this is a test'};
 
@@ -20,6 +19,8 @@ test('Test Card Renders', () => {
       expect(card).toMatchSnapshot();
 });
 
+
+//Check that card displays desired content
 test('Test Card Contents', () => {
     const dummyService = {id: 1,name:'TEST BUTTON',body:'this is a test'};
     const container = render(
@@ -32,6 +33,7 @@ test('Test Card Contents', () => {
     expect(screen.getByRole('img')).toHaveAttribute('src','not-found.png');
 }); 
 
+//Test that click does not change card
 test('Test Card On Click', () => {
     const dummyService = {id: 1,name:'TEST BUTTON',body:'this is a test'};
     const container = render(
@@ -42,5 +44,4 @@ test('Test Card On Click', () => {
     
     fireEvent.click(screen.getByRole('cell'));
     expect(container).toMatchSnapshot();
-   
 }); 

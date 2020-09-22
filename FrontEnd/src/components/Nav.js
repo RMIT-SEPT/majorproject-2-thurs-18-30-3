@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useCallback } from 'react'
 import {Link} from 'react-router-dom'
  
 import '../containers/App.css'
@@ -21,7 +21,7 @@ function Nav() {
   }, [setCurrentUser])
 
   //Determines when nav will modify itself for small screen sizes
-  const resizeEvent = () => {
+  const resizeEvent =  useCallback(() => {
     if(window.innerWidth <= 780)
     {
       setToggle(true);
@@ -32,11 +32,11 @@ function Nav() {
       setToggle(false);
       setShrinkLinks(true);
     }
-  }
+  }, [])
 
   //Listener for window size
   useEffect(() => {
-      window.addEventListener('resize', resizeEvent);
+    window.addEventListener('resize', resizeEvent);
     return () => {
       window.removeEventListener('resize', resizeEvent);
     }

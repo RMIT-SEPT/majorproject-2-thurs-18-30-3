@@ -19,6 +19,7 @@ const setup = () => {
     )
   }
 
+  //snapshot test
 test('Test Pane Renders', () => {
     const pane = renderer.create(
         <StaticRouter>
@@ -35,6 +36,7 @@ test('Test Pane Contents', () => {
     expect(container.getAllByRole('textbox').length).toBe(5);
 });
 
+//Make sure input fields arein correct order
 test('Test Pane Data', () => {
     const container = setup();
     
@@ -52,13 +54,13 @@ test('Test Pane Data', () => {
 
 });
 
+//Check that buttons have correct functions
 test('Test Pane Functions', () => {
     const container = setup();
     
     const closeBtn= container.getAllByRole('button')[0];
     const editBtn= container.getAllByRole('button')[1];
     const SaveBtn= container.getAllByRole('button')[2];
-    const BookBtn= container.getAllByRole('button')[3];
 
     const fname= container.getAllByRole('textbox')[0];
 
