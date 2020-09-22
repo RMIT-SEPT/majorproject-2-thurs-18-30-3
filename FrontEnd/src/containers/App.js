@@ -44,8 +44,12 @@ function App() {
   function LoginRoute({children, ...rest}) {
     return (
       // Show the component only when the user is logged in
-      <Route {...rest} render={() => (user ? <Redirect to="/services" /> : children)} />
-    )
+      <Route {...rest} render={props => (
+        user ?
+            <Redirect to="/services" />
+          : children
+      )} />
+    );
   }
 
   //Routing list of major pages in application
@@ -65,7 +69,7 @@ function App() {
             <Route path="/services" exact component={ServiceList} />
             <Route path="/employees" exact component={EmployeeList} />
             {/*<Route path="/bookings" exact component={Booking} />*/}
-            <Route path="/services/:id" component={ServiceDetailContainer} />
+            <Route path ="/services/:id" component = {ServiceDetailContainer} />
           </PrivateRoute>
         </Switch>
       </CurrentUser.Provider>
