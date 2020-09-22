@@ -7,6 +7,7 @@ import '../containers/App.css'
 function BookingDetail({match}) {
   const [booking, setBooking] = useState({})
 
+  //Retrieves a specific service
   useEffect(() => {
     const fetchItem = async () => {
       try {

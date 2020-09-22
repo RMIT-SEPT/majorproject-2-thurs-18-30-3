@@ -1,3 +1,120 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test Pane Renders 1`] = `null`;
+exports[`Test Pane Renders 1`] = `
+<div
+  className="modal-wrapper"
+>
+  <main
+    className="modalPane"
+  >
+    <div
+      className="paneHeader"
+    >
+      <button
+        className="closeButton"
+        onClick={[Function]}
+      >
+        ×
+      </button>
+      <div
+        className="book-bubble"
+      />
+      <button
+        className="editButton"
+        onClick={[Function]}
+      >
+        edit
+      </button>
+    </div>
+    <div
+      className="paneBody"
+    >
+      <label
+        htmlFor="fname"
+      >
+        name
+      </label>
+      <input
+        className="paneInput"
+        disabled={true}
+        id="fname"
+        name="fname"
+        onChange={[Function]}
+        value="test"
+      />
+      <label
+        htmlFor="lname"
+      >
+        surname
+      </label>
+      <input
+        className="paneInput"
+        disabled={true}
+        id="lname"
+        name="lname"
+        onChange={[Function]}
+        value="tester"
+      />
+      <label
+        htmlFor="email"
+      >
+        email
+      </label>
+      <input
+        className="paneInput"
+        disabled={true}
+        id="email"
+        name="email"
+        onChange={[Function]}
+        value="test@wiz"
+      />
+      <label
+        htmlFor="phNum"
+      >
+        phone number
+      </label>
+      <input
+        className="paneInput"
+        disabled={true}
+        id="phNum"
+        name="phNum"
+        onChange={[Function]}
+        value="0000"
+      />
+      <label
+        htmlFor="phNum"
+      >
+        address
+      </label>
+      <input
+        className="paneInput"
+        disabled={true}
+        id="address"
+        name="address"
+        onChange={[Function]}
+        value="001 happy test avenue"
+      />
+      <div
+        className="button-set"
+      >
+        <button
+          className="actButton"
+        >
+          bookings
+        </button>
+        <a
+          href="/service"
+          onClick={[Function]}
+        >
+          <button
+            className="actButton"
+            onClick={[Function]}
+          >
+            log out
+          </button>
+        </a>
+      </div>
+    </div>
+  </main>
+</div>
+`;

@@ -16,6 +16,7 @@ function Employees({employees, onRowAdd, onRowUpdate, onRowDelete, alertMsg, ale
     {title: 'Mobile', field: 'mobile'},
   ])
 
+  //List structure which displays all employees
   return (
     <div className={classes.root}>
       <Snackbar
@@ -41,6 +42,7 @@ function Employees({employees, onRowAdd, onRowUpdate, onRowDelete, alertMsg, ale
   )
 }
 
+//Styles for login form
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(5),

@@ -21,6 +21,7 @@ function ServiceSlide({ service }) {
                 <hr></hr>
                 <h3>Available Bookings:</h3>
                 <div className ='token-set'>
+                    {/*Placeholders - TODO: Programmatically display bookings*/}
                     <Bubble slot = {dummySlot}/>
                     <Bubble slot = {dummySlot}/>
                     <Bubble slot = {dummySlot}/>

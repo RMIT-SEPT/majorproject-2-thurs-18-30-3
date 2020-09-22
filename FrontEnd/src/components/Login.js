@@ -20,8 +20,11 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />
 }
 
+//Handles form input when user clicks submit
 const Login = () => {
   const classes = useStyles()
+  const [active, setActive] = React.useState('true')
+
   const {register, handleSubmit, errors} = useForm({
     resolver: yupResolver(schema),
   })
@@ -29,8 +32,10 @@ const Login = () => {
   const [, setCurrentUser] = useContext(CurrentUser)
   const history = useHistory()
 
+  //Verifies user and initialises currentUser variable
   const handleLogin = async (data) => {
     const {username, password} = data
+    //Calling login function to make a GET REQUEST
     try {
       const user = await AuthService.login(username, password)
       setCurrentUser(user)
@@ -45,15 +50,17 @@ const Login = () => {
     }
   }
 
+  //Handle Panel close
   const handleClose = () => {
     setAlertMsg('')
   }
 
+  //Main login form
   return (
     <div className={classes.root}>
       <Grid container direction="row" justify="center" alignItems="center">
         <Card className={classes.card}>
-          <form noValidate autoComplete="off" onSubmit={handleSubmit(handleLogin)}>
+          <form noValidate autoComplete="off" fieldset onSubmit={handleSubmit(handleLogin)}>
             <CardContent>
               <h3>Login</h3>
               <TextField
@@ -63,6 +70,7 @@ const Login = () => {
                 variant="outlined"
                 error={!!errors.username}
                 helperText={errors.username?.message}
+                enabled={active}
                 fullWidth
               />
 
@@ -74,12 +82,13 @@ const Login = () => {
                 variant="outlined"
                 error={!!errors.password}
                 helperText={errors.password?.message}
+                enabled={active}
                 fullWidth
               />
             </CardContent>
             <CardActions>
               <Grid container direction="row" justify="center" alignItems="center">
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" color="primary" enabled={active}>
                   Sign In
                 </Button>
               </Grid>
@@ -96,6 +105,7 @@ const Login = () => {
   )
 }
 
+//Styles for login
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {

@@ -8,23 +8,23 @@ import {render, screen, fireEvent, queryByText} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
 
-const setup = () => {
-  const dummyService = {id: 1, name: 'test', body: 'this is a test'}
+const dummyService = {id: 1, name: 'test', body: 'this is a test'}
+const searchFuncMock = jest.fn()
 
+const setup = () => {
   return render(
     <StaticRouter>
-      <Services services={[dummyService]} />
+      <Services services={[dummyService]} searchFunc={searchFuncMock} />
     </StaticRouter>
   )
 }
 
+//snapshot test
 test('Test Page Renders', () => {
-  const dummyService = {id: 1, name: 'test', body: 'this is a test'}
-
   const comp = renderer
     .create(
       <StaticRouter>
-        <Services services={[dummyService]} />
+        <Services services={[dummyService]} searchFunc={searchFuncMock} />
       </StaticRouter>
     )
     .toJSON()
@@ -39,6 +39,15 @@ test('Test Page Contents', () => {
   expect(screen.getByRole('main')).toHaveClass('services-gallery')
 })
 
+//Ensure gallery is displaying props
+test('Check Gallery', () => {
+  const container = setup()
+  const gallery = screen.getByRole('main')
+
+  expect(gallery).toHaveTextContent('this is a test')
+})
+
+//Tests for the search field at the top of the gallery
 test('Test Search PlaceHolder', () => {
   const container = setup()
   const input = screen.getByRole('searchbox')
@@ -53,8 +62,15 @@ test('Test Search Input', () => {
   expect(input.value).toBe('test')
 })
 
-//TODO: Further Testing required when searchbox fully implemented
+test('Test Search Fires', () => {
+  const container = setup()
+  const input = screen.getByRole('searchbox')
+  fireEvent.change(input, {target: {value: 'test'}})
 
+  expect(searchFuncMock).toHaveBeenCalled()
+})
+
+//Tests for the claendar selectors at the top of the gallery
 test('Test Calender Content', () => {
   const container = setup()
   const calendarArray = screen.getAllByRole('listbox')
@@ -87,11 +103,4 @@ test('Test Calender Input', () => {
 
   expect(calendarArray[0]).toHaveTextContent('Display Services From')
   expect(calendarArray[1]).toHaveTextContent('Display Services To')
-})
-
-test('Check Gallery', () => {
-  const container = setup()
-  const gallery = screen.getByRole('main')
-
-  expect(gallery).toHaveTextContent('this is a test')
 })
