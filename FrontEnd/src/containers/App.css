@@ -34,14 +34,11 @@ h1{
   font-size: 20px;
 }
 /* ------------------------------ NAV COMPONENT STYLING */
-.navbar.navbar-default{
-  background-color: black;
-  color:blue;
-}
 
 .topNav {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   align-items: flex-end;
   justify-content: space-around;
   height: 8vh;
@@ -55,12 +52,13 @@ h1{
   font-weight: 500;
   font-size: 48px;
   
-  margin: -10px;
+  margin-block-end: -10px;
 }
 
 .nav-links {
   width: 70%;
   display: flex;
+  margin-block-end: -2px;
   justify-content: space-between;
   align-items: flex-end;
   list-style: none;
@@ -93,6 +91,45 @@ h1{
 .little-link:hover{
   text-decoration: none;
   color: #a7aca7;
+}
+
+.toggle-button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toggle-bar1, .toggle-bar2, .toggle-bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #009BA0;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+@media screen and (max-width: 780px)
+{
+  .nav-links {
+    position: absolute;
+    top: 8vh;
+    width: 96vw;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-inline-end: 1em;
+    text-align: center;
+    border: 2px solid #009BA0;
+    border-radius: 20px;
+    border-top: 0;
+    background-color:white;
+    z-index: 99;
+  }
+
+  .big-link{
+    margin: 7px;
+  }
+
+  .login-links{
+    margin:2px;
+  }
 }
 
 /*SERVICES STYLING*/
