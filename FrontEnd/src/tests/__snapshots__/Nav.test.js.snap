@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Nav Renders 1`] = `
+<nav
+  className="topNav"
+  role="navigation"
+>
+  <h1>
+    AGME
+  </h1>
+  <ul
+    className="nav-links"
+  >
+    <a
+      className="big-link"
+      href="/about"
+      onClick={[Function]}
+    >
+      <li>
+        about
+      </li>
+    </a>
+    <a
+      className="big-link"
+      href="/services"
+      onClick={[Function]}
+    >
+      <li>
+        services
+      </li>
+    </a>
+    <a
+      className="big-link"
+      href="/bookings"
+      onClick={[Function]}
+    >
+      <li>
+        bookings
+      </li>
+    </a>
+    <a
+      className="big-link"
+      href="/employees"
+      onClick={[Function]}
+    >
+      <li>
+        employees
+      </li>
+    </a>
+    <ul
+      className="login-links"
+      role="group"
+    >
+      <button
+        className="profileButton"
+        onClick={[Function]}
+      />
+    </ul>
+  </ul>
+</nav>
+`;

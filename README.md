@@ -10,7 +10,7 @@
 
 ## Records
 
-* Github repository : https://github.com/RMIT-SEPT/MajorProject/Groupx
+* Github repository :https://github.com/RMIT-SEPT/majorproject-2-thurs-18-30-3
 * Trello Board : https://trello.com/b/ZqCYIKzv/agile-sprint-board
 * Google Docs : https://drive.google.com/drive/folders/16Aw59ut0WHV8Cs4FAFMkFHF8P1IxIVcF
 
@@ -21,3 +21,11 @@
 * Dummy API for use in testing
 * Backend foundations for bookings microservice
 	
+## Code documentation - Release 0.1.0 - 22/09/2020
+* Users can register profile
+* Users can log in to profile
+* Users can edit their profile
+* Users can browse services
+* Admin can add employees
+
+# Unfixed issue, multiple microservices could be run in parallel. Need to be run individually.  

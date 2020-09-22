@@ -1,58 +1,71 @@
-import React, { Component } from 'react';
-import { Table, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import React from 'react'
 
-import '../containers/App.css';
+import TextField from '@material-ui/core/TextField'
+import moment from 'moment'
+import '../containers/App.css'
+const {default: ServiceCard} = require('../components/ServiceCard')
 
-//Displays list of Employees 
+const CURRENT_DATE = moment().format('YYYY-MM-DD')
 
-class Services extends Component {
-    constructor(props){
-        super(props);
-    }
+//Displays Service cards
+function Services(props) {
 
-	//Props passed down by ServiceListContainer
+  //Props passed down by ServiceListContainer
+  var services = props.services.map((service) => {
+    return (
+      //Render an item in booking list for each booking fetched
+      <ServiceCard key={service.id} service={service} />
+    )
+  })
 
-    render() {
-		let services = this.props.services.map((service) => {
-			return (
-				//Render an item in booking list for each booking fetched
-				<tr key ={service.id}>
+  //Function to handle service search
+  const doSearch = (event) => {
+    props.searchFunc(event.target.value);
+  }
 
-					<td>{service.id}</td>
+  return (
+    <div className="container">
+      <h1>Services</h1>
 
-					<Link to={`/services/${service.id}`} className = "booking-link">
-						<td>{service.title}</td>
-					</Link>
+      {/*TODO: implement calendars to filter service view*/}
+      <div className="sector-heading">
+        <form noValidate data-testid="datePickerA">
+          <TextField
+            role="listbox"
+            id="date"
+            label="Display Services From"
+            type="date"
+            defaultValue={`${CURRENT_DATE}`}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </form>
+        <span> &#62; </span>
+        <form noValidate data-testid="datePickerB">
+          <TextField
+            role="listbox"
+            id="date"
+            label="Display Services To"
+            type="date"
+            defaultValue={`${CURRENT_DATE}`}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </form>
 
-					<td>{service.body}</td>
+      {/* Search Bar  */}
+      <div className="dummy" />
+        <form>
+          <input role="searchbox" onChange={event => {doSearch(event)}} placeholder="Search" />
+        </form>
+      </div>
 
-					<td>
-						<Button color = "success" size = 'l'>Book</Button>
-					</td>
-				</tr>
-				
-			) 
-		});
-		return (
-		<div className = "services-list">
-			<Table>
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>SERVICE</th>
-						<th>DESCRIPTION</th>
-						<th>ACTION</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					{services}
-				</tbody>
-			</Table>
-		</div>
-		);
-	}
-
+      <div className="services-gallery" role="main">
+        {services}
+      </div>
+    </div>
+  )
 }
-export default Services;
+export default Services

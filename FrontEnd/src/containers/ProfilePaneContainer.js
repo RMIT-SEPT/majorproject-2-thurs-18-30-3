@@ -1,0 +1,89 @@
+import React, {forwardRef, useImperativeHandle, useEffect} from 'react'
+import ReactDOM from 'react-dom'
+
+import ProfilePane from '../components/ProfilePane'
+import AuthService from '../services/auth.service'
+import '../containers/App.css'
+
+//Retrieves and displays current user profile data
+const ProfilePaneContainer = forwardRef((props, ref) => {
+  //Is the pane rendering
+  const [isShowing, setIsShowing] = React.useState(false)
+  //User profile for display
+  const [profile, setProfile] = React.useState({})
+
+  //Refs to the modal operation functions
+  useImperativeHandle(ref, () => {
+    return {
+      openModel: () => open(),
+      close: () => close(),
+    }
+  })
+  useEffect(() => {
+    loadProfile()
+  }, [])
+
+  //API call to retrieve user data
+  const loadProfile = async () => {
+    if (!AuthService.getCurrentUser()) {
+      return null
+    }
+    try {
+      const url = 'http://localhost:8081/api/users/'.concat(AuthService.getCurrentUser().username)
+    //  const url = 'https://5f51c3975e98480016123e31.mockapi.io/users/1'
+      const res = await fetch(url)
+      const data = await res.json()
+      console.log('data', data)
+      setProfile(data)
+    } catch (err) {
+      alert(err)
+    }
+  }
+
+  //Reads in changed values and PUTS them to the backend
+  const updateProfile = async (newEmail, newFirstName, newLastName, newPhone, newAddress) => {
+    const url = 'http://localhost:8081/api/users/'.concat(AuthService.getCurrentUser().username)
+    const prof = {
+      firstName: newFirstName,
+      lastname: newLastName,
+      email: newEmail,
+      phone: newPhone,
+      address: newAddress,
+    }
+    fetch(url, {
+      method: 'PUT',
+      body: JSON.stringify(prof),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => {
+        response.json()
+      })
+      .then(() => {
+        setProfile(prof)
+      })
+  }
+
+  //open modal pane
+  const open = () => {
+    setIsShowing(true)
+  }
+
+  //close modal pane
+  const close = () => {
+    setIsShowing(false)
+  }
+
+  if (isShowing) {
+    //Modal components are linked to modal-root node
+    return ReactDOM.createPortal(
+      <ProfilePane close={close} profile={profile} reload={loadProfile} update={updateProfile} />,
+      document.getElementById('modal-root')
+    )
+  }
+
+  return null
+})
+
+export default ProfilePaneContainer

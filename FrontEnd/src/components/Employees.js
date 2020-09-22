@@ -1,48 +1,61 @@
-import React, { Component } from 'react';
-import { Table, Button } from 'reactstrap';
+import React, {useState} from 'react'
+import {makeStyles} from '@material-ui/core/styles'
+import Snackbar from '@material-ui/core/Snackbar'
+import Alert from '@material-ui/lab/Alert'
+import MaterialTable from 'material-table'
 
-import '../containers/App.css';
+import '../containers/App.css'
 
-//Displays list of Employees 
+// Many props will be deleted after code refactoring
+function Employees({employees, onRowAdd, onRowUpdate, onRowDelete, alertMsg, alertErrorMsg, onAlertClose}) {
+  const classes = useStyles()
+  const [columns] = useState([
+    {title: 'Username', field: 'username', validate: (rowData) => rowData.username !== ''},
+    {title: 'Fist Name', field: 'firstName', validate: (rowData) => rowData.firstName !== ''},
+    {title: 'Last Name', field: 'lastName', validate: (rowData) => rowData.lastName !== ''},
+    {
+      title: 'Password',
+      field: 'password',
+      validate: (rowData) => rowData.password !== '',
+    },
+    {title: 'Address', field: 'address', validate: (rowData) => rowData.address !== ''},
+    {title: 'Mobile Number', field: 'mobileNum', validate: (rowData) => rowData.mobileNum !== ''},
+  ])
 
-class Employees extends Component{
-    constructor(props){
-        super(props);
+  //List structure which displays all employees
+  return (
+    <div className={classes.root}>
+      <Snackbar
+        anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+        open={alertMsg !== '' || alertErrorMsg !== ''}
+        onClose={onAlertClose}>
+        <Alert onClose={onAlertClose} severity={alertMsg ? 'success' : 'error'}>
+          {alertMsg}
+          {alertErrorMsg}
+        </Alert>
+      </Snackbar>
+      <MaterialTable
+        title="Employees"
+        columns={columns}
+        data={employees}
+        editable={{
+          onRowAdd,
+          onRowUpdate,
+          onRowDelete,
+        }}
+      />
+    </div>
+  )
 }
 
-    //Props passed down by EmployeeListContainer
+//Styles for login form
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(5),
+  },
+  table: {
+    minWidth: 650,
+  },
+}))
 
-    render(){
-        let employees = this.props.employees.map((employees)=> {
-            return (
-                <tr key = {employees.email} >
-
-                    <td>{employees.email}</td>
-                    <td>{employees.uname}</td>
-                    <td>{employees.name}</td>
-                    <td>{employees.phone}</td>
-
-    return(
-            <div className = "bookings-list">
-                <Table>
-                    <thead>
-                    <tr>
-                        <th>EMAIL</th>
-                        <th>USERNAME</th>
-                        <th>NAME</th>
-                        <th>PHONE NUMBER</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    {renderEmployees}
-                    </tbody>
-                </Table>
-            </div>
-        )
-
-}
-
-
-
-export default Employees;
+export default Employees

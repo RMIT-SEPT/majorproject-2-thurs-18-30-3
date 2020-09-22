@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/majorproject-2-thurs-18-30-3.iml" filepath="$PROJECT_DIR$/majorproject-2-thurs-18-30-3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BackEnd/ms_bookings/ms_bookings.iml" filepath="$PROJECT_DIR$/BackEnd/ms_bookings/ms_bookings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BackEnd/ms_profiles/ms_profiles.iml" filepath="$PROJECT_DIR$/BackEnd/ms_profiles/ms_profiles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BackEnd/ms_service/ms_service/ms_service.iml" filepath="$PROJECT_DIR$/BackEnd/ms_service/ms_service/ms_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms_template.iml" filepath="$PROJECT_DIR$/ms_template.iml" />
     </modules>
   </component>
 </project>
