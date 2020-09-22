@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import UserService from "../services/user.service";
 
+//Default home page for site
 const Home = () => {
     const [content, setContent] = useState("");
 
+    //Regulate displayed content based on whether user is logged in
     useEffect(() => {
         UserService.getPublicContent().then(
             (response) => {

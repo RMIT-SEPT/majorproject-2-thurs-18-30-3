@@ -1,6 +1,7 @@
 import axios from 'axios'
 import UserType from '../config/userType'
 
+
 const USER_STORAGE_KEY = 'user'
 const API_BASE_URL = 'http://localhost:8080/api/users'
 
