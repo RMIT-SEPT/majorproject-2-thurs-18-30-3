@@ -29,7 +29,8 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
       return null
     }
     try {
-      const url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().username)
+      // const url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().username)
+      const url = 'https://5f51c3975e98480016123e31.mockapi.io/users/1'
       const res = await fetch(url)
       const data = await res.json()
       console.log('data', data)
@@ -38,7 +39,6 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
       alert(err)
     }
   }
-
 
   //Reads in changed values and PUTS them to the backend
   const updateProfile = async (newEmail, newFirstName, newLastName, newPhone, newAddress) => {
@@ -49,7 +49,6 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
       email: newEmail,
       phone: newPhone,
       address: newAddress,
-
     }
     fetch(url, {
       method: 'PUT',

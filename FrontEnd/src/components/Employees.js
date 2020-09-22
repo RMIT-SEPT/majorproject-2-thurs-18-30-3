@@ -10,12 +10,16 @@ import '../containers/App.css'
 function Employees({employees, onRowAdd, onRowUpdate, onRowDelete, alertMsg, alertErrorMsg, onAlertClose}) {
   const classes = useStyles()
   const [columns] = useState([
-    {title: 'Username', field: 'username'},
-    {title: 'Fist Name', field: 'firstName'},
-    {title: 'Last Name', field: 'lastName'},
-    {title: 'Password', field: 'password'},
-    {title: 'Address', field: 'address'},
-    {title: 'Mobile Number', field: 'mobileNum'},
+    {title: 'Username', field: 'username', validate: (rowData) => rowData.username !== ''},
+    {title: 'Fist Name', field: 'firstName', validate: (rowData) => rowData.firstName !== ''},
+    {title: 'Last Name', field: 'lastName', validate: (rowData) => rowData.lastName !== ''},
+    {
+      title: 'Password',
+      field: 'password',
+      validate: (rowData) => rowData.password !== '',
+    },
+    {title: 'Address', field: 'address', validate: (rowData) => rowData.address !== ''},
+    {title: 'Mobile Number', field: 'mobileNum', validate: (rowData) => rowData.mobileNum !== ''},
   ])
 
   //List structure which displays all employees
