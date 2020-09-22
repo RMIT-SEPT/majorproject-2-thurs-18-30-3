@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/services")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ServiceController {
 
     @Autowired
