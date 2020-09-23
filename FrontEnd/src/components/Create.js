@@ -9,7 +9,8 @@ import MuiAlert from '@material-ui/lab/Alert'
 
 import AuthService from '../services/auth.service'
 import CurrentUser from '../context/CurrentUser'
-//Use react hook form
+
+// Using yup for input validation and also centralize validation rules for code readability
 const schema = yup.object().shape({
   firstName: yup.string().required(),
   lastName: yup.string().required(),
@@ -34,8 +35,9 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />
 }
 
-//Handles form input when user clicks submit
-const Create = () => {
+// For employee prop is used for determining user type/role
+// Form input component for registration
+const Create = ({forEmployee = false}) => {
   const classes = useStyles()
   const {register, handleSubmit, errors} = useForm({
     resolver: yupResolver(schema),
@@ -50,8 +52,8 @@ const Create = () => {
     console.log('Registration data', data)
     const {firstName, lastName, username, email, address, mobileNum, password, confirmPassword} = data
     if (password !== confirmPassword) return setAlertMsg('Password mismatch')
-    
-    //Attmepts to create user
+
+    //Attempt to create user
     try {
       const payload = {
         firstName,
@@ -63,9 +65,9 @@ const Create = () => {
         password,
         confirmPassword,
       }
-      const userData = await AuthService.register(payload)
+      const userData = await AuthService.register(payload, forEmployee)
       setCurrentUser(userData)
-      history.push('/services')
+      if (!forEmployee) history.push('/services')
     } catch (err) {
       console.error('Register response error from backend', err.response)
       const resMessage = err.response?.data?.message ?? err.message
