@@ -1,9 +1,12 @@
 import React, {forwardRef, useImperativeHandle, useEffect} from 'react'
 import ReactDOM from 'react-dom'
+import Axios from 'axios'
 
 import ProfilePane from '../components/ProfilePane'
 import AuthService from '../services/auth.service'
 import '../containers/App.css'
+
+const API_BASE_URL = 'http://localhost:8081/api/users/'
 
 //Retrieves and displays current user profile data
 const ProfilePaneContainer = forwardRef((props, ref) => {
@@ -29,41 +32,40 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
       return null
     }
     try {
-      const url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().username)
+      const url = API_BASE_URL.concat(AuthService.getCurrentUser().username)
+      //  const url = 'https://5f51c3975e98480016123e31.mockapi.io/users/1'
       const res = await fetch(url)
       const data = await res.json()
-      console.log('data', data)
+      console.log('loadProfile data', data)
       setProfile(data)
     } catch (err) {
       alert(err)
     }
   }
 
-
   //Reads in changed values and PUTS them to the backend
   const updateProfile = async (newEmail, newFirstName, newLastName, newPhone, newAddress) => {
-    const url = 'http://localhost:8080/api/users/'.concat(AuthService.getCurrentUser().username)
-    const prof = {
-      firstName: newFirstName,
-      lastname: newLastName,
-      email: newEmail,
-      phone: newPhone,
-      address: newAddress,
-
+    const {username, userType, password, confirmPassword} = AuthService.getCurrentUser()
+    const url = API_BASE_URL + username
+    try {
+      const payload = {
+        username,
+        userType,
+        password,
+        confirmPassword,
+        firstName: newFirstName,
+        lastName: newLastName,
+        email: newEmail,
+        mobileNum: newPhone,
+        address: newAddress,
+      }
+      console.log('Updating profile with payload', payload)
+      await Axios.put(url, payload)
+      setProfile(payload)
+    } catch ({response, messsage}) {
+      console.error('Update profile response from backend', response)
+      alert(messsage)
     }
-    fetch(url, {
-      method: 'PUT',
-      body: JSON.stringify(prof),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => {
-        response.json()
-      })
-      .then(() => {
-        setProfile(prof)
-      })
   }
 
   //open modal pane

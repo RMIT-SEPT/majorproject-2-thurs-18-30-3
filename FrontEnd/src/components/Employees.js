@@ -1,20 +1,28 @@
 import React, {useState} from 'react'
 import {makeStyles} from '@material-ui/core/styles'
-import Snackbar from '@material-ui/core/Snackbar'
+import {Snackbar, Dialog, DialogContent, Button} from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert'
 import MaterialTable from 'material-table'
 
 import '../containers/App.css'
+import Create from './Create'
 
 // Many props will be deleted after code refactoring
-function Employees({employees, onRowAdd, onRowUpdate, onRowDelete, alertMsg, alertErrorMsg, onAlertClose}) {
+function Employees({employees, onRowUpdate, onRowDelete, alertMsg, alertErrorMsg, onAlertClose}) {
   const classes = useStyles()
   const [columns] = useState([
-    {title: 'Username', field: 'uname'},
-    {title: 'Name', field: 'name'},
-    {title: 'Email', field: 'email'},
-    {title: 'Mobile', field: 'mobile'},
+    {title: 'Username', field: 'username', editable: 'never'},
+    {title: 'Fist Name', field: 'firstName', validate: (rowData) => rowData.firstName !== ''},
+    {title: 'Last Name', field: 'lastName', validate: (rowData) => rowData.lastName !== ''},
+    {
+      title: 'Password',
+      field: 'password',
+      validate: (rowData) => rowData.password !== '',
+    },
+    {title: 'Address', field: 'address', validate: (rowData) => rowData.address !== ''},
+    {title: 'Mobile Number', field: 'mobileNum', validate: (rowData) => rowData.mobileNum !== ''},
   ])
+  const [openAddDialog, setOpenAddDialog] = useState(false)
 
   //List structure which displays all employees
   return (
@@ -28,16 +36,30 @@ function Employees({employees, onRowAdd, onRowUpdate, onRowDelete, alertMsg, ale
           {alertErrorMsg}
         </Alert>
       </Snackbar>
+
+      <Dialog
+        onClose={() => setOpenAddDialog(false)}
+        aria-labelledby="customized-dialog-title"
+        open={openAddDialog}
+        maxWidth={'md'}>
+        <DialogContent dividers>
+          <Create forEmployee={true} />
+        </DialogContent>
+      </Dialog>
+
       <MaterialTable
         title="Employees"
         columns={columns}
         data={employees}
         editable={{
-          onRowAdd,
           onRowUpdate,
           onRowDelete,
         }}
       />
+
+      <Button variant="contained" color="primary" onClick={() => setOpenAddDialog(true)}>
+        Add Employee
+      </Button>
     </div>
   )
 }

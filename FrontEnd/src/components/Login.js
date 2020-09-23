@@ -40,8 +40,8 @@ const Login = () => {
       const user = await AuthService.login(username, password)
       setCurrentUser(user)
 
-      if (user.type.toLowerCase() === UserType.Customer) history.push('/services')
-      else if (user.type.toLowerCase() === UserType.Admin) history.push('/employees')
+      if (user.userType.toLowerCase() === UserType.Customer) history.push('/services')
+      else if (user.userType.toLowerCase() === UserType.Admin) history.push('/employees')
       else history.push('/')
     } catch (err) {
       console.error('Login response error from backend', err.response)
