@@ -14,7 +14,7 @@ function Services(props) {
   var services = props.services.map((service) => {
     return (
       //Render an item in booking list for each booking fetched
-      <ServiceCard key={service.id} service={service} />
+      <ServiceCard key={service.name} service={service} />
     )
   })
 
