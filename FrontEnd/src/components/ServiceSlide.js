@@ -11,10 +11,10 @@ function ServiceSlide({ service }) {
 	return (
         <main className = 'service-slide'>
             <div className = 'slide-heading'>
-                <img src="not-found.png" alt = {`${service.title}`}/>
+                <img src="not-found.png" alt = {`${service.name}`}/>
                 <div className = 'slide-core'>
-                    <h1>{service.title}</h1>
-                    <p>{service.body}</p>
+                    <h1>{service.name}</h1>
+                    <p>{service.description}</p>
                 </div>
             </div>
             <div className = 'slide-body'>
