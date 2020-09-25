@@ -27,7 +27,7 @@ function ProfilePane({close, profile, reload, update}) {
   //Fires when clicking the save button - commits profile data.
   const save = () => {
     setIsEditing(!isEditing)
-    update(displayEmail, displayFirstName, displayLastName, displayPhone, setDisplayAddress)
+    update(displayEmail, displayFirstName, displayLastName, displayPhone, displayAddress)
     reload()
   }
 

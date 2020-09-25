@@ -11,6 +11,7 @@ public class BookService {
     @Autowired
     private BookingsRepository bookingsRepository;
 
+    // Method for POST request
     public Book saveOrUpdateBookings (Book bookings) {
 
         try {
@@ -21,6 +22,7 @@ public class BookService {
         }
     }
 
+    // Method for GET specific bookings request
     public Book findByBookIdentifier(String bookingsId){
         Book bookings = bookingsRepository.findByBookIdentifier((bookingsId.toUpperCase()));
 
@@ -29,11 +31,12 @@ public class BookService {
         }
         return bookings;
     }
-
+    // Method for GET all bookings request
     public Iterable<Book> findAllBookings() {
         return bookingsRepository.findAll();
     }
 
+    // Method for DELETE bookings request
     public void deleteBookingsByIdentifier(String bookingsId){
         Book bookings = bookingsRepository.findByBookIdentifier(bookingsId.toUpperCase());
 

@@ -33,7 +33,7 @@ class ServiceListContainer extends React.Component {
     else
     {
       let newArray = this.state.services.filter(function (service) {
-          return service.title.toLowerCase().includes(val.toLowerCase());
+          return service.name.toLowerCase().includes(val.toLowerCase());
         });
         this.setState({displayServices: newArray});
     }
