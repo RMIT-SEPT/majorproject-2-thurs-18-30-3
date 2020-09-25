@@ -525,14 +525,16 @@ textarea:focus, input:focus{
   grid-area: img;
   display: flex;
   flex-direction: column;
+  overflow:hidden;
+  width: 360px;
 }
 
+
 .addService-imgbox input{
-  display: flex;
-  min-height: 250px;
   border-radius: 20px;
   background-color: #d5e3e4;
 }
+
 
 input[type="file"] {
   display: none;

@@ -7,6 +7,7 @@ import '../containers/App.css'
 //Displays a user profile in a modal view
 
 function ProfilePane({close, profile, reload, update}) {
+  
   const [isEditing, setIsEditing] = React.useState(false)
   const [displayFirstName, setDisplayFirstName] = React.useState(profile.firstName)
   const [displayLastName, setDisplayLastName] = React.useState(profile.lastName)
