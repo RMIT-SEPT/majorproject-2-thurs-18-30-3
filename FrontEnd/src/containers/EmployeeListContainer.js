@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import Axios from 'axios'
 import Employees from '../components/Employees'
+import UserType from '../config/userType'
+
+const API_URL = 'http://localhost:8081/api/users'
 
 function EmployeeListContainer() {
   const [employees, setEmployees] = useState([])
@@ -10,10 +13,10 @@ function EmployeeListContainer() {
   useEffect(() => {
     async function callAPI() {
       try {
-        const {data} = await Axios.get('https://5f50f63c5e98480016123379.mockapi.io/employees')
-        setEmployees(data)
+        const {data} = await Axios.get(API_URL + '/all')
+        setEmployees(data.filter((d) => d.userType === UserType.Employee))
       } catch (err) {
-        alert(err.message)
+        setAlertErrorMsg(err.message)
       }
     }
     callAPI()
@@ -23,22 +26,10 @@ function EmployeeListContainer() {
     setAlertMsg('')
     setAlertErrorMsg('')
   }
-  //POST request to add new employee data to the backend
-  async function onRowAdd(newData) {
-    // TODO: call real api
-    try {
-      await Axios.post('https://5f50f63c5e98480016123379.mockapi.io/employees', newData)
-      setEmployees([...employees, newData])
-      setAlertMsg(`${newData.name} has been added`)
-    } catch ({messsage}) {
-      setAlertErrorMsg(messsage)
-    }
-  }
   //PUT request to edit employee data to the backend
   async function onRowUpdate(newData, oldData) {
     try {
-      await Axios.put(`https://5f50f63c5e98480016123379.mockapi.io/employees/${oldData.id}`, newData)
-      setEmployees([...employees, newData])
+      await Axios.put(`${API_URL}/${newData.username}`, newData)
     } catch ({messsage}) {
       setAlertErrorMsg(messsage)
     }
@@ -52,7 +43,7 @@ function EmployeeListContainer() {
   //DELETE specific employee data from the backend
   async function onRowDelete(oldData) {
     try {
-      await Axios.delete(`https://5f50f63c5e98480016123379.mockapi.io/employees/${oldData.id}`)
+      await Axios.delete(`${API_URL}/${oldData.username}`)
       const data = [...employees]
       data.splice(data.indexOf(oldData), 1)
       setEmployees(data)
@@ -64,7 +55,6 @@ function EmployeeListContainer() {
   return (
     <Employees
       employees={employees}
-      onRowAdd={onRowAdd}
       onRowUpdate={onRowUpdate}
       onRowDelete={onRowDelete}
       alertMsg={alertMsg}

@@ -8,15 +8,16 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
+// Main user class.
 @Entity
 public class Profiles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String type;
-//    @NotBlank(message = "User first name is required.")
+    private String userType;
+    @NotBlank(message = "User first name is required.")
     private String firstName;
-//    @NotBlank(message = "User last name is required.")
+    @NotBlank(message = "User last name is required.")
     private String lastName;
     @NotBlank(message = "Username must not be empty.")
     @Size(min = 5, message = "Username must have at least 5 characters.")
@@ -24,7 +25,7 @@ public class Profiles {
     private String username;
     @NotBlank(message = "User email is required.")
     private String email;
-    @NotBlank(message = "Address field cannot be empty.")
+    @NotBlank(message = "Address field is required.")
     private String address;
     @NotBlank(message = "Phone number is required.")
     private String mobileNum;
@@ -42,6 +43,17 @@ public class Profiles {
     public Profiles() {
     }
 
+    // Constructor for unit testings.
+    public Profiles(String firstName, String lastName, String username, String email, String address, String mobileNum, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        this.address = address;
+        this.mobileNum = mobileNum;
+        this.password = password;
+    }
+
     public long getId() {
         return id;
     }
@@ -50,12 +62,12 @@ public class Profiles {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public String getFirstName() {

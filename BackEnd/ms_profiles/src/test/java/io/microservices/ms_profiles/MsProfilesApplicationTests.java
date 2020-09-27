@@ -9,5 +9,4 @@ class MsProfilesApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

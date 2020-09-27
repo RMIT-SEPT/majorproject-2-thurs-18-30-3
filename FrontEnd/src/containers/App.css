@@ -33,6 +33,10 @@ h1{
   font-weight: 600;
   font-size: 20px;
 }
+
+textarea:focus, input:focus{
+  outline: none;
+}
 /* ------------------------------ NAV COMPONENT STYLING */
 
 .topNav {
@@ -466,6 +470,83 @@ h1{
   font-size: 26px;
   line-height: 0;
   text-align: center;
+}
+
+.container{
+  margin-block-start:15px;
+}
+/*-------------------------------------Add Service Styling*/
+.addService-container{
+  margin-inline-start: 10%;
+  margin-inline-end: 10%;
+  display: grid;
+  grid-template-areas:
+    'name empty img img' 
+    'desc desc img img';
+  grid-gap: 20px;
+  padding: 10px;
+}
+
+.addService-container span{
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.addService-titlebox{
+  grid-area: name;
+  display: flex;
+  flex-direction: column;
+}
+
+.addService-titlebox input{
+  text-indent: 1em;
+  border: none;
+  border-radius: 20px;
+  background-color: #d5e3e4;
+}
+
+.addService-descbox{
+  grid-area: desc;
+  display: flex;
+  flex-direction: column;
+}
+
+.addService-descbox input{
+  min-height: 120px;
+  text-indent: 1em;
+  vertical-align: top;
+  text-overflow: wrap;
+  border: none;
+  border-radius: 20px;
+  background-color: #d5e3e4;
+}
+
+.addService-imgbox{
+  grid-area: img;
+  display: flex;
+  flex-direction: column;
+  overflow:hidden;
+  width: 360px;
+}
+
+
+.addService-imgbox input{
+  border-radius: 20px;
+  background-color: #d5e3e4;
+}
+
+
+input[type="file"] {
+  display: none;
+}
+
+.addService-fileLabel {
+  display: inline-block;
+  height:100%;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #C4C4C4;
 }
 /*-------------------------------------FOOTER STYLING*/
 

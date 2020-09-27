@@ -9,6 +9,7 @@ import About from '../components/About'
 import Create from '../components/Create'
 import Login from '../components/Login'
 import ServiceDetailContainer from '../containers/ServiceDetailContainer'
+import AddServiceContainer from '../containers/AddServiceContainer'
 // import Booking from '../components/Booking'
 
 import CurrentUser from '../context/CurrentUser'
@@ -54,8 +55,9 @@ function App() {
       <CurrentUser.Provider value={[user, setUser]}>
         <Nav />
         <Switch>
-          <Route path="/create" exact component={Create} />
           <Route path="/about" exact component={About} />
+          <Route path="/add" exact component={AddServiceContainer} />
+          <Route path="/create" exact component={Create} />
 
           <LoginRoute path="/login">
             <Route path="/login" exact component={Login} />

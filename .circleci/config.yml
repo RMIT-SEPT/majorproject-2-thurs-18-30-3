@@ -34,46 +34,45 @@ jobs:
             curl https://www.npmjs.com/install.sh | sudo bash
             curl -o- -L https://yarnpkg.com/install.sh | bash
 
-        # change working directory to backend, and then run mvn test
 
 # --------------------------------------------------------------------------
+# FrontEnd Tests
 
-#      - run :
-#         name: Front end - npm runtest
-#         command: npm install
-#         shell: /bin/bash
-#         working_directory: ~/project/FrontEnd
-#
-#      - run:
-#          name: Front end - install yarn
-#          command: npm install yarn
-#          shell: /bin/bash
-#          working_directory: ~/project/FrontEnd
-#
-#      - run:
-#          name: Front end - install yarn
-#          command: yarn init
-#          shell: /bin/bash
-#          working_directory: ~/project/FrontEnd
-#
-#      - run:
-#          name: Front end - yarn test
-#          command: yarn test
-#          shell: /bin/bash
-#          working_directory: ~/project/FrontEnd
+      - run :
+          name: Front end - npm runtest
+          command: npm install
+          shell: /bin/bash
+          working_directory: ~/project/FrontEnd
+
+      - run :
+          name: Front end - npm runtest
+          command: npm run test
+          shell: /bin/bash
+          working_directory: ~/project/FrontEnd
+
 
 # --------------------------------------------------------------------------
+# BackEnd Tests
 
-#      - run :
-#          name: Front end - npm runtest
-#          command: npm install
-#          shell: /bin/bash
-#          working_directory: ~/project/FrontEnd
-#      - run :
-#          name: Front end - npm runtest
-#          command: npm run test
-#          shell: /bin/bash
-#          working_directory: ~/project/FrontEnd
+      - run:
+          name: Back End - ms_profile unit testing
+          command: mvn test
+          shell: /bin/bash
+          working_directory: ~/project/BackEnd/ms_profiles
+
+      - run:
+          name: Back End - ms_bookings unit testing
+          command: mvn test
+          shell: /bin/bash
+          working_directory: ~/project/BackEnd/ms_bookings
+
+      - run:
+          name: Back End - ms_service unit testing
+          command: mvn test
+          shell: /bin/bash
+          working_directory: ~/project/BackEnd/ms_service/ms_service
+
+ # --------------------------------------------------------------------------
 
       - store_test_results:
           path: target/surefire-reports
