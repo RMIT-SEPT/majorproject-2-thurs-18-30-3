@@ -22,8 +22,106 @@
     },
     {
       "id": 5,
-      "name": "The Conqueror Worm",
+      "name": "Conqueror Worm",
       "description": "But see, amid the mimic rout, A crawling shape intrude! A blood-red thing that writhes from out The scenic solitude! It writhes!—it writhes!—with mortal pangs The mimes become its food, And seraphs sob at vermin fangs In human gore imbued."
+    }
+  ],
+  "bookings": [
+    {  
+      "id": 1,
+      "servicename" : "Usher Houses",
+      "employeeid": 2 ,
+      "customerid":10,
+      "time":"10:00",
+      "date":"29 Sept"
+    },
+    {
+      "id": 2,
+      "servicename" : "Usher Houses",
+      "employeeid": 8 ,
+      "customerid":5,
+      "time":"7:30",
+      "date":"1 Oct"
+    },
+    {
+      "id": 3,
+      "servicename" : "Usher Houses",
+      "employeeid": 7,
+      "customerid":2,
+      "time":"1:00",
+      "date":"30 Sept"
+    },
+    {
+      "id": 4,
+      "servicename" : "Usher Houses",
+      "employeeid": 10,
+      "customerid":3,
+      "time":"4:00",
+      "date":"29 Sept"
+    },
+    {
+      "id": 5,
+      "servicename" : "King Pest",
+      "employeeid": 1,
+      "customerid":2,
+      "time":"11:00",
+      "date":"4 Oct"
+    },
+    {
+      "id": 6,
+      "servicename" : "King Pest",
+      "employeeid": 3,
+      "customerid":5,
+      "time":"3:00",
+      "date":"2 Oct"
+    },
+    {
+      "id": 7,
+      "servicename" : "King Pest",
+      "employeeid": 1,
+      "customerid":2,
+      "time":"12:00",
+      "date":"4 Oct"
+    },
+    {
+      "id": 8,
+      "servicename" : "King Pest",
+      "employeeid": 3,
+      "customerid":5,
+      "time":"11:00",
+      "date":"2 Oct"
+    },
+    {
+      "id": 9,
+      "servicename" : "King Pest",
+      "employeeid": 1,
+      "customerid":2,
+      "time":"2:00",
+      "date":"4 Oct"
+    },
+    {
+      "id": 10,
+      "servicename" : "King Pest",
+      "employeeid": 2,
+      "customerid":5,
+      "time":"3:00",
+      "date":"2 Oct"
+    },
+    {
+      "id": 11,
+      "servicename" : "King Pest",
+      "employeeid": 4,
+      "customerid": 7,
+      "time":"9:00",
+      "date":"9 Oct"
+    },
+    {
+      "id": 12,
+      "servicename" : "King Pest",
+      "employeeid":8,
+      "customerid":2,
+      "time":"4:00",
+      "date":"10 Oct"
     }
   ],
   "users": [

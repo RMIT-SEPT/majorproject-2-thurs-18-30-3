@@ -67,12 +67,12 @@ function Nav() {
         <Link to="/add" className="big-link">
           <li>add service</li>
         </Link>
+        <Link to="/services" className="big-link">
+          <li>services</li>
+        </Link>
         {/* conditionally render activity links */} 
         {currentUser && (
           <>
-            <Link to="/services" className="big-link">
-              <li>services</li>
-            </Link>
             <Link to="/bookings" className="big-link">
               <li>bookings</li>
             </Link>

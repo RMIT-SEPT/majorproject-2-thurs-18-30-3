@@ -137,7 +137,7 @@ textarea:focus, input:focus{
   }
 }
 
-/*SERVICES STYLING*/
+/*----------------------Service Gallery View Styling*/
 
 .sector-heading{
   margin-block-end: 2vh;
@@ -251,6 +251,197 @@ textarea:focus, input:focus{
   }
 }
 
+/*------------------------------------Service List View Styling*/
+.services{
+  display:flex;
+  flex-direction:row;
+}
+
+.services-list{
+  width:300px;
+  height:560px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin:10px;
+  overflow: scroll;
+  box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  background: #C4C4C4;
+}
+
+.services-list input{
+  width: 240px;
+  height: 30px;
+  margin:12px;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  text-indent: 1em;
+  border:none;
+  border-radius: 20px;
+}
+
+.service-btn{
+  width:260px;
+  height:60px;
+  margin:10px;
+  overflow: hidden;
+  text-align: start;
+  font-weight: 500;
+  font-size: 20px;
+  border:none;
+  border-radius: 20px;
+  background: #FFFFFF;
+}
+
+.service-btn:focus{
+  background: #dc5444;
+  color:#FFFFFF;
+  outline: none;
+}
+
+.services hr{
+  width:80%;
+  border-radius:20px;
+  border: 2px solid #C2CCCD;
+}
+
+.admin-service-display{
+  width:420px;
+  height:560px;
+  margin:10px;
+  overflow: hidden;
+  box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.admin-service-heading{
+  width:420px;
+  height:80px;
+  display: flex;
+  overflow: hidden;
+  background: #dc5444;
+  text-indent: 1em;
+  font-weight: 500;
+  font-size: 36px;
+  color:#FFFFFF;
+}
+
+.admin-service-heading h1{
+  align-self: flex-end;
+}
+
+.admin-service-body{
+  width:420px;
+  height:80px;
+  display: flex;
+  align-items: flex-end;
+  justify-items: center;
+  justify-content: space-around;
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.admin-slot-counter{
+  display: flex;
+  align-items:center;
+  justify-items:center;
+  justify-content: space-between;
+  text-align: center;
+}
+.admin-service-body h2{
+  margin: 6px;
+  font-weight: bold;
+  font-size: 72px;
+  line-height: 50px;
+}
+
+.admin-service-body h3{
+  font-weight: 500;
+  font-size: 26px;
+  
+}
+.admin-service-body button{
+  width:42px;
+  height:42px;
+  background: #FFFFFF;
+  color: #C2CCCD;
+  padding-block-end:7px;
+  padding-inline-start: 2px;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 1px;
+  text-align: center;
+  border: 4px solid #C2CCCD;
+  border-radius: 40px;
+}
+
+.admin-service-body button:focus{
+  border: 4px solid #009BA0;
+  color: #009BA0;
+  outline: none;
+}
+
+.admin-service-bookings{
+  display:flex;
+  overflow: scroll;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.add-booking{
+  width:300px;
+  height:560px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin:10px;
+  overflow: scroll;
+  box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.add-booking-heading{
+  width:300px;
+  height:80px;
+  display: flex;
+  overflow: hidden;
+  background: #009BA0;
+  text-indent: 1em;
+  font-weight: 500;
+  font-size: 36px;
+  color:#FFFFFF;
+}
+
+.add-booking-heading h1{
+  align-self: flex-end;
+}
+
+.add-booking-body{
+  width:90%;
+  height:80px;
+  text-align: center;
+  padding-block-start:20px;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.add-booking-form{
+  height: 100%;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.add-booking-form input{
+  height:40px;
+  width:80%;
+}
+
 /*-------------------------------------SERVICE SLIDE STYLING*/
 
 .service-slide {
@@ -305,6 +496,10 @@ textarea:focus, input:focus{
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.service-slide article {
+  margin: 7vh;
+}
+
 .token-set{
   display: flex;
   flex-direction: row;
@@ -323,6 +518,7 @@ textarea:focus, input:focus{
   margin: 1em;
   border:none; 
   background-color: #dc5444;
+  color: #FFFFFF;
   border-radius: 50%;
 }
 
@@ -346,8 +542,10 @@ textarea:focus, input:focus{
 .book-bubble:hover{
   background-color: #b14033;
 }
-.service-slide article {
-  margin: 7vh;
+
+.book-bubble:focus{
+  outline:none;
+  background-color: #009BA0;
 }
 
 /*-------------------------------------PROFILE STYLING*/
@@ -464,6 +662,11 @@ textarea:focus, input:focus{
   background-color: #025457;
 }
 
+.actButton:focus {
+  outline:none;
+  opacity: 1;
+}
+
 .paneInput{
   border-style: hidden;
   font-weight: bold;
@@ -498,7 +701,7 @@ textarea:focus, input:focus{
   flex-direction: column;
 }
 
-.addService-titlebox input{
+.addName-input{
   text-indent: 1em;
   border: none;
   border-radius: 20px;

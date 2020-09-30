@@ -1,8 +1,8 @@
 import React from 'react'
-const {default: Services} = require('../components/Services')
-
+const {default: ServiceList} = require('../components/ServiceList')
+const {default: AdminServiceDisplay} = require('../components/AdminServiceDisplay')
 //Retrieves bulk service data for display in list view
-class ServiceListContainer extends React.Component {
+class ServicesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -43,4 +43,4 @@ class ServiceListContainer extends React.Component {
     return <Services services={this.state.displayServices} searchFunc= {this.searchFor}/>
   }
 }
-export default ServiceListContainer
+export default ServicesContainer

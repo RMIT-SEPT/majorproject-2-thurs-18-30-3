@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 
-import ServiceList from '../containers/ServiceListContainer'
+import ServiceList from '../containers/ServicesContainer'
 import EmployeeList from '../containers/EmployeeListContainer'
 
 import Nav from '../components/Nav'
@@ -19,7 +19,7 @@ import AuthService from '../services/auth.service'
 
 function App() {
   const [user, setUser] = useState(AuthService.getCurrentUser())
-
+  
   // A wrapper for <Route> that redirects to the login
   // screen if you're not yet authenticated.
   function PrivateRoute({children, ...rest}) {
@@ -58,13 +58,14 @@ function App() {
           <Route path="/about" exact component={About} />
           <Route path="/add" exact component={AddServiceContainer} />
           <Route path="/create" exact component={Create} />
-
+          <Route path="/services" exact component={ServiceList} />
+          
           <LoginRoute path="/login">
             <Route path="/login" exact component={Login} />
           </LoginRoute>
 
           <PrivateRoute path="/">
-            <Route path="/services" exact component={ServiceList} />
+            
             <Route path="/employees" exact component={EmployeeList} />
             {/*<Route path="/bookings" exact component={Booking} />*/}
             <Route path="/services/:id" component={ServiceDetailContainer} />
