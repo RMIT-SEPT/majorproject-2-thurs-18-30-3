@@ -4,7 +4,6 @@ const {default: AdminServiceDisplay} = require('../components/AdminServiceDispla
 //Retrieves bulk service data for display in list view
 class ServicesContainer extends React.Component {
   constructor(props) {
-    super(props)
     this.state = {
       services: [],
       displayServices: []
@@ -40,6 +39,10 @@ class ServicesContainer extends React.Component {
   }
 
   render() {
+    if(this.state.services == null)
+    {
+      return <span>No Services Found</span>;
+    }
     return <Services services={this.state.displayServices} searchFunc= {this.searchFor}/>
   }
 }

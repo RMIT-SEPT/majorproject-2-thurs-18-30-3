@@ -17,7 +17,7 @@ const createBooking = async (newName, newTime, newDate) => {
 
 //Adds a new service to backend
 function AddBookingContainer({service,active}) {
- if(!active)
+ if(!active || service == null)
  {
      return null;
  }

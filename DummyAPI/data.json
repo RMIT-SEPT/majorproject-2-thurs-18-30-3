@@ -134,7 +134,8 @@
       "lastname": "Calvino",
       "phone": "0443785",
       "address": "1 Manderly Way",
-      "active": true
+      "active": true,
+      "usertype":"admin"
     },
     {
       "id": 9,
@@ -145,7 +146,8 @@
       "lastname": "Calvino",
       "phone": "0443785",
       "address": "1 Manderly Way",
-      "active": true
+      "active": true,
+      "usertype":"admin"
     },
     {
       "id": 8,
@@ -156,7 +158,8 @@
       "lastname": "Calvino",
       "phone": "0443785",
       "address": "1 Manderly Way",
-      "active": true
+      "active": true,
+      "usertype":"admin"
     },
     {
       "id": 7,
@@ -167,7 +170,8 @@
       "lastname": "Calvino",
       "phone": "0443785",
       "address": "1 Manderly Way",
-      "active": true
+      "active": true,
+      "usertype":"admin"
     },
     {
       "id": 6,
@@ -178,7 +182,8 @@
       "lastname": "Calvino",
       "phone": "999999",
       "address": "1 Manderly Way",
-      "active": true
+      "active": true,
+      "usertype":"admin"
     },
     {
       "id": 5,
@@ -189,7 +194,8 @@
       "lastname": "Calvino",
       "phone": "191919",
       "address": "1 Manderly Way",
-      "active": false
+      "active": false,
+      "usertype":"admin"
     },
     {
       "id": 4,
@@ -200,7 +206,8 @@
       "lastname": "Calvino",
       "phone": "12457",
       "address": "1 Manderly Way",
-      "active": true
+      "active": true,
+      "usertype":"customer"
     },
     {
       "email": "Max.Winter@Cust.wiz0",
@@ -209,7 +216,8 @@
       "password": "cust",
       "phone": "1234 5678",
       "address": "1 Manderly Way",
-      "id": 3
+      "id": 3,
+      "usertype":"employee"
     },
     {
       "id": 2,
@@ -218,14 +226,18 @@
       "lastname": "de Winter",
       "password": "cust",
       "phone": "99999999",
-      "address": "1 Manderly Way"
+      "address": "1 Manderly Way",
+      "usertype":"employee"
     },
     {
       "firstname": "Italo",
       "lastname": "Calvino",
+      "password": "cust",
       "email": "Calvino@Cust.wizard",
       "phone": "345345 435435",
-      "id": 1
+      "address": "1 Manderly Way",
+      "id": 1,
+      "usertype":"employee"
     }
   ]
 }

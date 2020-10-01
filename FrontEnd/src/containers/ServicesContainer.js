@@ -1,6 +1,7 @@
 import React from 'react'
 
 const {default: AddBookingContainer} = require('../containers/AddBookingContainer')
+const {default: UpdateBookingContainer} = require('../containers/UpdateBookingContainer')
 const {default: ServiceList} = require('../components/ServiceList')
 const {default: AdminServiceDisplay} = require('../components/AdminServiceDisplay')
 //Retrieves bulk service data for display in list view
@@ -54,8 +55,12 @@ class ServicesContainer extends React.Component {
     }
   }
 
-  switchThirdView = () => {
-    this.setState({isAddingSlot: !this.isAddingSlot});
+  showAddSlot = () => {
+    this.setState({isAddingSlot: true, isViewingSlot: false});
+  }
+
+  showViewSlot = () => {
+    this.setState({isAddingSlot: false, isViewingSlot: true});
   }
 
   focusService = (service) => {
@@ -76,6 +81,11 @@ class ServicesContainer extends React.Component {
   }
 
   render() {
+    if(this.state.services === null || this.state.services.length <= 0)
+    {
+      return <span>No Services Found</span>;
+    }
+
     return (
       <div className="container">
       <h1>Services</h1>
@@ -84,9 +94,12 @@ class ServicesContainer extends React.Component {
 
           <ServiceList services={this.state.displayServices} searchFunc={this.searchFor} selectFunc={this.focusService}/>
 
-          <AdminServiceDisplay bookings={this.state.displayBookings} service={this.state.focusedService} plusFunc={this.switchThirdView}/>
+          <AdminServiceDisplay bookings={this.state.displayBookings} 
+            service={this.state.focusedService} plusFunc={this.showAddSlot} btnFunc={this.showViewSlot}/>
 
           <AddBookingContainer service={this.state.focusedService} active={this.state.isAddingSlot}/>
+
+          <UpdateBookingContainer booking={this.state.bookings[0]} active={this.state.isViewingSlot}/>
         </div>
       </div>
     );

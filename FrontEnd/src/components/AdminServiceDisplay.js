@@ -5,14 +5,13 @@ const {default: BookBubble} = require('../components/BookBubble');
 
 //Displays details of a service, with bookings displayed as clickable buttons
 //TODO: Implement booking functionality
-function AdminServiceDisplay({ service, bookings, plusFunc}) {
+function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc}) {
     if(service == null)
     {
         return(<></>);
     }
 
-    const bookingSlots = bookings.map((booking) => {return (<BookBubble booking={booking} actionFunc={null} key = {booking.id} />)})
-
+    const bookingSlots = bookings.map((booking) => {return (<BookBubble booking={booking} actionFunc={btnFunc} key = {booking.id} />)})
 
 	return (
         <main className = 'admin-service-display'>
