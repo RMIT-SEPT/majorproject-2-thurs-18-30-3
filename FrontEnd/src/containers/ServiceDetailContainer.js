@@ -1,4 +1,5 @@
 import React, {  } from 'react';
+import serviceApi from "../config/serviceApi";
 const { default: ServiceDetail } = require("../components/ServiceDetail");
 
 //Retrieves data for detailed display of a single service
@@ -15,7 +16,7 @@ class ServiceDetailContainer extends React.Component {
   /*Forms an api request from the url passed to the page*/
   componentDidMount() {
     const { id } = this.props.match.params;
-    var url = 'http://localhost:8080/api/services/'.concat(id);
+    const url = serviceApi.getService(id);
     
 	  fetch(url).then(
       res => res.json()).then(

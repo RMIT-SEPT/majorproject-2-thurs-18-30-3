@@ -1,4 +1,5 @@
 import React from 'react'
+import serviceApi from "../config/serviceApi";
 const {default: Services} = require('../components/Services')
 
 //Retrieves bulk service data for display in list view
@@ -15,9 +16,10 @@ class ServiceListContainer extends React.Component {
   /*If an API isn't running on your local machine, 
 	replace the below fetch with 'https://jsonplaceholder.typicode.com/posts' for testing*/
   componentDidMount() {
-    fetch('http://localhost:8080/api/services/all')
+    fetch(serviceApi.getAllServices)
       .then((res) => res.json())
       .then((data) => {
+        console.log('services', data)
         this.setState({services: data});
         this.setState({displayServices: data});
       })
