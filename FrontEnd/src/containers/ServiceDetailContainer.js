@@ -30,8 +30,8 @@ function ServiceDetailContainer() {
     callApis()
   }, [id])
 
-  const handleBookClick = () => {
-    console.log('Book clicked!')
+  const handleBookClick = (selectedEmployee) => {
+    console.log('Book clicked! selectedEmployee =', selectedEmployee)
   }
 
   return <ServiceDetail service={service} employees={employees} onSubmit={handleBookClick} />

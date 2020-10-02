@@ -12,6 +12,10 @@ function SelectEmployeeDialog({employees, open, setOpen, onSubmit}) {
     setSelectedEmployee(event.target.value)
   }
 
+  const handleBookBtn = () => {
+    onSubmit(selectedEmployee)
+  }
+
   return (
     <Dialog fullWidth open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
       <DialogTitle id="form-dialog-title">Select Employee</DialogTitle>
@@ -31,7 +35,7 @@ function SelectEmployeeDialog({employees, open, setOpen, onSubmit}) {
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button onClick={onSubmit} color="primary">
+        <Button onClick={handleBookBtn} color="primary">
           Book
         </Button>
       </DialogActions>
