@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Dialog, DialogTitle, DialogContent, DialogActions, Button, Select, MenuItem} from '@material-ui/core'
+import {Grid, Dialog, DialogTitle, DialogContent, DialogActions, Button, Select, MenuItem} from '@material-ui/core'
 
 function SelectEmployeeDialog({employees, open, setOpen, onSubmit}) {
   const [selectedEmployee, setSelectedEmployee] = useState(employees[0]?.username)
@@ -13,18 +13,21 @@ function SelectEmployeeDialog({employees, open, setOpen, onSubmit}) {
   }
 
   return (
-    <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+    <Dialog fullWidth open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
       <DialogTitle id="form-dialog-title">Select Employee</DialogTitle>
       <DialogContent>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={selectedEmployee}
-          onChange={handleChange}>
-          {employees.map(({username, firstName, lastName}) => (
-            <MenuItem value={username}>{firstName + ' ' + lastName}</MenuItem>
-          ))}
-        </Select>
+        <Grid item xs={6}>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={selectedEmployee}
+            onChange={handleChange}
+            fullWidth>
+            {employees.map(({username, firstName, lastName}) => (
+              <MenuItem value={username}>{firstName + ' ' + lastName}</MenuItem>
+            ))}
+          </Select>
+        </Grid>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
