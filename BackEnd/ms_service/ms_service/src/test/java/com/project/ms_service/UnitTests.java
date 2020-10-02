@@ -25,12 +25,11 @@ public class UnitTests {
     // UNIT TEST 1 = Test to see whether the correct service is returned
     @Test
     public void testForCorrectServiceRetrieval() {
-
         AppService service = new AppService("Slice of Ham", "description test", "photo coordinates");
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = serviceRepo.findByName("Slice of Ham");
+        AppService retrieval = serviceRepo.findById(service.getId());
 
         assertThat(retrieval.getName()).isEqualTo(service.getName());
 
@@ -44,7 +43,7 @@ public class UnitTests {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = serviceRepo.findByName(service.getName());
+        AppService retrieval = serviceRepo.findById(service.getId());
 
         assertThat(retrieval.getDescription()).isEqualTo(service.getDescription());
     }
@@ -61,7 +60,7 @@ public class UnitTests {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = serviceRepo.findByName(service.getName());
+        AppService retrieval = serviceRepo.findById(service.getId());
 
         assertThat(retrieval.getDescription()).isEqualTo("Hello World");
     }
@@ -79,9 +78,9 @@ public class UnitTests {
         entityManager.persist(service2);
         entityManager.persist(service3);
 
-        AppService service2test = serviceRepo.findByName(service2.getName());
+        AppService retrieval = serviceRepo.findById(service2.getId());
 
-        assertThat(service2test).extracting(AppService::getName).isEqualToComparingFieldByField(service2.getName());
+        assertThat(service2).extracting(AppService::getName).isEqualToComparingFieldByField(service2.getName());
     }
 
 
