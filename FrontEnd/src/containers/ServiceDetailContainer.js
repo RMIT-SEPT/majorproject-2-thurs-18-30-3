@@ -1,28 +1,40 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 import {useParams} from 'react-router-dom'
-import serviceApi from '../config/serviceApi'
-const {default: ServiceDetail} = require('../components/ServiceDetail')
+import ServiceApi from '../config/serviceApi'
+
+import ServiceDetail from '../components/ServiceDetail'
+import UserApi from '../config/userApi'
+import UserType from '../config/userType'
 
 //Retrieves data for detailed display of a single service
 function ServiceDetailContainer() {
   const {id} = useParams()
   const [service, setService] = useState({})
+  const [employees, setEmployees] = useState([])
 
   useEffect(() => {
-    const callApi = async () => {
+    const callApis = async () => {
       try {
-        const {data} = await Axios.get(serviceApi.getService(id))
-        setService(data)
+        const {data: serviceData} = await Axios.get(ServiceApi.getService(id))
+        setService(serviceData)
+
+        const {data: users} = await Axios.get(UserApi.getAllUsers)
+
+        setEmployees(users.filter((user) => user.userType === UserType.Employee))
       } catch ({message}) {
         console.error('[ServiceDetailContainer]', message)
-        alert(`Cannot get service with ID ${id}: ${message}`)
+        alert(message)
       }
     }
-    callApi()
+    callApis()
   }, [id])
 
-  return <ServiceDetail service={service} />
+  const handleBookClick = () => {
+    console.log('Book clicked!')
+  }
+
+  return <ServiceDetail service={service} employees={employees} onSubmit={handleBookClick} />
 }
 
 export default ServiceDetailContainer

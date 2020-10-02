@@ -1,11 +1,12 @@
 import React from 'react'
 
 import '../containers/App.css'
-const {default: ServiceSlide} = require('./ServiceSlide')
+import ServiceSlide from './ServiceSlide'
 
 //Displays the full details of a service, along with available bookings, in a landscape-view slide
 function BookingDetail(props) {
-  const slide = props.service
+  const {service, employees, onSubmit} = props
+
   return (
     <div>
       <div className="container">
@@ -21,7 +22,7 @@ function BookingDetail(props) {
         </div>
 
         <div className="service-slide-container" role="main">
-          <ServiceSlide service={slide} />
+          <ServiceSlide service={service} employees={employees} onSubmit={onSubmit} />
         </div>
       </div>
     </div>

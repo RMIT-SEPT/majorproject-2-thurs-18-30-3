@@ -6,7 +6,7 @@ import SelectEmployeeDialog from './SelectEmployeeDialog'
 
 //Displays details of a service, with bookings displayed as clickable buttons
 //TODO: Implement booking functionality
-function ServiceSlide({service}) {
+function ServiceSlide({service, employees, onSubmit}) {
   // const dummySlot = {time: '7:00',date:'23 Aug'};
   const [startTime, setStartTime] = useState('')
   const [date, setDate] = useState('')
@@ -37,7 +37,14 @@ function ServiceSlide({service}) {
           ))}
         </div>
       </div>
-      <SelectEmployeeDialog open={dialogOpen} setOpen={setDialogOpen} startTime={startTime} date={date} />
+      <SelectEmployeeDialog
+        employees={employees}
+        open={dialogOpen}
+        setOpen={setDialogOpen}
+        startTime={startTime}
+        date={date}
+        onSubmit={onSubmit}
+      />
     </main>
   )
 }
