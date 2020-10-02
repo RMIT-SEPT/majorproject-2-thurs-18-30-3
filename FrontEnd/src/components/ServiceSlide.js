@@ -1,14 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import '../containers/App.css'
 import Bubble from '../components/BookBubble'
+import SelectEmployeeDialog from './SelectEmployeeDialog'
 
 //Displays details of a service, with bookings displayed as clickable buttons
 //TODO: Implement booking functionality
 function ServiceSlide({service}) {
   // const dummySlot = {time: '7:00',date:'23 Aug'};
+  const [startTime, setStartTime] = useState('')
+  const [date, setDate] = useState('')
+  const [dialogOpen, setDialogOpen] = useState(false)
 
-  const onBubbleClick = (startTime, date) => {}
+  const onBubbleClick = (startTime, date) => {
+    setStartTime(startTime)
+    setDate(date)
+    setDialogOpen(true)
+  }
 
   return (
     <main className="service-slide">
@@ -25,10 +33,11 @@ function ServiceSlide({service}) {
 
         <div className="token-set">
           {service.availableBookings?.map((booking) => (
-            <Bubble onClick={onBubbleClick()} slot={booking} />
+            <Bubble parentOnClick={onBubbleClick} slot={booking} />
           ))}
         </div>
       </div>
+      <SelectEmployeeDialog open={dialogOpen} setOpen={setDialogOpen} startTime={startTime} date={date} />
     </main>
   )
 }
