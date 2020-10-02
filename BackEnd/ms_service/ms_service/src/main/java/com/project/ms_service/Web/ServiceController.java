@@ -30,13 +30,13 @@ public class ServiceController {
             return errorMap;
         }
         AppService sampleService = serviceEngine.saveOrUpdateService(service);
-        return new ResponseEntity<AppService>(sampleService, HttpStatus.CREATED);
+        return new ResponseEntity<>(sampleService, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getServiceById(@PathVariable Long id) {
         AppService service = serviceEngine.findById(id);
-        return new ResponseEntity<AppService>(service, HttpStatus.OK);
+        return new ResponseEntity<>(service, HttpStatus.OK);
     }
 
     @GetMapping("")
@@ -48,7 +48,7 @@ public class ServiceController {
     public ResponseEntity<?> deleteService(@PathVariable Long id) {
         serviceEngine.deleteServiceById(id);
 
-        return new ResponseEntity<String>("Service ID: " + id + " has been deleted.", HttpStatus.OK);
+        return new ResponseEntity<>("Service ID: " + id + " has been deleted.", HttpStatus.OK);
     }
 
 
