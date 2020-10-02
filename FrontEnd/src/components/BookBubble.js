@@ -6,7 +6,7 @@ import '../containers/App.css';
 function BookBubble({ slot }) {
 	return (
         <button className="book-bubble">
-            <span><h2>{slot.time}</h2><p>pm</p></span>
+            <span><h2>{slot.startTime}</h2><p>pm</p></span>
                 <p>{slot.date}</p>
         </button>
 	);

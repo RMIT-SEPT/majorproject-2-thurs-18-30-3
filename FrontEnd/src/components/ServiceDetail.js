@@ -6,10 +6,9 @@ const { default: ServiceSlide } = require("./ServiceSlide");
 //Displays the full details of a service, along with available bookings, in a landscape-view slide
 function BookingDetail( props ) {
     const slide = props.service;
-    console.log(slide);
     return (
         <div>
-            <div className="container">
+           <div className="container">
                 <h1>Services</h1>
                 <div className="dummy"/>
                 <div>
@@ -19,7 +18,7 @@ function BookingDetail( props ) {
                     <div className="dummy"/>
                 </div>
 
-                <div class = 'service-slide-container' role = 'main'>
+                <div className = 'service-slide-container' role = 'main'>
                     <ServiceSlide service={slide} />
                 </div>
             </div> 

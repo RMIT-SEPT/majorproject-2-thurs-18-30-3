@@ -8,7 +8,7 @@ class ServiceDetailContainer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            service: []
+            service: {}
         }
     }
 
