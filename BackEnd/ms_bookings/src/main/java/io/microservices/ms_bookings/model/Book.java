@@ -21,13 +21,12 @@ public class Book {
     @Size(min = 4,max =5, message = "Please enter 4 to 5 characters")
     @Column(updatable = false, unique = true)
     private String bookIdentifier;
-    @NotBlank(message = "Service type must not be empty.")
-    @Size(min = 3, message = "Minimum 3 characters is required.")
-    private String type;
-    @NotBlank(message = "User email is required.")
-    private String email;
-    @JsonFormat(pattern = "yyyy-mm-dd")
-    private Date start_date;
+    @NotBlank(message ="Username is required.")
+    private String username;
+    @NotBlank(message ="Time slot is required")
+    private long time;
+    @NotBlank(message ="Date is required")
+    private String date;
 
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd@HH:mm:ss")
@@ -62,28 +61,28 @@ public class Book {
         this.bookIdentifier = bookingIdentifier;
     }
 
-    public String getType() {
-        return type;
+    public String getUsername() {
+        return username;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getEmail() {
-        return email;
+    public long getTime() {
+        return time;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTime(long time) {
+        this.time = time;
     }
 
-    public Date getStart_date() {
-        return start_date;
+    public String getDate() {
+        return date;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public Date getCreated_At() {

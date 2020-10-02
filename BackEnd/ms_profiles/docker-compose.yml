@@ -1,0 +1,11 @@
+#version: '2'
+#services:
+#  springbootapp:
+#    image: porichigo15/springbootapp:0.0.1
+#    container_name: springbootapp
+#    depends_on:
+#      - mariadb
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:mysql://productdb:3306/mydb?useUnicode=true&characterEncoding=utf8&useSSL=false
+#    ports:
+#      - 8081:8081
