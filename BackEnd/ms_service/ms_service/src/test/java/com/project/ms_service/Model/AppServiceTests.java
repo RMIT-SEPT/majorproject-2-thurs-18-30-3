@@ -30,7 +30,7 @@ public class AppServiceTests {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = serviceRepo.findByName("Slice of Ham");
+        AppService retrieval = serviceRepo.findById(service.getId());
 
         assertThat(retrieval.getName()).isEqualTo(service.getName());
 
@@ -44,7 +44,7 @@ public class AppServiceTests {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = serviceRepo.findByName(service.getName());
+        AppService retrieval = serviceRepo.findById(service.getId());
 
         assertThat(retrieval.getDescription()).isEqualTo(service.getDescription());
     }
@@ -61,7 +61,7 @@ public class AppServiceTests {
         entityManager.persist(service);
         entityManager.flush();
 
-        AppService retrieval = serviceRepo.findByName(service.getName());
+        AppService retrieval = serviceRepo.findById(service.getId());
 
         assertThat(retrieval.getDescription()).isEqualTo("Hello World");
     }
@@ -79,7 +79,7 @@ public class AppServiceTests {
         entityManager.persist(service2);
         entityManager.persist(service3);
 
-        AppService service2test = serviceRepo.findByName(service2.getName());
+        AppService service2test = serviceRepo.findById(service2.getId());
 
         assertThat(service2test).extracting(AppService::getName).isEqualToComparingFieldByField(service2.getName());
     }

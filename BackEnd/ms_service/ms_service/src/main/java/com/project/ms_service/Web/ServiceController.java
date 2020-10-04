@@ -26,31 +26,30 @@ public class ServiceController {
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody AppService service, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidation.MapValidationService(result);
-        if(errorMap != null) {
+        if (errorMap != null) {
             return errorMap;
         }
         AppService sampleService = serviceEngine.saveOrUpdateService(service);
-        return new ResponseEntity<AppService>(sampleService, HttpStatus.CREATED);
+        return new ResponseEntity<>(sampleService, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<?> getUsers(@PathVariable String name) {
-        AppService service = serviceEngine.findByName(name);
-        return new ResponseEntity<AppService>(service, HttpStatus.OK);
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getServiceById(@PathVariable Long id) {
+        AppService service = serviceEngine.findById(id);
+        return new ResponseEntity<>(service, HttpStatus.OK);
     }
 
-    @GetMapping("/all")
-    public Iterable<AppService> findAllService() {
+    @GetMapping("")
+    public Iterable<AppService> getAllServices() {
         return serviceEngine.findAllService();
     }
 
-    @DeleteMapping("/{name}")
-    public ResponseEntity<?> deleteProject(@PathVariable String name){
-        serviceEngine.deleteServiceByName(name);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteService(@PathVariable Long id) {
+        serviceEngine.deleteServiceById(id);
 
-        return new ResponseEntity<String>("User with username: '" + name + "' has been deleted.", HttpStatus.OK);
+        return new ResponseEntity<>("Service ID: " + id + " has been deleted.", HttpStatus.OK);
     }
-
 
 
 }
