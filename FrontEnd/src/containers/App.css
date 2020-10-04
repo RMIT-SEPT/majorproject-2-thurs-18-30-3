@@ -37,6 +37,23 @@ h1{
 textarea:focus, input:focus{
   outline: none;
 }
+
+.icon-btn{
+  padding: 0;
+  border: none;
+  background: none;
+  justify-self: right;
+  outline: none;
+  color: white;
+}
+
+.icon-btn :active{
+  color: #dc5444;
+}
+
+.icon-btn:focus {
+  outline: 0 
+}
 /* ------------------------------ NAV COMPONENT STYLING */
 
 .topNav {
@@ -264,10 +281,20 @@ textarea:focus, input:focus{
   flex-direction: column;
   align-items:center;
   margin:10px;
-  overflow: scroll;
+  overflow-y: scroll;
   box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   background: #C4C4C4;
+}
+
+.services-list-header{
+  width:100%;
+  min-height:50px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px 20px 0px 0px;
 }
 
 .services-list input{
@@ -284,7 +311,7 @@ textarea:focus, input:focus{
 
 .service-btn{
   width:260px;
-  height:60px;
+  min-height:60px;
   margin:10px;
   overflow: hidden;
   text-align: start;
@@ -404,7 +431,7 @@ textarea:focus, input:focus{
 
 .add-booking-heading{
   width:300px;
-  height:80px;
+  min-height:80px;
   display: flex;
   overflow: hidden;
   background: #009BA0;
@@ -418,17 +445,24 @@ textarea:focus, input:focus{
   align-self: flex-end;
 }
 
+.add-booking-body h4{
+  align-self: flex-start;
+  font-weight: 500;
+  font-size: 20px;
+}
+
 .add-booking-body{
+  display: flex;
+  flex-direction: column;
   width:90%;
-  height:80px;
   text-align: center;
+  justify-items: center;
   padding-block-start:20px;
   font-weight: bold;
   font-size: 28px;
 }
 
 .add-booking-form{
-  height: 100%;
   width:100%;
   display: flex;
   flex-direction: column;
@@ -438,8 +472,30 @@ textarea:focus, input:focus{
 }
 
 .add-booking-form input{
-  height:40px;
   width:80%;
+}
+
+.add-booking select{
+  border: none;
+}
+
+.add-booking select :active{
+  border: none;
+}
+
+.employee-option{
+  width:260px;
+  height:12px;
+  margin:4px;
+  overflow: hidden;
+  text-align: start;
+  text-indent: 1em;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 25px;
+  border:none;
+  border-radius: 20px;
+  background: #C2CCCD;
 }
 
 /*-------------------------------------SERVICE SLIDE STYLING*/

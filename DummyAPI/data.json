@@ -27,101 +27,137 @@
     }
   ],
   "bookings": [
-    {  
+    {
       "id": 1,
-      "servicename" : "Usher Houses",
-      "employeeid": 2 ,
-      "customerid":10,
-      "time":"10:00",
-      "date":"29 Sept"
+      "servicename": "Usher Houses",
+      "employeeid": 2,
+      "customerid": 10,
+      "time": "10:00",
+      "date": "29 Sept"
     },
     {
       "id": 2,
-      "servicename" : "Usher Houses",
-      "employeeid": 8 ,
-      "customerid":5,
-      "time":"7:30",
-      "date":"1 Oct"
+      "servicename": "Usher Houses",
+      "employeeid": 8,
+      "customerid": 5,
+      "time": "7:30",
+      "date": "1 Oct"
     },
     {
       "id": 3,
-      "servicename" : "Usher Houses",
+      "servicename": "Usher Houses",
       "employeeid": 7,
-      "customerid":2,
-      "time":"1:00",
-      "date":"30 Sept"
+      "customerid": 2,
+      "time": "1:00",
+      "date": "30 Sept"
     },
     {
       "id": 4,
-      "servicename" : "Usher Houses",
+      "servicename": "Usher Houses",
       "employeeid": 10,
-      "customerid":3,
-      "time":"4:00",
-      "date":"29 Sept"
+      "customerid": 3,
+      "time": "4:00",
+      "date": "29 Sept"
     },
     {
       "id": 5,
-      "servicename" : "King Pest",
+      "servicename": "King Pest",
       "employeeid": 1,
-      "customerid":2,
-      "time":"11:00",
-      "date":"4 Oct"
+      "customerid": 2,
+      "time": "11:00",
+      "date": "4 Oct"
     },
     {
       "id": 6,
-      "servicename" : "King Pest",
+      "servicename": "King Pest",
       "employeeid": 3,
-      "customerid":5,
-      "time":"3:00",
-      "date":"2 Oct"
+      "customerid": 5,
+      "time": "3:00",
+      "date": "2 Oct"
     },
     {
       "id": 7,
-      "servicename" : "King Pest",
+      "servicename": "King Pest",
       "employeeid": 1,
-      "customerid":2,
-      "time":"12:00",
-      "date":"4 Oct"
+      "customerid": 2,
+      "time": "12:00",
+      "date": "4 Oct"
     },
     {
       "id": 8,
-      "servicename" : "King Pest",
+      "servicename": "King Pest",
       "employeeid": 3,
-      "customerid":5,
-      "time":"11:00",
-      "date":"2 Oct"
+      "customerid": 5,
+      "time": "11:00",
+      "date": "2 Oct"
     },
     {
       "id": 9,
-      "servicename" : "King Pest",
+      "servicename": "King Pest",
       "employeeid": 1,
-      "customerid":2,
-      "time":"2:00",
-      "date":"4 Oct"
+      "customerid": 2,
+      "time": "2:00",
+      "date": "4 Oct"
     },
     {
       "id": 10,
-      "servicename" : "King Pest",
+      "servicename": "King Pest",
       "employeeid": 2,
-      "customerid":5,
-      "time":"3:00",
-      "date":"2 Oct"
+      "customerid": 5,
+      "time": "3:00",
+      "date": "2 Oct"
     },
     {
       "id": 11,
-      "servicename" : "King Pest",
+      "servicename": "King Pest",
       "employeeid": 4,
       "customerid": 7,
-      "time":"9:00",
-      "date":"9 Oct"
+      "time": "9:00",
+      "date": "9 Oct"
     },
     {
       "id": 12,
-      "servicename" : "King Pest",
-      "employeeid":8,
-      "customerid":2,
-      "time":"4:00",
-      "date":"10 Oct"
+      "servicename": "King Pest",
+      "employeeid": 8,
+      "customerid": 2,
+      "time": "4:00",
+      "date": "10 Oct"
+    },
+    {
+      "servicename": "Usher Houses",
+      "time": "10:55",
+      "date": "2020-10-01",
+      "id": 13
+    },
+    {
+      "servicename": "Usher Houses",
+      "time": "10:55",
+      "date": "2020-10-01",
+      "id": 14
+    },
+    {
+      "servicename": "Usher Houses",
+      "time": "10:55",
+      "date": "2020-10-01",
+      "id": 15
+    },
+    {
+      "servicename": "Purloin's Letters",
+      "time": "01:01",
+      "date": "2020-10-23",
+      "id": 16
+    },
+    {
+      "servicename": "Purloin's Letters",
+      "time": "13:25",
+      "date": "2020-09-30",
+      "id": 17
+    },
+    {
+      "servicename": "Conqueror Worm",
+      "time": "18:55",
+      "date": "2020-10-21",
+      "id": 18
     }
   ],
   "users": [
@@ -135,7 +171,7 @@
       "phone": "0443785",
       "address": "1 Manderly Way",
       "active": true,
-      "usertype":"admin"
+      "usertype": "admin"
     },
     {
       "id": 9,
@@ -147,7 +183,7 @@
       "phone": "0443785",
       "address": "1 Manderly Way",
       "active": true,
-      "usertype":"admin"
+      "usertype": "admin"
     },
     {
       "id": 8,
@@ -159,7 +195,7 @@
       "phone": "0443785",
       "address": "1 Manderly Way",
       "active": true,
-      "usertype":"admin"
+      "usertype": "admin"
     },
     {
       "id": 7,
@@ -171,7 +207,7 @@
       "phone": "0443785",
       "address": "1 Manderly Way",
       "active": true,
-      "usertype":"admin"
+      "usertype": "admin"
     },
     {
       "id": 6,
@@ -183,7 +219,7 @@
       "phone": "999999",
       "address": "1 Manderly Way",
       "active": true,
-      "usertype":"admin"
+      "usertype": "admin"
     },
     {
       "id": 5,
@@ -195,7 +231,7 @@
       "phone": "191919",
       "address": "1 Manderly Way",
       "active": false,
-      "usertype":"admin"
+      "usertype": "admin"
     },
     {
       "id": 4,
@@ -207,7 +243,7 @@
       "phone": "12457",
       "address": "1 Manderly Way",
       "active": true,
-      "usertype":"customer"
+      "usertype": "customer"
     },
     {
       "email": "Max.Winter@Cust.wiz0",
@@ -217,7 +253,7 @@
       "phone": "1234 5678",
       "address": "1 Manderly Way",
       "id": 3,
-      "usertype":"employee"
+      "usertype": "employee"
     },
     {
       "id": 2,
@@ -227,7 +263,7 @@
       "password": "cust",
       "phone": "99999999",
       "address": "1 Manderly Way",
-      "usertype":"employee"
+      "usertype": "employee"
     },
     {
       "firstname": "Italo",
@@ -237,7 +273,7 @@
       "phone": "345345 435435",
       "address": "1 Manderly Way",
       "id": 1,
-      "usertype":"employee"
+      "usertype": "employee"
     }
   ]
 }

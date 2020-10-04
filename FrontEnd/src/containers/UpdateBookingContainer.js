@@ -3,7 +3,7 @@ import '../containers/App.css'
 import axios from "axios";
 import UserType from '../config/userType'
 
-import UpdateBookingDisplay from '../components/UpdateBookingDisplay.js'
+import UpdateBookingDisplay from '../components/admin_components/UpdateBookingDisplay.js'
 
 function UpdateBookingContainer({booking, active}) {
 
@@ -30,7 +30,6 @@ function UpdateBookingContainer({booking, active}) {
             console.log(error);
           });
     };
-
 
     if(!active)
     {

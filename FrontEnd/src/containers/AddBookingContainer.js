@@ -2,11 +2,13 @@ import React, {} from 'react'
 import '../containers/App.css'
 import axios from "axios";
 
-import AddBookingDisplay from '../components/AddBookingDisplay.js'
+import AddBookingDisplay from '../components/admin_components/AddBookingDisplay.js'
 
 const createBooking = async (newName, newTime, newDate) => {
   const newBooking = {
     servicename: newName,
+    customername: null,
+    employeename : null,
     time: newTime,
     date: newDate
   };

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import moment from 'moment';
 
-import '../containers/App.css'
+import '../../containers/App.css'
 
 //Displays Services in a list view
 function AddBookingDisplay({service, createFunc}) {
@@ -32,7 +32,6 @@ function AddBookingDisplay({service, createFunc}) {
     }
 
     createFunc(service.name, vals.time,vals.date);
-    e.preventDefault();
   };
 
   return (
