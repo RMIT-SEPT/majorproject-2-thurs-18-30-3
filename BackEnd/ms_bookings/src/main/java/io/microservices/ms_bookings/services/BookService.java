@@ -12,22 +12,23 @@ public class BookService {
     private BookingsRepository bookingsRepository;
 
     // Method for POST request
-    public Book saveOrUpdateBookings (Book bookings) {
+    public Book createNewBookings(Book bookings) {
 
         try {
-            bookings.setBookIdentifier(bookings.getBookIdentifier().toUpperCase());
+            bookings.setEmployeeName(bookings.getEmployeeName());
             return bookingsRepository.save(bookings);
         }catch (Exception e){
-            throw new BookingsException("Booking Id '"+ bookings.getBookIdentifier().toUpperCase()+ "' already exists in the system.");
+            // Still think we need a unique identifier.... how would we handle duplicated bookings?
+            throw new BookingsException("Booking Id '"+ bookings.getEmployeeName()+ "' already exists in the system."); // need to fix
         }
     }
 
     // Method for GET specific bookings request
-    public Book findByBookIdentifier(String bookingsId){
-        Book bookings = bookingsRepository.findByBookIdentifier((bookingsId.toUpperCase()));
+    public Book findByCustomerName(String customerName){
+        Book bookings = bookingsRepository.findByCustomerName((customerName));
 
         if (bookings == null) {
-            throw new BookingsException("Booking's ID '"+ bookingsId + "' does not exists.");
+            throw new BookingsException("Customer Name: '"+ customerName + "' does not have a booking.");
         }
         return bookings;
     }
@@ -38,7 +39,7 @@ public class BookService {
 
     // Method for DELETE bookings request
     public void deleteBookingsByIdentifier(String bookingsId){
-        Book bookings = bookingsRepository.findByBookIdentifier(bookingsId.toUpperCase());
+        Book bookings = bookingsRepository.findByCustomerName(bookingsId.toUpperCase());
 
         if (bookings == null){
             throw new BookingsException("Unable to remove booking with ID '"+ bookingsId + "'. This ID does not exists.");

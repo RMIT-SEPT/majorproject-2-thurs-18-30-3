@@ -7,13 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/book")
@@ -25,7 +21,6 @@ public class BookingsController {
     @Autowired
     private MapValidationErrorService mapValidation;
 
-    @CrossOrigin(origins = "http://localhost:3000")
     // Method for POST requests
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody Book bookings, BindingResult result) {
@@ -34,14 +29,14 @@ public class BookingsController {
         if(errorMap != null) {
             return errorMap;
         }
-        Book bookings1 = bookService.saveOrUpdateBookings(bookings);
+        Book bookings1 = bookService.createNewBookings(bookings);
         return new ResponseEntity<Book>(bookings, HttpStatus.CREATED);
     }
 
     // Method for GET specific booking request
-    @GetMapping("/{bookingsId}")
-    public ResponseEntity<?> getBookingsById(@PathVariable String bookingsId) {
-        Book bookings = bookService.findByBookIdentifier(bookingsId);
+    @GetMapping("/{customerName}")
+    public ResponseEntity<?> getBookingsById(@PathVariable String customerName) {
+        Book bookings = bookService.findByCustomerName(customerName);
         return new ResponseEntity<Book>(bookings, HttpStatus.OK);
     }
 

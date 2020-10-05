@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface BookingsRepository extends CrudRepository <Book, Long> {
 
-    Book findByBookIdentifier(String bookId);
+    Book findByCustomerName(String customerName);
     @Override
     Iterable<Book> findAllById(Iterable<Long> iterable);
 }

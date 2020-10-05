@@ -17,12 +17,8 @@ public class Book {
     @Size(min = 5, message = "Minimum 5 characters is required.")
     @NotBlank(message = "Service name must not be empty.")
     private String serviceName;
-    @NotBlank(message ="Booking identifier is required")
-    @Size(min = 4,max =5, message = "Please enter 4 to 5 characters")
-    @Column(updatable = false, unique = true)
-    private String bookIdentifier;
-    @NotBlank(message ="Username is required.")
-    private String username;
+    private String employeeName;
+    private String customerName;
     @NotBlank(message ="Time slot is required")
     private long time;
     @NotBlank(message ="Date is required")
@@ -53,20 +49,20 @@ public class Book {
         this.serviceName = serviceName;
     }
 
-    public String getBookIdentifier() {
-        return bookIdentifier;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public void setBookIdentifier(String bookingIdentifier) {
-        this.bookIdentifier = bookingIdentifier;
+    public void setEmployeeName(String username) {
+        this.employeeName = username;
     }
 
-    public String getUsername() {
-        return username;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public long getTime() {
