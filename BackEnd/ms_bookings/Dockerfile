@@ -7,5 +7,5 @@ RUN mvn package
 FROM openjdk:8-jre-alpine
 VOLUME /tmp
 WORKDIR /app
-COPY --from=MAVEN_BUILD /target/ms_profiles-0.0.1-SNAPSHOT.jar /app/
-ENTRYPOINT ["java", "-jar","ms_profiles-0.0.1-SNAPSHOT.jar"]
+COPY --from=MAVEN_BUILD /target/ms_bookings-0.0.1-SNAPSHOT.jar /app/
+ENTRYPOINT ["java", "-jar","ms_bookings-0.0.1-SNAPSHOT.jar"]

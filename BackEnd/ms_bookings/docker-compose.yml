@@ -1,6 +1,6 @@
 version: '3'
 services:
-  springboot-docker-compose-ms-profiles:
+  springboot-docker-compose-ms-bookings:
     image: springboot-docker-compose-app:1
     build:
       context: ./
@@ -8,4 +8,4 @@ services:
     volumes:
       - /data/springboot-docker-compose-app
     ports:
-      - "8081:8081"
+      - "8082:8082"
