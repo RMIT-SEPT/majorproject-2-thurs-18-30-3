@@ -4,7 +4,7 @@ import '../containers/App.css'
 import ServiceSlide from './ServiceSlide'
 
 //Displays the full details of a service, along with available bookings, in a landscape-view slide
-function BookingDetail(props) {
+function ServiceDetail(props) {
   const {service, employees, onSubmit} = props
 
   return (
@@ -29,4 +29,4 @@ function BookingDetail(props) {
   )
 }
 
-export default BookingDetail
+export default ServiceDetail
