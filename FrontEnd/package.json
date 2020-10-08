@@ -23,7 +23,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "react-svg-polygon": "^2.0.6",
-    "reactstrap": "^8.6.0",
     "validator": "^13.1.17",
     "yup": "^0.29.3"
   },
