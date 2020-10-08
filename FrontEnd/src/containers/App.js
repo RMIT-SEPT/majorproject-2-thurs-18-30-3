@@ -14,6 +14,7 @@ import AddServiceContainer from '../containers/AddServiceContainer'
 
 import CurrentUser from '../context/CurrentUser'
 import AuthService from '../services/auth.service'
+import EmployeeMyService from '../pages/EmployeeMyServices'
 
 //Root Component
 
@@ -66,6 +67,7 @@ function App() {
           <PrivateRoute path="/">
             <Route path="/services" exact component={ServiceList} />
             <Route path="/employees" exact component={EmployeeList} />
+            <Route path="/myservices" exact component={EmployeeMyService} />
             {/*<Route path="/bookings" exact component={Booking} />*/}
             <Route path="/services/:id" component={ServiceDetailContainer} />
           </PrivateRoute>

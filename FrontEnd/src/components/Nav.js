@@ -76,6 +76,9 @@ function Nav() {
               <Link to="/employees" className="big-link">
                 <li>employees</li>
               </Link>
+              <Link to="/myservices" className="big-link">
+                <li>my services</li>
+              </Link>
             </>
           )}
 
