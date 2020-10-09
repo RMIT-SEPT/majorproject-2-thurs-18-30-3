@@ -1,16 +1,17 @@
-import React, {useEffect, useCallback} from 'react'
+import React, {useContext, useState, useEffect, useCallback} from 'react'
 import {Link} from 'react-router-dom'
 
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
 import ProfilePaneContainer from '../containers/ProfilePaneContainer'
 import CurrentUser from '../context/CurrentUser'
+import UserType from '../config/userType'
 
 //Basic Top Navigation Bar
 function Nav() {
-  const [currentUser, setCurrentUser] = React.useContext(CurrentUser)
-  const [isToggle, setToggle] = React.useState(false)
-  const [isShrinkLinks, setShrinkLinks] = React.useState(true)
+  const [currentUser, setCurrentUser] = useContext(CurrentUser)
+  const [isToggle, setToggle] = useState(false)
+  const [isShrinkLinks, setShrinkLinks] = useState(true)
 
   //Check if user is logged in
   useEffect(() => {
@@ -65,22 +66,7 @@ function Nav() {
             <li>add service</li>
           </Link>
           {/* conditionally render activity links */}
-          {currentUser && (
-            <>
-              <Link to="/services" className="big-link">
-                <li>services</li>
-              </Link>
-              <Link to="/bookings" className="big-link">
-                <li>bookings</li>
-              </Link>
-              <Link to="/employees" className="big-link">
-                <li>employees</li>
-              </Link>
-              <Link to="/myservices" className="big-link">
-                <li>my services</li>
-              </Link>
-            </>
-          )}
+          {renderNavItems(currentUser)}
 
           {/*render profile button only if the user is logged in */}
           <ul className="login-links" role="group">
@@ -115,6 +101,50 @@ function Nav() {
       )}
     </nav>
   )
+}
+
+function renderNavItems(currentUser) {
+  if (!currentUser) return
+
+  const {userType} = currentUser
+
+  // conditionally render navigation items
+  switch (userType.toLowerCase()) {
+    case UserType.Customer:
+      return (
+        <>
+          <Link to="/bookings">bookings</Link>
+          <Link to="/services">services</Link>
+        </>
+      )
+    case UserType.Employee:
+      return (
+        <>
+          <Link to="/myservices" className="big-link">
+            my services
+          </Link>
+        </>
+      )
+    case UserType.Admin:
+      return (
+        <>
+          <Link to="/bookings">bookings</Link>
+          <Link to="/services">services</Link>
+          <Link to="/employees">employees</Link>
+          <Link to="/myservices" className="big-link">
+            <li>my services</li>
+          </Link>
+        </>
+      )
+    default:
+      return (
+        <>
+          <Link to="/bookings">bookings</Link>
+          <Link to="/services">services</Link>
+          <Link to="/employees">employees</Link>
+        </>
+      )
+  }
 }
 
 export default Nav
