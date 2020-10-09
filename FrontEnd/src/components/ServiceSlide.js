@@ -1,7 +1,7 @@
 import React, {  } from 'react';
 
 import '../containers/App.css';
-const { default: Bubble } = require("../components/BookBubble");
+const { default: Bubble } = require("../components/booking_components/BookBubble");
 
 //Displays details of a service, with bookings displayed as clickable buttons
 //TODO: Implement booking functionality

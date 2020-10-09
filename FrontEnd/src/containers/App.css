@@ -335,12 +335,46 @@ textarea:focus, input:focus{
 }
 
 .admin-service-display{
+  
   width:420px;
   height:560px;
   margin:10px;
   overflow: hidden;
   box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+}
+
+.admin-edit-service{
+  width:100%;
+  height:420px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.edit-service-body{
+  width: 100%;
+  height:60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow:hidden;
+}
+
+.edit-service-body span{
+  width:70%;
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.edit-service-body textarea{
+  margin:6px;
+  width:360px;
+  height:220px;
+  border-radius: 20px;
+
 }
 
 .admin-service-heading{
@@ -464,6 +498,7 @@ textarea:focus, input:focus{
 
 .add-booking-form{
   width:100%;
+  height:100%;
   display: flex;
   flex-direction: column;
   align-items:center;
@@ -472,7 +507,11 @@ textarea:focus, input:focus{
 }
 
 .add-booking-form input{
+  height:60px;
   width:80%;
+  font-weight:500;
+  border:0 0 0 3px;
+  border-radius:20px;
 }
 
 .add-booking select{
@@ -659,8 +698,9 @@ textarea:focus, input:focus{
   height: 40px;
   opacity: 0.3;
   font-size: 36px;
-  line-height: 0;
+  line-height: 25px;
   border-radius: 50%;
+  border:2px solid #025457;
 }
 
 .closeButton:hover {
@@ -734,6 +774,73 @@ textarea:focus, input:focus{
 .container{
   margin-block-start:15px;
 }
+
+/*-------------------------------------BOOKINGS LIST STYLING*/
+.profile-booking-row{
+  max-width:98%;
+  min-width:98%;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.profile-booking-row button{
+  width: 40px;
+  height: 40px;
+  margin-block-start:10%;
+  margin-inline-end: 4px;
+  border-radius: 50%;
+  line-height: 10px;
+  color: #ffffff;
+  background-color: #dc5444;
+  border:none;
+}
+
+.profile-booking-row button:hover{
+  color: #dc5444;
+  background-color: #c9d4d4;
+  outline: none;
+}
+
+.profile-booking-row button:focus{
+  outline: none;
+}
+
+.booking-card{
+  display:flex;
+  flex-direction: column;
+  width: 95%;
+  height: 14vh;
+  
+  text-indent: 2em;
+  background-color: #FFFFFF;
+  overflow:hidden;
+  
+  box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  border:none;
+}
+
+.booking-card-header{
+  width:100%;
+  height:40%;
+  display:flex;
+  justify-content: space-around;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  background-color: #009BA0;
+  color: #FFFFFF;
+}
+
+.booking-card-header h3{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 55px;
+}
+
+
 /*-------------------------------------Add Service Styling*/
 .addService-container{
   margin-inline-start: 10%;

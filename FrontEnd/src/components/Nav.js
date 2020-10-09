@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
  
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
-import ProfilePaneContainer from '../containers/ProfilePaneContainer'
+import ModalPane from '../containers/ModalPane'
 import CurrentUser from '../context/CurrentUser'
 
 //Basic Top Navigation Bar
@@ -87,9 +87,9 @@ function Nav() {
           {currentUser ? (
             <>
               <button className="profileButton" onClick={() => OpenModal()} />
-              <ProfilePaneContainer showing={false} ref={modalRef}>
+              <ModalPane showing={false} ref={modalRef}>
                 PROFILE
-              </ProfilePaneContainer>
+              </ModalPane>
             </>
           ) : (
             <>

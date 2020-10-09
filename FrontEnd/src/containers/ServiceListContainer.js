@@ -2,6 +2,9 @@ import React from 'react'
 const {default: ServiceList} = require('../components/ServiceList')
 const {default: AdminServiceDisplay} = require('../components/admin_components/AdminServiceDisplay')
 //Retrieves bulk service data for display in list view
+
+const API_SERVICE_URL = 'http://localhost:8080/api/services/';
+
 class ServicesContainer extends React.Component {
   constructor(props) {
     this.state = {
@@ -14,7 +17,7 @@ class ServicesContainer extends React.Component {
   /*If an API isn't running on your local machine, 
 	replace the below fetch with 'https://jsonplaceholder.typicode.com/posts' for testing*/
   componentDidMount() {
-    fetch('http://localhost:8080/api/services/all')
+    fetch(API_SERVICE_URL + 'all')
       .then((res) => res.json())
       .then((data) => {
         this.setState({services: data});

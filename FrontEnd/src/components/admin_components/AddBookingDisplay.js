@@ -4,10 +4,11 @@ import moment from 'moment';
 import '../../containers/App.css'
 
 //Displays Services in a list view
-function AddBookingDisplay({service, createFunc}) {
+function AddBookingDisplay({service, employees, createFunc}) {
   const [vals , setVals] = useState({
       time: "",
-      date: ""
+      date: "",
+      employeename: ""
   });
 
   if(service == null)
@@ -21,17 +22,23 @@ function AddBookingDisplay({service, createFunc}) {
   const handleChange = (e) =>{
     const { name, value } = e.target;
     setVals(vals => ({ ...vals, [name]: value }));
-    console.log('aasdasd '+name +' ' + value+' ' + vals.time + ' '+vals.date);
   };
+
+  //Retrieve list of employees
+  const empOptions = employees.map((employee) => {
+    return (
+      <option className="employee-option" key = {employee.firstname} value={employee.username}>{employee.firstname} {employee.lastname}</option>
+    )
+  })
 
 
   const handleSubmit=(e)=>{
-    if(vals.time === "" || vals.date === "")
+    if(vals.time === "" || vals.date === "" || vals.employeename ==="")
     {
       return;
     }
 
-    createFunc(service.name, vals.time,vals.date);
+    createFunc(service.name, vals.time, vals.date, vals.employeename);
   };
 
   return (
@@ -48,8 +55,11 @@ function AddBookingDisplay({service, createFunc}) {
         <form className = 'add-booking-form' onSubmit={handleSubmit}>
           <input type="time" name='time' value={vals.time} onChange={handleChange}/>
           <input type="date" name='date' value={vals.date} min={CURRENT_DATE} max={NEXT_DATE} onChange={handleChange}></input>
-          
-          <input className="actButton" type="submit" value="Create"/>
+          <label htmlFor='employees'>Assign Employee:</label>
+            <select name="employeename" id="employees" onChange={handleChange} multiple>
+              {empOptions}
+            </select>
+          <button className="actButton" type="submit">create</button>
         </form>
       </main>
   )

@@ -28,136 +28,52 @@
   ],
   "bookings": [
     {
-      "id": 1,
-      "servicename": "Usher Houses",
-      "employeeid": 2,
-      "customerid": 10,
-      "time": "10:00",
-      "date": "29 Sept"
-    },
-    {
-      "id": 2,
-      "servicename": "Usher Houses",
-      "employeeid": 8,
-      "customerid": 5,
-      "time": "7:30",
-      "date": "1 Oct"
-    },
-    {
-      "id": 3,
-      "servicename": "Usher Houses",
-      "employeeid": 7,
-      "customerid": 2,
-      "time": "1:00",
-      "date": "30 Sept"
-    },
-    {
-      "id": 4,
-      "servicename": "Usher Houses",
-      "employeeid": 10,
-      "customerid": 3,
-      "time": "4:00",
-      "date": "29 Sept"
-    },
-    {
-      "id": 5,
       "servicename": "King Pest",
-      "employeeid": 1,
-      "customerid": 2,
-      "time": "11:00",
-      "date": "4 Oct"
-    },
-    {
-      "id": 6,
-      "servicename": "King Pest",
-      "employeeid": 3,
-      "customerid": 5,
-      "time": "3:00",
-      "date": "2 Oct"
-    },
-    {
-      "id": 7,
-      "servicename": "King Pest",
-      "employeeid": 1,
-      "customerid": 2,
-      "time": "12:00",
-      "date": "4 Oct"
-    },
-    {
-      "id": 8,
-      "servicename": "King Pest",
-      "employeeid": 3,
-      "customerid": 5,
-      "time": "11:00",
-      "date": "2 Oct"
-    },
-    {
-      "id": 9,
-      "servicename": "King Pest",
-      "employeeid": 1,
-      "customerid": 2,
-      "time": "2:00",
-      "date": "4 Oct"
-    },
-    {
-      "id": 10,
-      "servicename": "King Pest",
-      "employeeid": 2,
-      "customerid": 5,
-      "time": "3:00",
-      "date": "2 Oct"
-    },
-    {
-      "id": 11,
-      "servicename": "King Pest",
-      "employeeid": 4,
-      "customerid": 7,
-      "time": "9:00",
-      "date": "9 Oct"
-    },
-    {
-      "id": 12,
-      "servicename": "King Pest",
-      "employeeid": 8,
-      "customerid": 2,
-      "time": "4:00",
-      "date": "10 Oct"
+      "customername": "Daphne de Maurier",
+      "employeename": "Italo Calvino",
+      "time": "13:02",
+      "date": "2020-10-31",
+      "id": 23
     },
     {
       "servicename": "Usher Houses",
-      "time": "10:55",
+      "customername": null,
+      "employeename": "Rebecca de Winter",
+      "time": "15:10",
+      "date": "2020-10-08",
+      "id": 24
+    },
+    {
+      "servicename": "ss",
+      "customername": null,
+      "employeename": "Rebecca de Winter",
+      "time": "13:18",
       "date": "2020-10-01",
-      "id": 13
+      "id": 25
+    },
+    {
+      "servicename": "abc",
+      "customername": null,
+      "employeename": "Rebecca de Winter",
+      "time": "13:23",
+      "date": "2020-10-07",
+      "id": 26
+    },
+    {
+      "servicename": "abc",
+      "customername": null,
+      "employeename": "Max de Winter",
+      "time": "14:20",
+      "date": "2020-10-12",
+      "id": 27
     },
     {
       "servicename": "Usher Houses",
-      "time": "10:55",
-      "date": "2020-10-01",
-      "id": 14
-    },
-    {
-      "servicename": "Usher Houses",
-      "time": "10:55",
-      "date": "2020-10-01",
-      "id": 15
-    },
-    {
-      "servicename": "Purloin's Letters",
-      "time": "01:01",
+      "customername": null,
+      "employeename": "Rebecca de Winter",
+      "time": "13:26",
       "date": "2020-10-23",
-      "id": 16
-    },
-    {
-      "servicename": "Purloin's Letters",
-      "time": "13:25",
-      "date": "2020-09-30",
-      "id": 17
-    },
-    {
-      "servicename": "Conqueror Worm",
-      "time": "18:55",
-      "date": "2020-10-21",
-      "id": 18
+      "id": 28
     }
   ],
   "users": [
@@ -274,6 +190,30 @@
       "address": "1 Manderly Way",
       "id": 1,
       "usertype": "employee"
+    },
+    {
+      "firstName": "V",
+      "lastName": "V",
+      "username": "ca1",
+      "email": "c@B.c",
+      "address": "22 g",
+      "mobileNum": "111",
+      "password": "octopus-&",
+      "confirmPassword": "octopus-&",
+      "userType": "customer",
+      "id": 11
+    },
+    {
+      "firstName": "a",
+      "lastName": "b",
+      "username": "bobo",
+      "email": "c@b.com",
+      "address": "2 bol st",
+      "mobileNum": "1`",
+      "password": "octopus-&",
+      "confirmPassword": "octopus-&",
+      "userType": "customer",
+      "id": 12
     }
   ]
 }

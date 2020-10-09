@@ -1,27 +1,18 @@
-import React, {forwardRef, useImperativeHandle, useEffect} from 'react'
-import ReactDOM from 'react-dom'
+import React, {useEffect} from 'react'
 import Axios from 'axios'
 
 import ProfilePane from '../components/ProfilePane'
 import AuthService from '../services/auth.service'
 import '../containers/App.css'
 
-const API_BASE_URL = 'http://localhost:8081/api/users/'
+const API_BASE_URL = 'http://localhost:8080/api/users?username='
 
 //Retrieves and displays current user profile data
-const ProfilePaneContainer = forwardRef((props, ref) => {
-  //Is the pane rendering
-  const [isShowing, setIsShowing] = React.useState(false)
+const ProfilePaneContainer = ({close, change}) => {
+
   //User profile for display
   const [profile, setProfile] = React.useState({})
 
-  //Refs to the modal operation functions
-  useImperativeHandle(ref, () => {
-    return {
-      openModel: () => open(),
-      close: () => close(),
-    }
-  })
   useEffect(() => {
     loadProfile()
   }, [])
@@ -29,6 +20,7 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
   //API call to retrieve user data
   const loadProfile = async () => {
     if (!AuthService.getCurrentUser()) {
+      
       return null
     }
     try {
@@ -36,7 +28,6 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
       //  const url = 'https://5f51c3975e98480016123e31.mockapi.io/users/1'
       const res = await fetch(url)
       const data = await res.json()
-      console.log('loadProfile data', data)
       setProfile(data)
     } catch (err) {
       alert(err)
@@ -68,25 +59,8 @@ const ProfilePaneContainer = forwardRef((props, ref) => {
     }
   }
 
-  //open modal pane
-  const open = () => {
-    setIsShowing(true)
-  }
+  return <ProfilePane close={close} change={change} profile={profile} reload={loadProfile} update={updateProfile} />
 
-  //close modal pane
-  const close = () => {
-    setIsShowing(false)
-  }
-
-  if (isShowing) {
-    //Modal components are linked to modal-root node
-    return ReactDOM.createPortal(
-      <ProfilePane close={close} profile={profile} reload={loadProfile} update={updateProfile} />,
-      document.getElementById('modal-root')
-    )
-  }
-
-  return null
-})
+}
 
 export default ProfilePaneContainer

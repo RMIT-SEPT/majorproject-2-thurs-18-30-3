@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 
-import ServiceList from '../containers/ServicesContainer'
+import AdminServiceList from '../containers/AdminServicesContainer'
 import EmployeeList from '../containers/EmployeeListContainer'
 
 import Nav from '../components/Nav'
@@ -58,7 +58,7 @@ function App() {
           <Route path="/about" exact component={About} />
           <Route path="/add" exact component={AddServiceContainer} />
           <Route path="/create" exact component={Create} />
-          <Route path="/services" exact component={ServiceList} />
+          <Route path="/services" exact component={AdminServiceList} />
           
           <LoginRoute path="/login">
             <Route path="/login" exact component={Login} />

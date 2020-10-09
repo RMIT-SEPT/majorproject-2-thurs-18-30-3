@@ -7,29 +7,18 @@ import UpdateBookingDisplay from '../components/admin_components/UpdateBookingDi
 
 function UpdateBookingContainer({booking, active}) {
 
-    const [employees, setEmployees] = React.useState([]);
-
-    useEffect(()=> {
-        fetch('http://localhost:8080/api/users/all')
-          .then((res) => res.json())
-          .then((data) => {
-            setEmployees(data.filter((d) => d.usertype === UserType.Employee));
-          })
-          .catch(console.log)
-    }, [])
-
-    const assignEmployee = async (bookingid, newEmployeeid) => {
-        axios.put('http://localhost:8080/api/bookings/'+bookingid, 
-        {
-            employeeid: newEmployeeid
-        })
-          .then(response => {
-            console.log(response);
-          })
-          .catch(error => {
-            console.log(error);
-          });
-    };
+    const API_BOOKINGS_URL = 'http://localhost:8080/api/bookings/';
+    
+    const deleteBooking = () => {
+      //remove bookings
+      axios.delete(API_BOOKINGS_URL+booking.id, 
+      ).then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
 
     if(!active)
     {
@@ -37,9 +26,8 @@ function UpdateBookingContainer({booking, active}) {
     }
 
     return (
-        <UpdateBookingDisplay booking={booking} 
-            employees={employees} assignFunc={assignEmployee}/>
-        );
+        <UpdateBookingDisplay booking={booking} deleteFunc={deleteBooking}/>
+    );
          
 
 }

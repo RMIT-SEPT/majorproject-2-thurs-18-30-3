@@ -1,13 +1,39 @@
 import React, {  } from 'react';
 
 import '../../containers/App.css';
+import MuiAlert from '@material-ui/lab/Alert';
 
-const {default: BookBubble} = require('../BookBubble');
+const {default: BookBubble} = require('../booking_components/BookBubble');
+
+
+//Alert box
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />
+  }
+
 
 //Displays details of a service, with bookings displayed as clickable buttons
-//TODO: Implement booking functionality
-function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc}) {
+function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc, deleteFunc}) {
     const [isEditing, setEditing] = React.useState(false);
+
+    const handleDesc = (e) => {
+        service.description = e.target.value;
+    }
+
+    const handleImage = (e) => {
+        service.img = e.target.files[0];
+    }
+
+    const saveChanges = () => {
+        updateFunc(service);
+        alert("Changes Saved!");
+    }
+
+    const deleteService = () =>
+    {
+        deleteFunc(service);
+        alert("Service Deleted");
+    }
 
     if(service == null)
     {
@@ -36,16 +62,32 @@ function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc}) {
     }
 
     const renderEditing = () => {
-        return(<>
-            <div className = 'admin-service-body'>
-                <img src={service.img}></img >
-            </div>
-            <hr></hr>
-            <div className = 'admin-service-body'>
-                <textarea value={service.description}></textarea >
-            </div>
-            <button className = "actButton">save</button>
-            </>);
+        return(
+            <form className="admin-edit-service" onSubmit={saveChanges}>
+                <div className="edit-service-body">
+                    <span>photo</span>
+                    <label htmlFor="addService-file-Upload" className="addService-fileLabel">
+
+                        {service.img? "" : "No Image"}
+                        <div id="imgWrapper">
+                            <img src={service.img ? URL.createObjectURL(service.img) : null} alt={service.img? service.name : null} width="170" height="110"/>
+                        </div>
+                    </label>
+                    <input id="addService-file-Upload" type="file" onChange={handleImage}/>
+                </div>
+
+                <hr></hr>
+                <div className = 'edit-service-body'>
+                    <span>description</span>
+                    <textarea onChange={handleDesc} value={service.description}/>
+                    <div>
+                        <button className = "actButton" type="submit">save</button>
+                        <button className = "actButton" onClick={deleteService}>DELETE</button>
+                    </div>
+                    
+                </div>
+            </form>
+        );
     }
 
     const bookingSlots = bookings.map((booking) => {return (<BookBubble booking={booking} actionFunc={() => btnFunc(booking)} key = {booking.id} />)})
@@ -56,7 +98,7 @@ function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc}) {
                 <h1>{service.name}</h1>
 
                 <button className = "icon-btn" onClick = {switchEditing}>
-                    <i class="material-icons md-32">{isEditing ? 'cancel' : 'edit'}</i>
+                    <i className="material-icons md-32">{isEditing ? 'cancel' : 'edit'}</i>
                 </button>
 
             </div>
