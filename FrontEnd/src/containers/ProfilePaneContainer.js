@@ -5,7 +5,7 @@ import ProfilePane from '../components/ProfilePane'
 import AuthService from '../services/auth.service'
 import '../containers/App.css'
 
-const API_BASE_URL = 'http://localhost:8081/api/users?username='
+const API_BASE_URL = 'http://localhost:8081/api/users/'
 
 //Retrieves and displays current user profile data
 const ProfilePaneContainer = ({close, change}) => {
@@ -24,7 +24,7 @@ const ProfilePaneContainer = ({close, change}) => {
       return null
     }
     try {
-      const url = API_BASE_URL.concat(AuthService.getCurrentUser().id)
+      const url = API_BASE_URL.concat(AuthService.getCurrentUser().username)
       //  const url = 'https://5f51c3975e98480016123e31.mockapi.io/users/1'
       const res = await fetch(url)
       const data = await res.json()

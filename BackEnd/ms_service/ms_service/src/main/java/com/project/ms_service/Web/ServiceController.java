@@ -37,7 +37,7 @@ public class ServiceController {
         return new ResponseEntity<>(service, HttpStatus.OK);
     }
 
-    @GetMapping("")
+    @GetMapping("/all")
     public Iterable<AppService> getAllServices() {
         return serviceEngine.findAllService();
     }
