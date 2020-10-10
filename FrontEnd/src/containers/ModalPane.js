@@ -1,6 +1,5 @@
-import React, {forwardRef, useImperativeHandle, useEffect} from 'react'
+import React, {forwardRef, useImperativeHandle} from 'react'
 import ReactDOM from 'react-dom'
-import Axios from 'axios'
 
 import ProfilePaneContainer from './ProfilePaneContainer'
 import ProfileBookingsContainer from './ProfileBookingsContainer'

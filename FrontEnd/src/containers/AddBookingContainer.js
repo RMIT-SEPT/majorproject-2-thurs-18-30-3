@@ -10,7 +10,7 @@ const API_USER_URL = 'http://localhost:8080/api/users/all';
 
 //Add booking to the backend
 const createBooking = async (newName, newTime, newDate, newEmployee) => {
-  if(newTime == "" || newDate == "" || newEmployee == "")
+  if(newTime === "" || newDate === "" || newEmployee === "")
   {
     return null;
   }

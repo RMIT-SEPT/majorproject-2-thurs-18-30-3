@@ -1,6 +1,4 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import AuthService from '../../services/auth.service'
+import React, {useEffect} from 'react'
 import BookingCard from './BookingCard'
 
 import '../../containers/App.css'
@@ -9,9 +7,15 @@ import '../../containers/App.css'
 
 function ProfileBookings({change, bookingSet, deleteFunc}) {
   const [isEditing, setIsEditing] = React.useState(false);
+  const [bookings, setBookings]=React.useState([]);
 
-  const [bookings, setBookings]=React.useState(bookingSet);
-
+  useEffect(() => {
+    if(typeof bookingSet !== 'undefined')
+    {
+      setBookings(bookingSet);
+    }
+  }, []);
+  
   const switchEditing = () =>
   {
     setIsEditing(!isEditing);

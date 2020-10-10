@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react'
+import React, {} from 'react'
 import '../containers/App.css'
 import axios from "axios";
-import UserType from '../config/userType'
 
 import UpdateBookingDisplay from '../components/admin_components/UpdateBookingDisplay.js'
 

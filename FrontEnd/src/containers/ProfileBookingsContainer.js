@@ -5,8 +5,8 @@ import ProfileBookings from '../components/booking_components/ProfileBookings'
 import AuthService from '../services/auth.service'
 import '../containers/App.css'
 
-const API_BASE_URL = 'http://localhost:8080/api/bookings/'
-
+const API_BOOKINGS_URL = 'http://localhost:8080/api/bookings/'
+const API_USERS_URL = 'http://localhost:8080/api/users/'
 //Retrieves and displays current user profile data
 const ProfileBookingsContainer = ({change}) => {
 
@@ -26,7 +26,7 @@ const ProfileBookingsContainer = ({change}) => {
       return null
     }
     try {
-      const url = API_BASE_URL.concat(AuthService.getCurrentUser().username)
+      const url = API_USERS_URL.concat(AuthService.getCurrentUser().username)
       const res = await fetch(url)
       const data = await res.json()
       setProfile(data)
@@ -37,7 +37,7 @@ const ProfileBookingsContainer = ({change}) => {
 
   const deleteBooking = (booking) => {
     //remove bookings
-    axios.delete(API_BASE_URL+booking.id, 
+    axios.delete(API_BOOKINGS_URL+booking.id, 
     ).then(response => {
       console.log(response);
     })
@@ -52,8 +52,8 @@ const ProfileBookingsContainer = ({change}) => {
       return null
     }
     try {
-      const url = API_BASE_URL+'?customername='+ (AuthService.getCurrentUser().username)
-      const res = await fetch(url)
+      const url = API_BOOKINGS_URL+'?customername='+ (AuthService.getCurrentUser().username)
+      const res = await fetch('http://localhost:8080/api/bookings?customername=aa')
       const data = await res.json()
       setBookings(data)
     } catch (err) {

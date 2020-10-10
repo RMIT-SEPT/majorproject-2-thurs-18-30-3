@@ -1,16 +1,8 @@
 import React, {  } from 'react';
 
 import '../../containers/App.css';
-import MuiAlert from '@material-ui/lab/Alert';
 
 const {default: BookBubble} = require('../booking_components/BookBubble');
-
-
-//Alert box
-function Alert(props) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />
-  }
-
 
 //Displays details of a service, with bookings displayed as clickable buttons
 function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc, deleteFunc}) {
