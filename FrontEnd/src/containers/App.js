@@ -1,15 +1,16 @@
 import React, {useState} from 'react'
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 
-import ServiceList from '../containers/ServiceListContainer'
+import AdminServiceList from '../containers/AdminServicesContainer'
 import EmployeeList from '../containers/EmployeeListContainer'
 
 import Nav from '../components/Nav'
 import About from '../components/About'
-import Create from '../components/Create'
+import AdminCreate from '../components/Create'
 import Login from '../components/Login'
+import Services from '../containers/ServicesContainer'
 import ServiceDetailContainer from '../containers/ServiceDetailContainer'
-import AddServiceContainer from '../containers/AddServiceContainer'
+import AdminAddServiceContainer from '../containers/AddServiceContainer'
 // import Booking from '../components/Booking'
 
 import CurrentUser from '../context/CurrentUser'
@@ -19,7 +20,7 @@ import AuthService from '../services/auth.service'
 
 function App() {
   const [user, setUser] = useState(AuthService.getCurrentUser())
-
+  
   // A wrapper for <Route> that redirects to the login
   // screen if you're not yet authenticated.
   function PrivateRoute({children, ...rest}) {
@@ -56,18 +57,17 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/about" exact component={About} />
-          <Route path="/add" exact component={AddServiceContainer} />
-          <Route path="/create" exact component={Create} />
-
+          <Route path="/add" exact component={AdminAddServiceContainer} />
+          <Route path="/create" exact component={AdminCreate} />
+          <Route path="/adminservices" exact component={AdminServiceList} />
           <LoginRoute path="/login">
             <Route path="/login" exact component={Login} />
           </LoginRoute>
 
           <PrivateRoute path="/">
-            <Route path="/services" exact component={ServiceList} />
-            <Route path="/employees" exact component={EmployeeList} />
-            {/*<Route path="/bookings" exact component={Booking} />*/}
-            <Route path="/services/:id" component={ServiceDetailContainer} />
+            <Route path="/employees" exact component={EmployeeList} />           
+            <Route path="/services" exact component={Services} />
+          <Route path="/services/:id" component={ServiceDetailContainer} />
           </PrivateRoute>
         </Switch>
       </CurrentUser.Provider>

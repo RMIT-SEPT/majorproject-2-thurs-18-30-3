@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
  
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
-import ProfilePaneContainer from '../containers/ProfilePaneContainer'
+import ModalPane from '../containers/ModalPane'
 import CurrentUser from '../context/CurrentUser'
 
 //Basic Top Navigation Bar
@@ -67,17 +67,20 @@ function Nav() {
         <Link to="/add" className="big-link">
           <li>add service</li>
         </Link>
+        <Link to="/adminservices" className="big-link">
+          <li>admin-services</li>
+        </Link>
         {/* conditionally render activity links */} 
         {currentUser && (
           <>
-            <Link to="/services" className="big-link">
-              <li>services</li>
-            </Link>
             <Link to="/bookings" className="big-link">
               <li>bookings</li>
             </Link>
             <Link to="/employees" className="big-link">
               <li>employees</li>
+            </Link>
+            <Link to="/services" className="big-link">
+              <li>services</li>
             </Link>
           </>
         )}
@@ -87,9 +90,9 @@ function Nav() {
           {currentUser ? (
             <>
               <button className="profileButton" onClick={() => OpenModal()} />
-              <ProfilePaneContainer showing={false} ref={modalRef}>
+              <ModalPane showing={false} ref={modalRef}>
                 PROFILE
-              </ProfilePaneContainer>
+              </ModalPane>
             </>
           ) : (
             <>
