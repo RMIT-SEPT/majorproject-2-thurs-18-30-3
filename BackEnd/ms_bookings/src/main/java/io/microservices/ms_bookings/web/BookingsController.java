@@ -1,6 +1,7 @@
 package io.microservices.ms_bookings.web;
 
 import io.microservices.ms_bookings.model.Book;
+import io.microservices.ms_bookings.model.UpdateBookings;
 import io.microservices.ms_bookings.services.BookService;
 import io.microservices.ms_bookings.services.MapValidationErrorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,9 @@ public class BookingsController {
     }
 
     // Method for GET specific booking request
-    @GetMapping("/{customerName}")
-    public ResponseEntity<?> getBookingsById(@PathVariable String customerName) {
-        Book bookings = bookService.findByCustomerName(customerName);
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getBookingsById(@PathVariable Long id) {
+        Book bookings = bookService.findByBookingsId(id);
         return new ResponseEntity<Book>(bookings, HttpStatus.OK);
     }
 
@@ -47,11 +48,19 @@ public class BookingsController {
     }
 
     // Method for DELETE bookings requests.
-    @DeleteMapping("/{bookingsId}")
-    public ResponseEntity<?> deleteProject(@PathVariable String bookingsId){
-        bookService.deleteBookingsByIdentifier(bookingsId);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteProject(@PathVariable Long id){
+        bookService.deleteBookingsById(id);
 
-        return new ResponseEntity<String>("Booking with ID: '"+bookingsId+"' was removed.", HttpStatus.OK);
+        return new ResponseEntity<String>("Booking with id: '"+id+"' was removed.", HttpStatus.OK);
+    }
+
+    // Controller for PUT requests.
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateBookings(@PathVariable Long id, @Valid @RequestBody UpdateBookings bookings){
+
+        Book book1 = bookService.modifyBookings(id, bookings);
+        return new ResponseEntity<Book>(book1, HttpStatus.CREATED);
     }
 }
 // final Booking Controller

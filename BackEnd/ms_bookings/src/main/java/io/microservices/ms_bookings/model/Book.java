@@ -17,10 +17,10 @@ public class Book {
     @Size(min = 5, message = "Minimum 5 characters is required.")
     @NotBlank(message = "Service name must not be empty.")
     private String serviceName;
-    private String employeeName;
-    private String customerName;
+    private Long employeeId;
+    private Long customerId;
     @NotBlank(message ="Time slot is required")
-    private long time;
+    private String time;
     @NotBlank(message ="Date is required")
     private String date;
 
@@ -49,27 +49,27 @@ public class Book {
         this.serviceName = serviceName;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
+    public Long getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployeeName(String username) {
-        this.employeeName = username;
+    public void setEmployeeId(Long id) {
+        this.employeeId = id;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setCustomerId(Long id) {
+        this.customerId = id;
     }
 
-    public long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
