@@ -1,9 +1,10 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import '../containers/App.css';
 
 // GUI for adding a service
 function AddService({create}) {
-
+    const history = useHistory();
     const[name, setName] = React.useState("");
     const[description, setDescription] = React.useState("");
     const[img, setImg] = React.useState(null);
@@ -12,6 +13,8 @@ function AddService({create}) {
         if(name !== "" && description !== "")
         {
             create(name, description, img);
+            history.push('/adminservices');
+            window.location.reload();
         }
         else
         {

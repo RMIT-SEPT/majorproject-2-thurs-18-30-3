@@ -7,14 +7,14 @@ import '../../containers/App.css'
 
 function ProfileBookings({change, bookingSet, deleteFunc}) {
   const [isEditing, setIsEditing] = React.useState(false);
-  const [bookings, setBookings]=React.useState([]);
+  const [bookings, setBookings] = React.useState([]);
 
   useEffect(() => {
     if(typeof bookingSet !== 'undefined')
     {
       setBookings(bookingSet);
     }
-  }, []);
+  }, [bookingSet]);
   
   const switchEditing = () =>
   {

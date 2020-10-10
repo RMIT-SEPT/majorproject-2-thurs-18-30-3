@@ -1,12 +1,12 @@
 import React from 'react'
-const {default: ServiceList} = require('../components/ServiceList')
-const {default: AdminServiceDisplay} = require('../components/admin_components/AdminServiceDisplay')
+const {default: Services} = require('../components/Services')
 //Retrieves bulk service data for display in list view
 
 const API_SERVICE_URL = 'http://localhost:8080/api/services/';
 
 class ServicesContainer extends React.Component {
   constructor(props) {
+    super();
     this.state = {
       services: [],
       displayServices: []

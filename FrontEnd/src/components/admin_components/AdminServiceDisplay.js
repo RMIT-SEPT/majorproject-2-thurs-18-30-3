@@ -18,7 +18,6 @@ function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc,
 
     const saveChanges = () => {
         updateFunc(service);
-        alert("Changes Saved!");
     }
 
     const deleteService = () =>
