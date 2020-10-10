@@ -29,7 +29,7 @@ class AdminServicesContainer extends React.Component {
   /*If an API isn't running on your local machine, 
 	replace the below fetch with 'https://jsonplaceholder.typicode.com/posts' for testing*/
   componentDidMount() {
-    fetch(API_SERVICE_URL+'all')
+    fetch(API_SERVICE_URL)
       .then((res) => res.json())
       .then((data) => {
         this.setState({services: data});
@@ -37,7 +37,7 @@ class AdminServicesContainer extends React.Component {
       })
       .catch(console.log);
 
-      fetch(API_BOOKING_URL+'all')
+      fetch(API_BOOKING_URL)
       .then((res) => res.json())
       .then((data) => {
         this.setState({bookings: data});
