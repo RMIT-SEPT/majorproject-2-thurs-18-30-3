@@ -9,7 +9,6 @@ const CURRENT_DATE = moment().format('YYYY-MM-DD')
 
 //Displays Service cards
 function Services(props) {
-
   //Props passed down by ServiceListContainer
   var services = props.services.map((service) => {
     return (
@@ -20,7 +19,7 @@ function Services(props) {
 
   //Function to handle service search
   const doSearch = (event) => {
-    props.searchFunc(event.target.value);
+    props.searchFunc(event.target.value)
   }
 
   return (
@@ -55,10 +54,16 @@ function Services(props) {
           />
         </form>
 
-      {/* Search Bar  */}
-      <div className="dummy" />
+        {/* Search Bar  */}
+        <div className="dummy" />
         <form>
-          <input role="searchbox" onChange={event => {doSearch(event)}} placeholder="Search" />
+          <input
+            role="searchbox"
+            onChange={(event) => {
+              doSearch(event)
+            }}
+            placeholder="Search"
+          />
         </form>
       </div>
 

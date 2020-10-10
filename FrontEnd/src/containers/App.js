@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
 import AdminServiceList from '../containers/AdminServicesContainer'
 import EmployeeList from '../containers/EmployeeListContainer'
@@ -15,35 +15,36 @@ import AdminAddServiceContainer from '../containers/AddServiceContainer'
 
 import CurrentUser from '../context/CurrentUser'
 import AuthService from '../services/auth.service'
+import EmployeeMyService from '../pages/EmployeeMyServices'
 
 //Root Component
 
 function App() {
   const [user, setUser] = useState(AuthService.getCurrentUser())
-  
+
   // A wrapper for <Route> that redirects to the login
   // screen if you're not yet authenticated.
-  function PrivateRoute({children, ...rest}) {
+  function PrivateRoute({ children, ...rest }) {
     return (
       <Route
         {...rest}
-        render={({location}) =>
+        render={({ location }) =>
           user ? (
             children
           ) : (
-            <Redirect
-              to={{
-                pathname: '/login',
-                state: {from: location},
-              }}
-            />
-          )
+              <Redirect
+                to={{
+                  pathname: '/login',
+                  state: { from: location },
+                }}
+              />
+            )
         }
       />
     )
   }
 
-  function LoginRoute({children, ...rest}) {
+  function LoginRoute({ children, ...rest }) {
     return (
       // Show the component only when the user is logged in
       <Route {...rest} render={() => (user ? <Redirect to="/services" /> : children)} />
@@ -65,9 +66,11 @@ function App() {
           </LoginRoute>
 
           <PrivateRoute path="/">
-            <Route path="/employees" exact component={EmployeeList} />           
-            <Route path="/services" exact component={Services} />
-          <Route path="/services/:id" component={ServiceDetailContainer} />
+            <Route path="/services" exact component={ServiceList} />
+            <Route path="/employees" exact component={EmployeeList} />
+            <Route path="/myservices" exact component={EmployeeMyService} />
+            {/*<Route path="/bookings" exact component={Booking} />*/}
+            <Route path="/services/:id" component={ServiceDetailContainer} />
           </PrivateRoute>
         </Switch>
       </CurrentUser.Provider>
