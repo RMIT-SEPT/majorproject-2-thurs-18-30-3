@@ -13,7 +13,6 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/services")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ServiceController {
 
     @Autowired
@@ -22,7 +21,6 @@ public class ServiceController {
     @Autowired
     private MapValidationErrorService mapValidation;
 
-    @CrossOrigin("localhost:3000")
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody AppService service, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidation.MapValidationService(result);
