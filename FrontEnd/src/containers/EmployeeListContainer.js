@@ -43,7 +43,7 @@ function EmployeeListContainer() {
   //DELETE specific employee data from the backend
   async function onRowDelete(oldData) {
     try {
-      await Axios.delete(`${API_URL}/${oldData.username}`)
+      await Axios.delete(`${API_URL}/${oldData.id}`)
       const data = [...employees]
       data.splice(data.indexOf(oldData), 1)
       setEmployees(data)

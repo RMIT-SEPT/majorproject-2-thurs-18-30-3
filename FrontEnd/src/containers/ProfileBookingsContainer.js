@@ -26,7 +26,7 @@ const ProfileBookingsContainer = ({change}) => {
       return null
     }
     try {
-      const url = API_USERS_URL.concat(AuthService.getCurrentUser().username)
+      const url = API_USERS_URL.concat(AuthService.getCurrentUser().id)
       const res = await fetch(url)
       const data = await res.json()
       setProfile(data)
@@ -52,7 +52,7 @@ const ProfileBookingsContainer = ({change}) => {
       return null
     }
     try {
-      const url = API_BOOKINGS_URL+'?customername='+ (AuthService.getCurrentUser().username)
+      const url = API_BOOKINGS_URL+'?customername='+ (AuthService.getCurrentUser().id)
       const res = await fetch(url)
       const data = await res.json()
       setBookings(data)
