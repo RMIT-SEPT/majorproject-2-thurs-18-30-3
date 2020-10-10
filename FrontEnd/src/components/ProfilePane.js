@@ -6,7 +6,7 @@ import '../containers/App.css'
 
 //Displays a user profile in a modal view
 
-function ProfilePane({close, profile, reload, update}) {
+function ProfilePane({close, change, profile, reload, update}) {
   
   const [isEditing, setIsEditing] = React.useState(false)
   const [displayFirstName, setDisplayFirstName] = React.useState(profile.firstName)
@@ -37,7 +37,7 @@ function ProfilePane({close, profile, reload, update}) {
       <main className="modalPane">
         <div className="paneHeader">
           <button className="closeButton" onClick={() => close()}>
-            &times;
+            <i className="material-icons md-32"> close </i>
           </button>
 
           {/*TODO:Display image*/}
@@ -115,7 +115,7 @@ function ProfilePane({close, profile, reload, update}) {
               </button>
             ) : (
               <>
-                <button className="actButton">bookings</button>
+                <button className="actButton" onClick={() => change()}>bookings</button>
                 <Link to="/service">
                   {/*Logout button also closes the pane and reloads the page*/}
                   <button

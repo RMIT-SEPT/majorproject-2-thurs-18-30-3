@@ -1,9 +1,9 @@
-import React, {useContext, useState, useEffect, useCallback} from 'react'
-import {Link} from 'react-router-dom'
+import React, { useContext, useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
-import ProfilePaneContainer from '../containers/ProfilePaneContainer'
+import ModalPane from '../containers/ModalPane'
 import CurrentUser from '../context/CurrentUser'
 import UserType from '../config/userType'
 
@@ -78,15 +78,15 @@ function Nav() {
                 </ProfilePaneContainer>
               </>
             ) : (
-              <>
-                <Link to="/login" className="little-link">
-                  <li>login</li>
-                </Link>
-                <Link to="/create" className="little-link">
-                  <li>create account</li>
-                </Link>
-              </>
-            )}
+                <>
+                  <Link to="/login" className="little-link">
+                    <li>login</li>
+                  </Link>
+                  <Link to="/create" className="little-link">
+                    <li>create account</li>
+                  </Link>
+                </>
+              )}
           </ul>
         </ul>
       )}
@@ -106,7 +106,7 @@ function Nav() {
 function renderNavItems(currentUser) {
   if (!currentUser) return
 
-  const {userType} = currentUser
+  const { userType } = currentUser
 
   // conditionally render navigation items
   switch (userType.toLowerCase()) {

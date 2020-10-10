@@ -7,11 +7,13 @@ import '../containers/App.css'
 function BookingDetail({match}) {
   const [booking, setBooking] = useState({})
 
+  const API_SERVICE_URL = 'http://localhost:8080/api/services/';
+
   //Retrieves a specific service
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const booking = await axios.get(`http://localhost:8080/api/services/${match.params.id}`).data
+        const booking = await axios.get(API_SERVICE_URL + `${match.params.id}`).data
         setBooking(booking)
         console.log(booking)
       } catch (err) {
