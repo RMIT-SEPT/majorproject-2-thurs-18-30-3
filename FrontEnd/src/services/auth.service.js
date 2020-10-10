@@ -2,7 +2,7 @@ import axios from 'axios'
 import UserType from '../config/userType'
 
 const USER_STORAGE_KEY = 'user'
-const API_BASE_URL = 'http://localhost:8081/api/users'
+const API_BASE_URL = 'http://localhost:8080/api/users'
 
 //POST a new user data with type customer
 const register = async (payload, forEmployee) => {

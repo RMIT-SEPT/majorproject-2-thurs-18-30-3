@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form'
 import {useHistory} from 'react-router-dom'
 import MuiAlert from '@material-ui/lab/Alert'
 import {Button, Card, CardActions, CardContent, Grid, Snackbar, TextField} from '@material-ui/core'
-import {yupResolver} from '@hookform/resolvers'
+import {yupResolver} from '@hookform/resolvers/yup'
 import {makeStyles} from '@material-ui/core/styles'
 
 import UserType from '../config/userType'
