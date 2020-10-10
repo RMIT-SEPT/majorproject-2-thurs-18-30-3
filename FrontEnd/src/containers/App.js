@@ -66,7 +66,7 @@ function App() {
           </LoginRoute>
 
           <PrivateRoute path="/">
-            <Route path="/services" exact component={ServiceList} />
+            <Route path="/services" exact component={Services} />
             <Route path="/employees" exact component={EmployeeList} />
             <Route path="/myservices" exact component={EmployeeMyService} />
             {/*<Route path="/bookings" exact component={Booking} />*/}

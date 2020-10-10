@@ -73,9 +73,9 @@ function Nav() {
             {currentUser ? (
               <>
                 <button className="profileButton" onClick={() => OpenModal()} />
-                <ProfilePaneContainer showing={false} ref={modalRef}>
+                <ModalPane showing={false} ref={modalRef}>
                   PROFILE
-                </ProfilePaneContainer>
+                </ModalPane>
               </>
             ) : (
                 <>
