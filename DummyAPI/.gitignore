@@ -1,0 +1,15 @@
+creds.sh
+creds2.sh
+.terraform*
+terraform.tfstate
+terraform.tfstate.backup
+tmp/
+
+# dependecies
+/node_modules
+/.pnp
+/.pnp.js
+# Jetbrains programs
+.idea
+../.idea
+node_modules
