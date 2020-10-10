@@ -13,7 +13,7 @@ function EmployeeListContainer() {
   useEffect(() => {
     async function callAPI() {
       try {
-        const {data} = await Axios.get(API_URL + '/all')
+        const {data} = await Axios.get(API_URL)
         setEmployees(data.filter((d) => d.userType === UserType.Employee))
       } catch (err) {
         setAlertErrorMsg(err.message)
