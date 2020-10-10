@@ -5,8 +5,8 @@ import axios from "axios";
 import UserType from '../config/userType'
 import AddBookingDisplay from '../components/admin_components/AddBookingDisplay.js'
 
-const API_BOOKING_URL = 'http://localhost:8080/api/bookings';
-const API_USER_URL = 'http://localhost:8080/api/users/all';
+const API_BOOKING_URL = 'http://localhost:8082/api/bookings';
+const API_USER_URL = 'http://localhost:8081/api/users/all';
 
 //Add booking to the backend
 const createBooking = async (newName, newTime, newDate, newEmployee) => {

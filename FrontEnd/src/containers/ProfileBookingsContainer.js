@@ -5,8 +5,8 @@ import ProfileBookings from '../components/booking_components/ProfileBookings'
 import AuthService from '../services/auth.service'
 import '../containers/App.css'
 
-const API_BOOKINGS_URL = 'http://localhost:8080/api/bookings/'
-const API_USERS_URL = 'http://localhost:8080/api/users/'
+const API_BOOKINGS_URL = 'http://localhost:8082/api/bookings/'
+const API_USERS_URL = 'http://localhost:8081/api/users/'
 //Retrieves and displays current user profile data
 const ProfileBookingsContainer = ({change}) => {
 
@@ -53,7 +53,7 @@ const ProfileBookingsContainer = ({change}) => {
     }
     try {
       const url = API_BOOKINGS_URL+'?customername='+ (AuthService.getCurrentUser().username)
-      const res = await fetch('http://localhost:8080/api/bookings?customername=aa')
+      const res = await fetch(url)
       const data = await res.json()
       setBookings(data)
     } catch (err) {

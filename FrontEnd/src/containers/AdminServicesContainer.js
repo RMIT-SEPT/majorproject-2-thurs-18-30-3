@@ -7,7 +7,7 @@ const {default: ServiceList} = require('../components/admin_components/ServiceLi
 const {default: AdminServiceDisplay} = require('../components/admin_components/AdminServiceDisplay')
 
 const API_SERVICE_URL = 'http://localhost:8080/api/services/';
-const API_BOOKING_URL = 'http://localhost:8080/api/bookings/';
+const API_BOOKING_URL = 'http://localhost:8082/api/bookings/';
 
 //Retrieves bulk service data for display in list view
 class AdminServicesContainer extends React.Component {

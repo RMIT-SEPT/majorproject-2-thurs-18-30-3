@@ -5,7 +5,7 @@ import ProfilePane from '../components/ProfilePane'
 import AuthService from '../services/auth.service'
 import '../containers/App.css'
 
-const API_BASE_URL = 'http://localhost:8080/api/users?username='
+const API_BASE_URL = 'http://localhost:8081/api/users?username='
 
 //Retrieves and displays current user profile data
 const ProfilePaneContainer = ({close, change}) => {

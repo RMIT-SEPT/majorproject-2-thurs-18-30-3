@@ -6,7 +6,7 @@ import UpdateBookingDisplay from '../components/admin_components/UpdateBookingDi
 
 function UpdateBookingContainer({booking, active}) {
 
-    const API_BOOKINGS_URL = 'http://localhost:8080/api/bookings/';
+    const API_BOOKINGS_URL = 'http://localhost:8082/api/bookings/';
     
     const deleteBooking = () => {
       //remove bookings
