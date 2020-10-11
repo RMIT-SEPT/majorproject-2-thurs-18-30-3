@@ -22,7 +22,7 @@ const createBooking = async (newName, newTime, newDate, newEmployee) => {
     time: newTime,
     date: newDate
   };
-  axios.post(bookingApi.getAllBookings, newBooking)
+  axios.post(bookingApi.getUrl, newBooking)
   .then(response => console.log(response))
   .catch(error => console.log(error));
   return true;

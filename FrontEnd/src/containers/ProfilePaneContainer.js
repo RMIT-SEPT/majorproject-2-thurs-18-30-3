@@ -24,7 +24,7 @@ const ProfilePaneContainer = ({close, change}) => {
     }
     try {
       
-      const url = UserApi.getUser(AuthService.getCurrentUser().id)
+      const url = UserApi.getUser(AuthService.getCurrentUser().username)
       //  const url = 'https://5f51c3975e98480016123e31.mockapi.io/users/1'
       const res = await fetch(url)
       const data = await res.json()
@@ -37,7 +37,7 @@ const ProfilePaneContainer = ({close, change}) => {
   //Reads in changed values and PUTS them to the backend
   const updateProfile = async (newEmail, newFirstName, newLastName, newPhone, newAddress) => {
     const {username, userType, password, confirmPassword} = AuthService.getCurrentUser()
-    const url = UserApi.getUser(AuthService.getCurrentUser().id)
+    const url = UserApi.getUser(AuthService.getCurrentUser().username)
     try {
       const payload = {
         username,
