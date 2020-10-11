@@ -33,6 +33,7 @@ public class ProfileService {
     // Controller for GET all Request
     public Iterable<Profiles> findAllProfiles() { return profilesRepository.findAll(); }
 
+    // Method for DEL Request
     public void deleteProfilesByUsername(String username) {
         Profiles profiles = profilesRepository.findByUsername((username.toLowerCase()));
 
