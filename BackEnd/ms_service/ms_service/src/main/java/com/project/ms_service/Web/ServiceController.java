@@ -48,7 +48,5 @@ public class ServiceController {
 
         return new ResponseEntity<>("Service ID: " + id + " has been deleted.", HttpStatus.OK);
     }
-
-
 }
 

@@ -5,7 +5,6 @@ import javax.validation.constraints.NotBlank;
 // Class for modifying bookings object
 public class UpdateBookings {
 
-    @NotBlank(message = "Customer name is required.")
     private Long customerId;
 
     // Constructor
