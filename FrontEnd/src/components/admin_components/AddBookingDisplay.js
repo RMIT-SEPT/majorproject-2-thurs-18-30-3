@@ -8,7 +8,7 @@ function AddBookingDisplay({service, employees, createFunc}) {
   const [vals , setVals] = useState({
       time: "",
       date: "",
-      employeename: ""
+      employeeName: ""
   });
 
   if(service == null)
@@ -27,18 +27,19 @@ function AddBookingDisplay({service, employees, createFunc}) {
   //Retrieve list of employees
   const empOptions = employees.map((employee) => {
     return (
-      <option className="employee-option" key = {employee.firstname} value={employee.username}>{employee.firstname} {employee.lastname}</option>
+      <option className="employee-option" key = {employee.id} value={employee.id}>{employee.firstName} {employee.lastName}</option>
     )
   })
 
-
+  //Button function for adding new booking slot
   const handleSubmit=(e)=>{
-    if(vals.time === "" || vals.date === "" || vals.employeename ==="")
+    if(vals.time === "" || vals.date === "" || vals.employeeName ==="")
     {
       return;
     }
 
-    createFunc(service.name, vals.time, vals.date, vals.employeename);
+    createFunc(service.name, vals.time, vals.date, vals.employeeName);
+
   };
 
   return (
@@ -56,7 +57,7 @@ function AddBookingDisplay({service, employees, createFunc}) {
           <input type="time" name='time' value={vals.time} onChange={handleChange}/>
           <input type="date" name='date' value={vals.date} min={CURRENT_DATE} max={NEXT_DATE} onChange={handleChange}></input>
           <label htmlFor='employees'>Assign Employee:</label>
-            <select name="employeename" id="employees" onChange={handleChange} multiple>
+            <select name="employeeName" id="employees" onChange={handleChange} multiple>
               {empOptions}
             </select>
           <button className="actButton" type="submit">create</button>

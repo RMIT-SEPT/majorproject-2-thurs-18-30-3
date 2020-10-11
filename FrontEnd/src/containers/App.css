@@ -763,6 +763,11 @@ textarea:focus, input:focus{
   opacity: 1;
 }
 
+.actButton:disabled{
+  opacity: 0.4;
+  background-color: #009BA0;
+}
+
 .paneInput{
   border-style: hidden;
   font-weight: bold;

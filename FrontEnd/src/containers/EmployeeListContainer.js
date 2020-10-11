@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react'
 import Axios from 'axios'
 import Employees from '../components/Employees'
 import UserType from '../config/userType'
+import userApi from '../config/userApi'
 
-const API_URL = 'http://localhost:8081/api/users'
 
 function EmployeeListContainer() {
   const [employees, setEmployees] = useState([])
@@ -13,7 +13,7 @@ function EmployeeListContainer() {
   useEffect(() => {
     async function callAPI() {
       try {
-        const {data} = await Axios.get(API_URL)
+        const {data} = await Axios.get(userApi.getAllUsers)
         setEmployees(data.filter((d) => d.userType === UserType.Employee))
       } catch (err) {
         setAlertErrorMsg(err.message)
@@ -29,7 +29,7 @@ function EmployeeListContainer() {
   //PUT request to edit employee data to the backend
   async function onRowUpdate(newData, oldData) {
     try {
-      await Axios.put(`${API_URL}/${newData.username}`, newData)
+      await Axios.put(userApi.getUser(newData.username), newData)
     } catch ({messsage}) {
       setAlertErrorMsg(messsage)
     }
@@ -43,7 +43,7 @@ function EmployeeListContainer() {
   //DELETE specific employee data from the backend
   async function onRowDelete(oldData) {
     try {
-      await Axios.delete(`${API_URL}/${oldData.id}`)
+      await Axios.delete(userApi.getUser(oldData.id))
       const data = [...employees]
       data.splice(data.indexOf(oldData), 1)
       setEmployees(data)

@@ -1,13 +1,13 @@
 import React from 'react'
 import axios from "axios";
 
+import bookingApi from "../config/bookingApi";
+import serviceApi from "../config/serviceApi";
+
 const {default: AddBookingContainer} = require('./AddBookingContainer')
 const {default: UpdateBookingContainer} = require('./UpdateBookingContainer')
 const {default: ServiceList} = require('../components/admin_components/ServiceList')
 const {default: AdminServiceDisplay} = require('../components/admin_components/AdminServiceDisplay')
-
-const API_SERVICE_URL = 'http://localhost:8080/api/services/';
-const API_BOOKING_URL = 'http://localhost:8082/api/bookings/';
 
 //Retrieves bulk service data for display in list view
 class AdminServicesContainer extends React.Component {
@@ -29,16 +29,17 @@ class AdminServicesContainer extends React.Component {
   /*If an API isn't running on your local machine, 
 	replace the below fetch with 'https://jsonplaceholder.typicode.com/posts' for testing*/
   componentDidMount() {
-    fetch(API_SERVICE_URL)
+    fetch(serviceApi.getAllServices)
       .then((res) => res.json())
       .then((data) => {
         this.setState({services: data});
         this.setState({displayServices: data});
       })
-      .catch(console.log);
+      .catch(console.log)
+      .catch(error => console.log(error));
 
-      fetch(API_BOOKING_URL)
-      .then((res) => res.json())
+      fetch(bookingApi.getAllBookings)
+      .then((response) => response.json())
       .then((data) => {
         this.setState({bookings: data});
       })
@@ -79,7 +80,8 @@ class AdminServicesContainer extends React.Component {
   //Target a service for display in booking detail panel
   focusService = (service) => {
     this.closePanel();
-
+    console.log(this.state.services);
+    console.log(this.state.bookings);
     if(service == null)
     {
       this.setState({displayServices: this.state.services});
@@ -88,7 +90,7 @@ class AdminServicesContainer extends React.Component {
     else
     {
       let newArray = this.state.bookings.filter(function (booking) {
-          return booking.servicename.toLowerCase().includes(service.name.toLowerCase());
+          return booking.serviceName.toLowerCase().includes(service.name.toLowerCase());
         });
       
       this.setState({displayBookings: newArray});
@@ -98,7 +100,7 @@ class AdminServicesContainer extends React.Component {
 
   //PUT request for changing profile data
   updateService = (service) => {
-      axios.put(API_SERVICE_URL+service.id, 
+      axios.put(serviceApi.getService(service.id), 
       {
         id:service.id,
         name:service.name,
@@ -115,7 +117,7 @@ class AdminServicesContainer extends React.Component {
 
   //DELETE request for removing a service
   deleteService = (service) => {
-    axios.delete(API_SERVICE_URL+service.id, 
+    axios.delete(serviceApi.getService(service.id), 
     ).then(response => {
       console.log(response);
     })
@@ -132,7 +134,7 @@ class AdminServicesContainer extends React.Component {
       console.log(error);
     });
   }
-
+  
   render() {
     if(this.state.services === null || this.state.services.length <= 0)
     {

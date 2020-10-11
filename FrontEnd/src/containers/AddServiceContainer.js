@@ -3,15 +3,15 @@ import '../containers/App.css'
 import axios from "axios";
 
 import AddService from '../components/AddService.js'
+import serviceApi from "../config/serviceApi";
 
-const API_SERVICE_URL = 'http://localhost:8080/api/services';
 const createService = (newName, newDesc, newImage) => {
   const newService = {
     name: newName,
     description: newDesc,
     img: newImage
   };
-  axios.post(API_SERVICE_URL, newService)
+  axios.post(serviceApi.getUrl, newService)
   .then(response => console.log(response))
   .catch(error => console.log(error));
 };

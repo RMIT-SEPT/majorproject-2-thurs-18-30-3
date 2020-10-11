@@ -4,9 +4,9 @@ import axios from 'axios'
 import ProfileBookings from '../components/booking_components/ProfileBookings'
 import AuthService from '../services/auth.service'
 import '../containers/App.css'
+import UserApi from '../config/userApi'
+import BookingApi from "../config/bookingApi";
 
-const API_BOOKINGS_URL = 'http://localhost:8082/api/bookings/'
-const API_USERS_URL = 'http://localhost:8081/api/users/'
 //Retrieves and displays current user profile data
 const ProfileBookingsContainer = ({change}) => {
 
@@ -26,7 +26,7 @@ const ProfileBookingsContainer = ({change}) => {
       return null
     }
     try {
-      const url = API_USERS_URL.concat(AuthService.getCurrentUser().id)
+      const url = UserApi.getUser(AuthService.getCurrentUser().id)
       const res = await fetch(url)
       const data = await res.json()
       setProfile(data)
@@ -37,7 +37,7 @@ const ProfileBookingsContainer = ({change}) => {
 
   const deleteBooking = (booking) => {
     //remove bookings
-    axios.delete(API_BOOKINGS_URL+booking.id, 
+    axios.delete(BookingApi.getBooking(booking.id), 
     ).then(response => {
       console.log(response);
     })
@@ -52,7 +52,7 @@ const ProfileBookingsContainer = ({change}) => {
       return null
     }
     try {
-      const url = API_BOOKINGS_URL;
+      const url = BookingApi.getAllBookings;
       const res = await fetch(url)
       const data = await res.json()
       setBookings(data)

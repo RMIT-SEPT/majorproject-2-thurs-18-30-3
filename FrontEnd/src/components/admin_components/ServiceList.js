@@ -15,7 +15,7 @@ function ServiceList(props) {
   const doSearch = (event) => {
     props.searchFunc(event.target.value);
   }
-
+  
   return (
       <main className="services-list" role="main">
         <div className="services-list-header">
