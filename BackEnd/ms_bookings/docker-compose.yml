@@ -1,11 +1,9 @@
 version: '3'
 services:
-  springboot-docker-compose-ms-bookings:
-    image: springboot-docker-compose-app:1
+  ms-bookings:
+    image: ms-bookings:1
     build:
       context: ./
       dockerfile: Dockerfile
-    volumes:
-      - /data/springboot-docker-compose-app
     ports:
       - "8082:8082"
