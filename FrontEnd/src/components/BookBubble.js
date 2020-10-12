@@ -4,10 +4,10 @@ import '../containers/App.css'
 
 //Displays a single clickable booking slot
 function BookBubble({slot, onClick}) {
-  const {time, date} = slot
+  const {id, time, date} = slot
 
   return (
-    <button onClick={() => onClick(time, date)} className="book-bubble">
+    <button onClick={() => onClick(id, time, date)} className="book-bubble">
       <span>
         <h2>{time}</h2>
         <p>pm</p>

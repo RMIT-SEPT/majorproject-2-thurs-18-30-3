@@ -17,24 +17,29 @@ function ServiceSlide({service, availableBookings}) {
   const [alertErrorMsg, setAlertErrorMsg] = useState('')
 
   const [dialogOpen, setDialogOpen] = useState(false)
+  const [selectedBookingId, setSelectedBookingId] = useState('')
   const [selectedStartTime, setSelectedStartTime] = useState('')
   const [selectedDate, setSelectedDate] = useState('')
 
-  const onBubbleClick = (startTime, date) => {
+  const onBubbleClick = (id, startTime, date) => {
+    setSelectedBookingId(id)
     setSelectedStartTime(startTime)
     setSelectedDate(date)
     setDialogOpen(true)
   }
 
   const handleBookBtn = async () => {
+    const customerId = AuthService.getCurrentUser()?.id
+    if (!customerId) setAlertErrorMsg('Customer ID not found')
+
     const payload = {
-      serviceId: service.id,
-      customerId: AuthService.getCurrentUser()?.id ?? 'Name not available',
-      startTime: selectedStartTime,
+      serviceName: service.name,
+      customerId: customerId,
+      time: selectedStartTime,
       date: selectedDate,
     }
     try {
-      const {data} = await Axios.post(BookingApi.createBooking, payload)
+      const {data} = await Axios.put(BookingApi.getBooking(selectedBookingId), payload)
       console.log('Booking response data', data)
       setAlertMsg('Successfully booked!')
     } catch ({message}) {
