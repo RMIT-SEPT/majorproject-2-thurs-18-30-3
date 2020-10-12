@@ -56,7 +56,7 @@ function ServiceSlide({service, availableBookings}) {
     <>
       <main className="service-slide">
         <div className="slide-heading">
-          <img src={service.imageUrl} alt="not found" width="340" height="220" />
+          <img src={service.photo} alt="not found" width="340" height="220" />
           <div className="slide-core">
             <h1>{service.name}</h1>
             <p>{service.description}</p>
