@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Dialog, DialogTitle, DialogContent, DialogActions, Snackbar, Button } from '@material-ui/core'
+import React, {useState} from 'react'
+import {Dialog, DialogTitle, DialogContent, DialogActions, Snackbar, Button} from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert'
 import Axios from 'axios'
 
@@ -10,7 +10,7 @@ import BookingApi from '../config/bookingApi'
 import AuthService from '../services/auth.service'
 
 //Displays details of a service, with bookings displayed as clickable buttons
-function ServiceSlide({ service }) {
+function ServiceSlide({service, availableBookings}) {
   // const dummySlot = {time: '7:00',date:'23 Aug'};
 
   const [alertMsg, setAlertMsg] = useState('')
@@ -34,10 +34,10 @@ function ServiceSlide({ service }) {
       date: selectedDate,
     }
     try {
-      const { data } = await Axios.post(BookingApi.bookings, payload)
+      const {data} = await Axios.post(BookingApi.createBooking, payload)
       console.log('Booking response data', data)
       setAlertMsg('Successfully booked!')
-    } catch ({ message }) {
+    } catch ({message}) {
       setAlertErrorMsg(message)
     }
     handleClose()
@@ -67,8 +67,8 @@ function ServiceSlide({ service }) {
           <h3>Available Bookings:</h3>
 
           <div className="token-set">
-            {service.availableBookings?.map((booking) => (
-              <Bubble onClick={() => onBubbleClick(booking.startTime, booking.date)} slot={booking} />
+            {availableBookings?.map((booking, index) => (
+              <Bubble key={index} onClick={onBubbleClick} slot={booking} />
             ))}
           </div>
         </div>
@@ -86,7 +86,7 @@ function ServiceSlide({ service }) {
       </Dialog>
 
       <Snackbar
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        anchorOrigin={{vertical: 'top', horizontal: 'right'}}
         open={alertMsg !== '' || alertErrorMsg !== ''}
         onClose={onAlertClose}>
         <Alert onClose={onAlertClose} severity={alertMsg ? 'success' : 'error'}>

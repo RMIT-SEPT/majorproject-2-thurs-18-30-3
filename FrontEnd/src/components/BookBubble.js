@@ -1,19 +1,19 @@
-import React, {  } from 'react';
+import React from 'react'
 
-import '../containers/App.css';
+import '../containers/App.css'
 
 //Displays a single clickable booking slot
 function BookBubble({slot, onClick}) {
-  const {startTime, date} = slot
+  const {time, date} = slot
 
   return (
-    <button onClick={() => onClick(startTime, date)} className="book-bubble">
+    <button onClick={() => onClick(time, date)} className="book-bubble">
       <span>
-        <h2>{startTime}</h2>
+        <h2>{time}</h2>
         <p>pm</p>
       </span>
       <p>{date}</p>
     </button>
   )
 }
-export default BookBubble;
+export default BookBubble

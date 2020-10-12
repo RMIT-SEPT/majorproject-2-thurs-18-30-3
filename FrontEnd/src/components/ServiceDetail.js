@@ -5,7 +5,7 @@ import ServiceSlide from './ServiceSlide'
 
 //Displays the full details of a service, along with available bookings, in a landscape-view slide
 function ServiceDetail(props) {
-  const { service, employees, onSubmit } = props
+  const {service, availableBookings, employees, onSubmit} = props
 
   return (
     <div>
@@ -22,7 +22,12 @@ function ServiceDetail(props) {
         </div>
 
         <div className="service-slide-container" role="main">
-          <ServiceSlide service={service} employees={employees} onSubmit={onSubmit} />
+          <ServiceSlide
+            availableBookings={availableBookings}
+            service={service}
+            employees={employees}
+            onSubmit={onSubmit}
+          />
         </div>
       </div>
     </div>

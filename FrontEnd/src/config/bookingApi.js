@@ -4,5 +4,6 @@ const BASE_URL = 'http://localhost:8082/api/bookings'
 export default {
   getUrl: BASE_URL,
   getAllBookings: BASE_URL + '/all',
+  createBooking: BASE_URL,
   getBooking: (id) => `${BASE_URL}/${id}`,
 }
