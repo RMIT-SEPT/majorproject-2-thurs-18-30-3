@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import React, {useContext, useState, useEffect, useCallback} from 'react'
+import {Link} from 'react-router-dom'
 
 import '../containers/App.css'
 import AuthService from '../services/auth.service'
@@ -78,15 +78,15 @@ function Nav() {
                 </ModalPane>
               </>
             ) : (
-                <>
-                  <Link to="/login" className="little-link">
-                    <li>login</li>
-                  </Link>
-                  <Link to="/create" className="little-link">
-                    <li>create account</li>
-                  </Link>
-                </>
-              )}
+              <>
+                <Link to="/login" className="little-link">
+                  <li>login</li>
+                </Link>
+                <Link to="/create" className="little-link">
+                  <li>create account</li>
+                </Link>
+              </>
+            )}
           </ul>
         </ul>
       )}
@@ -106,7 +106,7 @@ function Nav() {
 function renderNavItems(currentUser) {
   if (!currentUser) return
 
-  const { userType } = currentUser
+  const {userType} = currentUser
 
   // conditionally render navigation items
   switch (userType.toLowerCase()) {
@@ -128,11 +128,11 @@ function renderNavItems(currentUser) {
     case UserType.Admin:
       return (
         <>
-          <Link to="/bookings">bookings</Link>
-          <Link to="/services">services</Link>
-          <Link to="/employees">employees</Link>
-          <Link to="/myservices" className="big-link">
-            <li>my services</li>
+          <Link to="/services" className="big-link">
+            services
+          </Link>
+          <Link to="/employees" className="big-link">
+            employees
           </Link>
         </>
       )
