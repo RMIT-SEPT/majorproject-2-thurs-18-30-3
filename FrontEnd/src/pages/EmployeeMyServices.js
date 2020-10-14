@@ -9,7 +9,7 @@ function EmployeeMyService() {
   useEffect(() => {
     const getTableData = async () => {
       try {
-        const {data} = await Axios.get(BookingApi.bookings)
+        const {data} = await Axios.get(BookingApi.getAllBookings)
         setTableData(data)
       } catch ({message}) {
         alert(message)
@@ -37,16 +37,16 @@ function EmployeeMyService() {
             <th scope="col">Start Time</th>
             <th scope="col">Date</th>
             <th scope="col">Service Name</th>
-            <th scope="col">Customer Name</th>
+            <th scope="col">Customer ID</th>
           </tr>
         </thead>
         <tbody>
-          {tableData.map(({startTime, date, serviceName, customerName}) => (
+          {tableData.map(({time, date, serviceName, customerId}) => (
             <tr>
-              <th scope="row">{startTime}</th>
+              <th scope="row">{time}</th>
               <td>{date}</td>
               <td>{serviceName}</td>
-              <td>{customerName}</td>
+              <td>{customerId}</td>
             </tr>
           ))}
         </tbody>
