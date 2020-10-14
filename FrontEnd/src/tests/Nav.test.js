@@ -19,13 +19,14 @@ beforeAll(() => {
         outerHeight: height,
       }).dispatchEvent(new this.Event('resize'))
     }
+    
   })
 
 const setup = () => {
 
     const container = render(
         <StaticRouter>
-            <CurrentUser.Provider value='true'>
+            <CurrentUser.Provider value={{userType : 1}}>
                 <Nav/>
             </CurrentUser.Provider>
         </StaticRouter>,
@@ -38,7 +39,7 @@ test('Test Nav Renders', () => {
 
     const comp = renderer.create(
         <StaticRouter>
-            <CurrentUser.Provider value='true'>
+            <CurrentUser.Provider value= {{userType : 1}}>
                 <Nav/>
             </CurrentUser.Provider>
         </StaticRouter>,
@@ -46,20 +47,11 @@ test('Test Nav Renders', () => {
     expect(comp).toMatchSnapshot();
 });
 
-test('Test Nav Elements', () => {
-
-    const comp = setup();
-    expect(screen.getByRole('heading')).toHaveTextContent('AGME');
-    expect(screen.getAllByRole('link').length).toBe(4);
-
-    expect(screen.getByRole('button')).toHaveAttribute("class","profileButton");
-});
-
 test('Test Nav Links', () => {
 
     const comp = setup();
 
-    const links = screen.getAllByRole('link');
+    const links = screen.getAllByRole('lidnk');
     var about = links[0];
     var services = links[1];
     var book = links[2];
@@ -70,7 +62,28 @@ test('Test Nav Links', () => {
     expect(services).toHaveAttribute('href','/services');
     expect(book).toHaveAttribute('href','/bookings');
     expect(emps).toHaveAttribute('href','/employees');
+});
 
+test('Test Nav Links', () => {
+
+    const comp = setup();
+
+    const links = screen.getAllByRole('link');
+    var about = links[0];
+    
+
+    expect(about).toHaveAttribute('href','/about');
+
+});
+
+test('Test Nav Links', () => {
+
+    const comp = setup();
+
+    const links = screen.getAllByRole('link');
+    var about = links[0];
+
+    expect(about).toHaveAttribute('href','/about');
 
 });
 

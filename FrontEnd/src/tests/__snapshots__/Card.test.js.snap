@@ -17,13 +17,16 @@ Object {
             class="card-content"
           >
             <img
-              src="not-found.png"
+              alt="TEST BUTTON"
+              height="80"
+              src="https://sept-bucket-2020.s3-ap-southeast-2.amazonaws.com/undefined"
+              width="60"
             />
-            <span />
+            <span>
+              TEST BUTTON
+            </span>
             <hr />
-            <p>
-              this is a test
-            </p>
+            <p />
           </div>
         </button>
       </a>
@@ -42,13 +45,16 @@ Object {
           class="card-content"
         >
           <img
-            src="not-found.png"
+            alt="TEST BUTTON"
+            height="80"
+            src="https://sept-bucket-2020.s3-ap-southeast-2.amazonaws.com/undefined"
+            width="60"
           />
-          <span />
+          <span>
+            TEST BUTTON
+          </span>
           <hr />
-          <p>
-            this is a test
-          </p>
+          <p />
         </div>
       </button>
     </a>
@@ -125,9 +131,14 @@ exports[`Test Card Renders 1`] = `
       className="card-content"
     >
       <img
-        src="not-found.png"
+        alt="test"
+        height="80"
+        src="https://sept-bucket-2020.s3-ap-southeast-2.amazonaws.com/iPhone12.jpg"
+        width="60"
       />
-      <span />
+      <span>
+        test
+      </span>
       <hr />
       <p>
         this is a test

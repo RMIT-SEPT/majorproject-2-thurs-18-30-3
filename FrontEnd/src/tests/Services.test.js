@@ -8,7 +8,7 @@ import {render, screen, fireEvent, queryByText} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
 
-const dummyService = {id: 1, name: 'test', body: 'this is a test'}
+const dummyService = {id: 1, name: 'test', description: 'this is a test', photo: "iPhone12.jpg"}
 const searchFuncMock = jest.fn()
 
 const setup = () => {
@@ -35,7 +35,6 @@ test('Test Page Contents', () => {
   const container = setup()
   expect(screen.getByRole('heading')).toHaveTextContent('Services')
   expect(screen.getByRole('searchbox'))
-  expect(screen.getAllByRole('listbox').length).toBe(2)
   expect(screen.getByRole('main')).toHaveClass('services-gallery')
 })
 
@@ -46,6 +45,7 @@ test('Check Gallery', () => {
 
   expect(gallery).toHaveTextContent('this is a test')
 })
+
 
 //Tests for the search field at the top of the gallery
 test('Test Search PlaceHolder', () => {
@@ -68,39 +68,4 @@ test('Test Search Fires', () => {
   fireEvent.change(input, {target: {value: 'test'}})
 
   expect(searchFuncMock).toHaveBeenCalled()
-})
-
-//Tests for the claendar selectors at the top of the gallery
-test('Test Calender Content', () => {
-  const container = setup()
-  const calendarArray = screen.getAllByRole('listbox')
-
-  expect(calendarArray[0].childElementCount).toBe(2)
-  expect(calendarArray[1].childElementCount).toBe(2)
-})
-
-test('Test Calender Defaults', () => {
-  const container = setup()
-  const calendarArray = screen.getAllByRole('listbox')
-  var currentDate = moment().format('YYYY-MM-DD')
-
-  screen.getAllByDisplayValue(currentDate).forEach((calendar) => {
-    expect(calendar).toHaveClass('MuiInputBase-input MuiInput-input')
-  })
-
-  expect(calendarArray[0]).toHaveTextContent('Display Services From')
-  expect(calendarArray[1]).toHaveTextContent('Display Services To')
-})
-
-test('Test Calender Input', () => {
-  const container = setup()
-  const calendarArray = screen.getAllByRole('listbox')
-  var currentDate = moment().format('YYYY-MM-DD')
-
-  screen.getAllByDisplayValue(currentDate).forEach((calendar) => {
-    expect(calendar).toHaveClass('MuiInputBase-input MuiInput-input')
-  })
-
-  expect(calendarArray[0]).toHaveTextContent('Display Services From')
-  expect(calendarArray[1]).toHaveTextContent('Display Services To')
 })

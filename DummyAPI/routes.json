@@ -1,6 +1,7 @@
 {
     "/api/*": "/$1",
     "/users/all" : "/users/",
+    "/users/bobo": "/users/?username=cd1",
     "/services/all" : "/services/",
     "/bookings/all" : "/bookings/"
 }

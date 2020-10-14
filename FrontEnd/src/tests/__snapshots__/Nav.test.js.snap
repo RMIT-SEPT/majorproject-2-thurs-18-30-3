@@ -17,34 +17,7 @@ exports[`Test Nav Renders 1`] = `
       onClick={[Function]}
     >
       <li>
-        about
-      </li>
-    </a>
-    <a
-      className="big-link"
-      href="/services"
-      onClick={[Function]}
-    >
-      <li>
-        services
-      </li>
-    </a>
-    <a
-      className="big-link"
-      href="/bookings"
-      onClick={[Function]}
-    >
-      <li>
-        bookings
-      </li>
-    </a>
-    <a
-      className="big-link"
-      href="/employees"
-      onClick={[Function]}
-    >
-      <li>
-        employees
+        c
       </li>
     </a>
     <ul
