@@ -126,7 +126,7 @@ class AdminServicesContainer extends React.Component {
     });
 
     //remove bookings
-    axios.delete('http://localhost:8080/api/bookings?servicename='+service.name, 
+    axios.delete('http://localhost:8082/api/bookings?servicename='+service.name,
     ).then(response => {
       console.log(response);
     })

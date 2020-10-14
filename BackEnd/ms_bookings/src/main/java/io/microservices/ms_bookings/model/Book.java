@@ -14,7 +14,6 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(min = 5, message = "Minimum 5 characters is required.")
     @NotBlank(message = "Service name must not be empty.")
     private String serviceName;
     private Long employeeId;
