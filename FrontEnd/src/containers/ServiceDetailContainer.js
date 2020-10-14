@@ -19,7 +19,8 @@ function ServiceDetailContainer() {
         const {data: bookingData} = await Axios.get(BookingApi.getAllBookings)
         console.log('bookingData', bookingData)
         setService(serviceData)
-        setBookings(bookingData)
+        const filteredBookings = bookingData.filter((booking) => booking.customerId === null)
+        setBookings(filteredBookings)
       } catch ({message}) {
         console.error('[ServiceDetailContainer]', message)
         alert(message)

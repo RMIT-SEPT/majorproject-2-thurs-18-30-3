@@ -1,22 +1,25 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import Axios from 'axios'
 import BookingApi from '../config/bookingApi'
+import CurrentUser from '../context/CurrentUser'
 
 // Use Bootstrap table for easier unit testing
 function EmployeeMyService() {
+  const [currentUser] = useContext(CurrentUser)
   const [tableData, setTableData] = useState([])
 
   useEffect(() => {
     const getTableData = async () => {
       try {
         const {data} = await Axios.get(BookingApi.getAllBookings)
-        setTableData(data)
+        const filtered = data.filter((d) => d.employeeId === currentUser.id)
+        setTableData(filtered)
       } catch ({message}) {
         alert(message)
       }
     }
     getTableData()
-  }, [])
+  }, [currentUser.id])
 
   return (
     <div className="container" style={{marginTop: '3%'}}>
