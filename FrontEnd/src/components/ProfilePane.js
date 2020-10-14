@@ -7,7 +7,6 @@ import '../containers/App.css'
 //Displays a user profile in a modal view
 
 function ProfilePane({close, change, profile, reload, update}) {
-
   const [isEditing, setIsEditing] = React.useState(false)
   const [displayFirstName, setDisplayFirstName] = React.useState(profile.firstName)
   const [displayLastName, setDisplayLastName] = React.useState(profile.lastName)
@@ -21,9 +20,8 @@ function ProfilePane({close, change, profile, reload, update}) {
     setDisplayEmail(profile.email)
     setDisplayPhone(profile.mobileNum)
     setDisplayAddress(profile.address)
-  }, [profile]);
+  }, [profile])
 
-  
   //Fires when clicking the cancel button - reinitialises profile data.
   const cancel = () => {
     setIsEditing(!isEditing)
@@ -42,21 +40,20 @@ function ProfilePane({close, change, profile, reload, update}) {
   }
 
   //Validate editing inputs
-  const validate = () =>
-  {
-    if(displayFirstName !== ""
-    && displayLastName != ""
-    && /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(displayEmail)
-    && /^[0-9()-]+$/.test(displayPhone)
-    )
-    {
-      return false;
+  const validate = () => {
+    if (
+      displayFirstName !== '' &&
+      displayLastName !== '' &&
+      /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(displayEmail) &&
+      /^[0-9()-]+$/.test(displayPhone)
+    ) {
+      return false
     }
-    return true;
+    return true
   }
 
   //regex for validation
-  const phoneRegex = /^[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-/\s.]?[0-9]{4}$/;
+  // const phoneRegex = /^[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-/\s.]?[0-9]{4}$/
 
   return (
     <div className="modal-wrapper">
@@ -137,12 +134,14 @@ function ProfilePane({close, change, profile, reload, update}) {
           />
           <div className="button-set">
             {isEditing ? (
-              <button type='submit' className="actButton" onClick={() => save()} disabled={validate()}>
+              <button type="submit" className="actButton" onClick={() => save()} disabled={validate()}>
                 save
               </button>
             ) : (
               <>
-                <button className="actButton" onClick={() => change()}>bookings</button>
+                <button className="actButton" onClick={() => change()}>
+                  bookings
+                </button>
                 <Link to="/service">
                   {/*Logout button also closes the pane and reloads the page*/}
                   <button
