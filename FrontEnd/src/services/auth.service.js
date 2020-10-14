@@ -11,7 +11,7 @@ const register = async (payload, forEmployee) => {
     userType: forEmployee ? UserType.Employee : UserType.Customer,
   })
 
-  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
+  if (!forEmployee) localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(data))
 
   return data
 }
