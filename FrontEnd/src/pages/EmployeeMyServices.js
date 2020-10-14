@@ -2,11 +2,13 @@ import React, {useState, useEffect, useContext} from 'react'
 import Axios from 'axios'
 import BookingApi from '../config/bookingApi'
 import CurrentUser from '../context/CurrentUser'
+import AvailabilityApi from '../config/availabilityApi'
 
 // Use Bootstrap table for easier unit testing
 function EmployeeMyService() {
   const [currentUser] = useContext(CurrentUser)
   const [tableData, setTableData] = useState([])
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
     const getTableData = async () => {
@@ -21,14 +23,36 @@ function EmployeeMyService() {
     getTableData()
   }, [currentUser.id])
 
+  const onSendMsgAdmin = async () => {
+    try {
+      const username = currentUser.username
+      if (!username) alert('Username not exist')
+
+      const payload = {
+        username,
+        availability: message,
+      }
+      const {data} = await Axios.post(AvailabilityApi.sendMessage, payload)
+      console.log('AvailabilityApi response', data)
+      alert('Your message has been sent to admin!')
+    } catch ({message, response}) {
+      console.error('Error response', response.data ?? message)
+      alert(message)
+    }
+  }
+
+  const onInputChange = ({target}) => {
+    setMessage(target.value)
+  }
+
   return (
     <div className="container" style={{marginTop: '3%'}}>
       <div className="row" style={{marginBottom: '2%'}}>
         <div className="col">
-          <input type="text" className="form-control" placeholder="message admin..." />
+          <input type="text" onChange={onInputChange} className="form-control" placeholder="message admin..." />
         </div>
         <div className="col">
-          <button type="button" className="btn btn-primary">
+          <button onClick={onSendMsgAdmin} type="button" className="btn btn-primary">
             Submit
           </button>
         </div>
