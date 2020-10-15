@@ -113,8 +113,8 @@ function renderNavItems(currentUser) {
     case UserType.Customer:
       return (
         <>
-          <Link to="/bookings">bookings</Link>
-          <Link to="/services">services</Link>
+          <Link to="/bookings" className="big-link">bookings</Link>
+          <Link to="/services" className="big-link">services</Link>
         </>
       )
     case UserType.Employee:
@@ -139,9 +139,9 @@ function renderNavItems(currentUser) {
     default:
       return (
         <>
-          <Link to="/bookings">bookings</Link>
-          <Link to="/services">services</Link>
-          <Link to="/employees">employees</Link>
+          <Link to="/bookings" className="big-link">bookings</Link>
+          <Link to="/services" className="big-link">services</Link>
+          <Link to="/employees" className="big-link">employees</Link>
         </>
       )
   }

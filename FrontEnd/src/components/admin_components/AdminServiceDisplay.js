@@ -87,7 +87,7 @@ function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc,
         <main className = 'admin-service-display'>
             <div className = 'admin-service-heading'>
                 <h1>{service.name}</h1>
-
+                <div className="dummy"/>
                 <button className = "icon-btn" onClick = {switchEditing}>
                     <i className="material-icons md-32">{isEditing ? 'cancel' : 'edit'}</i>
                 </button>
