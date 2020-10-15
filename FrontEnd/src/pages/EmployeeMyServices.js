@@ -9,7 +9,7 @@ function EmployeeMyService() {
   useEffect(() => {
     const getTableData = async () => {
       try {
-        const {data} = await Axios.get(BookingApi.bookings)
+        const {data} = await Axios.get(BookingApi.getAllBookings)
         setTableData(data)
       } catch ({message}) {
         alert(message)

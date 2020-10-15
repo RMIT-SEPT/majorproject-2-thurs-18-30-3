@@ -136,7 +136,7 @@ class AdminServicesContainer extends React.Component {
   }
   
   render() {
-    if(this.state.services === null || this.state.services.length <= 0)
+    if(this.state.services.length <= 0)
     {
       return <span>No Services Found</span>;
     }
