@@ -23,7 +23,7 @@ function Alert(props) {
 //Handles form input when user clicks submit
 const Login = () => {
   const classes = useStyles()
-  const [active, setActive] = React.useState('true')
+  const [active] = React.useState('true')
 
   const {register, handleSubmit, errors} = useForm({
     resolver: yupResolver(schema),

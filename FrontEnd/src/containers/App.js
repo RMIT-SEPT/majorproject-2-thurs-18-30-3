@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import React, {useState} from 'react'
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 
 import AdminServiceList from '../containers/AdminServicesContainer'
 import EmployeeList from '../containers/EmployeeListContainer'
@@ -24,27 +24,27 @@ function App() {
 
   // A wrapper for <Route> that redirects to the login
   // screen if you're not yet authenticated.
-  function PrivateRoute({ children, ...rest }) {
+  function PrivateRoute({children, ...rest}) {
     return (
       <Route
         {...rest}
-        render={({ location }) =>
+        render={({location}) =>
           user ? (
             children
           ) : (
-              <Redirect
-                to={{
-                  pathname: '/login',
-                  state: { from: location },
-                }}
-              />
-            )
+            <Redirect
+              to={{
+                pathname: '/login',
+                state: {from: location},
+              }}
+            />
+          )
         }
       />
     )
   }
 
-  function LoginRoute({ children, ...rest }) {
+  function LoginRoute({children, ...rest}) {
     return (
       // Show the component only when the user is logged in
       <Route {...rest} render={() => (user ? <Redirect to="/services" /> : children)} />
@@ -69,7 +69,6 @@ function App() {
             <Route path="/services" exact component={Services} />
             <Route path="/employees" exact component={EmployeeList} />
             <Route path="/myservices" exact component={EmployeeMyService} />
-            {/*<Route path="/bookings" exact component={Booking} />*/}
             <Route path="/services/:id" component={ServiceDetailContainer} />
           </PrivateRoute>
         </Switch>

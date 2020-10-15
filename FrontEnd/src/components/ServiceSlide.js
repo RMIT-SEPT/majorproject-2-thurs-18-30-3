@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Dialog, DialogTitle, DialogContent, DialogActions, Snackbar, Button} from '@material-ui/core'
+import {Dialog, DialogTitle, DialogContent, DialogActions, Snackbar, Button, Grid} from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert'
 import Axios from 'axios'
 
@@ -41,7 +41,7 @@ function ServiceSlide({service, availableBookings}) {
     try {
       const {data} = await Axios.put(BookingApi.getBooking(selectedBookingId), payload)
       console.log('Booking response data', data)
-      setAlertMsg('Successfully booked!')
+      setTimeout(() => window.location.reload(), 500)
     } catch ({message}) {
       setAlertErrorMsg(message)
     }
@@ -81,7 +81,14 @@ function ServiceSlide({service, availableBookings}) {
 
       <Dialog fullWidth open={dialogOpen} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">{service.name}</DialogTitle>
-        <DialogContent>{`${selectedStartTime} ${selectedDate}`}</DialogContent>
+        <DialogContent>
+          <Grid item xs={12}>
+            {selectedStartTime} pm
+          </Grid>
+          <Grid item xs={12}>
+            {selectedDate}
+          </Grid>
+        </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleBookBtn} color="primary">

@@ -1,16 +1,14 @@
 import React from 'react'
-import serviceApi from "../config/serviceApi";
-const { default: Services } = require('../components/Services')
+import serviceApi from '../config/serviceApi'
+const {default: Services} = require('../components/Services')
 //Retrieves bulk service data for display in list view
-
-const API_SERVICE_URL = 'http://localhost:8080/api/services/';
 
 class ServicesContainer extends React.Component {
   constructor(props) {
-    super();
+    super(props)
     this.state = {
       services: [],
-      displayServices: []
+      displayServices: [],
     }
   }
 
@@ -22,28 +20,27 @@ class ServicesContainer extends React.Component {
       .then((res) => res.json())
       .then((data) => {
         console.log('services', data)
-        this.setState({ services: data });
-        this.setState({ displayServices: data });
+        this.setState({services: data})
+        this.setState({displayServices: data})
       })
       .catch(console.log)
   }
 
   //Search function - if there si user input, filter services
   searchFor = (val) => {
-    if (val === "") {
-      this.setState({ displayServices: this.state.services });
-    }
-    else {
+    if (val === '') {
+      this.setState({displayServices: this.state.services})
+    } else {
       let newArray = this.state.services.filter(function (service) {
-        return service.name.toLowerCase().includes(val.toLowerCase());
-      });
-      this.setState({ displayServices: newArray });
+        return service.name.toLowerCase().includes(val.toLowerCase())
+      })
+      this.setState({displayServices: newArray})
     }
   }
 
   render() {
     if (this.state.services == null) {
-      return <span>No Services Found</span>;
+      return <span>No Services Found</span>
     }
     return <Services services={this.state.displayServices} searchFunc={this.searchFor} />
   }
