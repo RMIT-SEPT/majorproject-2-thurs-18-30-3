@@ -14,20 +14,14 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(min = 5, message = "Minimum 5 characters is required.")
     @NotBlank(message = "Service name must not be empty.")
     private String serviceName;
-    @NotBlank(message ="Booking identifier is required")
-    @Size(min = 4,max =5, message = "Please enter 4 to 5 characters")
-    @Column(updatable = false, unique = true)
-    private String bookIdentifier;
-    @NotBlank(message = "Service type must not be empty.")
-    @Size(min = 3, message = "Minimum 3 characters is required.")
-    private String type;
-    @NotBlank(message = "User email is required.")
-    private String email;
-    @JsonFormat(pattern = "yyyy-mm-dd")
-    private Date start_date;
+    private Long employeeId;
+    private Long customerId;
+    @NotBlank(message ="Time slot is required")
+    private String time;
+    @NotBlank(message ="Date is required")
+    private String date;
 
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd@HH:mm:ss")
@@ -54,36 +48,36 @@ public class Book {
         this.serviceName = serviceName;
     }
 
-    public String getBookIdentifier() {
-        return bookIdentifier;
+    public Long getEmployeeId() {
+        return employeeId;
     }
 
-    public void setBookIdentifier(String bookingIdentifier) {
-        this.bookIdentifier = bookingIdentifier;
+    public void setEmployeeId(Long id) {
+        this.employeeId = id;
     }
 
-    public String getType() {
-        return type;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCustomerId(Long id) {
+        this.customerId = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTime() {
+        return time;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public Date getStart_date() {
-        return start_date;
+    public String getDate() {
+        return date;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public Date getCreated_At() {

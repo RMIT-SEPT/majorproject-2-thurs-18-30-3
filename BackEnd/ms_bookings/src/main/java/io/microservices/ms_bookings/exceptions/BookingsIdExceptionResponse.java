@@ -1,17 +1,17 @@
 package io.microservices.ms_bookings.exceptions;
 
 public class BookingsIdExceptionResponse {
-    private String bookingsIdentifier;
+    private String serviceName;
 
-    public BookingsIdExceptionResponse(String projectIdentifier) {
-        this.bookingsIdentifier = projectIdentifier;
+    public BookingsIdExceptionResponse(String serviceName) {
+        this.serviceName = serviceName;
     }
 
-    public String getBookingsIdentifier() {
-        return bookingsIdentifier;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setBookingsIdentifier(String bookingsIdentifier) {
-        this.bookingsIdentifier = bookingsIdentifier;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 }

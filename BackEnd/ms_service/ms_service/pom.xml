@@ -4,11 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.microservices</groupId>
-        <artifactId>ms_template</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../../</relativePath>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.2.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.project</groupId>
     <artifactId>ms_service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -89,10 +90,11 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
+                <!-- Build an executable JAR -->
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <artifactId>maven-jar-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
+
 </project>

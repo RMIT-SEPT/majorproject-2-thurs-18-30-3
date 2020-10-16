@@ -13,7 +13,6 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/services")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ServiceController {
 
     @Autowired
@@ -22,7 +21,6 @@ public class ServiceController {
     @Autowired
     private MapValidationErrorService mapValidation;
 
-    @CrossOrigin("localhost:3000")
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody AppService service, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidation.MapValidationService(result);
@@ -39,7 +37,7 @@ public class ServiceController {
         return new ResponseEntity<>(service, HttpStatus.OK);
     }
 
-    @GetMapping("")
+    @GetMapping("/all")
     public Iterable<AppService> getAllServices() {
         return serviceEngine.findAllService();
     }
@@ -50,7 +48,5 @@ public class ServiceController {
 
         return new ResponseEntity<>("Service ID: " + id + " has been deleted.", HttpStatus.OK);
     }
-
-
 }
 

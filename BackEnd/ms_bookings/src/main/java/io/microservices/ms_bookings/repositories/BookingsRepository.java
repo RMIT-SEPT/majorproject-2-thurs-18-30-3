@@ -3,9 +3,9 @@ package io.microservices.ms_bookings.repositories;
 import io.microservices.ms_bookings.model.Book;
 import org.springframework.data.repository.CrudRepository;
 
-public interface BookingsRepository extends CrudRepository <Book, Long> {
+public interface BookingsRepository extends CrudRepository <Book, String> {
 
-    Book findByBookIdentifier(String bookId);
+    Book findById(Long id);
     @Override
-    Iterable<Book> findAllById(Iterable<Long> iterable);
+    Iterable<Book> findAll();
 }

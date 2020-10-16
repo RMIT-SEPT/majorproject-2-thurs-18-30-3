@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form'
 import {useHistory} from 'react-router-dom'
 import MuiAlert from '@material-ui/lab/Alert'
 import {Button, Card, CardActions, CardContent, Grid, Snackbar, TextField} from '@material-ui/core'
-import {yupResolver} from '@hookform/resolvers'
+import {yupResolver} from '@hookform/resolvers/yup'
 import {makeStyles} from '@material-ui/core/styles'
 
 import UserType from '../config/userType'
@@ -23,7 +23,7 @@ function Alert(props) {
 //Handles form input when user clicks submit
 const Login = () => {
   const classes = useStyles()
-  const [active, setActive] = React.useState('true')
+  const [active] = React.useState('true')
 
   const {register, handleSubmit, errors} = useForm({
     resolver: yupResolver(schema),

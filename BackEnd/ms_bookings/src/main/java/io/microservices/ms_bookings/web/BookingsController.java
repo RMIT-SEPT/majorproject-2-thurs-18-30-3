@@ -1,22 +1,19 @@
 package io.microservices.ms_bookings.web;
 
 import io.microservices.ms_bookings.model.Book;
+import io.microservices.ms_bookings.model.UpdateBookings;
 import io.microservices.ms_bookings.services.BookService;
 import io.microservices.ms_bookings.services.MapValidationErrorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RestController
-@RequestMapping("/api/book")
+@RequestMapping("/api/bookings")
 public class BookingsController {
 
     @Autowired
@@ -25,7 +22,6 @@ public class BookingsController {
     @Autowired
     private MapValidationErrorService mapValidation;
 
-    @CrossOrigin(origins = "http://localhost:3000")
     // Method for POST requests
     @PostMapping("")
     public ResponseEntity<?> createNewBookings(@Valid @RequestBody Book bookings, BindingResult result) {
@@ -34,14 +30,14 @@ public class BookingsController {
         if(errorMap != null) {
             return errorMap;
         }
-        Book bookings1 = bookService.saveOrUpdateBookings(bookings);
+        Book bookings1 = bookService.createNewBookings(bookings);
         return new ResponseEntity<Book>(bookings, HttpStatus.CREATED);
     }
 
     // Method for GET specific booking request
-    @GetMapping("/{bookingsId}")
-    public ResponseEntity<?> getBookingsById(@PathVariable String bookingsId) {
-        Book bookings = bookService.findByBookIdentifier(bookingsId);
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getBookingsById(@PathVariable Long id) {
+        Book bookings = bookService.findByBookingsId(id);
         return new ResponseEntity<Book>(bookings, HttpStatus.OK);
     }
 
@@ -52,11 +48,19 @@ public class BookingsController {
     }
 
     // Method for DELETE bookings requests.
-    @DeleteMapping("/{bookingsId}")
-    public ResponseEntity<?> deleteProject(@PathVariable String bookingsId){
-        bookService.deleteBookingsByIdentifier(bookingsId);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteProject(@PathVariable Long id){
+        bookService.deleteBookingsById(id);
 
-        return new ResponseEntity<String>("Booking with ID: '"+bookingsId+"' was removed.", HttpStatus.OK);
+        return new ResponseEntity<String>("Booking with id: '"+id+"' was removed.", HttpStatus.OK);
+    }
+
+    // Controller for PUT requests.
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateBookings(@PathVariable Long id, @Valid @RequestBody UpdateBookings bookings){
+
+        Book book1 = bookService.modifyBookings(id, bookings);
+        return new ResponseEntity<Book>(book1, HttpStatus.CREATED);
     }
 }
 // final Booking Controller
