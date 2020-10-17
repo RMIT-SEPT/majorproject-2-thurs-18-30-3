@@ -40,6 +40,7 @@ textarea:focus, input:focus{
 
 .icon-btn{
   padding: 0;
+  margin-inline-end: 12px;
   border: none;
   background: none;
   justify-self: right;
@@ -128,31 +129,6 @@ textarea:focus, input:focus{
   transition: 0.4s;
 }
 
-@media screen and (max-width: 780px)
-{
-  .nav-links {
-    position: absolute;
-    top: 8vh;
-    width: 96vw;
-    flex-direction: column;
-    align-items: flex-end;
-    padding-inline-end: 1em;
-    text-align: center;
-    border: 2px solid #009BA0;
-    border-radius: 20px;
-    border-top: 0;
-    background-color:white;
-    z-index: 99;
-  }
-
-  .big-link{
-    margin: 7px;
-  }
-
-  .login-links{
-    margin:2px;
-  }
-}
 
 /*----------------------Service Gallery View Styling*/
 
@@ -514,6 +490,13 @@ textarea:focus, input:focus{
   border-radius:20px;
 }
 
+.add-booking-form span{
+  margin-inline-start: 0.4em;
+  font-size:42;
+  font-weight:600;
+}
+
+
 .add-booking select{
   border: none;
 }
@@ -537,6 +520,13 @@ textarea:focus, input:focus{
   background: #C2CCCD;
 }
 
+.employee-option :focus{
+  opacity: 1.4;
+}
+
+.employee-option :checked+label{
+  background: black;
+}
 /*-------------------------------------SERVICE SLIDE STYLING*/
 
 .service-slide {
@@ -833,7 +823,7 @@ textarea:focus, input:focus{
   justify-content: space-around;
   font-style: normal;
   font-weight: 500;
-  font-size: 36px;
+  font-size: 32px;
   background-color: #009BA0;
   color: #FFFFFF;
 }
@@ -919,6 +909,16 @@ input[type="file"] {
   cursor: pointer;
   background-color: #C4C4C4;
 }
+/*-------------------------------------ABOUT STYLING*/
+.AGMEspan{
+  color: #009BA0;
+  opacity:0.6;
+}
+
+.AGMEpara{
+  display: inline-block; 
+  width:70%;
+}
 /*-------------------------------------FOOTER STYLING*/
 
 footer{
@@ -949,4 +949,37 @@ footer span{
   height: 100vh;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
+}
+
+/*----------------------MEDIA QUERY---------------*/
+
+@media screen and (max-width: 780px)
+{
+  .nav-links {
+    position: absolute;
+    top: 8vh;
+    width: 96vw;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-inline-end: 1em;
+    text-align: center;
+    border: 2px solid #009BA0;
+    border-radius: 20px;
+    border-top: 0;
+    background-color:white;
+    z-index: 99;
+  }
+
+  .big-link{
+    margin: 7px;
+  }
+
+  .login-links{
+    margin:2px;
+  }
+
+  .services{
+    display:flex;
+    flex-direction:column;
+  }
 }

@@ -17,9 +17,12 @@ Object {
             class="card-content"
           >
             <img
+              alt="TEST BUTTON"
               src="not-found.png"
             />
-            <span />
+            <span>
+              TEST BUTTON
+            </span>
             <hr />
             <p>
               this is a test
@@ -42,9 +45,12 @@ Object {
           class="card-content"
         >
           <img
+            alt="TEST BUTTON"
             src="not-found.png"
           />
-          <span />
+          <span>
+            TEST BUTTON
+          </span>
           <hr />
           <p>
             this is a test
@@ -125,9 +131,12 @@ exports[`Test Card Renders 1`] = `
       className="card-content"
     >
       <img
+        alt="TEST BUTTON"
         src="not-found.png"
       />
-      <span />
+      <span>
+        TEST BUTTON
+      </span>
       <hr />
       <p>
         this is a test

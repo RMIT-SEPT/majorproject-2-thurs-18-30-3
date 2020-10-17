@@ -26,7 +26,7 @@ function ProfileBookings({change, bookingSet, deleteFunc}) {
   });
 
   const edits = bookings.map((book) => {
-    return( <div className = 'profile-booking-row'><button onCLick={deleteFunc}> <i className="material-icons md-32"> delete </i> </button><BookingCard booking = {book}/></div>)
+    return( <div className = 'profile-booking-row'><button onClick={deleteFunc(book.id)}> <i className="material-icons md-32"> delete </i> </button><BookingCard booking = {book}/></div>)
   });
 
   return (

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Pane Renders 1`] = `
+<div
+  className="modal-wrapper"
+>
+  <main
+    className="modalPane"
+  >
+    <div
+      className="paneHeader"
+    >
+      <button
+        className="closeButton"
+        onClick={[Function]}
+      >
+        <i
+          className="material-icons md-32"
+        >
+           close 
+        </i>
+      </button>
+      <h2>
+        Your Bookings
+      </h2>
+      <button
+        className="editButton"
+        onClick={[Function]}
+      >
+        delete
+      </button>
+    </div>
+  </main>
+</div>
+`;

@@ -8,7 +8,7 @@ import {render, screen, fireEvent, queryByText} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
 
-const dummyService = {id: 1, name: 'test', body: 'this is a test'}
+const dummyService = {id: 1, name: 'test', description: 'this is a test'}
 const searchFuncMock = jest.fn()
 
 const setup = () => {

@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Page Renders 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Create New Service
+  </h1>
+  <div
+    className="addService-container"
+    role="form"
+  >
+    <div
+      className="addService-titlebox"
+      role="textbox"
+    >
+      <span>
+        name
+      </span>
+      <input
+        className="addName-input"
+        onChange={[Function]}
+        pattern="[A-Za-z]{3}"
+      />
+    </div>
+    <div
+      className="addService-descbox"
+      role="textbox"
+    >
+      <span>
+        description
+      </span>
+      <input
+        onChange={[Function]}
+      />
+    </div>
+    <div
+      className="addService-imgbox"
+    >
+      <span>
+        photo
+      </span>
+      <label
+        className="addService-fileLabel"
+        htmlFor="addService-file-Upload"
+      >
+        Upload Image
+        <div
+          id="imgWrapper"
+        >
+          <img
+            alt={null}
+            height="220"
+            src={null}
+            width="340"
+          />
+        </div>
+      </label>
+      <input
+        id="addService-file-Upload"
+        onChange={[Function]}
+        type="file"
+      />
+    </div>
+  </div>
+  <button
+    className="actButton"
+    disabled={true}
+    onClick={[Function]}
+  >
+    Create
+  </button>
+</div>
+`;
