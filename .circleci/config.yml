@@ -25,7 +25,6 @@ jobs:
           key: ms-booking-{{ checksum "/BackEnd/ms_service/ms_service/pom.xml" }}
 
       - run: mvn dependency:go-offline
-          working_directory: ~/project/BackEnd/ms_service/ms_service
 
       - save_cache:
           paths:
@@ -50,7 +49,6 @@ jobs:
             key: ms-booking-{{ checksum "/BackEnd/ms_bookings/pom.xml" }}
 
         - run: mvn dependency:go-offline
-            working_directory: ~/project/BackEnd/ms_bookings
 
         - save_cache:
             paths:
@@ -74,7 +72,6 @@ jobs:
             key: ms-booking-{{ checksum "/BackEnd/ms-availability/pom.xml" }}
 
         - run: mvn dependency:go-offline
-            working_directory: ~/project/BackEnd/ms-availability
 
         - save_cache:
             paths:
@@ -99,7 +96,6 @@ jobs:
             key: ms-booking-{{ checksum "/BackEnd/ms_profiles/pom.xml" }}
 
         - run: mvn dependency:go-offline
-            working_directory: ~/project/BackEnd/ms_profiles
 
         - save_cache:
             paths:
