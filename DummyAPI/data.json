@@ -24,24 +24,12 @@
       "id": 5,
       "name": "The Conqueror Worm",
       "description": "But see, amid the mimic rout, A crawling shape intrude! A blood-red thing that writhes from out The scenic solitude! It writhes!—it writhes!—with mortal pangs The mimes become its food, And seraphs sob at vermin fangs In human gore imbued."
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "img": null,
-      "id": 6
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "img": null,
-      "id": 7
     }
   ],
   "bookings": [
     {
       "serviceName": "Usher Houses",
-      "customerId": null,
+      "customerId": 2,
       "employeeId": "6",
       "time": "14:37",
       "date": "2020-10-11",
@@ -57,7 +45,7 @@
     },
     {
       "serviceName": "Usher Houses",
-      "customerId": null,
+      "customerId": 2,
       "employeeId": "4",
       "time": "22:06",
       "date": "2020-09-29",

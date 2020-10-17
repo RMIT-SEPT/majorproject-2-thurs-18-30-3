@@ -6,14 +6,19 @@ import '../containers/App.css';
 function About() {
     return (
         <div className="container">
-            <h1>About AGME</h1>
+            <h1>AGME.</h1>
+            <h5>An all in one bookings solution.</h5>
+            <br/>
             <br/>
             <h2><span className='AGMEspan'>AGME</span><b>CONNECT</b></h2>
+            <h4>AGME helps you CONNECT with the local services you love.</h4>
             <br/>
             <h2><span className='AGMEspan'>AGME</span><b>LIVE</b></h2>
+            <h4>Browse and book with a few clicks - AGME make LIFE easy</h4>
             <br/>
             <h2><span className='AGMEspan'>AGME</span><b>GROW</b></h2>
-
+            <h4>Keep track of your favourite providers and GROW your network</h4>
+            <br/>
             <br/>
             <br/>
             <h2><span className='AGMEspan'>AGME</span><b>STORY</b></h2>
@@ -34,6 +39,9 @@ function About() {
                     SPRINTFOUR was met with applaud, owing to the valiant effort of spiders contracted to manage the trello board. Such an unexpected development paid in full the Jet Fuel 
                     debt and allowed for the formal refactoring of company grounds into the campus of the old GAS&FUEL corporation buildings. Such magnificent slabs of business space would 
                     nourish and nurse the ailing Orphee root branch and stem.
+                    This began the next era of AGME, the silver age of whirlwind boardroom meetings, long coffee breaks and creeping automaons. From the immense AGME towers productivity flowed forth
+                    like jelly, into the fathomless gullet of Orphee. Every creature on earth, whether it walked scuttled or swam, had some representation in the development silos. The sacred font was again changed, this time for the last time,
+                    to Space Grotesk .36; an augur of the times to come. 
                     </p>
             </div>
         </div>

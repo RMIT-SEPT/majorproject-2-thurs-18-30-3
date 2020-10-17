@@ -19,7 +19,7 @@ function UpdateBookingDisplay({booking, deleteFunc}) {
         
         <div className = 'add-booking-body' role='cell'>
           <h4>Booked by:</h4>
-          <span>Customer No. {booking.customerId}</span>
+          <span>{(booking.customerId==null)?'NOT BOOKED':('Customer No.'+booking.customerId)}</span>
         </div>
         <div className = 'add-booking-body' role='cell'>
           <h4>Employee:</h4>

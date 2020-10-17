@@ -32,8 +32,7 @@ exports[`Test Page Renders 1`] = `
       Booked by:
     </h4>
     <span>
-      Customer No. 
-      1
+      Customer No.1
     </span>
   </div>
   <div

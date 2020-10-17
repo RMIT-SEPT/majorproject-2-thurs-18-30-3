@@ -10,8 +10,7 @@ function BookingCard({booking}) {
                 <h3>{booking.date}</h3>
             </div>
             <h2>{booking.serviceName}</h2>
-            <span>Employees:</span>
-            <h3>{booking.employeeId}</h3>
+            <span>Employee No:{booking.employeeId}</span>
         </div>
     )
 }

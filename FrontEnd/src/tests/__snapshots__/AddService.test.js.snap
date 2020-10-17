@@ -21,6 +21,7 @@ exports[`Test Page Renders 1`] = `
       <input
         className="addName-input"
         onChange={[Function]}
+        pattern="[A-Za-z]{3}"
       />
     </div>
     <div
@@ -65,6 +66,7 @@ exports[`Test Page Renders 1`] = `
   </div>
   <button
     className="actButton"
+    disabled={true}
     onClick={[Function]}
   >
     Create
