@@ -26,13 +26,25 @@ function AddService({create}) {
         setImg(e.target.files[0])
     }
 
+    const validate = () => {
+        if (
+          name !== '' &&
+          description !== '' &&
+          /[a-zA-Z0-9_]*$/.test(name) 
+        ) 
+        {
+          return false
+        }
+        return true
+      }
+
     return (
         <div className="container">
             <h1>Create New Service</h1>
             <div className="addService-container">
                 <div className="addService-titlebox">
                     <span>name</span>
-                    <input className = 'addName-input' onChange={(event) => {setName(event.target.value)}}/>
+                    <input className = 'addName-input' pattern="[A-Za-z]{3}" onChange={(event) => {setName(event.target.value)}}/>
                 </div>
 
                 <div className="addService-descbox">
@@ -51,7 +63,7 @@ function AddService({create}) {
                     <input id="addService-file-Upload" type="file" onChange={handleImage}/>
                 </div>
             </div>
-            <button className="actButton" onClick={() => handleSubmit()}>Create</button>
+            <button className="actButton" onClick={() => handleSubmit()} disabled={validate()}>Create</button>
         </div>
     );
 }

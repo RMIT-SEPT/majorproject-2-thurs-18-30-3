@@ -64,7 +64,7 @@ function ProfilePane({close, change, profile, reload, update}) {
           </button>
 
           {/*TODO:Display image*/}
-          <div className="book-bubble" />
+          <h2><br/>PROFILE</h2>
 
           {/*Data is displayed in editable fields - this button enables/disables editing*/}
           <button className="editButton" onClick={() => cancel()}>

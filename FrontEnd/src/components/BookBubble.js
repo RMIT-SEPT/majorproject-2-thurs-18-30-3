@@ -10,7 +10,6 @@ function BookBubble({slot, onClick}) {
     <button onClick={() => onClick(id, time, date)} className="book-bubble">
       <span>
         <h2>{time}</h2>
-        <p>pm</p>
       </span>
       <p>{date}</p>
     </button>

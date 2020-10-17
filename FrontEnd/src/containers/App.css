@@ -919,6 +919,16 @@ input[type="file"] {
   cursor: pointer;
   background-color: #C4C4C4;
 }
+/*-------------------------------------ABOUT STYLING*/
+.AGMEspan{
+  color: #009BA0;
+  opacity:0.6;
+}
+
+.AGMEpara{
+  display: inline-block; 
+  width:70%;
+}
 /*-------------------------------------FOOTER STYLING*/
 
 footer{
