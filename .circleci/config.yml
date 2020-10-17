@@ -179,6 +179,12 @@ jobs:
             sudo pip3 install --upgrade awscli
 
       - run:
+          name: Authenticate docker with AWS
+          command: |
+            aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com
+          working_directory: ~/project/BackEnd/ms_service/ms_service
+
+      - run:
           name: Build ms-service
           command: |
             docker build -t ms-service-image .
@@ -187,21 +193,21 @@ jobs:
       - run:
           name: Push ms-service
           command: |
-            aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
-            docker push ms-service-image
+            docker tag ms-service-image:latest 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-service:latest
+            docker push 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-service:latest
           working_directory: ~/project/BackEnd/ms_service/ms_service
 
       - run:
           name: Build ms-profiles
           command: |
-            docker build -t ms-service-image .
+            docker build -t ms-profiles-image .
           working_directory: ~/project/BackEnd/ms_profiles
 
       - run:
           name: Push ms-profiles
           command: |
-            aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
-            docker push $FULL_IMAGE_NAME
+            docker tag sept-ms-profiles:latest 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-profiles:latest
+            docker push 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-profiles:latest
           working_directory: ~/project/BackEnd/ms_profiles
 
       - run:
@@ -213,21 +219,21 @@ jobs:
       - run:
           name: Push ms-bookings
           command: |
-            aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
-            docker push $FULL_IMAGE_NAME
+            docker tag ms-bookings-image 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-bookings:latest
+            docker push 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-bookings:latest
           working_directory: ~/project/BackEnd/ms_bookings
 
       - run:
           name: Build ms-availability
           command: |
-            docker build -t ms-service-image .
+            docker build -t ms-availability-image .
           working_directory: ~/project/BackEnd/ms-availability
 
       - run:
           name: Push ms-availability
           command: |
-            aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
-            docker push $FULL_IMAGE_NAME
+            docker tag ms-availability-image:latest 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-availability:latest
+            docker push 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-availability:latest
           working_directory: ~/project/BackEnd/ms-availability
 
 #workflows:
