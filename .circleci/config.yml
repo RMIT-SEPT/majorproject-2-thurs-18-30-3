@@ -165,74 +165,74 @@ jobs:
             shell: /bin/bash
             working_directory: ~/project/BackEnd/ms_service/ms_service
 
-          - run:
-              name: Back End - ms_availability unit testing
-              command: mvn test
-              shell: /bin/bash
-              working_directory: ~/project/BackEnd/ms_availability
+        - run:
+            name: Back End - ms_availability unit testing
+            command: mvn test
+            shell: /bin/bash
+            working_directory: ~/project/BackEnd/ms_availability
 
 
         # --------------------------------------------------------------------------
         #  AWS ECR
-          - run:
-              name: Install dependencies for AWS
-              command: |
-                sudo apt-get update
-                sudo apt-get -y -qq install awscli
-                sudo apt-get install python3-pip
-                sudo pip3 install --upgrade awscli
+        - run:
+            name: Install dependencies for AWS
+            command: |
+              sudo apt-get update
+              sudo apt-get -y -qq install awscli
+              sudo apt-get install python3-pip
+              sudo pip3 install --upgrade awscli
 
-          - run:
-              name: Build ms-service
-              command: |
-                docker build -t ms-service-image .
-              working_directory: ~/project/BackEnd/ms_service/ms_service
+        - run:
+            name: Build ms-service
+            command: |
+              docker build -t ms-service-image .
+            working_directory: ~/project/BackEnd/ms_service/ms_service
 
-          - run:
-              name: Push ms-service
-              command: |
-                aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
-                docker push ms-service-image
-              working_directory: ~/project/BackEnd/ms_service/ms_service
+        - run:
+            name: Push ms-service
+            command: |
+              aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
+              docker push ms-service-image
+            working_directory: ~/project/BackEnd/ms_service/ms_service
 
-            - run:
-                name: Build ms-profiles
-                command: |
-                  docker build -t ms-service-image .
-                working_directory: ~/project/BackEnd/ms_profiles
+        - run:
+            name: Build ms-profiles
+            command: |
+              docker build -t ms-service-image .
+            working_directory: ~/project/BackEnd/ms_profiles
 
-            - run:
-                name: Push ms-profiles
-                command: |
-                  aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
-                  docker push $FULL_IMAGE_NAME
-                working_directory: ~/project/BackEnd/ms_profiles
+        - run:
+            name: Push ms-profiles
+            command: |
+              aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
+              docker push $FULL_IMAGE_NAME
+            working_directory: ~/project/BackEnd/ms_profiles
 
-            - run:
-                name: Build image ms-bookings
-                command: |
-                  docker build -t ms-bookings-image .
-                working_directory: ~/project/BackEnd/ms_bookings
+        - run:
+            name: Build image ms-bookings
+            command: |
+              docker build -t ms-bookings-image .
+            working_directory: ~/project/BackEnd/ms_bookings
 
-            - run:
-                name: Push ms-bookings
-                command: |
-                  aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
-                  docker push $FULL_IMAGE_NAME
-                working_directory: ~/project/BackEnd/ms_bookings
+        - run:
+            name: Push ms-bookings
+            command: |
+              aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
+              docker push $FULL_IMAGE_NAME
+            working_directory: ~/project/BackEnd/ms_bookings
 
-            - run:
-                name: Build ms-availability
-                command: |
-                  docker build -t ms-service-image .
-                working_directory: ~/project/BackEnd/ms-availability
+        - run:
+            name: Build ms-availability
+            command: |
+              docker build -t ms-service-image .
+            working_directory: ~/project/BackEnd/ms-availability
 
-            - run:
-                name: Push ms-availability
-                command: |
-                  aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
-                  docker push $FULL_IMAGE_NAME
-                working_directory: ~/project/BackEnd/ms-availability
+        - run:
+            name: Push ms-availability
+            command: |
+              aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 594973024332.dkr.ecr.us-east-1.amazonaws.com
+              docker push $FULL_IMAGE_NAME
+            working_directory: ~/project/BackEnd/ms-availability
 
 workflows:
   build-deploy-qa:
