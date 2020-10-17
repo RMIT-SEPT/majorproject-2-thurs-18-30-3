@@ -11,17 +11,17 @@ function UpdateBookingDisplay({booking, deleteFunc}) {
           <h1>Time Slot</h1>
         </div>
 
-        <div className = 'add-booking-body'>
+        <div className = 'add-booking-body' role='cell'>
             <span>{booking.time}</span>
             <span>{booking.date}</span>
         </div>
         <hr></hr>
         
-        <div className = 'add-booking-body'>
+        <div className = 'add-booking-body' role='cell'>
           <h4>Booked by:</h4>
           <span>Customer No. {booking.customerId}</span>
         </div>
-        <div className = 'add-booking-body'>
+        <div className = 'add-booking-body' role='cell'>
           <h4>Employee:</h4>
           <span>Employee No. {booking.employeeId}</span>
         </div>

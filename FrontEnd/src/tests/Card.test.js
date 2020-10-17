@@ -9,7 +9,7 @@ import '@testing-library/jest-dom/extend-expect'
 
 //Snapshot test
 test('Test Card Renders', () => {
-  const dummyService = {id: 1, name: 'test', body: 'this is a test'}
+  const dummyService = {id: 1, name: 'TEST BUTTON', description: 'this is a test', photo: 'not-found.png'}
 
   const card = renderer
     .create(
@@ -23,20 +23,20 @@ test('Test Card Renders', () => {
 
 //Check that card displays desired content
 test('Test Card Contents', () => {
-  const dummyService = {id: 1, name: 'TEST BUTTON', body: 'this is a test'}
+  const dummyService = {id: 1, name: 'TEST BUTTON', description: 'this is a test', photo: 'not-found.png'}
   const container = render(
     <StaticRouter>
       <ServiceCard service={dummyService} />
     </StaticRouter>
   )
 
-  expect(screen.getByRole('cell')).toHaveTextContent('this is a test')
+  expect(screen.getByRole('cell')).toHaveTextContent('TEST BUTTON')
   expect(screen.getByRole('img')).toHaveAttribute('src', 'not-found.png')
 })
 
 //Test that click does not change card
 test('Test Card On Click', () => {
-  const dummyService = {id: 1, name: 'TEST BUTTON', body: 'this is a test'}
+  const dummyService = {id: 1, name: 'TEST BUTTON', description: 'this is a test', photo: 'not-found.png'}
   const container = render(
     <StaticRouter>
       <ServiceCard service={dummyService} />

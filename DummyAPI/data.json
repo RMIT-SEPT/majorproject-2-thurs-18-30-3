@@ -54,6 +54,14 @@
       "time": "14:37",
       "date": "2020-10-11",
       "id": 2
+    },
+    {
+      "serviceName": "Usher Houses",
+      "customerId": null,
+      "employeeId": "4",
+      "time": "22:06",
+      "date": "2020-09-29",
+      "id": 3
     }
   ],
   "users": [

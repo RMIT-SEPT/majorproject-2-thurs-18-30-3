@@ -514,6 +514,13 @@ textarea:focus, input:focus{
   border-radius:20px;
 }
 
+.add-booking-form span{
+  margin-inline-start: 0.4em;
+  font-size:42;
+  font-weight:600;
+}
+
+
 .add-booking select{
   border: none;
 }
@@ -537,6 +544,13 @@ textarea:focus, input:focus{
   background: #C2CCCD;
 }
 
+.employee-option :focus{
+  opacity: 1.4;
+}
+
+.employee-option :checked+label{
+  background: black;
+}
 /*-------------------------------------SERVICE SLIDE STYLING*/
 
 .service-slide {
