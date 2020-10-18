@@ -8,6 +8,7 @@ const {default: BookBubble} = require('../booking_components/BookBubble');
 function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc, deleteFunc}) {
     const [isEditing, setEditing] = React.useState(false);
 
+    //Setter functions for form interaction
     const handleDesc = (e) => {
         service.description = e.target.value;
     }
@@ -16,14 +17,21 @@ function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc,
         service.img = e.target.files[0];
     }
 
+    //Sends data to backend - see adminservicecontainer
     const saveChanges = () => {
         updateFunc(service);
     }
 
+    //Removes service from backend - see adminservicecontainer
     const deleteService = () =>
     {
         deleteFunc(service);
         alert("Service Deleted");
+    }
+
+    //Switch between edit and display modes
+    const switchEditing = () => {
+        setEditing(!isEditing);
     }
 
     if(service == null)
@@ -31,13 +39,10 @@ function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc,
         return(<></>);
     }
 
-    const switchEditing = () => {
-        setEditing(!isEditing);
-    }
     const renderBookings = () => {
         return(<>
             <div className = 'admin-service-body'>
-                <div className = 'admin-slot-counter'>
+                <div className = 'admin-slot-counter' role='menu'>
                     <h2>{bookings.length}</h2>
                     <h3>TIME SLOTS</h3>
                 </div>
@@ -46,7 +51,7 @@ function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc,
 
             <hr></hr>
             
-            <div className = 'admin-service-bookings'>
+            <div className = 'admin-service-bookings' role='group'>
                 {bookingSlots}
             </div> 
         </>);
@@ -54,7 +59,7 @@ function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc,
 
     const renderEditing = () => {
         return(
-            <form className="admin-edit-service" onSubmit={saveChanges}>
+            <form className="admin-edit-service" role = 'form' onSubmit={saveChanges}>
                 <div className="edit-service-body">
                     <span>photo</span>
                     <label htmlFor="addService-file-Upload" className="addService-fileLabel">
@@ -70,7 +75,9 @@ function AdminServiceDisplay({ service, bookings, plusFunc, btnFunc, updateFunc,
                 <hr></hr>
                 <div className = 'edit-service-body'>
                     <span>description</span>
-                    <textarea onChange={handleDesc} value={service.description}/>
+                    <textarea onChange={handleDesc} value={service.description}>
+                        {service.description}
+                    </textarea>
                     <div>
                         <button className = "actButton" type="submit">save</button>
                         <button className = "actButton" onClick={deleteService}>DELETE</button>

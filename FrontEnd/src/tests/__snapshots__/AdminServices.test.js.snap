@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Page Renders 1`] = `
+<main
+  className="admin-service-display"
+>
+  <div
+    className="admin-service-heading"
+  >
+    <h1 />
+    <div
+      className="dummy"
+    />
+    <button
+      className="icon-btn"
+      onClick={[Function]}
+    >
+      <i
+        className="material-icons md-32"
+      >
+        edit
+      </i>
+    </button>
+  </div>
+  <div
+    className="admin-service-body"
+  >
+    <div
+      className="admin-slot-counter"
+      role="menu"
+    >
+      <h2>
+        1
+      </h2>
+      <h3>
+        TIME SLOTS
+      </h3>
+    </div>
+    <button
+      onClick={[MockFunction]}
+    >
+      +
+    </button>
+  </div>
+  <hr />
+  <div
+    className="admin-service-bookings"
+    role="group"
+  >
+    <button
+      className="book-bubble"
+      onClick={[Function]}
+    >
+      <span>
+        <h2>
+          1:23
+        </h2>
+        <p>
+          pm
+        </p>
+      </span>
+      <p>
+        2/2/21
+      </p>
+    </button>
+  </div>
+</main>
+`;

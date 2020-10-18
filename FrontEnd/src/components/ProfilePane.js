@@ -23,7 +23,7 @@ function ProfilePane({close, change, profile, reload, update}) {
   }, [profile])
 
   //Fires when clicking the cancel button - reinitialises profile data.
-  const cancel = () => {
+  const switchEditing = () => {
     setIsEditing(!isEditing)
     setDisplayFirstName(profile.firstName)
     setDisplayLastName(profile.lastName)
@@ -44,6 +44,7 @@ function ProfilePane({close, change, profile, reload, update}) {
     if (
       displayFirstName !== '' &&
       displayLastName !== '' &&
+      displayAddress !== '' &&
       /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(displayEmail) &&
       /^[0-9()-]+$/.test(displayPhone)
     ) {
@@ -64,10 +65,10 @@ function ProfilePane({close, change, profile, reload, update}) {
           </button>
 
           {/*TODO:Display image*/}
-          <div className="book-bubble" />
+          <h2><br/>Your Profile</h2>
 
           {/*Data is displayed in editable fields - this button enables/disables editing*/}
-          <button className="editButton" onClick={() => cancel()}>
+          <button className="editButton" onClick={() => switchEditing()}>
             {isEditing ? 'cancel' : 'edit'}
           </button>
         </div>
@@ -121,7 +122,7 @@ function ProfilePane({close, change, profile, reload, update}) {
             }}
           />
 
-          <label htmlFor="phNum">address</label>
+          <label htmlFor="address">address</label>
           <input
             id="address"
             name="address"

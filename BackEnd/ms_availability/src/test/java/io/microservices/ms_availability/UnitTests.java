@@ -1,5 +1,6 @@
 package io.microservices.ms_availability;
 
+
 import io.microservices.ms_availability.model.Availability;
 import io.microservices.ms_availability.repositories.AvailabilitiesRepository;
 import io.microservices.ms_availability.services.AvailabilityService;
@@ -51,4 +52,5 @@ public class UnitTests {
         Availability users = repo.findByUsername("admin123");
         assertThat(users).extracting(Availability::getUsername).isEqualToComparingFieldByField("admin123");
     }
+
 }

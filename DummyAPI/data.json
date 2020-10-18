@@ -29,7 +29,7 @@
   "bookings": [
     {
       "serviceName": "Usher Houses",
-      "customerId": null,
+      "customerId": 2,
       "employeeId": "6",
       "time": "14:37",
       "date": "2020-10-11",
@@ -42,6 +42,14 @@
       "time": "14:37",
       "date": "2020-10-11",
       "id": 2
+    },
+    {
+      "serviceName": "Usher Houses",
+      "customerId": 2,
+      "employeeId": "4",
+      "time": "22:06",
+      "date": "2020-09-29",
+      "id": 3
     }
   ],
   "users": [
@@ -179,6 +187,53 @@
       "email": "Calvino@Cust.wizard",
       "mobileNum": "345345 435435",
       "id": 1
+    }
+  ],
+  "availabilities": [
+    {
+      "id": 1,
+      "username": "Emp1",
+      "availability": "All days"
+    },
+    {
+      "id": 2,
+      "username": "Emp2",
+      "availability": "All days"
+    },
+    {
+      "id": 3,
+      "username": "Emp3",
+      "availability": "All days"
+    },
+    {
+      "id": 4,
+      "username": "Emp1",
+      "availability": "All days"
+    },
+    {
+      "id": 5,
+      "username": "Emp2",
+      "availability": "All days"
+    },
+    {
+      "id": 6,
+      "username": "Emp3",
+      "availability": "All days"
+    },
+    {
+      "id": 7,
+      "username": "Emp1",
+      "availability": "All days"
+    },
+    {
+      "id": 8,
+      "username": "Emp2",
+      "availability": "All days"
+    },
+    {
+      "id": 9,
+      "username": "Emp3",
+      "availability": "All days"
     }
   ]
 }

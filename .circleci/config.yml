@@ -1,31 +1,120 @@
-version: 2
+version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.12.2
+  aws-ecs: circleci/aws-ecs@1.3.0
+
 jobs:
   build:
-
     docker:
+      - image: circleci/openjdk:8-jdk
       - image: circleci/openjdk:8-jdk-stretch
       - image: circleci/postgres:9.6.3-alpine
       - image: circleci/node:6.10
       - image: circleci/python:3-node
-        environment:
+    environment:
           POSTGRES_USER: root
           POSTGRES_DB: circle_test
 
     steps:
 
+      # --------------------------------------------------------------------------
+      # ms_service
       - checkout
 
       - restore_cache:
-          key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
+          key: ms-booking-{{ checksum "/BackEnd/ms_service/ms_service/pom.xml" }}
 
       - run: mvn dependency:go-offline
 
       - save_cache:
           paths:
             - ~/.m2
-          key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
+          key: ms-booking-{{ checksum "/BackEnd/ms_service/ms_service/pom.xml" }}
 
       - run: mvn package
+
+      - store_test_results:
+          path: ~/project/BackEnd/ms_service/ms_service/target/surefire-reports
+
+      - store_artifacts:
+          #path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
+          path: ~/project/BackEnd/ms_service/ms_service/target/ms_service-0.0.1-SNAPSHOT.jar
+
+
+        # --------------------------------------------------------------------------
+        # ms_booking
+      - checkout
+
+      - restore_cache:
+          key: ms-booking-{{ checksum "/BackEnd/ms_bookings/pom.xml" }}
+
+      - run: mvn dependency:go-offline
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: ms-booking-{{ checksum "/BackEnd/ms_bookings/pom.xml" }}
+
+      - run: mvn package
+
+      - store_test_results:
+          path: ~/project/BackEnd/ms_bookings/target/surefire-reports
+
+      - store_artifacts:
+          #path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
+          path: ~/project/BackEnd/ms_bookings/target/ms_booking-0.0.1-SNAPSHOT.jar
+
+
+      # --------------------------------------------------------------------------
+      # ms-availability
+
+      - checkout
+
+      - restore_cache:
+          key: ms-booking-{{ checksum "/BackEnd/ms-availability/pom.xml" }}
+
+      - run: mvn dependency:go-offline
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: ms-booking-{{ checksum "/BackEnd/ms-availability/pom.xml" }}
+
+      - run: mvn package
+
+      - store_test_results:
+          path: ~/project/BackEnd/ms-availability/target/surefire-reports
+
+      - store_artifacts:
+          #path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
+          path: ~/project/BackEnd/ms-availability/target/ms-availability-0.0.1-SNAPSHOT.jar
+
+
+      # --------------------------------------------------------------------------
+      # ms-profiles
+      - checkout
+      - restore_cache:
+          key: ms-booking-{{ checksum "/BackEnd/ms_profiles/pom.xml" }}
+
+      - run: mvn dependency:go-offline
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: ms-booking-{{ checksum "/BackEnd/ms_profiles/pom.xml" }}
+
+      - run: mvn package
+
+      - store_test_results:
+          path: ~/project/BackEnd/ms_profiles/target/surefire-reports
+
+      - store_artifacts:
+          #path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
+          path: ~/project/BackEnd/ms_profiles/target/ms_profiles-0.0.1-SNAPSHOT.jar
+
+
+    # --------------------------------------------------------------------------
+    # Yarn + npm installation
 
       - run:
           name: "Update Node.js and npm + install yarn"
@@ -33,8 +122,10 @@ jobs:
             curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
             curl https://www.npmjs.com/install.sh | sudo bash
             curl -o- -L https://yarnpkg.com/install.sh | bash
-      # --------------------------------------------------------------------------
-      # FrontEnd Tests
+
+
+    # --------------------------------------------------------------------------
+    # FrontEnd integration testing
 
       - run :
           name: Front end - npm runtest
@@ -49,8 +140,8 @@ jobs:
           working_directory: ~/project/FrontEnd
 
 
-      # --------------------------------------------------------------------------
-      # BackEnd Tests
+    # --------------------------------------------------------------------------
+    # BackEnd integration testing
 
       - run:
           name: Back End - ms_profile unit testing
@@ -70,11 +161,85 @@ jobs:
           shell: /bin/bash
           working_directory: ~/project/BackEnd/ms_service/ms_service
 
+      - run:
+          name: Back End - ms_availability unit testing
+          command: mvn test
+          shell: /bin/bash
+          working_directory: ~/project/BackEnd/ms_availability
+
+
       # --------------------------------------------------------------------------
+      #  AWS ECR
+      - run:
+          name: Install dependencies for AWS
+          command: |
+            sudo apt-get update
+            sudo apt-get -y -qq install awscli
+            sudo apt-get install python3-pip
+            sudo pip3 install --upgrade awscli
 
-      - store_test_results:
-          path: target/surefire-reports
+      - run:
+          name: Authenticate docker with AWS
+          command: |
+            aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com
+          working_directory: ~/project/BackEnd/ms_service/ms_service
 
-      - store_artifacts:
-          path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
-          #path: target/ms_profiles-0.0.1-SNAPSHOT.jar
+      - run:
+          name: Build ms-service
+          command: |
+            docker build -t ms-service-image .
+          working_directory: ~/project/BackEnd/ms_service/ms_service
+
+      - run:
+          name: Push ms-service
+          command: |
+            docker tag ms-service-image:latest 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-service:latest
+            docker push 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-service:latest
+          working_directory: ~/project/BackEnd/ms_service/ms_service
+
+      - run:
+          name: Build ms-profiles
+          command: |
+            docker build -t ms-profiles-image .
+          working_directory: ~/project/BackEnd/ms_profiles
+
+      - run:
+          name: Push ms-profiles
+          command: |
+            docker tag sept-ms-profiles:latest 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-profiles:latest
+            docker push 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-profiles:latest
+          working_directory: ~/project/BackEnd/ms_profiles
+
+      - run:
+          name: Build image ms-bookings
+          command: |
+            docker build -t ms-bookings-image .
+          working_directory: ~/project/BackEnd/ms_bookings
+
+      - run:
+          name: Push ms-bookings
+          command: |
+            docker tag ms-bookings-image 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-bookings:latest
+            docker push 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-bookings:latest
+          working_directory: ~/project/BackEnd/ms_bookings
+
+      - run:
+          name: Build ms-availability
+          command: |
+            docker build -t ms-availability-image .
+          working_directory: ~/project/BackEnd/ms-availability
+
+      - run:
+          name: Push ms-availability
+          command: |
+            docker tag ms-availability-image:latest 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-availability:latest
+            docker push 099918682393.dkr.ecr.ap-southeast-2.amazonaws.com/sept-ms-availability:latest
+          working_directory: ~/project/BackEnd/ms-availability
+
+#workflows:
+#  build-deploy-qa:
+#    jobs:
+#      - build_and_deploy:
+#          filters:
+#            branches:
+#              only: master =
