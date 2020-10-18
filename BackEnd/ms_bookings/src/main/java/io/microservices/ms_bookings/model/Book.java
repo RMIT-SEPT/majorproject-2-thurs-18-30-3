@@ -32,6 +32,9 @@ public class Book {
     public Book() {
     }
 
+    public Book(Long id, String serviceName, String employeeId, String customerId, String time, String date) {
+    }
+
     public Long getId() {
         return id;
     }
