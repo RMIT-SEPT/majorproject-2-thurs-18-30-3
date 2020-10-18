@@ -1,10 +1,12 @@
 package io.microservices.ms_profiles;
 
 import io.microservices.ms_profiles.model.Profiles;
+import io.microservices.ms_profiles.services.MapValidationErrorService;
 import io.microservices.ms_profiles.services.ProfileService;
 import io.microservices.ms_profiles.web.ProfilesController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -30,6 +32,9 @@ public class RequestsTests {
 
     @MockBean
     private ProfileService service;
+
+    @MockBean
+    private MapValidationErrorService mapVal;
 
     @Test // Testing get api requests.
     public void testGetRequests() throws Exception {

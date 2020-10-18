@@ -14,11 +14,16 @@ exports[`Test Pane Renders 1`] = `
         className="closeButton"
         onClick={[Function]}
       >
-        ×
+        <i
+          className="material-icons md-32"
+        >
+           close 
+        </i>
       </button>
-      <div
-        className="book-bubble"
-      />
+      <h2>
+        <br />
+        Your Profile
+      </h2>
       <button
         className="editButton"
         onClick={[Function]}
@@ -79,10 +84,11 @@ exports[`Test Pane Renders 1`] = `
         id="phNum"
         name="phNum"
         onChange={[Function]}
+        pattern="[A-Za-z]{3}"
         value="0000"
       />
       <label
-        htmlFor="phNum"
+        htmlFor="address"
       >
         address
       </label>
@@ -99,6 +105,7 @@ exports[`Test Pane Renders 1`] = `
       >
         <button
           className="actButton"
+          onClick={[Function]}
         >
           bookings
         </button>

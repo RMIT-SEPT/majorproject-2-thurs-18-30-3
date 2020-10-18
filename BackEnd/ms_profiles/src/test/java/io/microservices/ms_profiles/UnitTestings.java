@@ -85,7 +85,7 @@ public class UnitTestings {
         given(service.findAllProfiles()).willReturn(allProfiles);
         Profiles p = repo.findByUsername(profile1.getUsername());
         assertThat(p.getFirstName()).isEqualTo("Chou");
-    } // Test failed due to @Autowired configurations on ProfilesService
+    } // Test failed due to @MockBean configurations on ProfilesService
 
     @Test //Test if profile service method for finding specific profiles worked.
     public void testGetSpecificRequestsFunction() {
@@ -95,5 +95,5 @@ public class UnitTestings {
         Profiles p1 = service.findByUsername(profile1.getUsername());
 
         assertThat(p1.getUsername()).isEqualTo(profile1.getUsername());
-    }
+    } // Test failed due to @MockBean configurations on ProfilesService
 }

@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Page Renders 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Services
+  </h1>
+  <div
+    className="sector-heading"
+  >
+    <form
+      data-testid="datePickerA"
+      noValidate={true}
+    >
+      <div
+        className="MuiFormControl-root MuiTextField-root"
+        role="listbox"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+          data-shrink={true}
+          htmlFor="date"
+          id="date-label"
+        >
+          Display Services From
+        </label>
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            autoFocus={false}
+            className="MuiInputBase-input MuiInput-input"
+            defaultValue="2020-10-18"
+            disabled={false}
+            id="date"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="date"
+          />
+        </div>
+      </div>
+    </form>
+    <span>
+       &gt; 
+    </span>
+    <form
+      data-testid="datePickerB"
+      noValidate={true}
+    >
+      <div
+        className="MuiFormControl-root MuiTextField-root"
+        role="listbox"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+          data-shrink={true}
+          htmlFor="date"
+          id="date-label"
+        >
+          Display Services To
+        </label>
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            autoFocus={false}
+            className="MuiInputBase-input MuiInput-input"
+            defaultValue="2020-10-18"
+            disabled={false}
+            id="date"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="date"
+          />
+        </div>
+      </div>
+    </form>
+    <div
+      className="dummy"
+    />
+    <form>
+      <input
+        onChange={[Function]}
+        placeholder="Search"
+        role="searchbox"
+      />
+    </form>
+  </div>
+  <div
+    className="services-gallery"
+    role="main"
+  >
+    <a
+      href="/services/1"
+      onClick={[Function]}
+      style={
+        Object {
+          "textDecoration": "none",
+        }
+      }
+    >
+      <button
+        className="service-card"
+        role="cell"
+      >
+        <div
+          className="card-content"
+        >
+          <img
+            alt="test"
+            src="not-found.png"
+          />
+          <span>
+            test
+          </span>
+          <hr />
+          <p>
+            this is a test
+          </p>
+        </div>
+      </button>
+    </a>
+  </div>
+</div>
+`;

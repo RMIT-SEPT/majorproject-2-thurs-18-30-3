@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Page Renders 1`] = `
+<main
+  className="add-booking"
+  role="main"
+>
+  <div
+    className="add-booking-heading"
+  >
+    <h1>
+      Time Slot
+    </h1>
+  </div>
+  <div
+    className="add-booking-body"
+    role="cell"
+  >
+    <span>
+      1:23
+    </span>
+    <span>
+      2/2/21
+    </span>
+  </div>
+  <hr />
+  <div
+    className="add-booking-body"
+    role="cell"
+  >
+    <h4>
+      Booked by:
+    </h4>
+    <span>
+      Customer No.1
+    </span>
+  </div>
+  <div
+    className="add-booking-body"
+    role="cell"
+  >
+    <h4>
+      Employee:
+    </h4>
+    <span>
+      Employee No. 
+      2
+    </span>
+  </div>
+  <hr />
+  <button
+    className="actButton"
+    onClick={[MockFunction]}
+  >
+    DELETE
+  </button>
+</main>
+`;

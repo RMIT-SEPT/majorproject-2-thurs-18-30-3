@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import AuthService from '../services/auth.service'
 
@@ -6,7 +6,7 @@ import '../containers/App.css'
 
 //Displays a user profile in a modal view
 
-function ProfilePane({close, profile, reload, update}) {
+function ProfilePane({close, change, profile, reload, update}) {
   const [isEditing, setIsEditing] = React.useState(false)
   const [displayFirstName, setDisplayFirstName] = React.useState(profile.firstName)
   const [displayLastName, setDisplayLastName] = React.useState(profile.lastName)
@@ -14,8 +14,16 @@ function ProfilePane({close, profile, reload, update}) {
   const [displayPhone, setDisplayPhone] = React.useState(profile.mobileNum)
   const [displayAddress, setDisplayAddress] = React.useState(profile.address)
 
+  useEffect(() => {
+    setDisplayFirstName(profile.firstName)
+    setDisplayLastName(profile.lastName)
+    setDisplayEmail(profile.email)
+    setDisplayPhone(profile.mobileNum)
+    setDisplayAddress(profile.address)
+  }, [profile])
+
   //Fires when clicking the cancel button - reinitialises profile data.
-  const cancel = () => {
+  const switchEditing = () => {
     setIsEditing(!isEditing)
     setDisplayFirstName(profile.firstName)
     setDisplayLastName(profile.lastName)
@@ -31,19 +39,36 @@ function ProfilePane({close, profile, reload, update}) {
     reload()
   }
 
+  //Validate editing inputs
+  const validate = () => {
+    if (
+      displayFirstName !== '' &&
+      displayLastName !== '' &&
+      displayAddress !== '' &&
+      /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(displayEmail) &&
+      /^[0-9()-]+$/.test(displayPhone)
+    ) {
+      return false
+    }
+    return true
+  }
+
+  //regex for validation
+  // const phoneRegex = /^[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-/\s.]?[0-9]{4}$/
+
   return (
     <div className="modal-wrapper">
       <main className="modalPane">
         <div className="paneHeader">
           <button className="closeButton" onClick={() => close()}>
-            &times;
+            <i className="material-icons md-32"> close </i>
           </button>
 
           {/*TODO:Display image*/}
-          <div className="book-bubble" />
+          <h2><br/>Your Profile</h2>
 
           {/*Data is displayed in editable fields - this button enables/disables editing*/}
-          <button className="editButton" onClick={() => cancel()}>
+          <button className="editButton" onClick={() => switchEditing()}>
             {isEditing ? 'cancel' : 'edit'}
           </button>
         </div>
@@ -54,7 +79,7 @@ function ProfilePane({close, profile, reload, update}) {
             name="fname"
             className="paneInput"
             disabled={!isEditing}
-            value={displayFirstName}
+            value={displayFirstName || ''}
             onChange={(event) => {
               setDisplayFirstName(event.target.value)
             }}
@@ -66,7 +91,7 @@ function ProfilePane({close, profile, reload, update}) {
             name="lname"
             className="paneInput"
             disabled={!isEditing}
-            value={displayLastName}
+            value={displayLastName || ''}
             onChange={(event) => {
               setDisplayLastName(event.target.value)
             }}
@@ -78,7 +103,7 @@ function ProfilePane({close, profile, reload, update}) {
             name="email"
             className="paneInput"
             disabled={!isEditing}
-            value={displayEmail}
+            value={displayEmail || ''}
             onChange={(event) => {
               setDisplayEmail(event.target.value)
             }}
@@ -90,31 +115,34 @@ function ProfilePane({close, profile, reload, update}) {
             name="phNum"
             className="paneInput"
             disabled={!isEditing}
-            value={displayPhone}
+            value={displayPhone || ''}
+            pattern="[A-Za-z]{3}"
             onChange={(event) => {
               setDisplayPhone(event.target.value)
             }}
           />
 
-          <label htmlFor="phNum">address</label>
+          <label htmlFor="address">address</label>
           <input
             id="address"
             name="address"
             className="paneInput"
             disabled={!isEditing}
-            value={displayAddress}
+            value={displayAddress || ''}
             onChange={(event) => {
               setDisplayAddress(event.target.value)
             }}
           />
           <div className="button-set">
             {isEditing ? (
-              <button className="actButton" onClick={() => save()}>
+              <button type="submit" className="actButton" onClick={() => save()} disabled={validate()}>
                 save
               </button>
             ) : (
               <>
-                <button className="actButton">bookings</button>
+                <button className="actButton" onClick={() => change()}>
+                  bookings
+                </button>
                 <Link to="/service">
                   {/*Logout button also closes the pane and reloads the page*/}
                   <button

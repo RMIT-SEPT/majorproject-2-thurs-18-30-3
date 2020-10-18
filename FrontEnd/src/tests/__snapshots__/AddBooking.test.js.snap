@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Page Renders 1`] = `
+<main
+  className="add-booking"
+  role="main"
+>
+  <div
+    className="add-booking-heading"
+  >
+    <h1>
+      Add Slot
+    </h1>
+  </div>
+  <div
+    className="add-booking-body"
+  >
+    <span>
+      test
+    </span>
+  </div>
+  <hr />
+  <form
+    className="add-booking-form"
+    onSubmit={[Function]}
+  >
+    <input
+      name="time"
+      onChange={[Function]}
+      role="textbox"
+      type="time"
+      value=""
+    />
+    <input
+      max="18-11"
+      min="18-10"
+      name="date"
+      onChange={[Function]}
+      role="textbox"
+      type="date"
+      value=""
+    />
+    <div>
+      <label
+        htmlFor="employees"
+      >
+        Assigned Employee No: 
+      </label>
+      <span
+        role="note"
+      >
+        
+      </span>
+    </div>
+    <select
+      id="employees"
+      multiple={true}
+      name="employeeName"
+      onChange={[Function]}
+      role="list"
+    >
+      <option
+        aria-describedby={null}
+        className="employee-option"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        role="tooltip"
+        title="NO DATA"
+        value={1}
+      >
+        test
+         
+        test
+      </option>
+    </select>
+    <button
+      className="actButton"
+      disabled={true}
+      type="submit"
+    >
+      Create
+    </button>
+  </form>
+</main>
+`;

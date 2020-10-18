@@ -28,4 +28,17 @@
 * Users can browse services
 * Admin can add employees
 
-# Unfixed issue, multiple microservices could not be run in parallel. Need to be run individually.  
+## Milestone 3
+* Final submission
+* Implemented A-3, A-4, A-6, A-5, C-2, E-1
+* Final report and documentation included 
+
+To run the application locally : 
+1) cd into each and every microservice (ms_booking, ms_availability, ms_profiles, ms_service) and run :
+2) ./mvnw package && java -jar target/ms_[microservice]-0.0.1-SNAPSHOT.jar
+3) cd into FrontEnd
+4) run "npm install"
+5) run "npm start"
+
+
+
