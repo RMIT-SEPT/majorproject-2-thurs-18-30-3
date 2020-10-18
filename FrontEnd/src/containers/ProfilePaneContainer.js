@@ -24,8 +24,8 @@ const ProfilePaneContainer = ({close, change}) => {
     }
     try {
       
-      const url = UserApi.getUser(AuthService.getCurrentUser().username)
-      //  const url = 'https://5f51c3975e98480016123e31.mockapi.io/users/1'
+      //const url = UserApi.getUser(AuthService.getCurrentUser().username)
+        const url = 'http://localhost:8080/api/users/1'
       const res = await fetch(url)
       const data = await res.json()
       setProfile(data)

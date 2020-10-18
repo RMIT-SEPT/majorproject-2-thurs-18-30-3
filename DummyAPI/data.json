@@ -182,9 +182,10 @@
       "userType": "customer"
     },
     {
+      "address": "1 Winter's Night",
       "firstName": "Italo",
       "lastName": "Calvino",
-      "email": "Calvino@Cust.wizard",
+      "email": "Invisible@Cities.coos",
       "mobileNum": "345345 435435",
       "id": 1
     }
