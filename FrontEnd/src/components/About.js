@@ -40,7 +40,13 @@ function About() {
                     debt and allowed for the formal refactoring of company grounds into the campus of the old GAS&FUEL corporation buildings. Such magnificent slabs of business space would 
                     nourish and nurse the ailing Orphee root branch and stem.
                     This began the next era of AGME, the silver age of whirlwind boardroom meetings, long coffee breaks and creeping automaons. From the immense AGME towers productivity flowed forth
-                    like jelly, into the fathomless gullet of Orphee. Every creature on earth, whether it walked scuttled or swam, had some representation in the development silos. The sacred font was again changed, this time for the last time,
+                    like jelly, into the fathomless gullet of Orphee. The company was joined on weekdays by an unlikely duo; DRT Collinson, Esquire, and the soon-to-be Surveyor 
+                    Jemima Kelvin. Collinson had just returned to the country after "completing" his infamous three-year ballooning marathon in Southeast Asia, and Kelvin was partway through her 
+                    groundbreaking Birdsville Script study.  Together, the pair returned AGME to the public eye with the innovative introduction of Synergistic Postwise Autofolding, revolutionising 
+                    the proform method and reinvigorating the market. And now it was so that very creature on earth, whether a walker scuttl-o or swimmer, had some representation in the development silos. A workforce of this size could
+                    not be maintained however, without talk of ALLIANCE|UNION. 
+                    
+                    Though their number had been bifurcated since the container days, the javamen still endured The sacred font was again changed, this time for the last time,
                     to Space Grotesk .36; an augur of the times to come. 
                     </p>
             </div>

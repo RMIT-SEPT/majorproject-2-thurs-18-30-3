@@ -2,5 +2,7 @@
     "/api/*": "/$1",
     "/users/all" : "/users/",
     "/services/all" : "/services/",
-    "/bookings/all" : "/bookings/"
+    "/bookings/all" : "/bookings/",
+    "/availabilities/all" : "/availabilities/"
+
 }

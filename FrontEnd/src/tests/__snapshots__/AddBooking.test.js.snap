@@ -32,8 +32,8 @@ exports[`Test Page Renders 1`] = `
       value=""
     />
     <input
-      max="17-11"
-      min="17-10"
+      max="18-11"
+      min="18-10"
       name="date"
       onChange={[Function]}
       role="textbox"
@@ -60,7 +60,16 @@ exports[`Test Page Renders 1`] = `
       role="list"
     >
       <option
+        aria-describedby={null}
         className="employee-option"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        role="tooltip"
+        title="NO DATA"
         value={1}
       >
         test
