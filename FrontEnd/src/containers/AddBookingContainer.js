@@ -6,6 +6,7 @@ import UserType from '../config/userType'
 import AddBookingDisplay from '../components/admin_components/AddBookingDisplay.js'
 import userApi from '../config/userApi'
 import bookingApi from '../config/bookingApi'
+import availabilityApi from '../config/availabilityApi'
 
 //Add booking to the backend
 const createBooking = async (newName, newTime, newDate, newEmployee) => {
@@ -30,13 +31,19 @@ const createBooking = async (newName, newTime, newDate, newEmployee) => {
 //Adds a new service to backend
 function AddBookingContainer({service, active}) {
   const [employees, setEmployees] = React.useState([])
-
+  const [availabilities, setAvailabilties] = React.useState([])
   //Retrieves employees
   useEffect(() => {
     async function callAPI() {
       try {
         const {data} = await axios.get(userApi.getAllUsers)
         setEmployees(data.filter((d) => d.userType === UserType.Employee))
+      } catch (err) {
+        console.log(err.message)
+      }
+      try {
+        const {data} = await axios.get(availabilityApi.getAllAvailabilities)
+        setAvailabilties(data)
       } catch (err) {
         console.log(err.message)
       }
@@ -47,7 +54,7 @@ function AddBookingContainer({service, active}) {
   if (!active || service == null) {
     return null
   }
-  return <AddBookingDisplay service={service} employees={employees} createFunc={createBooking} />
+  return <AddBookingDisplay service={service} employees={employees} avails = {availabilities} createFunc={createBooking}/>
 }
 
 export default AddBookingContainer

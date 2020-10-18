@@ -1,14 +1,21 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import Tooltip from '@material-ui/core/Tooltip';
 import moment from 'moment';
 
 import '../../containers/App.css'
 
 //Displays Services in a list view
-function AddBookingDisplay({service, employees, createFunc}) {
+function AddBookingDisplay({service, employees, avails, createFunc}) {
   const [vals , setVals] = useState({
       time: "",
       date: "",
       employeeName: ""
+  });
+
+  const [availabilities, setAvailabilities] = useState([]);
+
+  useEffect(() => {
+    setAvailabilities(avails);
   });
 
   if(service == null)
@@ -24,10 +31,21 @@ function AddBookingDisplay({service, employees, createFunc}) {
     setVals(vals => ({ ...vals, [name]: value }));
   };
 
-  //Retrieve list of employees
+  //Retrieve list of employees and find out if they have availability
   const empOptions = employees.map((employee) => {
+    var avail = "NO DATA";
+    
+    if(availabilities)
+    {
+      availabilities.forEach(msg => {
+        if(msg.username === employee.username)
+        {
+          avail = msg.availability + "";
+        }
+      });
+    }
     return (
-      <option className="employee-option" key = {employee.id} value={employee.id}>{employee.firstName} {employee.lastName}</option>
+      <Tooltip title={avail} value={avail} key = {employee.id} role='tooltip'><option className="employee-option" value={employee.id}>{employee.firstName} {employee.lastName}</option></Tooltip>
     )
   })
 
@@ -53,7 +71,6 @@ function AddBookingDisplay({service, employees, createFunc}) {
         <div className = 'add-booking-body'>
             <span>{service.name}</span>
         </div>
-
         <hr></hr>
         <form className = 'add-booking-form' onSubmit={handleSubmit}>
           <input type="time" name='time' value={vals.time} onChange={handleChange} role='textbox'/>

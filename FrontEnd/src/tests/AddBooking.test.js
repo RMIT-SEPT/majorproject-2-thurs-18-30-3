@@ -11,11 +11,12 @@ const addFuncMock = jest.fn();
 const dummyService = {id: 1, name: 'test', description: 'this is a test'};
 const dummyEmployees = [{"username": "tester","userType": "employee","password": "11111111","confirmPassword": 
     "111111111","firstName": "test","lastName": "test","email": "test@test.wiz","mobileNum": "123456","address": "1 test","id": 1}];
+const dummyAvailabilities = [{id:1,username:"tester",availability:"free"}];
 
 const setup = () => {
     return render(
       <StaticRouter>
-        <AddBookingDisplay service={dummyService} employees={dummyEmployees} createFunc={addFuncMock}/>
+        <AddBookingDisplay service={dummyService} employees={dummyEmployees} avails={dummyAvailabilities} createFunc={addFuncMock}/>
       </StaticRouter>
     )
 }
@@ -60,6 +61,13 @@ const setup = () => {
     fireEvent.click(btn);
     expect(addFuncMock).toBeCalledTimes(0);
     
+  })
+
+  test('Test Availability display', () => {
+    const container = setup();
+    const empOption = screen.getByRole('tooltip');
+    fireEvent.click(empOption);
+    expect(screen.getByRole('tooltip')).toHaveAttribute('title','free');
   })
 
   //Make sure create function is called correctly
