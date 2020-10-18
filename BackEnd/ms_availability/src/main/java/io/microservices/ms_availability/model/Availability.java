@@ -23,6 +23,11 @@ public class Availability {
     public Availability() {
     }
 
+    public Availability(String username, String availability) {
+        this.username = username;
+        this.availability = availability;
+    }
+
     public Long getId() {
         return id;
     }

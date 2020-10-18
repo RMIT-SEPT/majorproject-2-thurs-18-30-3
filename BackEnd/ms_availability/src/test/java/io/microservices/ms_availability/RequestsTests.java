@@ -1,12 +1,11 @@
-package io.microservices.ms_profiles;
+package io.microservices.ms_availability;
 
-import io.microservices.ms_profiles.model.Profiles;
-import io.microservices.ms_profiles.services.MapValidationErrorService;
-import io.microservices.ms_profiles.services.ProfileService;
-import io.microservices.ms_profiles.web.ProfilesController;
+import io.microservices.ms_availability.model.Availability;
+import io.microservices.ms_availability.services.AvailabilityService;
+import io.microservices.ms_availability.services.MapValidationErrorService;
+import io.microservices.ms_availability.web.AvailabilityController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -24,37 +23,46 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(ProfilesController.class)
+@WebMvcTest(AvailabilityController.class)
 public class RequestsTests {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private ProfileService service;
+    private AvailabilityService service;
 
     @MockBean
     private MapValidationErrorService mapVal;
 
     @Test // Testing get api requests.
     public void testGetRequests() throws Exception {
-        Profiles profile1 = new Profiles("Matumbaman", "Zhou","Zhou44", "matumbaman@hotmail.com", "500 elizabeth st", "0414344207", "Mj131213");
-        List<Profiles> allProfiles = Arrays.asList(profile1);
+        Availability availability = new Availability("admin123", "saturday");
+        List<Availability> allAvailabilities = Arrays.asList(availability);
 
-        given(service.findAllProfiles()).willReturn(allProfiles);
+        given(service.findAllAvailability()).willReturn(allAvailabilities);
 
-        mvc.perform(get("/api/users/all")
+        mvc.perform(get("/api/availabilities/all")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].username", is(profile1.getUsername())));
+                .andExpect(jsonPath("$[0].username", is(availability.getUsername())));
+    }
+
+    @Test
+    public void testSpecificRequests() throws Exception {
+        Availability availability = new Availability("admin123", "saturday");
+
+        mvc.perform(get("/api/availabilities/admin123")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
 
     @Test // Testing delete api request.
     public void testDeleteRequests() throws Exception {
-        Profiles profile1 = new Profiles("Chou", "Jayson","Jay12", "jay.c@hotmail.com", "501 elizabeth st", "0245688790", "North2233");
+        Availability availability = new Availability("Jay12", "sunday");
 
-        this.mvc.perform(delete("/api/users/Jay12")
+        this.mvc.perform(delete("/api/availabilities/Jay12")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
